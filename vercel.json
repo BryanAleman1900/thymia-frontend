@@ -2,5 +2,5 @@
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],
-  "outputDirectory": "dist/thymia-frontend"
+  "outputDirectory": "dist/angular-front/browser"
 }
