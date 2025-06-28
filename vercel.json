@@ -1,7 +1,6 @@
 {
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  ],
+  "outputDirectory": "dist/angular-front"
 }
-
-
