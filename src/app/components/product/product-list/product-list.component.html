@@ -1,0 +1,18 @@
+<div class="product-container">
+  @for (product of productList; track product) {
+    <div class="product-item">
+      <h2>{{ product.name }}</h2>
+      <p><strong>Descripción:</strong> {{ product.description }}</p>
+      <p><strong>Precio:</strong> ₡{{ product.price }}</p>
+      <p><strong>Stock:</strong> {{ product.stockQuantity }}</p>
+      <p><strong>Categoría:</strong> {{ product.category.name }}</p>
+
+      @if (areActionsAvailable) {
+        <button (click)="callUpdateModalMethod.emit(product)" class="btn btn-success">Editar</button>
+        <button (click)="callDeleteMethod.emit(product)" class="btn btn-danger">Eliminar</button>
+      }
+    </div>
+  } @empty {
+    <p>No hay productos disponibles.</p>
+  }
+</div>

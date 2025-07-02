@@ -1,0 +1,41 @@
+<form [formGroup]="form" class="row mb-4">
+  <div>
+    <h2 class="mb-0">Agregar Producto</h2>
+  </div>
+
+  <div class="mb-2 col-6">
+    <label class="mb-1" for="name">Nombre*</label>
+    <input id="name" formControlName="name" type="text" class="form-control" />
+    @if (form.controls['name'].invalid && (form.controls['name'].dirty || form.controls['name'].touched)) {
+      <p class="text-danger my-1">Nombre es obligatorio</p>
+    }
+  </div>
+
+  <div class="mb-2 col-6">
+    <label class="mb-1" for="description">Descripción</label>
+    <input id="description" formControlName="description" type="text" class="form-control" />
+  </div>
+
+  <div class="mb-2 col-6">
+    <label class="mb-1" for="price">Precio*</label>
+    <input id="price" formControlName="price" type="number" class="form-control" />
+  </div>
+
+  <div class="mb-2 col-6">
+  <label class="mb-1" for="stockQuantity">Stock*</label>
+  <input id="stockQuantity" formControlName="stockQuantity" type="number" class="form-control" />
+  </div>
+
+  <div class="mb-2 col-6">
+    <label class="mb-1" for="categoryId">Categoría*</label>
+    <select formControlName="categoryId" class="form-control">
+      <option *ngFor="let c of categories" [value]="c.id">{{ c.name }}</option>
+    </select>
+  </div>
+
+  <div class="col-12">
+    <button (click)="callSave()" [disabled]="form.invalid" class="btn btn-primary" type="button">
+      Guardar
+    </button>
+  </div>
+</form>
