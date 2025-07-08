@@ -65,15 +65,3 @@ export interface ICategory {
   name: string;
   description: string;
 }
-
-export interface IProduct {
-  id?: number;
-  name: string;
-  description: string;
-  price: number;
-  stockQuantity: number; 
-  category: {
-    id: number;
-    name?: string;
-  };
-}
