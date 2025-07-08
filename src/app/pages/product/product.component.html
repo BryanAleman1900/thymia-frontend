@@ -1,0 +1,27 @@
+<p>Productos</p>
+
+@if (areActionsAvailable) {
+  <app-product-form
+    [form]="productForm"
+    [categories]="categoryList"
+    (callSaveMethod)="saveProduct($event)"
+  />
+}
+
+<app-product-list
+  [productList]="productService.products$()"
+  (callUpdateModalMethod)="openEditProductModal($event)"
+  (callDeleteMethod)="deleteProduct($event)"
+/>
+
+<ng-template #editProductModal>
+  <app-modal [hideFooter]="true">
+    <div>
+      <app-product-form
+        [form]="productForm"
+        [categories]="categoryList"
+        (callUpdateMethod)="updateProduct($event)"
+      />
+    </div>
+  </app-modal>
+</ng-template>

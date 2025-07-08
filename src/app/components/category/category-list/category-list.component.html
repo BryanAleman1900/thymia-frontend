@@ -1,0 +1,19 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let category of categoryList">
+      <td>{{ category.name }}</td>
+      <td>{{ category.description }}</td>
+      <td>
+        <button class="btn btn-sm btn-warning" (click)="callUpdateModalMethod.emit(category)">Editar</button>
+        <button class="btn btn-sm btn-danger" (click)="callDeleteMethod.emit(category)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
