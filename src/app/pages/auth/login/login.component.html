@@ -14,6 +14,20 @@
         </div>
         <div class="login-main">
           <form (ngSubmit)="handleLogin($event)" autocomplete="off" #frm="ngForm">
+            <div *ngIf="loginError" class="alert alert-danger text-center mt-3">
+              {{loginError}}
+            </div>
+            <div *ngIf="intentosRestantes !== null || tiempoRestante" class="alert text-center mt-2" [ngClass]="{'alert-warning': intentosRestantes !== null, 'alert-info': tiempoRestante}">
+              <ng-container *ngIf="tiempoRestante; else intentos">
+               {{ tiempoRestante }}
+               </ng-container>
+              <ng-template #intentos>
+                Intentos restantes: {{ intentosRestantes }}
+              </ng-template>
+            </div>
+
+
+
             <div class="mb-3">
               <h4>Sign in to account</h4>
               <small style="color: #4f4f4f">
@@ -50,12 +64,9 @@
             </div>
 
             <div class="form-group mb-0">
-              <button class="btn btn-primary btn-block w-100" type="submit">
+              <button class="btn btn-primary btn-block w-100" type="submit" [disabled]="bloqueadoHasta != null">
                 Sign in
               </button>
-              @if(loginError) {
-                <p class="text-danger">{{loginError}}</p>
-              }
             </div>
             <a href="/signup">Go SignUp</a>
           </form>

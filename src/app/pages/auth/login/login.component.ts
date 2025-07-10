@@ -9,17 +9,62 @@ import { AuthService } from '../../../services/auth.service';
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
 })
 export class LoginComponent {
   public loginError!: string;
+  public bloqueadoHasta: Date | null = null;
+  public tiempoRestante: string= '';
+  contadorInterval: any = null;
+  public intentosRestantes: number | null = null;
   @ViewChild('email') emailModel!: NgModel;
   @ViewChild('password') passwordModel!: NgModel;
+
+
 
   public loginForm: { email: string; password: string } = {
     email: '',
     password: '',
   };
+
+  formatFecha(fechaISO: string): string {
+  const fecha = new Date(fechaISO);
+  return fecha.toLocaleString('es-CR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+     hour12: true,
+    });
+  }
+
+  iniciarContador(fechaBloqueoISO: string): void {
+    this.bloqueadoHasta = new Date(fechaBloqueoISO);
+
+    if (this.contadorInterval) {
+      clearInterval(this.contadorInterval);
+    }
+
+    this.contadorInterval = setInterval(() => {
+      const ahora = new Date().getTime();
+      const fin = this.bloqueadoHasta!.getTime();
+      const diferencia = fin - ahora;
+
+      if (diferencia <= 0) {
+        this.tiempoRestante = '';
+        clearInterval(this.contadorInterval);
+        this.loginError = '';
+        this.bloqueadoHasta = null;
+        return;
+      }
+
+      const minutos = Math.floor(diferencia / 60000);
+      const segundos = Math.floor((diferencia % 60000) / 1000);
+      this.tiempoRestante = `${minutos}m ${segundos < 10 ? '0' : ''}${segundos}s`;
+    }, 1000);
+  }
+
 
   constructor(
     private router: Router, 
@@ -36,9 +81,45 @@ export class LoginComponent {
     }
     if (this.emailModel.valid && this.passwordModel.valid) {
       this.authService.login(this.loginForm).subscribe({
-        next: () => this.router.navigateByUrl('/app/dashboard'),
-        error: (err: any) => (this.loginError = err.error.description),
-      });
+      next: () => this.router.navigateByUrl('/app/dashboard'),
+      error: (err: any) => {
+      console.log('Error completo: ', err);
+
+      const msg = err?.error?.message || err?.error?.description || 'Error desconocido';
+
+      if (msg.includes('bloqueado hasta:')) {
+        const partes = msg.split('bloqueado hasta:');
+        const fechaISO = partes[1]?.trim();
+        const fecha = this.formatFecha(fechaISO);
+
+        this.loginError = `El usuario está bloqueado hasta: ${fecha}`;
+        this.bloqueadoHasta = new Date(fechaISO);
+        this.iniciarContador(fechaISO);
+        this.intentosRestantes = null;
+
+      } else if (msg.includes('credenciales ingresadas son inválidas')) {
+        this.loginError = 'Contraseña Incorrecta.';
+
+        const match = msg.match(/Intentos fallidos:\s*(\d+)/);
+        if (match && match[1]) {
+          const intentosFallidos = parseInt(match[1]);
+          this.intentosRestantes = 4 - intentosFallidos;
+        } else {
+          this.intentosRestantes = null;
+        }
+
+        this.bloqueadoHasta = null;
+        this.tiempoRestante = '';
+
+      } else {
+        this.loginError = 'El correo electronico ingresado, no existe en el sistema. Por favor, intente de nuevo.';
+        this.bloqueadoHasta = null;
+        this.intentosRestantes = null;
+        this.tiempoRestante = '';
+      }
     }
+  });
+}
+
   }
 }

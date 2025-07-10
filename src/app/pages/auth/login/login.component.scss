@@ -44,4 +44,17 @@
       }
     }
   }
+
+  .tiempo-restante-alert {
+  background-color: #e0f3ff; // celeste claro
+  color: #09527a;            // azul oscuro
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+  margin: 12px auto;
+  width: fit-content;
+  font-weight: 500;
+  border: 1px solid #a6d9f5;
+}
+
 }
