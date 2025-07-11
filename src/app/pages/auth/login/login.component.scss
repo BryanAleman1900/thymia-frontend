@@ -1,6 +1,5 @@
 .login-container {
   height: 100vh;
-  // background-image: url("../../../../assets/img/login/login-bg.jpg");
   background-position: left;
   background-size: cover;
   background-repeat: no-repeat;
@@ -13,7 +12,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad según necesites */
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1;
   }
   .login-card {
@@ -46,15 +45,19 @@
   }
 
   .tiempo-restante-alert {
-  background-color: #e0f3ff; // celeste claro
-  color: #09527a;            // azul oscuro
-  padding: 12px;
-  border-radius: 6px;
-  text-align: center;
-  margin: 12px auto;
-  width: fit-content;
-  font-weight: 500;
-  border: 1px solid #a6d9f5;
+    background-color: #e0f3ff; 
+    color: #09527a;            
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    margin: 12px auto;
+    width: fit-content;
+    font-weight: 500;
+    border: 1px solid #a6d9f5;
+  }
+
 }
 
+.signIn {
+  margin-top: 20px;
 }

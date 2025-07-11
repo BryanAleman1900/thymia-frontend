@@ -11,6 +11,7 @@ export class AuthService {
   private expiresIn! : number;
   private user: IUser = {email: '', authorities: []};
   private http: HttpClient = inject(HttpClient);
+  private apiURL: string = 'http://localhost:8080';
 
   constructor() {
     this.load();
@@ -124,4 +125,9 @@ export class AuthService {
     }          
     return allowedUser && isAdmin;
   }
+
+  verificarBloqueo(email: string) {
+    return this.http.get<any>(`${this.apiURL}/auth/status?email=${email}`);
+  }
+
 }

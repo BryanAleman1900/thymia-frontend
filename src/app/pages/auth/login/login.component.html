@@ -19,17 +19,27 @@
             </div>
             <div *ngIf="intentosRestantes !== null || tiempoRestante" class="alert text-center mt-2" [ngClass]="{'alert-warning': intentosRestantes !== null, 'alert-info': tiempoRestante}">
               <ng-container *ngIf="tiempoRestante; else intentos">
-               {{ tiempoRestante }}
+                <p>Tiempo Restante: {{ tiempoRestante }}</p>
                </ng-container>
               <ng-template #intentos>
                 Intentos restantes: {{ intentosRestantes }}
               </ng-template>
             </div>
+            <div *ngIf="porcentajeProgreso !== null" class="progress mx-auto mt-2" style="height: 10px; width: 80%;">
+            <div 
+              class="progress-bar bg-success" 
+              role="progressbar" 
+              [style.width.%]="porcentajeProgreso" 
+              aria-valuemin="0" 
+              aria-valuemax="100">
+            </div>
+</div>
+
 
 
 
             <div class="mb-3">
-              <h4>Sign in to account</h4>
+              <h4 class="signIn">Sign in to account</h4>
               <small style="color: #4f4f4f">
                 Enter your email & password to login
               </small>
