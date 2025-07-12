@@ -1,0 +1,42 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #121212;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+
+  a {
+    color: #FFA726; // naranja botón
+    text-decoration: none;
+    margin-right: 1.5rem;
+
+    &.active {
+      border-bottom: 2px solid #FFA726;
+    }
+
+    &:hover {
+      color: #FFCC80; // naranja claro hover
+    }
+  }
+
+  button {
+    background-color: #FFA726;
+    color: #000;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #FFCC80;
+    }
+  }
+
+  span {
+    margin-right: 1rem;
+    font-weight: bold;
+  }
+}
