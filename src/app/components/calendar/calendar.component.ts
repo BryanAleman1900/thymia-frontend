@@ -19,5 +19,3 @@ export class CalendarComponent {
     this.googleCalendarUrl = this.sanitizer.bypassSecurityTrustResourceUrl(calendarSrc);
   }
 }
-
-

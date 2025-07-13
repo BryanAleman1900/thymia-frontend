@@ -3,6 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { AppointmentFormComponent } from './components/appointment-form/appointment-form.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,13 +22,15 @@ import { AuthService } from './services/auth.service';
   declarations: [
     AppComponent,
     CalendarComponent,
+    AppointmentFormComponent,
     NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthService,
