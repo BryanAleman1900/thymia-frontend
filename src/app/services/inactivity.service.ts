@@ -9,7 +9,7 @@ export class InactivityService {
   private timeoutId: any;
   private boundReset!: () => void;
 
-  private readonly timeoutMs = 10 * 1000; // 10 segundos para test
+  private readonly timeoutMs = 120000; // 2 minutos
 
   constructor(
     private authService: AuthService,
