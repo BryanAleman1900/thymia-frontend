@@ -3,6 +3,7 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
+import { InactivityService } from '../../../services/inactivity.service';
 
 @Component({
   selector: 'app-login',
@@ -23,11 +24,17 @@ export class LoginComponent implements OnInit {
   @ViewChild('password') passwordModel!: NgModel;
 
 
+  constructor(
+    private router: Router, 
+    private authService: AuthService,
+    private inactivityService: InactivityService
+  ) {}
 
   public loginForm: { email: string; password: string } = {
     email: '',
     password: '',
   };
+
 
   formatFecha(fechaISO: string): string {
     const fecha = new Date(fechaISO);
@@ -40,6 +47,7 @@ export class LoginComponent implements OnInit {
      hour12: true,
     });
   }
+
 
   iniciarContador(fechaBloqueoISO: string): void {
     this.bloqueadoHasta = new Date(fechaBloqueoISO);
@@ -73,11 +81,6 @@ export class LoginComponent implements OnInit {
       this.porcentajeProgreso = 100 -(diferencia / this.tiempoBloqueo) * 100;
     }, 1000);
   }
-
-  constructor(
-    private router: Router, 
-    private authService: AuthService
-  ) {}
 
 
   verificarEstadoBloqueo(): void {
@@ -126,9 +129,6 @@ export class LoginComponent implements OnInit {
   }
 
 
-
-
-
   public handleLogin(event: Event) {
     event.preventDefault();
       if (!this.emailModel.valid) {
@@ -139,7 +139,10 @@ export class LoginComponent implements OnInit {
     }
     if (this.emailModel.valid && this.passwordModel.valid) {
       this.authService.login(this.loginForm).subscribe({
-      next: () => this.router.navigateByUrl('/app/dashboard'),
+      next: () => {
+        this.router.navigateByUrl('/app/dashboard')
+        this.inactivityService.initListener();
+      },
       error: (err: any) => {
       console.log('Error completo: ', err);
 
@@ -172,7 +175,7 @@ export class LoginComponent implements OnInit {
           this.tiempoRestante = '';
 
           } else {
-            this.loginError = 'El correo electronico ingresado, no existe en el sistema. Por favor, intente de nuevo.';
+            this.loginError = 'El Correo o la Contraseña son incorrectos. Por favor, inténte de nuevo.';
             this.bloqueadoHasta = null;
             this.intentosRestantes = null;
             this.tiempoRestante = '';

@@ -5,6 +5,7 @@ import { AuthService } from '../../../../services/auth.service';
 import { IUser } from '../../../../interfaces';
 import { LayoutService } from '../../../../services/layout.service';
 import { MyAccountComponent } from '../../../my-account/my-account.component';
+import { InactivityService } from '../../../../services/inactivity.service';
 
 @Component({
   selector: 'app-topbar',
@@ -18,7 +19,8 @@ export class TopbarComponent implements OnInit {
   constructor(
     public router: Router,
     public layoutService: LayoutService,
-    public authService: AuthService
+    public authService: AuthService,
+    private inactivityService: InactivityService
   ) {}
 
   ngOnInit(): void {

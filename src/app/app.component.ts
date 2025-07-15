@@ -51,9 +51,4 @@ export class AppComponent {
       this.cant--;
     }
   }
-
-  ngOnInit(): void {
-    this.inactivityService.initListener();
-  }
-
 }

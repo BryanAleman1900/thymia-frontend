@@ -18,6 +18,7 @@ export class InactivityService {
   ) {}
 
   initListener(): void {
+    console.log('[InactivityService] Listener iniciado');
     this.boundReset = this.resetTimeout.bind(this);
     this.resetTimeout();
 
@@ -48,11 +49,14 @@ export class InactivityService {
       this.timeoutId = null;
     }
 
-    const events = ['mousemove', 'mousedown', 'keypress', 'scroll', 'touchstart'];
-    events.forEach(event => {
-      window.removeEventListener(event, this.boundReset);
-    });
-
-    console.log('[InactivityService] Listener detenido');
+    if (this.boundReset) {
+      const events = ['mousemove', 'mousedown', 'keypress', 'scroll', 'touchstart'];
+      events.forEach(event => {
+        window.removeEventListener(event, this.boundReset);
+      });
+      console.log('[InactivityService] Listener detenido');
+    } else {
+      console.warn('[InactivityService] No hay listener activo para detener');
+    }
   }
 }
