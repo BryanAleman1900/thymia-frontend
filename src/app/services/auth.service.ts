@@ -25,7 +25,7 @@ export class AuthService {
 
   private load(): void {
     let token = localStorage.getItem('access_token');
-    if (token) this.accessToken = JSON.parse(token); // ✅ Fix: antes faltaba parsear
+    if (token) this.accessToken = JSON.parse(token); 
     let exp = localStorage.getItem('expiresIn');
     if (exp) this.expiresIn = JSON.parse(exp);
     const user = localStorage.getItem('auth_user');
@@ -70,7 +70,7 @@ export class AuthService {
     );
   }
 
-  // ✅ 🔐 Login con FaceIO (se recibe facialId desde el front)
+  //Login con FaceIO
   public loginWithFacialId(facialId: string): Observable<ILoginResponse> {
     return this.http.post<ILoginResponse>('auth/face-id/login', { facialId }).pipe(
       tap((response: any) => {
@@ -82,7 +82,7 @@ export class AuthService {
     );
   }
 
-  // ✅ 🔐 Registro facial usando FaceIO (se recibe facialId desde el front)
+  //Registro Face Id usando FaceIO
   public registerFacialId(facialId: string): Observable<IResponse<IUser>> {
     return this.http.post<IResponse<IUser>>('users/me/face-id/register', { facialId });
   }

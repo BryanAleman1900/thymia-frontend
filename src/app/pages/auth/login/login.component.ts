@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // 🔵 Inicializar Google Sign-In
+    //Inicializar Google
     setTimeout(() => {
       if (typeof google !== 'undefined') {
         google.accounts.id.initialize({
@@ -52,7 +52,6 @@ export class LoginComponent implements OnInit {
     }, 0);
   }
 
-  // ✅ Login con correo y contraseña
   public handleLogin(event: Event) {
     event.preventDefault();
     if (!this.emailModel.valid) this.emailModel.control.markAsTouched();
@@ -66,7 +65,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // ✅ Login con Google
+  //Google
   public handleGoogleCallback(response: any) {
     const idToken = response.credential;
     this.authService.loginWithGoogle(idToken).subscribe({
@@ -75,18 +74,18 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // ✅ Login con Face ID
+  //Face ID
   public activateBiometric(): void {
     this.faceio.authenticate().then((facialId: string) => {
       this.authService.loginWithFacialId(facialId).subscribe({
         next: () => this.ngZone.run(() => this.router.navigateByUrl('/app/dashboard')),
         error: (err: any) => {
-          this.loginError = 'Biometric login failed ❌';
+          this.loginError = 'Biometric login failed';
           console.error(err);
         }
       });
     }).catch((err) => {
-      this.loginError = 'No se pudo autenticar con Face ID ❌';
+      this.loginError = 'No se pudo autenticar con Face ID';
       console.error(err);
     });
   }

@@ -35,15 +35,15 @@ export class ProfileService extends BaseService<IUser> {
     });
   }
 
-  // ✅ Método para registrar rostro en el backend
+  //registrar rostro
   registerFaceID(base64Image: string) {
-    const customPath = 'face-id/register'; // se concatenará a 'users/me'
+    const customPath = 'face-id/register'; 
     const body = { imageBase64: base64Image };
 
     this.addCustomSource(customPath, body).subscribe({
       next: () => {
         this.snackBar.open(
-          'Rostro registrado con éxito ✅',
+          'Rostro registrado con éxito',
           'Cerrar',
           {
             duration: 3000,
