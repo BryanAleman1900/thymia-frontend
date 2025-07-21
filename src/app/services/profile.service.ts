@@ -36,9 +36,9 @@ export class ProfileService extends BaseService<IUser> {
   }
 
   //registrar rostro
-  registerFaceID(base64Image: string) {
+  registerFaceID(facialId: string) {
     const customPath = 'face-id/register'; 
-    const body = { imageBase64: base64Image };
+    const body = { facialId: facialId };
 
     this.addCustomSource(customPath, body).subscribe({
       next: () => {
