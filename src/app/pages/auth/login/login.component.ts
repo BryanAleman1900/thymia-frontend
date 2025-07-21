@@ -80,7 +80,7 @@ export class LoginComponent implements OnInit {
     this.faceIDActive = true;
     this.showFaceIDMessage = true;
 
-    // Ocultar el mensaje facial luego de 3 segundos
+    // Ocultar mensaje después de 3 segundos
     setTimeout(() => {
       this.showFaceIDMessage = false;
     }, 3000);
@@ -92,14 +92,14 @@ export class LoginComponent implements OnInit {
           console.error(err);
           this.loginError = 'Biometric login failed';
           this.faceIDActive = false;
-          this.showFaceIDMessage = true; // Mostrar mensaje en nuevo intento
+          this.showFaceIDMessage = true; // Restaurar en intento nuevo
         }
       });
     }).catch((err) => {
       console.error(err);
       this.loginError = 'No se pudo autenticar con Face ID';
       this.faceIDActive = false;
-      this.showFaceIDMessage = true; // Mostrar mensaje en nuevo intento
+      this.showFaceIDMessage = true; // Restaurar en intento nuevo
     });
   }
 }
