@@ -10,8 +10,24 @@ export class FaceioService {
     this.faceioInstance = new faceIO("fioae373");
   }
 
+  private elevateFaceIOModal(): void {
+    const interval = setInterval(() => {
+      const modal = document.querySelector('.fio-modal') as HTMLElement;
+      if (modal) {
+        modal.style.zIndex = '99999'; // 🧼 Garantiza que quede por encima de todo
+        modal.style.position = 'fixed';
+        modal.style.top = '0';
+        modal.style.left = '0';
+        modal.style.width = '100vw';
+        modal.style.height = '100vh';
+        clearInterval(interval);
+      }
+    }, 100);
+  }
+
   async enroll(): Promise<string> {
     try {
+      this.elevateFaceIOModal(); // ⬆️ Aplica antes de abrir el modal
       const response = await this.faceioInstance.enroll({
         locale: "auto",
         payload: {
@@ -19,7 +35,7 @@ export class FaceioService {
         }
       });
       return response.facialId;
-    } catch (err) { 
+    } catch (err) {
       console.error('Enrollment failed:', err);
       throw err;
     }
@@ -27,6 +43,7 @@ export class FaceioService {
 
   async authenticate(): Promise<string> {
     try {
+      this.elevateFaceIOModal(); // ⬆️ Asegura que se vea
       const response = await this.faceioInstance.authenticate({
         locale: "auto"
       });
@@ -37,5 +54,3 @@ export class FaceioService {
     }
   }
 }
-
-

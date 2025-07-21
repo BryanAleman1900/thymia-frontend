@@ -79,3 +79,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin-top: 20px;
   margin-bottom: 30px;
 }
+
+/* styles.scss */
+.fio-modal {
+  z-index: 9999 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+}
