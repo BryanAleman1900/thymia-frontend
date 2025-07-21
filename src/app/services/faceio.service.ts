@@ -19,7 +19,7 @@ export class FaceioService {
         }
       });
       return response.facialId;
-    } catch (err) {
+    } catch (err) { 
       console.error('Enrollment failed:', err);
       throw err;
     }
@@ -37,3 +37,5 @@ export class FaceioService {
     }
   }
 }
+
+
