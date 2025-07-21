@@ -175,6 +175,15 @@
     }
   }
 
+  // 👉 Aplica cuando Face ID está activo
+  &.face-id-mode {
+    pointer-events: none;
+
+    .login-card {
+      pointer-events: none;
+    }
+  }
+
   @media screen and (min-width: 801px) and (max-width: 1500px) {
     padding: 20px 10%;
   }
