@@ -15,7 +15,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0); 
+    background: rgba(0, 0, 0, 0);
     z-index: 1;
   }
 
@@ -156,6 +156,22 @@
           font-size: 14px;
         }
       }
+
+      // 🔵 Estilo durante el reconocimiento facial
+      .face-id-status {
+        animation: fadeIn 0.4s ease-in-out;
+        h3 {
+          font-size: 22px;
+          font-weight: 600;
+          color: #fff;
+          margin-bottom: 8px;
+        }
+
+        p {
+          font-size: 16px;
+          color: #cead8d;
+        }
+      }
     }
   }
 
@@ -169,5 +185,17 @@
     .login-card {
       padding: 24px 16px;
     }
+  }
+}
+
+// 🔁 Animación suave
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

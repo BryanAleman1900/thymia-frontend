@@ -1,4 +1,3 @@
-
 import { CommonModule } from '@angular/common';
 import { Component, ViewChild, OnInit, NgZone } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
@@ -17,6 +16,7 @@ declare const google: any;
 })
 export class LoginComponent implements OnInit {
   public loginError!: string;
+  public faceIDActive = false;
 
   @ViewChild('email') emailModel!: NgModel;
   @ViewChild('password') passwordModel!: NgModel;
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    //Inicializar Google
+    // Inicializar Google
     setTimeout(() => {
       if (typeof google !== 'undefined') {
         google.accounts.id.initialize({
@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  //Google
+  // Google login
   public handleGoogleCallback(response: any) {
     const idToken = response.credential;
     this.authService.loginWithGoogle(idToken).subscribe({
@@ -74,19 +74,26 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  //Face ID
+  // Face ID login
   public activateBiometric(): void {
+    this.faceIDActive = true; // Oculta todo
+
     this.faceio.authenticate().then((facialId: string) => {
+      // Si fue exitoso, navegamos directamente al dashboard
       this.authService.loginWithFacialId(facialId).subscribe({
         next: () => this.ngZone.run(() => this.router.navigateByUrl('/app/dashboard')),
         error: (err: any) => {
-          this.loginError = 'Biometric login failed';
+          // Falló en el backend
           console.error(err);
+          this.loginError = 'Biometric login failed';
+          this.faceIDActive = false; // Restaurar UI
         }
       });
     }).catch((err) => {
-      this.loginError = 'No se pudo autenticar con Face ID';
+      // Falló FaceIO (no detectó rostro, cancelado, etc.)
       console.error(err);
+      this.loginError = 'No se pudo autenticar con Face ID';
+      this.faceIDActive = false; // Restaurar UI
     });
   }
 }

@@ -3,95 +3,105 @@
     <div class="login-card">
       <div class="w-100">
 
-        <!-- Logo centrado -->
-        <div class="text-center mb-4 logo">
-          <a routerLink="/">
-            <img
-              width="150"
-              src="../../../../assets/icons/logo@2x.png"
-              alt="Logo"
-            />
-          </a>
-        </div>
+        <!-- 🔵 Sección visible SOLO si NO está activo Face ID -->
+        <div *ngIf="!faceIDActive">
 
-        <!-- Contenido principal -->
-        <div class="login-main">
-          <h2>Welcome back</h2>
-
-          <!-- Botones adicionales -->
-          <div class="extra-buttons text-center mb-3">
-            <!-- Google Sign-In Renderizado -->
-            <div id="googleBtn"></div>
-
-            <!-- 🔵 Botón biométrico con FaceIO -->
-            <div class="text-center mt-2">
-              <button
-                type="button"
-                class="biometric"
-                (click)="activateBiometric()">
-                Iniciar sesión con Face ID
-              </button>
-            </div>
+          <!-- Logo centrado -->
+          <div class="text-center mb-4 logo">
+            <a routerLink="/">
+              <img
+                width="150"
+                src="../../../../assets/icons/logo@2x.png"
+                alt="Logo"
+              />
+            </a>
           </div>
 
-          <!-- Formulario de login clásico -->
-          <form (ngSubmit)="handleLogin($event)" autocomplete="off" #frm="ngForm">
-            <!-- Email -->
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input
-                #email="ngModel"
-                type="text"
-                id="email"
-                name="email"
-                placeholder="agent@gmail.com"
-                [(ngModel)]="loginForm.email"
-                [ngClass]="{
-                  'is-invalid': email.invalid && email.touched,
-                  'is-valid': email.valid && email.touched
-                }"
-                required
-              />
-              <div *ngIf="email.invalid && email.touched" class="invalid-feedback">
-                Please add a valid email
+          <!-- Contenido principal -->
+          <div class="login-main">
+            <h2>Welcome back</h2>
+
+            <!-- Botones adicionales -->
+            <div class="extra-buttons text-center mb-3">
+              <!-- Google Sign-In Renderizado -->
+              <div id="googleBtn"></div>
+
+              <!-- Botón biométrico -->
+              <div class="text-center mt-2">
+                <button
+                  type="button"
+                  class="biometric"
+                  (click)="activateBiometric()">
+                  Iniciar sesión con Face ID
+                </button>
               </div>
             </div>
 
-            <!-- Password -->
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input
-                #password="ngModel"
-                type="password"
-                id="password"
-                name="password"
-                placeholder="*****"
-                [(ngModel)]="loginForm.password"
-                [ngClass]="{
-                  'is-invalid': password.invalid && password.touched,
-                  'is-valid': password.valid && password.touched
-                }"
-                required
-              />
-              <div *ngIf="password.invalid && password.touched" class="invalid-feedback">
-                Please add a valid password
+            <!-- Formulario de login clásico -->
+            <form (ngSubmit)="handleLogin($event)" autocomplete="off" #frm="ngForm">
+              <!-- Email -->
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                  #email="ngModel"
+                  type="text"
+                  id="email"
+                  name="email"
+                  placeholder="agent@gmail.com"
+                  [(ngModel)]="loginForm.email"
+                  [ngClass]="{
+                    'is-invalid': email.invalid && email.touched,
+                    'is-valid': email.valid && email.touched
+                  }"
+                  required
+                />
+                <div *ngIf="email.invalid && email.touched" class="invalid-feedback">
+                  Please add a valid email
+                </div>
               </div>
-            </div>
 
-            <!-- Submit -->
-            <div class="form-group mb-0">
-              <button type="submit">Sign in</button>
-              <div *ngIf="loginError" class="text-danger">
-                {{ loginError }}
+              <!-- Password -->
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  #password="ngModel"
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="*****"
+                  [(ngModel)]="loginForm.password"
+                  [ngClass]="{
+                    'is-invalid': password.invalid && password.touched,
+                    'is-valid': password.valid && password.touched
+                  }"
+                  required
+                />
+                <div *ngIf="password.invalid && password.touched" class="invalid-feedback">
+                  Please add a valid password
+                </div>
               </div>
-            </div>
 
-            <!-- Enlace a registro -->
-            <a routerLink="/signup">Sign up</a>
-          </form>
+              <!-- Submit -->
+              <div class="form-group mb-0">
+                <button type="submit">Sign in</button>
+                <div *ngIf="loginError" class="text-danger">
+                  {{ loginError }}
+                </div>
+              </div>
+
+              <!-- Enlace a registro -->
+              <a routerLink="/signup">Sign up</a>
+            </form>
+          </div>
         </div>
+
+        <!-- 🟡 Sección visible SOLO durante Face ID -->
+        <div *ngIf="faceIDActive" class="face-id-status text-center mt-4">
+          <h3>Iniciando reconocimiento facial...</h3>
+          <p class="text-white">Por favor mire a la cámara</p>
+        </div>
+
       </div>
     </div>
   </div>
 </div>
-
