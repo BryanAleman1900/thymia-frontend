@@ -1,16 +1,33 @@
-// src/app/components/appointment/appointment-form/appointment-form.component.ts
-
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 import { IAppointment, IUser } from '../../../interfaces';
 import { UserService } from '../../../services/user.service';
 import { GoogleCalendarService } from '../../../services/google-calendar.service';
 
 @Component({
   selector: 'app-appointment-form',
+  standalone: true, 
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    MatIconModule
+  ],
   templateUrl: './appointment-form.component.html',
   styleUrls: ['./appointment-form.component.scss']
 })
+
 export class AppointmentFormComponent {
   @Input() doctorId?: number;
   @Output() appointmentCreated = new EventEmitter<IAppointment>();
@@ -55,7 +72,7 @@ export class AppointmentFormComponent {
         endTime: formValue.endTime.toISOString()
       };
 
-      // Aquí integrarías con Google Calendar
+     
       const googleEvent = await this.googleService.createEvent({
         summary: formValue.title,
         description: formValue.description,
