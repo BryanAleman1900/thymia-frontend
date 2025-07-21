@@ -51,21 +51,7 @@ export interface IRole {
   updatedAt: string;
 }
 
-export interface IGame {
-  id?: number;
-  name?: string;
-  imgURL?: string;
-  status?: string;
-  description?: string;
-  createdAt?: string;
-  updatedAt?: string;
-}
 
-export interface IOrder {
-  id?: number;
-  description?: string;
-  total?: number;
-}
 
 export interface ISearch {
   page?: number;
@@ -76,34 +62,6 @@ export interface ISearch {
   totalPages?:number;
 }
 
-export interface IMovie {
-  id?: number;
-  title?: string;
-  director?: string;
-  description?: string;
-}
-
-export interface IPreferenceList {
-  id?: number;
-  name?: string;
-  movies?: IMovie[];
-}
-
-export interface ISportTeam {
-  id?: number;
-  name?: string;
-  players?: IPlayer[];
-  stadium?: string;
-  founded?: number;
-  coach?: string;
-  isInClubsWorldCup?: boolean;
-  teamLogo?: string;
-}
-
-export interface IPlayer {
-  id?: number;
-  name?: string;
-}
 
 export interface IAppointment {
   id?: number;
@@ -112,8 +70,8 @@ export interface IAppointment {
   startTime: string;
   endTime: string;
   googleEventId?: string;
-  patient?: IUser;
+  patientId: number;  
+  doctorId: number;  
+  patient?: IUser;    
   doctor?: IUser;
-  createdAt?: string;
-  updatedAt?: string;
 }

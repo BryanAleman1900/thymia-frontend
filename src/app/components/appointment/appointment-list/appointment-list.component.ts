@@ -8,8 +8,8 @@ import { IAppointment } from '../../../interfaces';
 
 @Component({
   selector: 'app-appointment-list',
-  standalone: true, // <-- Añade esto
-  imports: [ // <-- Añade estos módulos
+  standalone: true,
+  imports: [ 
     CommonModule,
     MatCardModule,
     MatButtonModule,

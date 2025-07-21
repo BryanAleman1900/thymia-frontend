@@ -35,6 +35,7 @@ export class AppointmentFormComponent {
   appointmentForm: FormGroup;
   patients: IUser[] = [];
   minDate = new Date();
+  snackBar: any;
 
   constructor(
     private fb: FormBuilder,
@@ -52,9 +53,17 @@ export class AppointmentFormComponent {
     this.loadPatients();
   }
 
-  async loadPatients() {
-    this.patients = await this.userService.getPatients().toPromise();
-  }
+  loadPatients(): void {
+  this.userService.getPatients().subscribe({
+    next: (response) => {
+      this.patients = response?.data || [];
+    },
+    error: (err) => {
+      this.snackBar.open('Error al cargar pacientes', 'Cerrar', { duration: 3000 });
+      this.patients = []; 
+    }
+  });
+}
 
   async onSubmit() {
     if (this.appointmentForm.invalid || !this.doctorId) return;

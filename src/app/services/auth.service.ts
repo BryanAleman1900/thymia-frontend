@@ -39,6 +39,10 @@ export class AuthService {
     return this.user;
   }
 
+  public getCurrentUser(): IUser | null {
+    return this.user ? {...this.user} : null;
+}
+
   public getAccessToken(): string | null {
     return this.accessToken;
   }

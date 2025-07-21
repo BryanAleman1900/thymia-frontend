@@ -10,10 +10,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { GuestGuard } from './guards/guest.guard';
 import { IRoleType } from './interfaces';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { GamesComponent } from './pages/games/games.component';
-import { OrdersComponent } from './pages/orders/orders.component';
-import { PreferenceListPageComponent } from './pages/preferenceList/preference-list.component';
-import { SportTeamComponent } from './pages/sport-team/sport-team.component';
+
 
 export const routes: Routes = [
   {
@@ -82,58 +79,6 @@ export const routes: Routes = [
           ],
           name: 'profile',
           showInSidebar: false
-        }
-      },
-      {
-        path: 'games',
-        component: GamesComponent,
-        data: { 
-          authorities: [
-            IRoleType.admin, 
-            IRoleType.superAdmin,
-            IRoleType.user,
-          ],
-          name: 'games',
-          showInSidebar: true
-        }
-      },
-      {
-        path: 'orders',
-        component: OrdersComponent,
-        data: { 
-          authorities: [
-            IRoleType.admin, 
-            IRoleType.superAdmin,
-            IRoleType.user,
-          ],
-          name: 'orders',
-          showInSidebar: true
-        }
-      },
-      {
-        path: 'preference-list',
-        component: PreferenceListPageComponent,
-        data: { 
-          authorities: [
-            IRoleType.admin, 
-            IRoleType.superAdmin,
-            IRoleType.user,
-          ],
-          name: 'preference list',
-          showInSidebar: true
-        }
-      },
-      {
-        path: 'sport-team',
-        component: SportTeamComponent,
-        data: { 
-          authorities: [
-            IRoleType.admin, 
-            IRoleType.superAdmin,
-            IRoleType.user,
-          ],
-          name: 'Sport Team',
-          showInSidebar: true
         }
       },
     ],

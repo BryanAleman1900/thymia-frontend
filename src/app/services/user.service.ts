@@ -34,6 +34,15 @@ export class UserService extends BaseService<IUser> {
     });
   }
 
+getPatients(): Observable<{ data: IUser[] }> {
+  return this.http.get<{ data: IUser[] }>(`${this.search.page}/${this.source}/patients`).pipe(
+    catchError(err => {
+      this.alertService.displayAlert('error', 'Error al cargar pacientes', 'center', 'top', ['error-snackbar']);
+      return throwError(() => err);
+    })
+  );
+}
+
 
   save(user: IUser) {
     this.add(user).subscribe({
