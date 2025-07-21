@@ -18,7 +18,7 @@ export class ProfileComponent {
     this.profileService.getUserInfoSignal();
   }
 
-  // ✅ Se activa desde el botón "Activar Face ID"
+  //Activar Face ID
   public enableFaceID(): void {
     this.faceio.enroll().then((facialId: string) => {
       this.profileService.registerFaceID(facialId);

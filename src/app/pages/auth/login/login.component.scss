@@ -1,6 +1,6 @@
 .login-container {
   height: 100vh;
-  background-color: #241a0f; // fondo oscuro
+  background-color: #241a0f;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -15,7 +15,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0); // sin overlay
+    background: rgba(0, 0, 0, 0); 
     z-index: 1;
   }
 
