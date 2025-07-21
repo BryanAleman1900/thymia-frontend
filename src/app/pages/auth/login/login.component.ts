@@ -17,6 +17,7 @@ declare const google: any;
 export class LoginComponent implements OnInit {
   public loginError!: string;
   public faceIDActive = false;
+  public showFaceIDMessage = true;
 
   @ViewChild('email') emailModel!: NgModel;
   @ViewChild('password') passwordModel!: NgModel;
@@ -76,24 +77,29 @@ export class LoginComponent implements OnInit {
 
   // Face ID login
   public activateBiometric(): void {
-    this.faceIDActive = true; // Oculta todo
+    this.faceIDActive = true;
+    this.showFaceIDMessage = true;
+
+    // Ocultar el mensaje facial luego de 3 segundos
+    setTimeout(() => {
+      this.showFaceIDMessage = false;
+    }, 3000);
 
     this.faceio.authenticate().then((facialId: string) => {
-      // Si fue exitoso, navegamos directamente al dashboard
       this.authService.loginWithFacialId(facialId).subscribe({
         next: () => this.ngZone.run(() => this.router.navigateByUrl('/app/dashboard')),
         error: (err: any) => {
-          // Falló en el backend
           console.error(err);
           this.loginError = 'Biometric login failed';
-          this.faceIDActive = false; // Restaurar UI
+          this.faceIDActive = false;
+          this.showFaceIDMessage = true; // Mostrar mensaje en nuevo intento
         }
       });
     }).catch((err) => {
-      // Falló FaceIO (no detectó rostro, cancelado, etc.)
       console.error(err);
       this.loginError = 'No se pudo autenticar con Face ID';
-      this.faceIDActive = false; // Restaurar UI
+      this.faceIDActive = false;
+      this.showFaceIDMessage = true; // Mostrar mensaje en nuevo intento
     });
   }
 }
