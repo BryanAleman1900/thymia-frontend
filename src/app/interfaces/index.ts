@@ -1,6 +1,7 @@
 export interface ILoginResponse {
   accessToken: string;
   expiresIn: number
+  authUser?: IUser;  
 }
 
 export interface IResponse<T> {
