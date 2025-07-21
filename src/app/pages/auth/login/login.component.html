@@ -97,8 +97,10 @@
 
         <!-- 🟡 Sección visible SOLO durante Face ID -->
         <div *ngIf="faceIDActive" class="face-id-status text-center mt-4">
-          <h3>Iniciando reconocimiento facial...</h3>
-          <p class="text-white">Por favor mire a la cámara</p>
+          <ng-container *ngIf="showFaceIDMessage">
+            <h3>Iniciando reconocimiento facial...</h3>
+            <p class="text-white">Por favor mire a la cámara</p>
+          </ng-container>
         </div>
 
       </div>
