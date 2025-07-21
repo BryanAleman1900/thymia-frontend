@@ -1,0 +1,55 @@
+<!-- src/app/components/appointment/appointment-form/appointment-form.component.html -->
+<form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Paciente</mat-label>
+    <mat-select formControlName="patientId" required>
+      <mat-option *ngFor="let patient of patients" [value]="patient.id">
+        {{ patient.name }} {{ patient.lastname }} - {{ patient.email }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="appointmentForm.get('patientId')?.hasError('required')">
+      Selecciona un paciente
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Título</mat-label>
+    <input matInput formControlName="title" required>
+    <mat-error *ngIf="appointmentForm.get('title')?.hasError('required')">
+      El título es requerido
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Descripción</mat-label>
+    <textarea matInput formControlName="description" rows="3"></textarea>
+  </mat-form-field>
+
+  <div class="datetime-fields">
+    <mat-form-field appearance="outline">
+      <mat-label>Fecha y hora de inicio</mat-label>
+      <input matInput [min]="minDate" [matDatepicker]="startPicker" formControlName="startTime" required>
+      <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+      <mat-datepicker #startPicker></mat-datepicker>
+      <mat-error *ngIf="appointmentForm.get('startTime')?.hasError('required')">
+        Fecha de inicio requerida
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Fecha y hora de fin</mat-label>
+      <input matInput [min]="minDate" [matDatepicker]="endPicker" formControlName="endTime" required>
+      <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+      <mat-datepicker #endPicker></mat-datepicker>
+      <mat-error *ngIf="appointmentForm.get('endTime')?.hasError('required')">
+        Fecha de fin requerida
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-actions">
+    <button mat-raised-button color="primary" type="submit" [disabled]="appointmentForm.invalid">
+      Crear Cita
+    </button>
+  </div>
+</form>

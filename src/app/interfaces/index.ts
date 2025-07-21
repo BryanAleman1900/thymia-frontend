@@ -104,3 +104,16 @@ export interface IPlayer {
   id?: number;
   name?: string;
 }
+
+export interface IAppointment {
+  id?: number;
+  title: string;
+  description: string;
+  startTime: string;
+  endTime: string;
+  googleEventId?: string;
+  patient?: IUser;
+  doctor?: IUser;
+  createdAt?: string;
+  updatedAt?: string;
+}
