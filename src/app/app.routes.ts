@@ -10,8 +10,6 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { GuestGuard } from './guards/guest.guard';
 import { IRoleType } from './interfaces';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { CategoryComponent } from './pages/category/category.component';
-import { ProductComponent } from './pages/product/product.component';
 
 
 export const routes: Routes = [
@@ -82,30 +80,7 @@ export const routes: Routes = [
           name: 'profile',
           showInSidebar: false
         }
-      },
-
-      {
-  path: 'categories',
-  component: CategoryComponent,
-  canActivate: [AdminRoleGuard],
-  data: { 
-    authorities: [IRoleType.superAdmin],
-    name: 'Categorías',
-    showInSidebar: true
-  }
-},
-{
-  path: 'products',
-  component: ProductComponent,
-  data: { 
-    authorities: [
-      IRoleType.admin, 
-      IRoleType.superAdmin
-    ],
-    name: 'Products',
-    showInSidebar: true
-  }
-},
+      }
     ],
   },
 ];
