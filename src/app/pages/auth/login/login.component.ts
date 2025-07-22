@@ -44,24 +44,29 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Google init
-    setTimeout(() => {
-      if (typeof google !== 'undefined') {
+     this.faceio.reset();
+    // Esperar a que el SDK de Google esté disponible
+    const waitForGoogle = () => {
+      if (typeof google !== 'undefined' && google.accounts?.id) {
         google.accounts.id.initialize({
           client_id: '82191624415-m9dki2mc78iuloiig6oo6cn0s8mg1sf6.apps.googleusercontent.com',
           callback: this.handleGoogleCallback.bind(this),
         });
 
-        google.accounts.id.renderButton(
-          document.getElementById('googleBtn'),
-          { theme: 'outline', size: 'large' }
-        );
+        const googleBtn = document.getElementById('googleBtn');
+        if (googleBtn) {
+          google.accounts.id.renderButton(googleBtn, { theme: 'outline', size: 'large' });
+        } else {
+          console.error('Elemento #googleBtn no encontrado en el DOM');
+        }
       } else {
-        console.error('Google SDK no está disponible');
+        console.warn('Google SDK aún no disponible, reintentando...');
+        setTimeout(waitForGoogle, 100);
       }
-    }, 0);
+    };
 
-    // Verificar si había bloqueo pendiente guardado
+    waitForGoogle();
+
     const emailGuardado = localStorage.getItem('email');
     const fechaBloqueoGuardada = localStorage.getItem('bloqueadoHasta');
 
@@ -142,7 +147,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // 🟦 Google login
+  // Google login
   public handleGoogleCallback(response: any) {
     const idToken = response.credential;
     this.authService.loginWithGoogle(idToken).subscribe({
@@ -151,7 +156,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // 🟦 Face ID login
+  // Face ID login
   public activateBiometric(): void {
     this.faceIDActive = true;
     this.showFaceIDMessage = true;
@@ -178,7 +183,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // Utilidades para contador y formato
   private iniciarContador(fechaBloqueoISO: string): void {
     this.bloqueadoHasta = new Date(fechaBloqueoISO);
     if (this.contadorInterval) clearInterval(this.contadorInterval);

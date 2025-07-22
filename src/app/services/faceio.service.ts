@@ -7,17 +7,13 @@ export class FaceioService {
   private faceioInstance: any;
 
   constructor() {
-    this.faceioInstance = new faceIO('fioae373'); // Tu ID FaceIO real
+    this.faceioInstance = new faceIO('fioae373');
   }
 
-  /**
-   * Observa el DOM hasta que aparezca el modal, y lo convierte en popup real.
-   */
   private elevateFaceIOModal(): void {
     const observer = new MutationObserver(() => {
       const modal = document.querySelector('.fio-modal') as HTMLElement;
       if (modal) {
-        // Forzar popup flotante
         modal.style.position = 'fixed';
         modal.style.top = '50%';
         modal.style.left = '50%';
@@ -33,7 +29,6 @@ export class FaceioService {
         modal.style.borderRadius = '12px';
         modal.style.boxShadow = '0 0 20px rgba(0,0,0,0.8)';
 
-        // Opcional: evitar scroll del fondo
         document.body.style.overflow = 'hidden';
 
         observer.disconnect();
@@ -43,17 +38,24 @@ export class FaceioService {
     observer.observe(document.body, { childList: true, subtree: true });
   }
 
+  public reset(): void {
+    const modal = document.querySelector('.fio-modal') as HTMLElement;
+    if (modal) modal.remove();
+    document.body.style.overflow = '';
+  }
+
   async enroll(): Promise<string> {
     try {
+      this.reset(); // limpieza 
       this.elevateFaceIOModal();
       const response = await this.faceioInstance.enroll({
         locale: 'auto',
         payload: { userId: 'frontend-thymia-app' }
       });
-      document.body.style.overflow = ''; // Restaurar scroll
+      this.reset(); // Limpieza 
       return response.facialId;
     } catch (err) {
-      document.body.style.overflow = '';
+      this.reset(); // Limpieza
       console.error('Enrollment failed:', err);
       throw err;
     }
@@ -61,14 +63,15 @@ export class FaceioService {
 
   async authenticate(): Promise<string> {
     try {
+      this.reset(); 
       this.elevateFaceIOModal();
       const response = await this.faceioInstance.authenticate({
         locale: 'auto'
       });
-      document.body.style.overflow = '';
+      this.reset(); 
       return response.facialId;
     } catch (err) {
-      document.body.style.overflow = '';
+      this.reset(); 
       console.error('Authentication failed:', err);
       throw err;
     }
