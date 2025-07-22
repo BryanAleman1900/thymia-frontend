@@ -1,7 +1,7 @@
 import {
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR
-} from "./chunk-6MSFKIQC.js";
+} from "./chunk-WN3DK2JE.js";
 import {
   DOCUMENT,
   FormStyle,
@@ -13,7 +13,7 @@ import {
   getLocaleDayPeriods,
   getLocaleMonthNames,
   isPlatformBrowser
-} from "./chunk-VWGNI36Q.js";
+} from "./chunk-AWS5CNEC.js";
 import {
   ApplicationRef,
   Attribute,
@@ -103,7 +103,7 @@ import {
   ɵɵtextInterpolate,
   ɵɵtextInterpolate1,
   ɵɵviewQuery
-} from "./chunk-KRPM2RXB.js";
+} from "./chunk-FRQGASU3.js";
 import {
   BehaviorSubject,
   EMPTY,
@@ -2658,20 +2658,23 @@ var environment = {
   animation: true,
   transitionTimerDelayMs: 5
 };
-var _NgbConfig = class _NgbConfig {
+var NgbConfig = class _NgbConfig {
   constructor() {
     this.animation = environment.animation;
   }
+  static {
+    this.ɵfac = function NgbConfig_Factory(t) {
+      return new (t || _NgbConfig)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbConfig,
+      factory: _NgbConfig.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbConfig.ɵfac = function NgbConfig_Factory(t) {
-  return new (t || _NgbConfig)();
-};
-_NgbConfig.ɵprov = ɵɵdefineInjectable({
-  token: _NgbConfig,
-  factory: _NgbConfig.ɵfac,
-  providedIn: "root"
-});
-var NgbConfig = _NgbConfig;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbConfig, [{
     type: Injectable,
@@ -2680,7 +2683,7 @@ var NgbConfig = _NgbConfig;
     }]
   }], null, null);
 })();
-var _NgbAccordionConfig = class _NgbAccordionConfig {
+var NgbAccordionConfig = class _NgbAccordionConfig {
   constructor() {
     this._ngbConfig = inject(NgbConfig);
     this.closeOthers = false;
@@ -2692,16 +2695,19 @@ var _NgbAccordionConfig = class _NgbAccordionConfig {
   set animation(animation) {
     this._animation = animation;
   }
+  static {
+    this.ɵfac = function NgbAccordionConfig_Factory(t) {
+      return new (t || _NgbAccordionConfig)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbAccordionConfig,
+      factory: _NgbAccordionConfig.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbAccordionConfig.ɵfac = function NgbAccordionConfig_Factory(t) {
-  return new (t || _NgbAccordionConfig)();
-};
-_NgbAccordionConfig.ɵprov = ɵɵdefineInjectable({
-  token: _NgbAccordionConfig,
-  factory: _NgbAccordionConfig.ɵfac,
-  providedIn: "root"
-});
-var NgbAccordionConfig = _NgbAccordionConfig;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbAccordionConfig, [{
     type: Injectable,
@@ -2900,7 +2906,7 @@ var ngbCollapsingTransition = (element, animation, context) => {
     element.style[dimension] = "";
   };
 };
-var _NgbCollapseConfig = class _NgbCollapseConfig {
+var NgbCollapseConfig = class _NgbCollapseConfig {
   constructor() {
     this._ngbConfig = inject(NgbConfig);
     this.horizontal = false;
@@ -2911,16 +2917,19 @@ var _NgbCollapseConfig = class _NgbCollapseConfig {
   set animation(animation) {
     this._animation = animation;
   }
+  static {
+    this.ɵfac = function NgbCollapseConfig_Factory(t) {
+      return new (t || _NgbCollapseConfig)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbCollapseConfig,
+      factory: _NgbCollapseConfig.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbCollapseConfig.ɵfac = function NgbCollapseConfig_Factory(t) {
-  return new (t || _NgbCollapseConfig)();
-};
-_NgbCollapseConfig.ɵprov = ɵɵdefineInjectable({
-  token: _NgbCollapseConfig,
-  factory: _NgbCollapseConfig.ɵfac,
-  providedIn: "root"
-});
-var NgbCollapseConfig = _NgbCollapseConfig;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbCollapseConfig, [{
     type: Injectable,
@@ -2929,7 +2938,7 @@ var NgbCollapseConfig = _NgbCollapseConfig;
     }]
   }], null, null);
 })();
-var _NgbCollapse = class _NgbCollapse {
+var NgbCollapse = class _NgbCollapse {
   constructor() {
     this._config = inject(NgbCollapseConfig);
     this._element = inject(ElementRef);
@@ -2988,33 +2997,36 @@ var _NgbCollapse = class _NgbCollapse {
       }
     });
   }
+  static {
+    this.ɵfac = function NgbCollapse_Factory(t) {
+      return new (t || _NgbCollapse)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbCollapse,
+      selectors: [["", "ngbCollapse", ""]],
+      hostVars: 2,
+      hostBindings: function NgbCollapse_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵclassProp("collapse-horizontal", ctx.horizontal);
+        }
+      },
+      inputs: {
+        animation: "animation",
+        collapsed: [InputFlags.None, "ngbCollapse", "collapsed"],
+        horizontal: "horizontal"
+      },
+      outputs: {
+        ngbCollapseChange: "ngbCollapseChange",
+        shown: "shown",
+        hidden: "hidden"
+      },
+      exportAs: ["ngbCollapse"],
+      standalone: true
+    });
+  }
 };
-_NgbCollapse.ɵfac = function NgbCollapse_Factory(t) {
-  return new (t || _NgbCollapse)();
-};
-_NgbCollapse.ɵdir = ɵɵdefineDirective({
-  type: _NgbCollapse,
-  selectors: [["", "ngbCollapse", ""]],
-  hostVars: 2,
-  hostBindings: function NgbCollapse_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵclassProp("collapse-horizontal", ctx.horizontal);
-    }
-  },
-  inputs: {
-    animation: "animation",
-    collapsed: [InputFlags.None, "ngbCollapse", "collapsed"],
-    horizontal: "horizontal"
-  },
-  outputs: {
-    ngbCollapseChange: "ngbCollapseChange",
-    shown: "shown",
-    hidden: "hidden"
-  },
-  exportAs: ["ngbCollapse"],
-  standalone: true
-});
-var NgbCollapse = _NgbCollapse;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbCollapse, [{
     type: Directive,
@@ -3049,7 +3061,7 @@ var NgbCollapse = _NgbCollapse;
   });
 })();
 var nextId$3 = 0;
-var _NgbAccordionBody = class _NgbAccordionBody {
+var NgbAccordionBody = class _NgbAccordionBody {
   constructor() {
     this._vcr = inject(ViewContainerRef);
     this._element = inject(ElementRef).nativeElement;
@@ -3083,31 +3095,34 @@ var _NgbAccordionBody = class _NgbAccordionBody {
       }
     }
   }
+  static {
+    this.ɵfac = function NgbAccordionBody_Factory(t) {
+      return new (t || _NgbAccordionBody)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbAccordionBody,
+      selectors: [["", "ngbAccordionBody", ""]],
+      contentQueries: function NgbAccordionBody_ContentQueries(rf, ctx, dirIndex) {
+        if (rf & 1) {
+          ɵɵcontentQuery(dirIndex, TemplateRef, 7);
+        }
+        if (rf & 2) {
+          let _t;
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._bodyTpl = _t.first);
+        }
+      },
+      hostVars: 2,
+      hostBindings: function NgbAccordionBody_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵclassProp("accordion-body", true);
+        }
+      },
+      standalone: true
+    });
+  }
 };
-_NgbAccordionBody.ɵfac = function NgbAccordionBody_Factory(t) {
-  return new (t || _NgbAccordionBody)();
-};
-_NgbAccordionBody.ɵdir = ɵɵdefineDirective({
-  type: _NgbAccordionBody,
-  selectors: [["", "ngbAccordionBody", ""]],
-  contentQueries: function NgbAccordionBody_ContentQueries(rf, ctx, dirIndex) {
-    if (rf & 1) {
-      ɵɵcontentQuery(dirIndex, TemplateRef, 7);
-    }
-    if (rf & 2) {
-      let _t;
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._bodyTpl = _t.first);
-    }
-  },
-  hostVars: 2,
-  hostBindings: function NgbAccordionBody_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵclassProp("accordion-body", true);
-    }
-  },
-  standalone: true
-});
-var NgbAccordionBody = _NgbAccordionBody;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbAccordionBody, [{
     type: Directive,
@@ -3127,32 +3142,35 @@ var NgbAccordionBody = _NgbAccordionBody;
     }]
   });
 })();
-var _NgbAccordionCollapse = class _NgbAccordionCollapse {
+var NgbAccordionCollapse = class _NgbAccordionCollapse {
   constructor() {
     this.item = inject(NgbAccordionItem);
     this.ngbCollapse = inject(NgbCollapse);
   }
+  static {
+    this.ɵfac = function NgbAccordionCollapse_Factory(t) {
+      return new (t || _NgbAccordionCollapse)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbAccordionCollapse,
+      selectors: [["", "ngbAccordionCollapse", ""]],
+      hostAttrs: ["role", "region"],
+      hostVars: 4,
+      hostBindings: function NgbAccordionCollapse_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵhostProperty("id", ctx.item.collapseId);
+          ɵɵattribute("aria-labelledby", ctx.item.toggleId);
+          ɵɵclassProp("accordion-collapse", true);
+        }
+      },
+      exportAs: ["ngbAccordionCollapse"],
+      standalone: true,
+      features: [ɵɵHostDirectivesFeature([NgbCollapse])]
+    });
+  }
 };
-_NgbAccordionCollapse.ɵfac = function NgbAccordionCollapse_Factory(t) {
-  return new (t || _NgbAccordionCollapse)();
-};
-_NgbAccordionCollapse.ɵdir = ɵɵdefineDirective({
-  type: _NgbAccordionCollapse,
-  selectors: [["", "ngbAccordionCollapse", ""]],
-  hostAttrs: ["role", "region"],
-  hostVars: 4,
-  hostBindings: function NgbAccordionCollapse_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵhostProperty("id", ctx.item.collapseId);
-      ɵɵattribute("aria-labelledby", ctx.item.toggleId);
-      ɵɵclassProp("accordion-collapse", true);
-    }
-  },
-  exportAs: ["ngbAccordionCollapse"],
-  standalone: true,
-  features: [ɵɵHostDirectivesFeature([NgbCollapse])]
-});
-var NgbAccordionCollapse = _NgbAccordionCollapse;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbAccordionCollapse, [{
     type: Directive,
@@ -3170,34 +3188,37 @@ var NgbAccordionCollapse = _NgbAccordionCollapse;
     }]
   }], null, null);
 })();
-var _NgbAccordionToggle = class _NgbAccordionToggle {
+var NgbAccordionToggle = class _NgbAccordionToggle {
   constructor() {
     this.item = inject(NgbAccordionItem);
     this.accordion = inject(NgbAccordionDirective);
   }
+  static {
+    this.ɵfac = function NgbAccordionToggle_Factory(t) {
+      return new (t || _NgbAccordionToggle)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbAccordionToggle,
+      selectors: [["", "ngbAccordionToggle", ""]],
+      hostVars: 5,
+      hostBindings: function NgbAccordionToggle_HostBindings(rf, ctx) {
+        if (rf & 1) {
+          ɵɵlistener("click", function NgbAccordionToggle_click_HostBindingHandler() {
+            return !ctx.item.disabled && ctx.accordion.toggle(ctx.item.id);
+          });
+        }
+        if (rf & 2) {
+          ɵɵhostProperty("id", ctx.item.toggleId);
+          ɵɵattribute("aria-controls", ctx.item.collapseId)("aria-expanded", !ctx.item.collapsed);
+          ɵɵclassProp("collapsed", ctx.item.collapsed);
+        }
+      },
+      standalone: true
+    });
+  }
 };
-_NgbAccordionToggle.ɵfac = function NgbAccordionToggle_Factory(t) {
-  return new (t || _NgbAccordionToggle)();
-};
-_NgbAccordionToggle.ɵdir = ɵɵdefineDirective({
-  type: _NgbAccordionToggle,
-  selectors: [["", "ngbAccordionToggle", ""]],
-  hostVars: 5,
-  hostBindings: function NgbAccordionToggle_HostBindings(rf, ctx) {
-    if (rf & 1) {
-      ɵɵlistener("click", function NgbAccordionToggle_click_HostBindingHandler() {
-        return !ctx.item.disabled && ctx.accordion.toggle(ctx.item.id);
-      });
-    }
-    if (rf & 2) {
-      ɵɵhostProperty("id", ctx.item.toggleId);
-      ɵɵattribute("aria-controls", ctx.item.collapseId)("aria-expanded", !ctx.item.collapsed);
-      ɵɵclassProp("collapsed", ctx.item.collapsed);
-    }
-  },
-  standalone: true
-});
-var NgbAccordionToggle = _NgbAccordionToggle;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbAccordionToggle, [{
     type: Directive,
@@ -3214,29 +3235,32 @@ var NgbAccordionToggle = _NgbAccordionToggle;
     }]
   }], null, null);
 })();
-var _NgbAccordionButton = class _NgbAccordionButton {
+var NgbAccordionButton = class _NgbAccordionButton {
   constructor() {
     this.item = inject(NgbAccordionItem);
   }
+  static {
+    this.ɵfac = function NgbAccordionButton_Factory(t) {
+      return new (t || _NgbAccordionButton)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbAccordionButton,
+      selectors: [["button", "ngbAccordionButton", ""]],
+      hostAttrs: ["type", "button"],
+      hostVars: 3,
+      hostBindings: function NgbAccordionButton_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵhostProperty("disabled", ctx.item.disabled);
+          ɵɵclassProp("accordion-button", true);
+        }
+      },
+      standalone: true,
+      features: [ɵɵHostDirectivesFeature([NgbAccordionToggle])]
+    });
+  }
 };
-_NgbAccordionButton.ɵfac = function NgbAccordionButton_Factory(t) {
-  return new (t || _NgbAccordionButton)();
-};
-_NgbAccordionButton.ɵdir = ɵɵdefineDirective({
-  type: _NgbAccordionButton,
-  selectors: [["button", "ngbAccordionButton", ""]],
-  hostAttrs: ["type", "button"],
-  hostVars: 3,
-  hostBindings: function NgbAccordionButton_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵhostProperty("disabled", ctx.item.disabled);
-      ɵɵclassProp("accordion-button", true);
-    }
-  },
-  standalone: true,
-  features: [ɵɵHostDirectivesFeature([NgbAccordionToggle])]
-});
-var NgbAccordionButton = _NgbAccordionButton;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbAccordionButton, [{
     type: Directive,
@@ -3252,27 +3276,30 @@ var NgbAccordionButton = _NgbAccordionButton;
     }]
   }], null, null);
 })();
-var _NgbAccordionHeader = class _NgbAccordionHeader {
+var NgbAccordionHeader = class _NgbAccordionHeader {
   constructor() {
     this.item = inject(NgbAccordionItem);
   }
+  static {
+    this.ɵfac = function NgbAccordionHeader_Factory(t) {
+      return new (t || _NgbAccordionHeader)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbAccordionHeader,
+      selectors: [["", "ngbAccordionHeader", ""]],
+      hostAttrs: ["role", "heading"],
+      hostVars: 4,
+      hostBindings: function NgbAccordionHeader_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵclassProp("accordion-header", true)("collapsed", ctx.item.collapsed);
+        }
+      },
+      standalone: true
+    });
+  }
 };
-_NgbAccordionHeader.ɵfac = function NgbAccordionHeader_Factory(t) {
-  return new (t || _NgbAccordionHeader)();
-};
-_NgbAccordionHeader.ɵdir = ɵɵdefineDirective({
-  type: _NgbAccordionHeader,
-  selectors: [["", "ngbAccordionHeader", ""]],
-  hostAttrs: ["role", "heading"],
-  hostVars: 4,
-  hostBindings: function NgbAccordionHeader_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵclassProp("accordion-header", true)("collapsed", ctx.item.collapsed);
-    }
-  },
-  standalone: true
-});
-var NgbAccordionHeader = _NgbAccordionHeader;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbAccordionHeader, [{
     type: Directive,
@@ -3287,7 +3314,7 @@ var NgbAccordionHeader = _NgbAccordionHeader;
     }]
   }], null, null);
 })();
-var _NgbAccordionItem = class _NgbAccordionItem {
+var NgbAccordionItem = class _NgbAccordionItem {
   constructor() {
     this._accordion = inject(NgbAccordionDirective);
     this._cd = inject(ChangeDetectorRef);
@@ -3403,45 +3430,48 @@ var _NgbAccordionItem = class _NgbAccordionItem {
       this._collapse.ngbCollapse.collapsed = true;
     }
   }
+  static {
+    this.ɵfac = function NgbAccordionItem_Factory(t) {
+      return new (t || _NgbAccordionItem)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbAccordionItem,
+      selectors: [["", "ngbAccordionItem", ""]],
+      contentQueries: function NgbAccordionItem_ContentQueries(rf, ctx, dirIndex) {
+        if (rf & 1) {
+          ɵɵcontentQuery(dirIndex, NgbAccordionCollapse, 7);
+        }
+        if (rf & 2) {
+          let _t;
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._collapse = _t.first);
+        }
+      },
+      hostVars: 3,
+      hostBindings: function NgbAccordionItem_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵhostProperty("id", ctx.id);
+          ɵɵclassProp("accordion-item", true);
+        }
+      },
+      inputs: {
+        id: [InputFlags.None, "ngbAccordionItem", "id"],
+        destroyOnHide: "destroyOnHide",
+        disabled: "disabled",
+        collapsed: "collapsed"
+      },
+      outputs: {
+        show: "show",
+        shown: "shown",
+        hide: "hide",
+        hidden: "hidden"
+      },
+      exportAs: ["ngbAccordionItem"],
+      standalone: true
+    });
+  }
 };
-_NgbAccordionItem.ɵfac = function NgbAccordionItem_Factory(t) {
-  return new (t || _NgbAccordionItem)();
-};
-_NgbAccordionItem.ɵdir = ɵɵdefineDirective({
-  type: _NgbAccordionItem,
-  selectors: [["", "ngbAccordionItem", ""]],
-  contentQueries: function NgbAccordionItem_ContentQueries(rf, ctx, dirIndex) {
-    if (rf & 1) {
-      ɵɵcontentQuery(dirIndex, NgbAccordionCollapse, 7);
-    }
-    if (rf & 2) {
-      let _t;
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._collapse = _t.first);
-    }
-  },
-  hostVars: 3,
-  hostBindings: function NgbAccordionItem_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵhostProperty("id", ctx.id);
-      ɵɵclassProp("accordion-item", true);
-    }
-  },
-  inputs: {
-    id: [InputFlags.None, "ngbAccordionItem", "id"],
-    destroyOnHide: "destroyOnHide",
-    disabled: "disabled",
-    collapsed: "collapsed"
-  },
-  outputs: {
-    show: "show",
-    shown: "shown",
-    hide: "hide",
-    hidden: "hidden"
-  },
-  exportAs: ["ngbAccordionItem"],
-  standalone: true
-});
-var NgbAccordionItem = _NgbAccordionItem;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbAccordionItem, [{
     type: Directive,
@@ -3488,7 +3518,7 @@ var NgbAccordionItem = _NgbAccordionItem;
     }]
   });
 })();
-var _NgbAccordionDirective = class _NgbAccordionDirective {
+var NgbAccordionDirective = class _NgbAccordionDirective {
   constructor() {
     this._config = inject(NgbAccordionConfig);
     this._anItemWasAlreadyExpandedDuringInitialisation = false;
@@ -3586,43 +3616,46 @@ var _NgbAccordionDirective = class _NgbAccordionDirective {
   _getItem(itemId) {
     return this._items?.find((item) => item.id === itemId);
   }
+  static {
+    this.ɵfac = function NgbAccordionDirective_Factory(t) {
+      return new (t || _NgbAccordionDirective)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbAccordionDirective,
+      selectors: [["", "ngbAccordion", ""]],
+      contentQueries: function NgbAccordionDirective_ContentQueries(rf, ctx, dirIndex) {
+        if (rf & 1) {
+          ɵɵcontentQuery(dirIndex, NgbAccordionItem, 4);
+        }
+        if (rf & 2) {
+          let _t;
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._items = _t);
+        }
+      },
+      hostVars: 2,
+      hostBindings: function NgbAccordionDirective_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵclassProp("accordion", true);
+        }
+      },
+      inputs: {
+        animation: "animation",
+        closeOthers: "closeOthers",
+        destroyOnHide: "destroyOnHide"
+      },
+      outputs: {
+        show: "show",
+        shown: "shown",
+        hide: "hide",
+        hidden: "hidden"
+      },
+      exportAs: ["ngbAccordion"],
+      standalone: true
+    });
+  }
 };
-_NgbAccordionDirective.ɵfac = function NgbAccordionDirective_Factory(t) {
-  return new (t || _NgbAccordionDirective)();
-};
-_NgbAccordionDirective.ɵdir = ɵɵdefineDirective({
-  type: _NgbAccordionDirective,
-  selectors: [["", "ngbAccordion", ""]],
-  contentQueries: function NgbAccordionDirective_ContentQueries(rf, ctx, dirIndex) {
-    if (rf & 1) {
-      ɵɵcontentQuery(dirIndex, NgbAccordionItem, 4);
-    }
-    if (rf & 2) {
-      let _t;
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._items = _t);
-    }
-  },
-  hostVars: 2,
-  hostBindings: function NgbAccordionDirective_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵclassProp("accordion", true);
-    }
-  },
-  inputs: {
-    animation: "animation",
-    closeOthers: "closeOthers",
-    destroyOnHide: "destroyOnHide"
-  },
-  outputs: {
-    show: "show",
-    shown: "shown",
-    hide: "hide",
-    hidden: "hidden"
-  },
-  exportAs: ["ngbAccordion"],
-  standalone: true
-});
-var NgbAccordionDirective = _NgbAccordionDirective;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbAccordionDirective, [{
     type: Directive,
@@ -3665,18 +3698,23 @@ var NgbAccordionDirective = _NgbAccordionDirective;
   });
 })();
 var NGB_ACCORDION_DIRECTIVES = [NgbAccordionButton, NgbAccordionDirective, NgbAccordionItem, NgbAccordionHeader, NgbAccordionToggle, NgbAccordionBody, NgbAccordionCollapse];
-var _NgbAccordionModule = class _NgbAccordionModule {
+var NgbAccordionModule = class _NgbAccordionModule {
+  static {
+    this.ɵfac = function NgbAccordionModule_Factory(t) {
+      return new (t || _NgbAccordionModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _NgbAccordionModule,
+      imports: [NgbAccordionButton, NgbAccordionDirective, NgbAccordionItem, NgbAccordionHeader, NgbAccordionToggle, NgbAccordionBody, NgbAccordionCollapse],
+      exports: [NgbAccordionButton, NgbAccordionDirective, NgbAccordionItem, NgbAccordionHeader, NgbAccordionToggle, NgbAccordionBody, NgbAccordionCollapse]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_NgbAccordionModule.ɵfac = function NgbAccordionModule_Factory(t) {
-  return new (t || _NgbAccordionModule)();
-};
-_NgbAccordionModule.ɵmod = ɵɵdefineNgModule({
-  type: _NgbAccordionModule,
-  imports: [NgbAccordionButton, NgbAccordionDirective, NgbAccordionItem, NgbAccordionHeader, NgbAccordionToggle, NgbAccordionBody, NgbAccordionCollapse],
-  exports: [NgbAccordionButton, NgbAccordionDirective, NgbAccordionItem, NgbAccordionHeader, NgbAccordionToggle, NgbAccordionBody, NgbAccordionCollapse]
-});
-_NgbAccordionModule.ɵinj = ɵɵdefineInjector({});
-var NgbAccordionModule = _NgbAccordionModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbAccordionModule, [{
     type: NgModule,
@@ -3686,7 +3724,7 @@ var NgbAccordionModule = _NgbAccordionModule;
     }]
   }], null, null);
 })();
-var _NgbAlertConfig = class _NgbAlertConfig {
+var NgbAlertConfig = class _NgbAlertConfig {
   constructor() {
     this._ngbConfig = inject(NgbConfig);
     this.dismissible = true;
@@ -3698,16 +3736,19 @@ var _NgbAlertConfig = class _NgbAlertConfig {
   set animation(animation) {
     this._animation = animation;
   }
+  static {
+    this.ɵfac = function NgbAlertConfig_Factory(t) {
+      return new (t || _NgbAlertConfig)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbAlertConfig,
+      factory: _NgbAlertConfig.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbAlertConfig.ɵfac = function NgbAlertConfig_Factory(t) {
-  return new (t || _NgbAlertConfig)();
-};
-_NgbAlertConfig.ɵprov = ɵɵdefineInjectable({
-  token: _NgbAlertConfig,
-  factory: _NgbAlertConfig.ɵfac,
-  providedIn: "root"
-});
-var NgbAlertConfig = _NgbAlertConfig;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbAlertConfig, [{
     type: Injectable,
@@ -3721,7 +3762,7 @@ var ngbAlertFadingTransition = ({
 }) => {
   classList.remove("show");
 };
-var _NgbAlert = class _NgbAlert {
+var NgbAlert = class _NgbAlert {
   constructor() {
     this._config = inject(NgbAlertConfig);
     this._elementRef = inject(ElementRef);
@@ -3749,61 +3790,64 @@ var _NgbAlert = class _NgbAlert {
     transition.subscribe(() => this.closed.emit());
     return transition;
   }
+  static {
+    this.ɵfac = function NgbAlert_Factory(t) {
+      return new (t || _NgbAlert)();
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbAlert,
+      selectors: [["ngb-alert"]],
+      hostAttrs: ["role", "alert"],
+      hostVars: 6,
+      hostBindings: function NgbAlert_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵclassMap("alert show" + (ctx.type ? " alert-" + ctx.type : ""));
+          ɵɵclassProp("fade", ctx.animation)("alert-dismissible", ctx.dismissible);
+        }
+      },
+      inputs: {
+        animation: "animation",
+        dismissible: "dismissible",
+        type: "type"
+      },
+      outputs: {
+        closed: "closed"
+      },
+      exportAs: ["ngbAlert"],
+      standalone: true,
+      features: [ɵɵStandaloneFeature],
+      ngContentSelectors: _c0,
+      decls: 2,
+      vars: 1,
+      consts: () => {
+        let i18n_0;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_0 = goog.getMsg("Close");
+          i18n_0 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_0;
+        } else {
+          i18n_0 = $localize`:@@ngb.alert.close:Close`;
+        }
+        return [["type", "button", "aria-label", i18n_0, 1, "btn-close"], ["type", "button", "aria-label", i18n_0, 1, "btn-close", 3, "click"]];
+      },
+      template: function NgbAlert_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵprojectionDef();
+          ɵɵprojection(0);
+          ɵɵtemplate(1, NgbAlert_Conditional_1_Template, 1, 0, "button", 0);
+        }
+        if (rf & 2) {
+          ɵɵadvance();
+          ɵɵconditional(1, ctx.dismissible ? 1 : -1);
+        }
+      },
+      styles: ["ngb-alert{display:block}\n"],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_NgbAlert.ɵfac = function NgbAlert_Factory(t) {
-  return new (t || _NgbAlert)();
-};
-_NgbAlert.ɵcmp = ɵɵdefineComponent({
-  type: _NgbAlert,
-  selectors: [["ngb-alert"]],
-  hostAttrs: ["role", "alert"],
-  hostVars: 6,
-  hostBindings: function NgbAlert_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵclassMap("alert show" + (ctx.type ? " alert-" + ctx.type : ""));
-      ɵɵclassProp("fade", ctx.animation)("alert-dismissible", ctx.dismissible);
-    }
-  },
-  inputs: {
-    animation: "animation",
-    dismissible: "dismissible",
-    type: "type"
-  },
-  outputs: {
-    closed: "closed"
-  },
-  exportAs: ["ngbAlert"],
-  standalone: true,
-  features: [ɵɵStandaloneFeature],
-  ngContentSelectors: _c0,
-  decls: 2,
-  vars: 1,
-  consts: () => {
-    let i18n_0;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_0 = goog.getMsg("Close");
-      i18n_0 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_0;
-    } else {
-      i18n_0 = $localize`:@@ngb.alert.close:Close`;
-    }
-    return [["type", "button", "aria-label", i18n_0, 1, "btn-close"], ["type", "button", "aria-label", i18n_0, 1, "btn-close", 3, "click"]];
-  },
-  template: function NgbAlert_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵprojectionDef();
-      ɵɵprojection(0);
-      ɵɵtemplate(1, NgbAlert_Conditional_1_Template, 1, 0, "button", 0);
-    }
-    if (rf & 2) {
-      ɵɵadvance();
-      ɵɵconditional(1, ctx.dismissible ? 1 : -1);
-    }
-  },
-  styles: ["ngb-alert{display:block}\n"],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var NgbAlert = _NgbAlert;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbAlert, [{
     type: Component,
@@ -3848,18 +3892,23 @@ var NgbAlert = _NgbAlert;
     }]
   });
 })();
-var _NgbAlertModule = class _NgbAlertModule {
+var NgbAlertModule = class _NgbAlertModule {
+  static {
+    this.ɵfac = function NgbAlertModule_Factory(t) {
+      return new (t || _NgbAlertModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _NgbAlertModule,
+      imports: [NgbAlert],
+      exports: [NgbAlert]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_NgbAlertModule.ɵfac = function NgbAlertModule_Factory(t) {
-  return new (t || _NgbAlertModule)();
-};
-_NgbAlertModule.ɵmod = ɵɵdefineNgModule({
-  type: _NgbAlertModule,
-  imports: [NgbAlert],
-  exports: [NgbAlert]
-});
-_NgbAlertModule.ɵinj = ɵɵdefineInjector({});
-var NgbAlertModule = _NgbAlertModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbAlertModule, [{
     type: NgModule,
@@ -3869,7 +3918,7 @@ var NgbAlertModule = _NgbAlertModule;
     }]
   }], null, null);
 })();
-var _NgbCarouselConfig = class _NgbCarouselConfig {
+var NgbCarouselConfig = class _NgbCarouselConfig {
   constructor() {
     this._ngbConfig = inject(NgbConfig);
     this.interval = 5e3;
@@ -3886,16 +3935,19 @@ var _NgbCarouselConfig = class _NgbCarouselConfig {
   set animation(animation) {
     this._animation = animation;
   }
+  static {
+    this.ɵfac = function NgbCarouselConfig_Factory(t) {
+      return new (t || _NgbCarouselConfig)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbCarouselConfig,
+      factory: _NgbCarouselConfig.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbCarouselConfig.ɵfac = function NgbCarouselConfig_Factory(t) {
-  return new (t || _NgbCarouselConfig)();
-};
-_NgbCarouselConfig.ɵprov = ɵɵdefineInjectable({
-  token: _NgbCarouselConfig,
-  factory: _NgbCarouselConfig.ɵfac,
-  providedIn: "root"
-});
-var NgbCarouselConfig = _NgbCarouselConfig;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbCarouselConfig, [{
     type: Injectable,
@@ -3971,28 +4023,31 @@ var ngbCarouselTransitionOut = (element, animation, {
 };
 var nextId$2 = 0;
 var carouselId = 0;
-var _NgbSlide = class _NgbSlide {
+var NgbSlide = class _NgbSlide {
   constructor() {
     this.templateRef = inject(TemplateRef);
     this.id = `ngb-slide-${nextId$2++}`;
     this.slid = new EventEmitter();
   }
+  static {
+    this.ɵfac = function NgbSlide_Factory(t) {
+      return new (t || _NgbSlide)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbSlide,
+      selectors: [["ng-template", "ngbSlide", ""]],
+      inputs: {
+        id: "id"
+      },
+      outputs: {
+        slid: "slid"
+      },
+      standalone: true
+    });
+  }
 };
-_NgbSlide.ɵfac = function NgbSlide_Factory(t) {
-  return new (t || _NgbSlide)();
-};
-_NgbSlide.ɵdir = ɵɵdefineDirective({
-  type: _NgbSlide,
-  selectors: [["ng-template", "ngbSlide", ""]],
-  inputs: {
-    id: "id"
-  },
-  outputs: {
-    slid: "slid"
-  },
-  standalone: true
-});
-var NgbSlide = _NgbSlide;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbSlide, [{
     type: Directive,
@@ -4009,7 +4064,7 @@ var NgbSlide = _NgbSlide;
     }]
   });
 })();
-var _NgbCarousel = class _NgbCarousel {
+var NgbCarousel = class _NgbCarousel {
   constructor() {
     this.NgbSlideEventSource = NgbSlideEventSource;
     this._config = inject(NgbCarouselConfig);
@@ -4256,122 +4311,125 @@ var _NgbCarousel = class _NgbCarousel {
   _getSlideElement(slideId) {
     return this._container.nativeElement.querySelector(`#slide-${slideId}`);
   }
-};
-_NgbCarousel.ɵfac = function NgbCarousel_Factory(t) {
-  return new (t || _NgbCarousel)();
-};
-_NgbCarousel.ɵcmp = ɵɵdefineComponent({
-  type: _NgbCarousel,
-  selectors: [["ngb-carousel"]],
-  contentQueries: function NgbCarousel_ContentQueries(rf, ctx, dirIndex) {
-    if (rf & 1) {
-      ɵɵcontentQuery(dirIndex, NgbSlide, 4);
-    }
-    if (rf & 2) {
-      let _t;
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.slides = _t);
-    }
-  },
-  hostAttrs: ["tabIndex", "0", 1, "carousel", "slide"],
-  hostVars: 3,
-  hostBindings: function NgbCarousel_HostBindings(rf, ctx) {
-    if (rf & 1) {
-      ɵɵlistener("keydown.arrowLeft", function NgbCarousel_keydown_arrowLeft_HostBindingHandler() {
-        return ctx.keyboard && ctx.arrowLeft();
-      })("keydown.arrowRight", function NgbCarousel_keydown_arrowRight_HostBindingHandler() {
-        return ctx.keyboard && ctx.arrowRight();
-      })("mouseenter", function NgbCarousel_mouseenter_HostBindingHandler() {
-        return ctx.mouseHover = true;
-      })("mouseleave", function NgbCarousel_mouseleave_HostBindingHandler() {
-        return ctx.mouseHover = false;
-      })("focusin", function NgbCarousel_focusin_HostBindingHandler() {
-        return ctx.focused = true;
-      })("focusout", function NgbCarousel_focusout_HostBindingHandler() {
-        return ctx.focused = false;
-      });
-    }
-    if (rf & 2) {
-      ɵɵattribute("aria-activedescendant", "slide-" + ctx.activeId);
-      ɵɵstyleProp("display", "block");
-    }
-  },
-  inputs: {
-    animation: "animation",
-    activeId: "activeId",
-    interval: "interval",
-    wrap: "wrap",
-    keyboard: "keyboard",
-    pauseOnHover: "pauseOnHover",
-    pauseOnFocus: "pauseOnFocus",
-    showNavigationArrows: "showNavigationArrows",
-    showNavigationIndicators: "showNavigationIndicators"
-  },
-  outputs: {
-    slide: "slide",
-    slid: "slid"
-  },
-  exportAs: ["ngbCarousel"],
-  standalone: true,
-  features: [ɵɵStandaloneFeature],
-  decls: 7,
-  vars: 3,
-  consts: () => {
-    let i18n_1;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_1 = goog.getMsg(" Slide {$interpolation} of {$interpolation_1} ", {
-        "interpolation": "�0�",
-        "interpolation_1": "�1�"
-      }, {
-        original_code: {
-          "interpolation": "{{ i + 1 }}",
-          "interpolation_1": "{{ c }}"
+  static {
+    this.ɵfac = function NgbCarousel_Factory(t) {
+      return new (t || _NgbCarousel)();
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbCarousel,
+      selectors: [["ngb-carousel"]],
+      contentQueries: function NgbCarousel_ContentQueries(rf, ctx, dirIndex) {
+        if (rf & 1) {
+          ɵɵcontentQuery(dirIndex, NgbSlide, 4);
         }
-      });
-      i18n_1 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_1;
-    } else {
-      i18n_1 = $localize`:Currently selected slide number read by screen reader@@ngb.carousel.slide-number: Slide ${"�0�"}:INTERPOLATION: of ${"�1�"}:INTERPOLATION_1: `;
-    }
-    let i18n_2;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_2 = goog.getMsg("Previous");
-      i18n_2 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_2;
-    } else {
-      i18n_2 = $localize`:@@ngb.carousel.previous:Previous`;
-    }
-    let i18n_3;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_3 = goog.getMsg("Next");
-      i18n_3 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_3;
-    } else {
-      i18n_3 = $localize`:@@ngb.carousel.next:Next`;
-    }
-    return [i18n_1, i18n_2, i18n_3, ["role", "tablist", 1, "carousel-indicators"], ["type", "button", "data-bs-target", "", "role", "tab", 3, "active"], [1, "carousel-inner"], ["role", "tabpanel", 1, "carousel-item", 3, "id"], ["type", "button", "data-bs-target", "", "role", "tab", 3, "click"], [1, "visually-hidden"], [3, "ngTemplateOutlet"], ["type", "button", 1, "carousel-control-prev", 3, "click"], ["aria-hidden", "true", 1, "carousel-control-prev-icon"], [1, "visually-hidden", 3, "id"], ["type", "button", 1, "carousel-control-next", 3, "click"], ["aria-hidden", "true", 1, "carousel-control-next-icon"]];
-  },
-  template: function NgbCarousel_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵelementStart(0, "div", 3);
-      ɵɵrepeaterCreate(1, NgbCarousel_For_2_Template, 1, 5, "button", 4, ɵɵrepeaterTrackByIdentity);
-      ɵɵelementEnd();
-      ɵɵelementStart(3, "div", 5);
-      ɵɵrepeaterCreate(4, NgbCarousel_For_5_Template, 4, 4, "div", 6, ɵɵrepeaterTrackByIdentity);
-      ɵɵelementEnd();
-      ɵɵtemplate(6, NgbCarousel_Conditional_6_Template, 8, 4);
-    }
-    if (rf & 2) {
-      ɵɵclassProp("visually-hidden", !ctx.showNavigationIndicators);
-      ɵɵadvance();
-      ɵɵrepeater(ctx.slides);
-      ɵɵadvance(3);
-      ɵɵrepeater(ctx.slides);
-      ɵɵadvance(2);
-      ɵɵconditional(6, ctx.showNavigationArrows ? 6 : -1);
-    }
-  },
-  dependencies: [NgTemplateOutlet],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var NgbCarousel = _NgbCarousel;
+        if (rf & 2) {
+          let _t;
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.slides = _t);
+        }
+      },
+      hostAttrs: ["tabIndex", "0", 1, "carousel", "slide"],
+      hostVars: 3,
+      hostBindings: function NgbCarousel_HostBindings(rf, ctx) {
+        if (rf & 1) {
+          ɵɵlistener("keydown.arrowLeft", function NgbCarousel_keydown_arrowLeft_HostBindingHandler() {
+            return ctx.keyboard && ctx.arrowLeft();
+          })("keydown.arrowRight", function NgbCarousel_keydown_arrowRight_HostBindingHandler() {
+            return ctx.keyboard && ctx.arrowRight();
+          })("mouseenter", function NgbCarousel_mouseenter_HostBindingHandler() {
+            return ctx.mouseHover = true;
+          })("mouseleave", function NgbCarousel_mouseleave_HostBindingHandler() {
+            return ctx.mouseHover = false;
+          })("focusin", function NgbCarousel_focusin_HostBindingHandler() {
+            return ctx.focused = true;
+          })("focusout", function NgbCarousel_focusout_HostBindingHandler() {
+            return ctx.focused = false;
+          });
+        }
+        if (rf & 2) {
+          ɵɵattribute("aria-activedescendant", "slide-" + ctx.activeId);
+          ɵɵstyleProp("display", "block");
+        }
+      },
+      inputs: {
+        animation: "animation",
+        activeId: "activeId",
+        interval: "interval",
+        wrap: "wrap",
+        keyboard: "keyboard",
+        pauseOnHover: "pauseOnHover",
+        pauseOnFocus: "pauseOnFocus",
+        showNavigationArrows: "showNavigationArrows",
+        showNavigationIndicators: "showNavigationIndicators"
+      },
+      outputs: {
+        slide: "slide",
+        slid: "slid"
+      },
+      exportAs: ["ngbCarousel"],
+      standalone: true,
+      features: [ɵɵStandaloneFeature],
+      decls: 7,
+      vars: 3,
+      consts: () => {
+        let i18n_1;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_1 = goog.getMsg(" Slide {$interpolation} of {$interpolation_1} ", {
+            "interpolation": "�0�",
+            "interpolation_1": "�1�"
+          }, {
+            original_code: {
+              "interpolation": "{{ i + 1 }}",
+              "interpolation_1": "{{ c }}"
+            }
+          });
+          i18n_1 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_1;
+        } else {
+          i18n_1 = $localize`:Currently selected slide number read by screen reader@@ngb.carousel.slide-number: Slide ${"�0�"}:INTERPOLATION: of ${"�1�"}:INTERPOLATION_1: `;
+        }
+        let i18n_2;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_2 = goog.getMsg("Previous");
+          i18n_2 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_2;
+        } else {
+          i18n_2 = $localize`:@@ngb.carousel.previous:Previous`;
+        }
+        let i18n_3;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_3 = goog.getMsg("Next");
+          i18n_3 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_3;
+        } else {
+          i18n_3 = $localize`:@@ngb.carousel.next:Next`;
+        }
+        return [i18n_1, i18n_2, i18n_3, ["role", "tablist", 1, "carousel-indicators"], ["type", "button", "data-bs-target", "", "role", "tab", 3, "active"], [1, "carousel-inner"], ["role", "tabpanel", 1, "carousel-item", 3, "id"], ["type", "button", "data-bs-target", "", "role", "tab", 3, "click"], [1, "visually-hidden"], [3, "ngTemplateOutlet"], ["type", "button", 1, "carousel-control-prev", 3, "click"], ["aria-hidden", "true", 1, "carousel-control-prev-icon"], [1, "visually-hidden", 3, "id"], ["type", "button", 1, "carousel-control-next", 3, "click"], ["aria-hidden", "true", 1, "carousel-control-next-icon"]];
+      },
+      template: function NgbCarousel_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵelementStart(0, "div", 3);
+          ɵɵrepeaterCreate(1, NgbCarousel_For_2_Template, 1, 5, "button", 4, ɵɵrepeaterTrackByIdentity);
+          ɵɵelementEnd();
+          ɵɵelementStart(3, "div", 5);
+          ɵɵrepeaterCreate(4, NgbCarousel_For_5_Template, 4, 4, "div", 6, ɵɵrepeaterTrackByIdentity);
+          ɵɵelementEnd();
+          ɵɵtemplate(6, NgbCarousel_Conditional_6_Template, 8, 4);
+        }
+        if (rf & 2) {
+          ɵɵclassProp("visually-hidden", !ctx.showNavigationIndicators);
+          ɵɵadvance();
+          ɵɵrepeater(ctx.slides);
+          ɵɵadvance(3);
+          ɵɵrepeater(ctx.slides);
+          ɵɵadvance(2);
+          ɵɵconditional(6, ctx.showNavigationArrows ? 6 : -1);
+        }
+      },
+      dependencies: [NgTemplateOutlet],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
+};
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbCarousel, [{
     type: Component,
@@ -4486,18 +4544,23 @@ var NgbSlideEventSource;
   NgbSlideEventSource2["ARROW_RIGHT"] = "arrowRight";
   NgbSlideEventSource2["INDICATOR"] = "indicator";
 })(NgbSlideEventSource || (NgbSlideEventSource = {}));
-var _NgbCarouselModule = class _NgbCarouselModule {
+var NgbCarouselModule = class _NgbCarouselModule {
+  static {
+    this.ɵfac = function NgbCarouselModule_Factory(t) {
+      return new (t || _NgbCarouselModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _NgbCarouselModule,
+      imports: [NgbCarousel, NgbSlide],
+      exports: [NgbCarousel, NgbSlide]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_NgbCarouselModule.ɵfac = function NgbCarouselModule_Factory(t) {
-  return new (t || _NgbCarouselModule)();
-};
-_NgbCarouselModule.ɵmod = ɵɵdefineNgModule({
-  type: _NgbCarouselModule,
-  imports: [NgbCarousel, NgbSlide],
-  exports: [NgbCarousel, NgbSlide]
-});
-_NgbCarouselModule.ɵinj = ɵɵdefineInjector({});
-var NgbCarouselModule = _NgbCarouselModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbCarouselModule, [{
     type: NgModule,
@@ -4507,18 +4570,23 @@ var NgbCarouselModule = _NgbCarouselModule;
     }]
   }], null, null);
 })();
-var _NgbCollapseModule = class _NgbCollapseModule {
+var NgbCollapseModule = class _NgbCollapseModule {
+  static {
+    this.ɵfac = function NgbCollapseModule_Factory(t) {
+      return new (t || _NgbCollapseModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _NgbCollapseModule,
+      imports: [NgbCollapse],
+      exports: [NgbCollapse]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_NgbCollapseModule.ɵfac = function NgbCollapseModule_Factory(t) {
-  return new (t || _NgbCollapseModule)();
-};
-_NgbCollapseModule.ɵmod = ɵɵdefineNgModule({
-  type: _NgbCollapseModule,
-  imports: [NgbCollapse],
-  exports: [NgbCollapse]
-});
-_NgbCollapseModule.ɵinj = ɵɵdefineInjector({});
-var NgbCollapseModule = _NgbCollapseModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbCollapseModule, [{
     type: NgModule,
@@ -4601,17 +4669,20 @@ function toJSDate(date) {
 function NGB_DATEPICKER_CALENDAR_FACTORY() {
   return new NgbCalendarGregorian();
 }
-var _NgbCalendar = class _NgbCalendar {
+var NgbCalendar = class _NgbCalendar {
+  static {
+    this.ɵfac = function NgbCalendar_Factory(t) {
+      return new (t || _NgbCalendar)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbCalendar,
+      factory: () => NGB_DATEPICKER_CALENDAR_FACTORY(),
+      providedIn: "root"
+    });
+  }
 };
-_NgbCalendar.ɵfac = function NgbCalendar_Factory(t) {
-  return new (t || _NgbCalendar)();
-};
-_NgbCalendar.ɵprov = ɵɵdefineInjectable({
-  token: _NgbCalendar,
-  factory: () => NGB_DATEPICKER_CALENDAR_FACTORY(),
-  providedIn: "root"
-});
-var NgbCalendar = _NgbCalendar;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbCalendar, [{
     type: Injectable,
@@ -4621,7 +4692,7 @@ var NgbCalendar = _NgbCalendar;
     }]
   }], null, null);
 })();
-var _NgbCalendarGregorian = class _NgbCalendarGregorian extends NgbCalendar {
+var NgbCalendarGregorian = class _NgbCalendarGregorian extends NgbCalendar {
   getDaysPerWeek() {
     return 7;
   }
@@ -4693,18 +4764,21 @@ var _NgbCalendarGregorian = class _NgbCalendarGregorian extends NgbCalendar {
     const jsDate = toJSDate(date);
     return !isNaN(jsDate.getTime()) && jsDate.getFullYear() === date.year && jsDate.getMonth() + 1 === date.month && jsDate.getDate() === date.day;
   }
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵNgbCalendarGregorian_BaseFactory;
+      return function NgbCalendarGregorian_Factory(t) {
+        return (ɵNgbCalendarGregorian_BaseFactory || (ɵNgbCalendarGregorian_BaseFactory = ɵɵgetInheritedFactory(_NgbCalendarGregorian)))(t || _NgbCalendarGregorian);
+      };
+    })();
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbCalendarGregorian,
+      factory: _NgbCalendarGregorian.ɵfac
+    });
+  }
 };
-_NgbCalendarGregorian.ɵfac = /* @__PURE__ */ (() => {
-  let ɵNgbCalendarGregorian_BaseFactory;
-  return function NgbCalendarGregorian_Factory(t) {
-    return (ɵNgbCalendarGregorian_BaseFactory || (ɵNgbCalendarGregorian_BaseFactory = ɵɵgetInheritedFactory(_NgbCalendarGregorian)))(t || _NgbCalendarGregorian);
-  };
-})();
-_NgbCalendarGregorian.ɵprov = ɵɵdefineInjectable({
-  token: _NgbCalendarGregorian,
-  factory: _NgbCalendarGregorian.ɵfac
-});
-var NgbCalendarGregorian = _NgbCalendarGregorian;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbCalendarGregorian, [{
     type: Injectable
@@ -4902,7 +4976,7 @@ function getFirstViewDate(calendar, date, firstDayOfWeek) {
   const dayOfWeek = calendar.getWeekday(firstMonthDate) % daysPerWeek;
   return calendar.getPrev(firstMonthDate, "d", (daysPerWeek + dayOfWeek - firstDayOfWeek) % daysPerWeek);
 }
-var _NgbDatepickerI18n = class _NgbDatepickerI18n {
+var NgbDatepickerI18n = class _NgbDatepickerI18n {
   /**
    * Returns the text label to display above the day view.
    *
@@ -4943,16 +5017,19 @@ var _NgbDatepickerI18n = class _NgbDatepickerI18n {
   getWeekLabel() {
     return "";
   }
+  static {
+    this.ɵfac = function NgbDatepickerI18n_Factory(t) {
+      return new (t || _NgbDatepickerI18n)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbDatepickerI18n,
+      factory: () => (() => new NgbDatepickerI18nDefault())(),
+      providedIn: "root"
+    });
+  }
 };
-_NgbDatepickerI18n.ɵfac = function NgbDatepickerI18n_Factory(t) {
-  return new (t || _NgbDatepickerI18n)();
-};
-_NgbDatepickerI18n.ɵprov = ɵɵdefineInjectable({
-  token: _NgbDatepickerI18n,
-  factory: () => (() => new NgbDatepickerI18nDefault())(),
-  providedIn: "root"
-});
-var NgbDatepickerI18n = _NgbDatepickerI18n;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDatepickerI18n, [{
     type: Injectable,
@@ -4962,7 +5039,7 @@ var NgbDatepickerI18n = _NgbDatepickerI18n;
     }]
   }], null, null);
 })();
-var _NgbDatepickerI18nDefault = class _NgbDatepickerI18nDefault extends NgbDatepickerI18n {
+var NgbDatepickerI18nDefault = class _NgbDatepickerI18nDefault extends NgbDatepickerI18n {
   constructor() {
     super(...arguments);
     this._locale = inject(LOCALE_ID);
@@ -4984,24 +5061,27 @@ var _NgbDatepickerI18nDefault = class _NgbDatepickerI18nDefault extends NgbDatep
     const jsDate = new Date(date.year, date.month - 1, date.day);
     return formatDate(jsDate, "fullDate", this._locale);
   }
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵNgbDatepickerI18nDefault_BaseFactory;
+      return function NgbDatepickerI18nDefault_Factory(t) {
+        return (ɵNgbDatepickerI18nDefault_BaseFactory || (ɵNgbDatepickerI18nDefault_BaseFactory = ɵɵgetInheritedFactory(_NgbDatepickerI18nDefault)))(t || _NgbDatepickerI18nDefault);
+      };
+    })();
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbDatepickerI18nDefault,
+      factory: _NgbDatepickerI18nDefault.ɵfac
+    });
+  }
 };
-_NgbDatepickerI18nDefault.ɵfac = /* @__PURE__ */ (() => {
-  let ɵNgbDatepickerI18nDefault_BaseFactory;
-  return function NgbDatepickerI18nDefault_Factory(t) {
-    return (ɵNgbDatepickerI18nDefault_BaseFactory || (ɵNgbDatepickerI18nDefault_BaseFactory = ɵɵgetInheritedFactory(_NgbDatepickerI18nDefault)))(t || _NgbDatepickerI18nDefault);
-  };
-})();
-_NgbDatepickerI18nDefault.ɵprov = ɵɵdefineInjectable({
-  token: _NgbDatepickerI18nDefault,
-  factory: _NgbDatepickerI18nDefault.ɵfac
-});
-var NgbDatepickerI18nDefault = _NgbDatepickerI18nDefault;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDatepickerI18nDefault, [{
     type: Injectable
   }], null, null);
 })();
-var _NgbDatepickerService = class _NgbDatepickerService {
+var NgbDatepickerService = class _NgbDatepickerService {
   constructor() {
     this._VALIDATORS = {
       dayTemplateData: (dayTemplateData) => {
@@ -5283,15 +5363,18 @@ var _NgbDatepickerService = class _NgbDatepickerService {
     }
     return state;
   }
+  static {
+    this.ɵfac = function NgbDatepickerService_Factory(t) {
+      return new (t || _NgbDatepickerService)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbDatepickerService,
+      factory: _NgbDatepickerService.ɵfac
+    });
+  }
 };
-_NgbDatepickerService.ɵfac = function NgbDatepickerService_Factory(t) {
-  return new (t || _NgbDatepickerService)();
-};
-_NgbDatepickerService.ɵprov = ɵɵdefineInjectable({
-  token: _NgbDatepickerService,
-  factory: _NgbDatepickerService.ɵfac
-});
-var NgbDatepickerService = _NgbDatepickerService;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDatepickerService, [{
     type: Injectable
@@ -5302,7 +5385,7 @@ var NavigationEvent;
   NavigationEvent2[NavigationEvent2["PREV"] = 0] = "PREV";
   NavigationEvent2[NavigationEvent2["NEXT"] = 1] = "NEXT";
 })(NavigationEvent || (NavigationEvent = {}));
-var _NgbDatepickerConfig = class _NgbDatepickerConfig {
+var NgbDatepickerConfig = class _NgbDatepickerConfig {
   constructor() {
     this.displayMonths = 1;
     this.firstDayOfWeek = 1;
@@ -5311,16 +5394,19 @@ var _NgbDatepickerConfig = class _NgbDatepickerConfig {
     this.showWeekNumbers = false;
     this.weekdays = TranslationWidth.Short;
   }
+  static {
+    this.ɵfac = function NgbDatepickerConfig_Factory(t) {
+      return new (t || _NgbDatepickerConfig)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbDatepickerConfig,
+      factory: _NgbDatepickerConfig.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbDatepickerConfig.ɵfac = function NgbDatepickerConfig_Factory(t) {
-  return new (t || _NgbDatepickerConfig)();
-};
-_NgbDatepickerConfig.ɵprov = ɵɵdefineInjectable({
-  token: _NgbDatepickerConfig,
-  factory: _NgbDatepickerConfig.ɵfac,
-  providedIn: "root"
-});
-var NgbDatepickerConfig = _NgbDatepickerConfig;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDatepickerConfig, [{
     type: Injectable,
@@ -5332,17 +5418,20 @@ var NgbDatepickerConfig = _NgbDatepickerConfig;
 function NGB_DATEPICKER_DATE_ADAPTER_FACTORY() {
   return new NgbDateStructAdapter();
 }
-var _NgbDateAdapter = class _NgbDateAdapter {
+var NgbDateAdapter = class _NgbDateAdapter {
+  static {
+    this.ɵfac = function NgbDateAdapter_Factory(t) {
+      return new (t || _NgbDateAdapter)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbDateAdapter,
+      factory: () => NGB_DATEPICKER_DATE_ADAPTER_FACTORY(),
+      providedIn: "root"
+    });
+  }
 };
-_NgbDateAdapter.ɵfac = function NgbDateAdapter_Factory(t) {
-  return new (t || _NgbDateAdapter)();
-};
-_NgbDateAdapter.ɵprov = ɵɵdefineInjectable({
-  token: _NgbDateAdapter,
-  factory: () => NGB_DATEPICKER_DATE_ADAPTER_FACTORY(),
-  providedIn: "root"
-});
-var NgbDateAdapter = _NgbDateAdapter;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDateAdapter, [{
     type: Injectable,
@@ -5352,7 +5441,7 @@ var NgbDateAdapter = _NgbDateAdapter;
     }]
   }], null, null);
 })();
-var _NgbDateStructAdapter = class _NgbDateStructAdapter extends NgbDateAdapter {
+var NgbDateStructAdapter = class _NgbDateStructAdapter extends NgbDateAdapter {
   /**
    * Converts a NgbDateStruct value into NgbDateStruct value
    */
@@ -5373,18 +5462,21 @@ var _NgbDateStructAdapter = class _NgbDateStructAdapter extends NgbDateAdapter {
       day: date.day
     } : null;
   }
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵNgbDateStructAdapter_BaseFactory;
+      return function NgbDateStructAdapter_Factory(t) {
+        return (ɵNgbDateStructAdapter_BaseFactory || (ɵNgbDateStructAdapter_BaseFactory = ɵɵgetInheritedFactory(_NgbDateStructAdapter)))(t || _NgbDateStructAdapter);
+      };
+    })();
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbDateStructAdapter,
+      factory: _NgbDateStructAdapter.ɵfac
+    });
+  }
 };
-_NgbDateStructAdapter.ɵfac = /* @__PURE__ */ (() => {
-  let ɵNgbDateStructAdapter_BaseFactory;
-  return function NgbDateStructAdapter_Factory(t) {
-    return (ɵNgbDateStructAdapter_BaseFactory || (ɵNgbDateStructAdapter_BaseFactory = ɵɵgetInheritedFactory(_NgbDateStructAdapter)))(t || _NgbDateStructAdapter);
-  };
-})();
-_NgbDateStructAdapter.ɵprov = ɵɵdefineInjectable({
-  token: _NgbDateStructAdapter,
-  factory: _NgbDateStructAdapter.ɵfac
-});
-var NgbDateStructAdapter = _NgbDateStructAdapter;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDateStructAdapter, [{
     type: Injectable
@@ -5405,7 +5497,7 @@ var Key;
   Key2[Key2["ArrowRight"] = 39] = "ArrowRight";
   Key2[Key2["ArrowDown"] = 40] = "ArrowDown";
 })(Key || (Key = {}));
-var _NgbDatepickerKeyboardService = class _NgbDatepickerKeyboardService {
+var NgbDatepickerKeyboardService = class _NgbDatepickerKeyboardService {
   /**
    * Processes a keyboard event.
    */
@@ -5449,16 +5541,19 @@ var _NgbDatepickerKeyboardService = class _NgbDatepickerKeyboardService {
     event.preventDefault();
     event.stopPropagation();
   }
+  static {
+    this.ɵfac = function NgbDatepickerKeyboardService_Factory(t) {
+      return new (t || _NgbDatepickerKeyboardService)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbDatepickerKeyboardService,
+      factory: _NgbDatepickerKeyboardService.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbDatepickerKeyboardService.ɵfac = function NgbDatepickerKeyboardService_Factory(t) {
-  return new (t || _NgbDatepickerKeyboardService)();
-};
-_NgbDatepickerKeyboardService.ɵprov = ɵɵdefineInjectable({
-  token: _NgbDatepickerKeyboardService,
-  factory: _NgbDatepickerKeyboardService.ɵfac,
-  providedIn: "root"
-});
-var NgbDatepickerKeyboardService = _NgbDatepickerKeyboardService;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDatepickerKeyboardService, [{
     type: Injectable,
@@ -5467,52 +5562,55 @@ var NgbDatepickerKeyboardService = _NgbDatepickerKeyboardService;
     }]
   }], null, null);
 })();
-var _NgbDatepickerDayView = class _NgbDatepickerDayView {
+var NgbDatepickerDayView = class _NgbDatepickerDayView {
   constructor() {
     this.i18n = inject(NgbDatepickerI18n);
   }
   isMuted() {
     return !this.selected && (this.date.month !== this.currentMonth || this.disabled);
   }
+  static {
+    this.ɵfac = function NgbDatepickerDayView_Factory(t) {
+      return new (t || _NgbDatepickerDayView)();
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbDatepickerDayView,
+      selectors: [["", "ngbDatepickerDayView", ""]],
+      hostAttrs: [1, "btn-light"],
+      hostVars: 10,
+      hostBindings: function NgbDatepickerDayView_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵclassProp("bg-primary", ctx.selected)("text-white", ctx.selected)("text-muted", ctx.isMuted())("outside", ctx.isMuted())("active", ctx.focused);
+        }
+      },
+      inputs: {
+        currentMonth: "currentMonth",
+        date: "date",
+        disabled: "disabled",
+        focused: "focused",
+        selected: "selected"
+      },
+      standalone: true,
+      features: [ɵɵStandaloneFeature],
+      attrs: _c1,
+      decls: 1,
+      vars: 1,
+      template: function NgbDatepickerDayView_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵtext(0);
+        }
+        if (rf & 2) {
+          ɵɵtextInterpolate(ctx.i18n.getDayNumerals(ctx.date));
+        }
+      },
+      styles: ["[ngbDatepickerDayView]{text-align:center;width:2rem;height:2rem;line-height:2rem;border-radius:.25rem;background:transparent}[ngbDatepickerDayView]:hover:not(.bg-primary),[ngbDatepickerDayView].active:not(.bg-primary){background-color:var(--bs-tertiary-bg);outline:1px solid var(--bs-border-color)}[ngbDatepickerDayView].outside{opacity:.5}\n"],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_NgbDatepickerDayView.ɵfac = function NgbDatepickerDayView_Factory(t) {
-  return new (t || _NgbDatepickerDayView)();
-};
-_NgbDatepickerDayView.ɵcmp = ɵɵdefineComponent({
-  type: _NgbDatepickerDayView,
-  selectors: [["", "ngbDatepickerDayView", ""]],
-  hostAttrs: [1, "btn-light"],
-  hostVars: 10,
-  hostBindings: function NgbDatepickerDayView_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵclassProp("bg-primary", ctx.selected)("text-white", ctx.selected)("text-muted", ctx.isMuted())("outside", ctx.isMuted())("active", ctx.focused);
-    }
-  },
-  inputs: {
-    currentMonth: "currentMonth",
-    date: "date",
-    disabled: "disabled",
-    focused: "focused",
-    selected: "selected"
-  },
-  standalone: true,
-  features: [ɵɵStandaloneFeature],
-  attrs: _c1,
-  decls: 1,
-  vars: 1,
-  template: function NgbDatepickerDayView_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵtext(0);
-    }
-    if (rf & 2) {
-      ɵɵtextInterpolate(ctx.i18n.getDayNumerals(ctx.date));
-    }
-  },
-  styles: ["[ngbDatepickerDayView]{text-align:center;width:2rem;height:2rem;line-height:2rem;border-radius:.25rem;background:transparent}[ngbDatepickerDayView]:hover:not(.bg-primary),[ngbDatepickerDayView].active:not(.bg-primary){background-color:var(--bs-tertiary-bg);outline:1px solid var(--bs-border-color)}[ngbDatepickerDayView].outside{opacity:.5}\n"],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var NgbDatepickerDayView = _NgbDatepickerDayView;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDatepickerDayView, [{
     type: Component,
@@ -5550,7 +5648,7 @@ var NgbDatepickerDayView = _NgbDatepickerDayView;
     }]
   });
 })();
-var _NgbDatepickerNavigationSelect = class _NgbDatepickerNavigationSelect {
+var NgbDatepickerNavigationSelect = class _NgbDatepickerNavigationSelect {
   constructor() {
     this._month = -1;
     this._year = -1;
@@ -5575,101 +5673,104 @@ var _NgbDatepickerNavigationSelect = class _NgbDatepickerNavigationSelect {
       }
     }
   }
+  static {
+    this.ɵfac = function NgbDatepickerNavigationSelect_Factory(t) {
+      return new (t || _NgbDatepickerNavigationSelect)();
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbDatepickerNavigationSelect,
+      selectors: [["ngb-datepicker-navigation-select"]],
+      viewQuery: function NgbDatepickerNavigationSelect_Query(rf, ctx) {
+        if (rf & 1) {
+          ɵɵviewQuery(_c2, 7, ElementRef);
+          ɵɵviewQuery(_c3, 7, ElementRef);
+        }
+        if (rf & 2) {
+          let _t;
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.monthSelect = _t.first);
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.yearSelect = _t.first);
+        }
+      },
+      inputs: {
+        date: "date",
+        disabled: "disabled",
+        months: "months",
+        years: "years"
+      },
+      outputs: {
+        select: "select"
+      },
+      standalone: true,
+      features: [ɵɵStandaloneFeature],
+      decls: 8,
+      vars: 2,
+      consts: () => {
+        let i18n_4;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_4 = goog.getMsg("Select month");
+          i18n_4 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_4;
+        } else {
+          i18n_4 = $localize`:@@ngb.datepicker.select-month:Select month`;
+        }
+        let i18n_5;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_5 = goog.getMsg("Select month");
+          i18n_5 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_5;
+        } else {
+          i18n_5 = $localize`:@@ngb.datepicker.select-month:Select month`;
+        }
+        let i18n_6;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_6 = goog.getMsg("Select year");
+          i18n_6 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_6;
+        } else {
+          i18n_6 = $localize`:@@ngb.datepicker.select-year:Select year`;
+        }
+        let i18n_7;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_7 = goog.getMsg("Select year");
+          i18n_7 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_7;
+        } else {
+          i18n_7 = $localize`:@@ngb.datepicker.select-year:Select year`;
+        }
+        return [["month", ""], ["year", ""], ["aria-label", i18n_4, "title", i18n_5, 1, "form-select", 3, "change", "disabled"], [3, "value"], ["aria-label", i18n_6, "title", i18n_7, 1, "form-select", 3, "change", "disabled"]];
+      },
+      template: function NgbDatepickerNavigationSelect_Template(rf, ctx) {
+        if (rf & 1) {
+          const _r1 = ɵɵgetCurrentView();
+          ɵɵelementStart(0, "select", 2, 0);
+          ɵɵlistener("change", function NgbDatepickerNavigationSelect_Template_select_change_0_listener($event) {
+            ɵɵrestoreView(_r1);
+            return ɵɵresetView(ctx.changeMonth($event.target.value));
+          });
+          ɵɵrepeaterCreate(2, NgbDatepickerNavigationSelect_For_3_Template, 2, 3, "option", 3, ɵɵrepeaterTrackByIdentity);
+          ɵɵelementEnd();
+          ɵɵelementStart(4, "select", 4, 1);
+          ɵɵlistener("change", function NgbDatepickerNavigationSelect_Template_select_change_4_listener($event) {
+            ɵɵrestoreView(_r1);
+            return ɵɵresetView(ctx.changeYear($event.target.value));
+          });
+          ɵɵrepeaterCreate(6, NgbDatepickerNavigationSelect_For_7_Template, 2, 2, "option", 3, ɵɵrepeaterTrackByIdentity);
+          ɵɵelementEnd();
+        }
+        if (rf & 2) {
+          ɵɵproperty("disabled", ctx.disabled);
+          ɵɵadvance(2);
+          ɵɵrepeater(ctx.months);
+          ɵɵadvance(2);
+          ɵɵproperty("disabled", ctx.disabled);
+          ɵɵadvance(2);
+          ɵɵrepeater(ctx.years);
+        }
+      },
+      styles: ["ngb-datepicker-navigation-select>.form-select{flex:1 1 auto;padding:0 .5rem;font-size:.875rem;height:1.85rem}ngb-datepicker-navigation-select>.form-select:focus{z-index:1}ngb-datepicker-navigation-select>.form-select::-ms-value{background-color:transparent!important}\n"],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_NgbDatepickerNavigationSelect.ɵfac = function NgbDatepickerNavigationSelect_Factory(t) {
-  return new (t || _NgbDatepickerNavigationSelect)();
-};
-_NgbDatepickerNavigationSelect.ɵcmp = ɵɵdefineComponent({
-  type: _NgbDatepickerNavigationSelect,
-  selectors: [["ngb-datepicker-navigation-select"]],
-  viewQuery: function NgbDatepickerNavigationSelect_Query(rf, ctx) {
-    if (rf & 1) {
-      ɵɵviewQuery(_c2, 7, ElementRef);
-      ɵɵviewQuery(_c3, 7, ElementRef);
-    }
-    if (rf & 2) {
-      let _t;
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.monthSelect = _t.first);
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.yearSelect = _t.first);
-    }
-  },
-  inputs: {
-    date: "date",
-    disabled: "disabled",
-    months: "months",
-    years: "years"
-  },
-  outputs: {
-    select: "select"
-  },
-  standalone: true,
-  features: [ɵɵStandaloneFeature],
-  decls: 8,
-  vars: 2,
-  consts: () => {
-    let i18n_4;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_4 = goog.getMsg("Select month");
-      i18n_4 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_4;
-    } else {
-      i18n_4 = $localize`:@@ngb.datepicker.select-month:Select month`;
-    }
-    let i18n_5;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_5 = goog.getMsg("Select month");
-      i18n_5 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_5;
-    } else {
-      i18n_5 = $localize`:@@ngb.datepicker.select-month:Select month`;
-    }
-    let i18n_6;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_6 = goog.getMsg("Select year");
-      i18n_6 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_6;
-    } else {
-      i18n_6 = $localize`:@@ngb.datepicker.select-year:Select year`;
-    }
-    let i18n_7;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_7 = goog.getMsg("Select year");
-      i18n_7 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_7;
-    } else {
-      i18n_7 = $localize`:@@ngb.datepicker.select-year:Select year`;
-    }
-    return [["month", ""], ["year", ""], ["aria-label", i18n_4, "title", i18n_5, 1, "form-select", 3, "change", "disabled"], [3, "value"], ["aria-label", i18n_6, "title", i18n_7, 1, "form-select", 3, "change", "disabled"]];
-  },
-  template: function NgbDatepickerNavigationSelect_Template(rf, ctx) {
-    if (rf & 1) {
-      const _r1 = ɵɵgetCurrentView();
-      ɵɵelementStart(0, "select", 2, 0);
-      ɵɵlistener("change", function NgbDatepickerNavigationSelect_Template_select_change_0_listener($event) {
-        ɵɵrestoreView(_r1);
-        return ɵɵresetView(ctx.changeMonth($event.target.value));
-      });
-      ɵɵrepeaterCreate(2, NgbDatepickerNavigationSelect_For_3_Template, 2, 3, "option", 3, ɵɵrepeaterTrackByIdentity);
-      ɵɵelementEnd();
-      ɵɵelementStart(4, "select", 4, 1);
-      ɵɵlistener("change", function NgbDatepickerNavigationSelect_Template_select_change_4_listener($event) {
-        ɵɵrestoreView(_r1);
-        return ɵɵresetView(ctx.changeYear($event.target.value));
-      });
-      ɵɵrepeaterCreate(6, NgbDatepickerNavigationSelect_For_7_Template, 2, 2, "option", 3, ɵɵrepeaterTrackByIdentity);
-      ɵɵelementEnd();
-    }
-    if (rf & 2) {
-      ɵɵproperty("disabled", ctx.disabled);
-      ɵɵadvance(2);
-      ɵɵrepeater(ctx.months);
-      ɵɵadvance(2);
-      ɵɵproperty("disabled", ctx.disabled);
-      ɵɵadvance(2);
-      ɵɵrepeater(ctx.years);
-    }
-  },
-  styles: ["ngb-datepicker-navigation-select>.form-select{flex:1 1 auto;padding:0 .5rem;font-size:.875rem;height:1.85rem}ngb-datepicker-navigation-select>.form-select:focus{z-index:1}ngb-datepicker-navigation-select>.form-select::-ms-value{background-color:transparent!important}\n"],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var NgbDatepickerNavigationSelect = _NgbDatepickerNavigationSelect;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDatepickerNavigationSelect, [{
     type: Component,
@@ -5743,7 +5844,7 @@ var NgbDatepickerNavigationSelect = _NgbDatepickerNavigationSelect;
     }]
   });
 })();
-var _NgbDatepickerNavigation = class _NgbDatepickerNavigation {
+var NgbDatepickerNavigation = class _NgbDatepickerNavigation {
   constructor() {
     this.navigation = NavigationEvent;
     this.i18n = inject(NgbDatepickerI18n);
@@ -5759,94 +5860,97 @@ var _NgbDatepickerNavigation = class _NgbDatepickerNavigation {
     event.currentTarget.focus();
     this.navigate.emit(this.navigation.NEXT);
   }
+  static {
+    this.ɵfac = function NgbDatepickerNavigation_Factory(t) {
+      return new (t || _NgbDatepickerNavigation)();
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbDatepickerNavigation,
+      selectors: [["ngb-datepicker-navigation"]],
+      inputs: {
+        date: "date",
+        disabled: "disabled",
+        months: "months",
+        showSelect: "showSelect",
+        prevDisabled: "prevDisabled",
+        nextDisabled: "nextDisabled",
+        selectBoxes: "selectBoxes"
+      },
+      outputs: {
+        navigate: "navigate",
+        select: "select"
+      },
+      standalone: true,
+      features: [ɵɵStandaloneFeature],
+      decls: 8,
+      vars: 4,
+      consts: () => {
+        let i18n_8;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_8 = goog.getMsg("Previous month");
+          i18n_8 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_8;
+        } else {
+          i18n_8 = $localize`:@@ngb.datepicker.previous-month:Previous month`;
+        }
+        let i18n_9;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_9 = goog.getMsg("Previous month");
+          i18n_9 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_9;
+        } else {
+          i18n_9 = $localize`:@@ngb.datepicker.previous-month:Previous month`;
+        }
+        let i18n_10;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_10 = goog.getMsg("Next month");
+          i18n_10 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_10;
+        } else {
+          i18n_10 = $localize`:@@ngb.datepicker.next-month:Next month`;
+        }
+        let i18n_11;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_11 = goog.getMsg("Next month");
+          i18n_11 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_11;
+        } else {
+          i18n_11 = $localize`:@@ngb.datepicker.next-month:Next month`;
+        }
+        return [[1, "ngb-dp-arrow", "ngb-dp-arrow-prev"], ["type", "button", "aria-label", i18n_8, "title", i18n_9, 1, "btn", "btn-link", "ngb-dp-arrow-btn", 3, "click", "disabled"], [1, "ngb-dp-navigation-chevron"], [1, "ngb-dp-navigation-select", 3, "date", "disabled", "months", "years"], [1, "ngb-dp-arrow", "ngb-dp-arrow-next"], ["type", "button", "aria-label", i18n_10, "title", i18n_11, 1, "btn", "btn-link", "ngb-dp-arrow-btn", 3, "click", "disabled"], [1, "ngb-dp-navigation-select", 3, "select", "date", "disabled", "months", "years"], [1, "ngb-dp-arrow"], [1, "ngb-dp-month-name"]];
+      },
+      template: function NgbDatepickerNavigation_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵelementStart(0, "div", 0)(1, "button", 1);
+          ɵɵlistener("click", function NgbDatepickerNavigation_Template_button_click_1_listener($event) {
+            return ctx.onClickPrev($event);
+          });
+          ɵɵelement(2, "span", 2);
+          ɵɵelementEnd()();
+          ɵɵtemplate(3, NgbDatepickerNavigation_Conditional_3_Template, 1, 4, "ngb-datepicker-navigation-select", 3)(4, NgbDatepickerNavigation_Conditional_4_Template, 2, 0);
+          ɵɵelementStart(5, "div", 4)(6, "button", 5);
+          ɵɵlistener("click", function NgbDatepickerNavigation_Template_button_click_6_listener($event) {
+            return ctx.onClickNext($event);
+          });
+          ɵɵelement(7, "span", 2);
+          ɵɵelementEnd()();
+        }
+        if (rf & 2) {
+          ɵɵadvance();
+          ɵɵproperty("disabled", ctx.prevDisabled);
+          ɵɵadvance(2);
+          ɵɵconditional(3, ctx.showSelect ? 3 : -1);
+          ɵɵadvance();
+          ɵɵconditional(4, !ctx.showSelect ? 4 : -1);
+          ɵɵadvance(2);
+          ɵɵproperty("disabled", ctx.nextDisabled);
+        }
+      },
+      dependencies: [NgbDatepickerNavigationSelect],
+      styles: ["ngb-datepicker-navigation{display:flex;align-items:center}.ngb-dp-navigation-chevron{border-style:solid;border-width:.2em .2em 0 0;display:inline-block;width:.75em;height:.75em;margin-left:.25em;margin-right:.15em;transform:rotate(-135deg)}.ngb-dp-arrow{display:flex;flex:1 1 auto;padding-right:0;padding-left:0;margin:0;width:2rem;height:2rem}.ngb-dp-arrow-next{justify-content:flex-end}.ngb-dp-arrow-next .ngb-dp-navigation-chevron{transform:rotate(45deg);margin-left:.15em;margin-right:.25em}.ngb-dp-arrow-btn{padding:0 .25rem;margin:0 .5rem;border:none;background-color:transparent;z-index:1}.ngb-dp-arrow-btn:focus{outline-width:1px;outline-style:auto}@media all and (-ms-high-contrast: none),(-ms-high-contrast: active){.ngb-dp-arrow-btn:focus{outline-style:solid}}.ngb-dp-month-name{font-size:larger;height:2rem;line-height:2rem;text-align:center}.ngb-dp-navigation-select{display:flex;flex:1 1 9rem}\n"],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_NgbDatepickerNavigation.ɵfac = function NgbDatepickerNavigation_Factory(t) {
-  return new (t || _NgbDatepickerNavigation)();
-};
-_NgbDatepickerNavigation.ɵcmp = ɵɵdefineComponent({
-  type: _NgbDatepickerNavigation,
-  selectors: [["ngb-datepicker-navigation"]],
-  inputs: {
-    date: "date",
-    disabled: "disabled",
-    months: "months",
-    showSelect: "showSelect",
-    prevDisabled: "prevDisabled",
-    nextDisabled: "nextDisabled",
-    selectBoxes: "selectBoxes"
-  },
-  outputs: {
-    navigate: "navigate",
-    select: "select"
-  },
-  standalone: true,
-  features: [ɵɵStandaloneFeature],
-  decls: 8,
-  vars: 4,
-  consts: () => {
-    let i18n_8;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_8 = goog.getMsg("Previous month");
-      i18n_8 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_8;
-    } else {
-      i18n_8 = $localize`:@@ngb.datepicker.previous-month:Previous month`;
-    }
-    let i18n_9;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_9 = goog.getMsg("Previous month");
-      i18n_9 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_9;
-    } else {
-      i18n_9 = $localize`:@@ngb.datepicker.previous-month:Previous month`;
-    }
-    let i18n_10;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_10 = goog.getMsg("Next month");
-      i18n_10 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_10;
-    } else {
-      i18n_10 = $localize`:@@ngb.datepicker.next-month:Next month`;
-    }
-    let i18n_11;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_11 = goog.getMsg("Next month");
-      i18n_11 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_11;
-    } else {
-      i18n_11 = $localize`:@@ngb.datepicker.next-month:Next month`;
-    }
-    return [[1, "ngb-dp-arrow", "ngb-dp-arrow-prev"], ["type", "button", "aria-label", i18n_8, "title", i18n_9, 1, "btn", "btn-link", "ngb-dp-arrow-btn", 3, "click", "disabled"], [1, "ngb-dp-navigation-chevron"], [1, "ngb-dp-navigation-select", 3, "date", "disabled", "months", "years"], [1, "ngb-dp-arrow", "ngb-dp-arrow-next"], ["type", "button", "aria-label", i18n_10, "title", i18n_11, 1, "btn", "btn-link", "ngb-dp-arrow-btn", 3, "click", "disabled"], [1, "ngb-dp-navigation-select", 3, "select", "date", "disabled", "months", "years"], [1, "ngb-dp-arrow"], [1, "ngb-dp-month-name"]];
-  },
-  template: function NgbDatepickerNavigation_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵelementStart(0, "div", 0)(1, "button", 1);
-      ɵɵlistener("click", function NgbDatepickerNavigation_Template_button_click_1_listener($event) {
-        return ctx.onClickPrev($event);
-      });
-      ɵɵelement(2, "span", 2);
-      ɵɵelementEnd()();
-      ɵɵtemplate(3, NgbDatepickerNavigation_Conditional_3_Template, 1, 4, "ngb-datepicker-navigation-select", 3)(4, NgbDatepickerNavigation_Conditional_4_Template, 2, 0);
-      ɵɵelementStart(5, "div", 4)(6, "button", 5);
-      ɵɵlistener("click", function NgbDatepickerNavigation_Template_button_click_6_listener($event) {
-        return ctx.onClickNext($event);
-      });
-      ɵɵelement(7, "span", 2);
-      ɵɵelementEnd()();
-    }
-    if (rf & 2) {
-      ɵɵadvance();
-      ɵɵproperty("disabled", ctx.prevDisabled);
-      ɵɵadvance(2);
-      ɵɵconditional(3, ctx.showSelect ? 3 : -1);
-      ɵɵadvance();
-      ɵɵconditional(4, !ctx.showSelect ? 4 : -1);
-      ɵɵadvance(2);
-      ɵɵproperty("disabled", ctx.nextDisabled);
-    }
-  },
-  dependencies: [NgbDatepickerNavigationSelect],
-  styles: ["ngb-datepicker-navigation{display:flex;align-items:center}.ngb-dp-navigation-chevron{border-style:solid;border-width:.2em .2em 0 0;display:inline-block;width:.75em;height:.75em;margin-left:.25em;margin-right:.15em;transform:rotate(-135deg)}.ngb-dp-arrow{display:flex;flex:1 1 auto;padding-right:0;padding-left:0;margin:0;width:2rem;height:2rem}.ngb-dp-arrow-next{justify-content:flex-end}.ngb-dp-arrow-next .ngb-dp-navigation-chevron{transform:rotate(45deg);margin-left:.15em;margin-right:.25em}.ngb-dp-arrow-btn{padding:0 .25rem;margin:0 .5rem;border:none;background-color:transparent;z-index:1}.ngb-dp-arrow-btn:focus{outline-width:1px;outline-style:auto}@media all and (-ms-high-contrast: none),(-ms-high-contrast: active){.ngb-dp-arrow-btn:focus{outline-style:solid}}.ngb-dp-month-name{font-size:larger;height:2rem;line-height:2rem;text-align:center}.ngb-dp-navigation-select{display:flex;flex:1 1 9rem}\n"],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var NgbDatepickerNavigation = _NgbDatepickerNavigation;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDatepickerNavigation, [{
     type: Component,
@@ -5942,20 +6046,23 @@ var NgbDatepickerNavigation = _NgbDatepickerNavigation;
     }]
   });
 })();
-var _NgbDatepickerContent = class _NgbDatepickerContent {
+var NgbDatepickerContent = class _NgbDatepickerContent {
   constructor() {
     this.templateRef = inject(TemplateRef);
   }
+  static {
+    this.ɵfac = function NgbDatepickerContent_Factory(t) {
+      return new (t || _NgbDatepickerContent)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbDatepickerContent,
+      selectors: [["ng-template", "ngbDatepickerContent", ""]],
+      standalone: true
+    });
+  }
 };
-_NgbDatepickerContent.ɵfac = function NgbDatepickerContent_Factory(t) {
-  return new (t || _NgbDatepickerContent)();
-};
-_NgbDatepickerContent.ɵdir = ɵɵdefineDirective({
-  type: _NgbDatepickerContent,
-  selectors: [["ng-template", "ngbDatepickerContent", ""]],
-  standalone: true
-});
-var NgbDatepickerContent = _NgbDatepickerContent;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDatepickerContent, [{
     type: Directive,
@@ -5965,7 +6072,7 @@ var NgbDatepickerContent = _NgbDatepickerContent;
     }]
   }], null, null);
 })();
-var _NgbDatepickerMonth = class _NgbDatepickerMonth {
+var NgbDatepickerMonth = class _NgbDatepickerMonth {
   constructor() {
     this._keyboardService = inject(NgbDatepickerKeyboardService);
     this._service = inject(NgbDatepickerService);
@@ -5989,45 +6096,48 @@ var _NgbDatepickerMonth = class _NgbDatepickerMonth {
       this.datepicker.onDateSelect(day.date);
     }
   }
+  static {
+    this.ɵfac = function NgbDatepickerMonth_Factory(t) {
+      return new (t || _NgbDatepickerMonth)();
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbDatepickerMonth,
+      selectors: [["ngb-datepicker-month"]],
+      hostAttrs: ["role", "grid"],
+      hostBindings: function NgbDatepickerMonth_HostBindings(rf, ctx) {
+        if (rf & 1) {
+          ɵɵlistener("keydown", function NgbDatepickerMonth_keydown_HostBindingHandler($event) {
+            return ctx.onKeyDown($event);
+          });
+        }
+      },
+      inputs: {
+        month: "month"
+      },
+      standalone: true,
+      features: [ɵɵStandaloneFeature],
+      decls: 3,
+      vars: 1,
+      consts: [["role", "row", 1, "ngb-dp-week", "ngb-dp-weekdays"], [1, "ngb-dp-weekday", "ngb-dp-showweek", "small"], ["role", "columnheader", 1, "ngb-dp-weekday", "small"], ["role", "row", 1, "ngb-dp-week"], [1, "ngb-dp-week-number", "small", "text-muted"], ["role", "gridcell", 1, "ngb-dp-day", 3, "disabled", "tabindex", "hidden", "ngb-dp-today"], ["role", "gridcell", 1, "ngb-dp-day", 3, "click", "tabindex"], [3, "ngTemplateOutlet", "ngTemplateOutletContext"]],
+      template: function NgbDatepickerMonth_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵtemplate(0, NgbDatepickerMonth_Conditional_0_Template, 4, 1, "div", 0);
+          ɵɵrepeaterCreate(1, NgbDatepickerMonth_For_2_Template, 1, 1, null, null, ɵɵrepeaterTrackByIdentity);
+        }
+        if (rf & 2) {
+          ɵɵconditional(0, ctx.viewModel.weekdays.length > 0 ? 0 : -1);
+          ɵɵadvance();
+          ɵɵrepeater(ctx.viewModel.weeks);
+        }
+      },
+      dependencies: [NgTemplateOutlet],
+      styles: ['ngb-datepicker-month{display:block}.ngb-dp-weekday,.ngb-dp-week-number{line-height:2rem;text-align:center;font-style:italic}.ngb-dp-weekday{color:var(--bs-info)}.ngb-dp-week{border-radius:.25rem;display:flex}.ngb-dp-weekdays{border-bottom:1px solid var(--bs-border-color);border-radius:0;background-color:var(--bs-tertiary-bg)}.ngb-dp-day,.ngb-dp-weekday,.ngb-dp-week-number{width:2rem;height:2rem}.ngb-dp-day{cursor:pointer}.ngb-dp-day.disabled,.ngb-dp-day.hidden{cursor:default;pointer-events:none}.ngb-dp-day[tabindex="0"]{z-index:1}\n'],
+      encapsulation: 2
+    });
+  }
 };
-_NgbDatepickerMonth.ɵfac = function NgbDatepickerMonth_Factory(t) {
-  return new (t || _NgbDatepickerMonth)();
-};
-_NgbDatepickerMonth.ɵcmp = ɵɵdefineComponent({
-  type: _NgbDatepickerMonth,
-  selectors: [["ngb-datepicker-month"]],
-  hostAttrs: ["role", "grid"],
-  hostBindings: function NgbDatepickerMonth_HostBindings(rf, ctx) {
-    if (rf & 1) {
-      ɵɵlistener("keydown", function NgbDatepickerMonth_keydown_HostBindingHandler($event) {
-        return ctx.onKeyDown($event);
-      });
-    }
-  },
-  inputs: {
-    month: "month"
-  },
-  standalone: true,
-  features: [ɵɵStandaloneFeature],
-  decls: 3,
-  vars: 1,
-  consts: [["role", "row", 1, "ngb-dp-week", "ngb-dp-weekdays"], [1, "ngb-dp-weekday", "ngb-dp-showweek", "small"], ["role", "columnheader", 1, "ngb-dp-weekday", "small"], ["role", "row", 1, "ngb-dp-week"], [1, "ngb-dp-week-number", "small", "text-muted"], ["role", "gridcell", 1, "ngb-dp-day", 3, "disabled", "tabindex", "hidden", "ngb-dp-today"], ["role", "gridcell", 1, "ngb-dp-day", 3, "click", "tabindex"], [3, "ngTemplateOutlet", "ngTemplateOutletContext"]],
-  template: function NgbDatepickerMonth_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵtemplate(0, NgbDatepickerMonth_Conditional_0_Template, 4, 1, "div", 0);
-      ɵɵrepeaterCreate(1, NgbDatepickerMonth_For_2_Template, 1, 1, null, null, ɵɵrepeaterTrackByIdentity);
-    }
-    if (rf & 2) {
-      ɵɵconditional(0, ctx.viewModel.weekdays.length > 0 ? 0 : -1);
-      ɵɵadvance();
-      ɵɵrepeater(ctx.viewModel.weeks);
-    }
-  },
-  dependencies: [NgTemplateOutlet],
-  styles: ['ngb-datepicker-month{display:block}.ngb-dp-weekday,.ngb-dp-week-number{line-height:2rem;text-align:center;font-style:italic}.ngb-dp-weekday{color:var(--bs-info)}.ngb-dp-week{border-radius:.25rem;display:flex}.ngb-dp-weekdays{border-bottom:1px solid var(--bs-border-color);border-radius:0;background-color:var(--bs-tertiary-bg)}.ngb-dp-day,.ngb-dp-weekday,.ngb-dp-week-number{width:2rem;height:2rem}.ngb-dp-day{cursor:pointer}.ngb-dp-day.disabled,.ngb-dp-day.hidden{cursor:default;pointer-events:none}.ngb-dp-day[tabindex="0"]{z-index:1}\n'],
-  encapsulation: 2
-});
-var NgbDatepickerMonth = _NgbDatepickerMonth;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDatepickerMonth, [{
     type: Component,
@@ -6085,7 +6195,7 @@ var NgbDatepickerMonth = _NgbDatepickerMonth;
     }]
   });
 })();
-var _NgbDatepicker = class _NgbDatepicker {
+var NgbDatepicker = class _NgbDatepicker {
   constructor() {
     this.injector = inject(Injector);
     this._service = inject(NgbDatepickerService);
@@ -6291,98 +6401,101 @@ var _NgbDatepicker = class _NgbDatepicker {
     this._controlValue = NgbDate.from(this._ngbDateAdapter.fromModel(value));
     this._service.select(this._controlValue);
   }
+  static {
+    this.ɵfac = function NgbDatepicker_Factory(t) {
+      return new (t || _NgbDatepicker)();
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbDatepicker,
+      selectors: [["ngb-datepicker"]],
+      contentQueries: function NgbDatepicker_ContentQueries(rf, ctx, dirIndex) {
+        if (rf & 1) {
+          ɵɵcontentQuery(dirIndex, NgbDatepickerContent, 7);
+        }
+        if (rf & 2) {
+          let _t;
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.contentTemplateFromContent = _t.first);
+        }
+      },
+      viewQuery: function NgbDatepicker_Query(rf, ctx) {
+        if (rf & 1) {
+          ɵɵviewQuery(_c4, 7);
+          ɵɵviewQuery(_c5, 7);
+        }
+        if (rf & 2) {
+          let _t;
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._defaultDayTemplate = _t.first);
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._contentEl = _t.first);
+        }
+      },
+      hostVars: 2,
+      hostBindings: function NgbDatepicker_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵclassProp("disabled", ctx.model.disabled);
+        }
+      },
+      inputs: {
+        contentTemplate: "contentTemplate",
+        dayTemplate: "dayTemplate",
+        dayTemplateData: "dayTemplateData",
+        displayMonths: "displayMonths",
+        firstDayOfWeek: "firstDayOfWeek",
+        footerTemplate: "footerTemplate",
+        markDisabled: "markDisabled",
+        maxDate: "maxDate",
+        minDate: "minDate",
+        navigation: "navigation",
+        outsideDays: "outsideDays",
+        showWeekNumbers: "showWeekNumbers",
+        startDate: "startDate",
+        weekdays: "weekdays"
+      },
+      outputs: {
+        navigate: "navigate",
+        dateSelect: "dateSelect"
+      },
+      exportAs: ["ngbDatepicker"],
+      standalone: true,
+      features: [ɵɵProvidersFeature([{
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: forwardRef(() => _NgbDatepicker),
+        multi: true
+      }, NgbDatepickerService]), ɵɵNgOnChangesFeature, ɵɵStandaloneFeature],
+      decls: 10,
+      vars: 9,
+      consts: [["defaultDayTemplate", ""], ["defaultContentTemplate", ""], ["content", ""], [1, "ngb-dp-header"], [3, "date", "months", "disabled", "showSelect", "prevDisabled", "nextDisabled", "selectBoxes"], [1, "ngb-dp-content"], [3, "ngTemplateOutlet", "ngTemplateOutletContext", "ngTemplateOutletInjector"], [3, "ngTemplateOutlet"], ["ngbDatepickerDayView", "", 3, "date", "currentMonth", "selected", "disabled", "focused"], [1, "ngb-dp-month"], [1, "ngb-dp-month-name"], [3, "month"], [3, "navigate", "select", "date", "months", "disabled", "showSelect", "prevDisabled", "nextDisabled", "selectBoxes"]],
+      template: function NgbDatepicker_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵtemplate(0, NgbDatepicker_ng_template_0_Template, 1, 5, "ng-template", null, 0, ɵɵtemplateRefExtractor)(2, NgbDatepicker_ng_template_2_Template, 2, 0, "ng-template", null, 1, ɵɵtemplateRefExtractor);
+          ɵɵelementStart(4, "div", 3);
+          ɵɵtemplate(5, NgbDatepicker_Conditional_5_Template, 1, 7, "ngb-datepicker-navigation", 4);
+          ɵɵelementEnd();
+          ɵɵelementStart(6, "div", 5, 2);
+          ɵɵtemplate(8, NgbDatepicker_ng_template_8_Template, 0, 0, "ng-template", 6);
+          ɵɵelementEnd();
+          ɵɵtemplate(9, NgbDatepicker_ng_template_9_Template, 0, 0, "ng-template", 7);
+        }
+        if (rf & 2) {
+          const defaultContentTemplate_r9 = ɵɵreference(3);
+          ɵɵadvance(5);
+          ɵɵconditional(5, ctx.navigation !== "none" ? 5 : -1);
+          ɵɵadvance();
+          ɵɵclassProp("ngb-dp-months", !ctx.contentTemplate);
+          ɵɵadvance(2);
+          ɵɵproperty("ngTemplateOutlet", ctx.contentTemplate || (ctx.contentTemplateFromContent == null ? null : ctx.contentTemplateFromContent.templateRef) || defaultContentTemplate_r9)("ngTemplateOutletContext", ɵɵpureFunction1(7, _c6, ctx))("ngTemplateOutletInjector", ctx.injector);
+          ɵɵadvance();
+          ɵɵproperty("ngTemplateOutlet", ctx.footerTemplate);
+        }
+      },
+      dependencies: [NgTemplateOutlet, NgbDatepickerDayView, NgbDatepickerMonth, NgbDatepickerNavigation],
+      styles: ["ngb-datepicker{border:1px solid var(--bs-border-color);border-radius:.25rem;display:inline-block}ngb-datepicker-month{pointer-events:auto}ngb-datepicker.dropdown-menu{padding:0}ngb-datepicker.disabled .ngb-dp-weekday,ngb-datepicker.disabled .ngb-dp-week-number,ngb-datepicker.disabled .ngb-dp-month-name{color:var(--bs-text-muted)}.ngb-dp-body{z-index:1055}.ngb-dp-header{border-bottom:0;border-radius:.25rem .25rem 0 0;padding-top:.25rem;background-color:var(--bs-tertiary-bg)}.ngb-dp-months{display:flex}.ngb-dp-month{pointer-events:none}.ngb-dp-month-name{font-size:larger;height:2rem;line-height:2rem;text-align:center;background-color:var(--bs-tertiary-bg)}.ngb-dp-month+.ngb-dp-month .ngb-dp-month-name,.ngb-dp-month+.ngb-dp-month .ngb-dp-week{padding-left:1rem}.ngb-dp-month:last-child .ngb-dp-week{padding-right:.25rem}.ngb-dp-month:first-child .ngb-dp-week{padding-left:.25rem}.ngb-dp-month .ngb-dp-week:last-child{padding-bottom:.25rem}\n"],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_NgbDatepicker.ɵfac = function NgbDatepicker_Factory(t) {
-  return new (t || _NgbDatepicker)();
-};
-_NgbDatepicker.ɵcmp = ɵɵdefineComponent({
-  type: _NgbDatepicker,
-  selectors: [["ngb-datepicker"]],
-  contentQueries: function NgbDatepicker_ContentQueries(rf, ctx, dirIndex) {
-    if (rf & 1) {
-      ɵɵcontentQuery(dirIndex, NgbDatepickerContent, 7);
-    }
-    if (rf & 2) {
-      let _t;
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.contentTemplateFromContent = _t.first);
-    }
-  },
-  viewQuery: function NgbDatepicker_Query(rf, ctx) {
-    if (rf & 1) {
-      ɵɵviewQuery(_c4, 7);
-      ɵɵviewQuery(_c5, 7);
-    }
-    if (rf & 2) {
-      let _t;
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._defaultDayTemplate = _t.first);
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._contentEl = _t.first);
-    }
-  },
-  hostVars: 2,
-  hostBindings: function NgbDatepicker_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵclassProp("disabled", ctx.model.disabled);
-    }
-  },
-  inputs: {
-    contentTemplate: "contentTemplate",
-    dayTemplate: "dayTemplate",
-    dayTemplateData: "dayTemplateData",
-    displayMonths: "displayMonths",
-    firstDayOfWeek: "firstDayOfWeek",
-    footerTemplate: "footerTemplate",
-    markDisabled: "markDisabled",
-    maxDate: "maxDate",
-    minDate: "minDate",
-    navigation: "navigation",
-    outsideDays: "outsideDays",
-    showWeekNumbers: "showWeekNumbers",
-    startDate: "startDate",
-    weekdays: "weekdays"
-  },
-  outputs: {
-    navigate: "navigate",
-    dateSelect: "dateSelect"
-  },
-  exportAs: ["ngbDatepicker"],
-  standalone: true,
-  features: [ɵɵProvidersFeature([{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => _NgbDatepicker),
-    multi: true
-  }, NgbDatepickerService]), ɵɵNgOnChangesFeature, ɵɵStandaloneFeature],
-  decls: 10,
-  vars: 9,
-  consts: [["defaultDayTemplate", ""], ["defaultContentTemplate", ""], ["content", ""], [1, "ngb-dp-header"], [3, "date", "months", "disabled", "showSelect", "prevDisabled", "nextDisabled", "selectBoxes"], [1, "ngb-dp-content"], [3, "ngTemplateOutlet", "ngTemplateOutletContext", "ngTemplateOutletInjector"], [3, "ngTemplateOutlet"], ["ngbDatepickerDayView", "", 3, "date", "currentMonth", "selected", "disabled", "focused"], [1, "ngb-dp-month"], [1, "ngb-dp-month-name"], [3, "month"], [3, "navigate", "select", "date", "months", "disabled", "showSelect", "prevDisabled", "nextDisabled", "selectBoxes"]],
-  template: function NgbDatepicker_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵtemplate(0, NgbDatepicker_ng_template_0_Template, 1, 5, "ng-template", null, 0, ɵɵtemplateRefExtractor)(2, NgbDatepicker_ng_template_2_Template, 2, 0, "ng-template", null, 1, ɵɵtemplateRefExtractor);
-      ɵɵelementStart(4, "div", 3);
-      ɵɵtemplate(5, NgbDatepicker_Conditional_5_Template, 1, 7, "ngb-datepicker-navigation", 4);
-      ɵɵelementEnd();
-      ɵɵelementStart(6, "div", 5, 2);
-      ɵɵtemplate(8, NgbDatepicker_ng_template_8_Template, 0, 0, "ng-template", 6);
-      ɵɵelementEnd();
-      ɵɵtemplate(9, NgbDatepicker_ng_template_9_Template, 0, 0, "ng-template", 7);
-    }
-    if (rf & 2) {
-      const defaultContentTemplate_r9 = ɵɵreference(3);
-      ɵɵadvance(5);
-      ɵɵconditional(5, ctx.navigation !== "none" ? 5 : -1);
-      ɵɵadvance();
-      ɵɵclassProp("ngb-dp-months", !ctx.contentTemplate);
-      ɵɵadvance(2);
-      ɵɵproperty("ngTemplateOutlet", ctx.contentTemplate || (ctx.contentTemplateFromContent == null ? null : ctx.contentTemplateFromContent.templateRef) || defaultContentTemplate_r9)("ngTemplateOutletContext", ɵɵpureFunction1(7, _c6, ctx))("ngTemplateOutletInjector", ctx.injector);
-      ɵɵadvance();
-      ɵɵproperty("ngTemplateOutlet", ctx.footerTemplate);
-    }
-  },
-  dependencies: [NgTemplateOutlet, NgbDatepickerDayView, NgbDatepickerMonth, NgbDatepickerNavigation],
-  styles: ["ngb-datepicker{border:1px solid var(--bs-border-color);border-radius:.25rem;display:inline-block}ngb-datepicker-month{pointer-events:auto}ngb-datepicker.dropdown-menu{padding:0}ngb-datepicker.disabled .ngb-dp-weekday,ngb-datepicker.disabled .ngb-dp-week-number,ngb-datepicker.disabled .ngb-dp-month-name{color:var(--bs-text-muted)}.ngb-dp-body{z-index:1055}.ngb-dp-header{border-bottom:0;border-radius:.25rem .25rem 0 0;padding-top:.25rem;background-color:var(--bs-tertiary-bg)}.ngb-dp-months{display:flex}.ngb-dp-month{pointer-events:none}.ngb-dp-month-name{font-size:larger;height:2rem;line-height:2rem;text-align:center;background-color:var(--bs-tertiary-bg)}.ngb-dp-month+.ngb-dp-month .ngb-dp-month-name,.ngb-dp-month+.ngb-dp-month .ngb-dp-week{padding-left:1rem}.ngb-dp-month:last-child .ngb-dp-week{padding-right:.25rem}.ngb-dp-month:first-child .ngb-dp-week{padding-left:.25rem}.ngb-dp-month .ngb-dp-week:last-child{padding-bottom:.25rem}\n"],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var NgbDatepicker = _NgbDatepicker;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDatepicker, [{
     type: Component,
@@ -6602,23 +6715,26 @@ var ngbFocusTrap = (zone, element, stopFocusTrap$, refocusOnClick = false) => {
     }
   });
 };
-var _NgbRTL = class _NgbRTL {
+var NgbRTL = class _NgbRTL {
   constructor() {
     this._element = inject(DOCUMENT).documentElement;
   }
   isRTL() {
     return (this._element.getAttribute("dir") || "").toLowerCase() === "rtl";
   }
+  static {
+    this.ɵfac = function NgbRTL_Factory(t) {
+      return new (t || _NgbRTL)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbRTL,
+      factory: _NgbRTL.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbRTL.ɵfac = function NgbRTL_Factory(t) {
-  return new (t || _NgbRTL)();
-};
-_NgbRTL.ɵprov = ɵɵdefineInjectable({
-  token: _NgbRTL,
-  factory: _NgbRTL.ɵfac,
-  providedIn: "root"
-});
-var NgbRTL = _NgbRTL;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbRTL, [{
     type: Injectable,
@@ -6766,17 +6882,20 @@ function ngbPositioning() {
 function NGB_DATEPICKER_PARSER_FORMATTER_FACTORY() {
   return new NgbDateISOParserFormatter();
 }
-var _NgbDateParserFormatter = class _NgbDateParserFormatter {
+var NgbDateParserFormatter = class _NgbDateParserFormatter {
+  static {
+    this.ɵfac = function NgbDateParserFormatter_Factory(t) {
+      return new (t || _NgbDateParserFormatter)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbDateParserFormatter,
+      factory: () => NGB_DATEPICKER_PARSER_FORMATTER_FACTORY(),
+      providedIn: "root"
+    });
+  }
 };
-_NgbDateParserFormatter.ɵfac = function NgbDateParserFormatter_Factory(t) {
-  return new (t || _NgbDateParserFormatter)();
-};
-_NgbDateParserFormatter.ɵprov = ɵɵdefineInjectable({
-  token: _NgbDateParserFormatter,
-  factory: () => NGB_DATEPICKER_PARSER_FORMATTER_FACTORY(),
-  providedIn: "root"
-});
-var NgbDateParserFormatter = _NgbDateParserFormatter;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDateParserFormatter, [{
     type: Injectable,
@@ -6786,7 +6905,7 @@ var NgbDateParserFormatter = _NgbDateParserFormatter;
     }]
   }], null, null);
 })();
-var _NgbDateISOParserFormatter = class _NgbDateISOParserFormatter extends NgbDateParserFormatter {
+var NgbDateISOParserFormatter = class _NgbDateISOParserFormatter extends NgbDateParserFormatter {
   parse(value) {
     if (value != null) {
       const dateParts = value.trim().split("-");
@@ -6815,24 +6934,27 @@ var _NgbDateISOParserFormatter = class _NgbDateISOParserFormatter extends NgbDat
   format(date) {
     return date ? `${date.year}-${isNumber(date.month) ? padNumber(date.month) : ""}-${isNumber(date.day) ? padNumber(date.day) : ""}` : "";
   }
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵNgbDateISOParserFormatter_BaseFactory;
+      return function NgbDateISOParserFormatter_Factory(t) {
+        return (ɵNgbDateISOParserFormatter_BaseFactory || (ɵNgbDateISOParserFormatter_BaseFactory = ɵɵgetInheritedFactory(_NgbDateISOParserFormatter)))(t || _NgbDateISOParserFormatter);
+      };
+    })();
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbDateISOParserFormatter,
+      factory: _NgbDateISOParserFormatter.ɵfac
+    });
+  }
 };
-_NgbDateISOParserFormatter.ɵfac = /* @__PURE__ */ (() => {
-  let ɵNgbDateISOParserFormatter_BaseFactory;
-  return function NgbDateISOParserFormatter_Factory(t) {
-    return (ɵNgbDateISOParserFormatter_BaseFactory || (ɵNgbDateISOParserFormatter_BaseFactory = ɵɵgetInheritedFactory(_NgbDateISOParserFormatter)))(t || _NgbDateISOParserFormatter);
-  };
-})();
-_NgbDateISOParserFormatter.ɵprov = ɵɵdefineInjectable({
-  token: _NgbDateISOParserFormatter,
-  factory: _NgbDateISOParserFormatter.ɵfac
-});
-var NgbDateISOParserFormatter = _NgbDateISOParserFormatter;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDateISOParserFormatter, [{
     type: Injectable
   }], null, null);
 })();
-var _NgbInputDatepickerConfig = class _NgbInputDatepickerConfig extends NgbDatepickerConfig {
+var NgbInputDatepickerConfig = class _NgbInputDatepickerConfig extends NgbDatepickerConfig {
   constructor() {
     super(...arguments);
     this.autoClose = true;
@@ -6840,19 +6962,22 @@ var _NgbInputDatepickerConfig = class _NgbInputDatepickerConfig extends NgbDatep
     this.popperOptions = (options) => options;
     this.restoreFocus = true;
   }
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵNgbInputDatepickerConfig_BaseFactory;
+      return function NgbInputDatepickerConfig_Factory(t) {
+        return (ɵNgbInputDatepickerConfig_BaseFactory || (ɵNgbInputDatepickerConfig_BaseFactory = ɵɵgetInheritedFactory(_NgbInputDatepickerConfig)))(t || _NgbInputDatepickerConfig);
+      };
+    })();
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbInputDatepickerConfig,
+      factory: _NgbInputDatepickerConfig.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbInputDatepickerConfig.ɵfac = /* @__PURE__ */ (() => {
-  let ɵNgbInputDatepickerConfig_BaseFactory;
-  return function NgbInputDatepickerConfig_Factory(t) {
-    return (ɵNgbInputDatepickerConfig_BaseFactory || (ɵNgbInputDatepickerConfig_BaseFactory = ɵɵgetInheritedFactory(_NgbInputDatepickerConfig)))(t || _NgbInputDatepickerConfig);
-  };
-})();
-_NgbInputDatepickerConfig.ɵprov = ɵɵdefineInjectable({
-  token: _NgbInputDatepickerConfig,
-  factory: _NgbInputDatepickerConfig.ɵfac,
-  providedIn: "root"
-});
-var NgbInputDatepickerConfig = _NgbInputDatepickerConfig;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbInputDatepickerConfig, [{
     type: Injectable,
@@ -6872,7 +6997,7 @@ function addPopperOffset(offset$1) {
     return options;
   };
 }
-var _NgbInputDatepicker = class _NgbInputDatepicker {
+var NgbInputDatepicker = class _NgbInputDatepicker {
   constructor() {
     this._parserFormatter = inject(NgbDateParserFormatter);
     this._elRef = inject(ElementRef);
@@ -7165,75 +7290,78 @@ var _NgbInputDatepicker = class _NgbInputDatepicker {
     this._destroyCloseHandlers$.next();
     ngbAutoClose(this._ngZone, this._document, this.autoClose, () => this.close(), this._destroyCloseHandlers$, [], [this._elRef.nativeElement, this._cRef.location.nativeElement]);
   }
+  static {
+    this.ɵfac = function NgbInputDatepicker_Factory(t) {
+      return new (t || _NgbInputDatepicker)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbInputDatepicker,
+      selectors: [["input", "ngbDatepicker", ""]],
+      hostVars: 1,
+      hostBindings: function NgbInputDatepicker_HostBindings(rf, ctx) {
+        if (rf & 1) {
+          ɵɵlistener("input", function NgbInputDatepicker_input_HostBindingHandler($event) {
+            return ctx.manualDateChange($event.target.value);
+          })("change", function NgbInputDatepicker_change_HostBindingHandler($event) {
+            return ctx.manualDateChange($event.target.value, true);
+          })("focus", function NgbInputDatepicker_focus_HostBindingHandler() {
+            return ctx.onFocus();
+          })("blur", function NgbInputDatepicker_blur_HostBindingHandler() {
+            return ctx.onBlur();
+          });
+        }
+        if (rf & 2) {
+          ɵɵhostProperty("disabled", ctx.disabled);
+        }
+      },
+      inputs: {
+        autoClose: "autoClose",
+        contentTemplate: "contentTemplate",
+        datepickerClass: "datepickerClass",
+        dayTemplate: "dayTemplate",
+        dayTemplateData: "dayTemplateData",
+        displayMonths: "displayMonths",
+        firstDayOfWeek: "firstDayOfWeek",
+        footerTemplate: "footerTemplate",
+        markDisabled: "markDisabled",
+        minDate: "minDate",
+        maxDate: "maxDate",
+        navigation: "navigation",
+        outsideDays: "outsideDays",
+        placement: "placement",
+        popperOptions: "popperOptions",
+        restoreFocus: "restoreFocus",
+        showWeekNumbers: "showWeekNumbers",
+        startDate: "startDate",
+        container: "container",
+        positionTarget: "positionTarget",
+        weekdays: "weekdays",
+        disabled: "disabled"
+      },
+      outputs: {
+        dateSelect: "dateSelect",
+        navigate: "navigate",
+        closed: "closed"
+      },
+      exportAs: ["ngbDatepicker"],
+      standalone: true,
+      features: [ɵɵProvidersFeature([{
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: forwardRef(() => _NgbInputDatepicker),
+        multi: true
+      }, {
+        provide: NG_VALIDATORS,
+        useExisting: forwardRef(() => _NgbInputDatepicker),
+        multi: true
+      }, {
+        provide: NgbDatepickerConfig,
+        useExisting: NgbInputDatepickerConfig
+      }]), ɵɵNgOnChangesFeature]
+    });
+  }
 };
-_NgbInputDatepicker.ɵfac = function NgbInputDatepicker_Factory(t) {
-  return new (t || _NgbInputDatepicker)();
-};
-_NgbInputDatepicker.ɵdir = ɵɵdefineDirective({
-  type: _NgbInputDatepicker,
-  selectors: [["input", "ngbDatepicker", ""]],
-  hostVars: 1,
-  hostBindings: function NgbInputDatepicker_HostBindings(rf, ctx) {
-    if (rf & 1) {
-      ɵɵlistener("input", function NgbInputDatepicker_input_HostBindingHandler($event) {
-        return ctx.manualDateChange($event.target.value);
-      })("change", function NgbInputDatepicker_change_HostBindingHandler($event) {
-        return ctx.manualDateChange($event.target.value, true);
-      })("focus", function NgbInputDatepicker_focus_HostBindingHandler() {
-        return ctx.onFocus();
-      })("blur", function NgbInputDatepicker_blur_HostBindingHandler() {
-        return ctx.onBlur();
-      });
-    }
-    if (rf & 2) {
-      ɵɵhostProperty("disabled", ctx.disabled);
-    }
-  },
-  inputs: {
-    autoClose: "autoClose",
-    contentTemplate: "contentTemplate",
-    datepickerClass: "datepickerClass",
-    dayTemplate: "dayTemplate",
-    dayTemplateData: "dayTemplateData",
-    displayMonths: "displayMonths",
-    firstDayOfWeek: "firstDayOfWeek",
-    footerTemplate: "footerTemplate",
-    markDisabled: "markDisabled",
-    minDate: "minDate",
-    maxDate: "maxDate",
-    navigation: "navigation",
-    outsideDays: "outsideDays",
-    placement: "placement",
-    popperOptions: "popperOptions",
-    restoreFocus: "restoreFocus",
-    showWeekNumbers: "showWeekNumbers",
-    startDate: "startDate",
-    container: "container",
-    positionTarget: "positionTarget",
-    weekdays: "weekdays",
-    disabled: "disabled"
-  },
-  outputs: {
-    dateSelect: "dateSelect",
-    navigate: "navigate",
-    closed: "closed"
-  },
-  exportAs: ["ngbDatepicker"],
-  standalone: true,
-  features: [ɵɵProvidersFeature([{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => _NgbInputDatepicker),
-    multi: true
-  }, {
-    provide: NG_VALIDATORS,
-    useExisting: forwardRef(() => _NgbInputDatepicker),
-    multi: true
-  }, {
-    provide: NgbDatepickerConfig,
-    useExisting: NgbInputDatepickerConfig
-  }]), ɵɵNgOnChangesFeature]
-});
-var NgbInputDatepicker = _NgbInputDatepicker;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbInputDatepicker, [{
     type: Directive,
@@ -7339,7 +7467,7 @@ var NgbInputDatepicker = _NgbInputDatepicker;
     }]
   });
 })();
-var _NgbCalendarHijri = class _NgbCalendarHijri extends NgbCalendar {
+var NgbCalendarHijri = class _NgbCalendarHijri extends NgbCalendar {
   getDaysPerWeek() {
     return 7;
   }
@@ -7421,18 +7549,21 @@ var _NgbCalendarHijri = class _NgbCalendarHijri extends NgbCalendar {
     date.year = +year;
     return date;
   }
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵNgbCalendarHijri_BaseFactory;
+      return function NgbCalendarHijri_Factory(t) {
+        return (ɵNgbCalendarHijri_BaseFactory || (ɵNgbCalendarHijri_BaseFactory = ɵɵgetInheritedFactory(_NgbCalendarHijri)))(t || _NgbCalendarHijri);
+      };
+    })();
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbCalendarHijri,
+      factory: _NgbCalendarHijri.ɵfac
+    });
+  }
 };
-_NgbCalendarHijri.ɵfac = /* @__PURE__ */ (() => {
-  let ɵNgbCalendarHijri_BaseFactory;
-  return function NgbCalendarHijri_Factory(t) {
-    return (ɵNgbCalendarHijri_BaseFactory || (ɵNgbCalendarHijri_BaseFactory = ɵɵgetInheritedFactory(_NgbCalendarHijri)))(t || _NgbCalendarHijri);
-  };
-})();
-_NgbCalendarHijri.ɵprov = ɵɵdefineInjectable({
-  token: _NgbCalendarHijri,
-  factory: _NgbCalendarHijri.ɵfac
-});
-var NgbCalendarHijri = _NgbCalendarHijri;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbCalendarHijri, [{
     type: Injectable
@@ -7456,7 +7587,7 @@ function mod$1(a, b) {
 }
 var GREGORIAN_EPOCH$1 = 17214255e-1;
 var ISLAMIC_EPOCH = 19484395e-1;
-var _NgbCalendarIslamicCivil = class _NgbCalendarIslamicCivil extends NgbCalendarHijri {
+var NgbCalendarIslamicCivil = class _NgbCalendarIslamicCivil extends NgbCalendarHijri {
   /**
    * Returns the equivalent islamic(civil) date value for a give input Gregorian date.
    * `gDate` is a JS Date to be converted to Hijri.
@@ -7509,18 +7640,21 @@ var _NgbCalendarIslamicCivil = class _NgbCalendarIslamicCivil extends NgbCalenda
     }
     return length;
   }
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵNgbCalendarIslamicCivil_BaseFactory;
+      return function NgbCalendarIslamicCivil_Factory(t) {
+        return (ɵNgbCalendarIslamicCivil_BaseFactory || (ɵNgbCalendarIslamicCivil_BaseFactory = ɵɵgetInheritedFactory(_NgbCalendarIslamicCivil)))(t || _NgbCalendarIslamicCivil);
+      };
+    })();
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbCalendarIslamicCivil,
+      factory: _NgbCalendarIslamicCivil.ɵfac
+    });
+  }
 };
-_NgbCalendarIslamicCivil.ɵfac = /* @__PURE__ */ (() => {
-  let ɵNgbCalendarIslamicCivil_BaseFactory;
-  return function NgbCalendarIslamicCivil_Factory(t) {
-    return (ɵNgbCalendarIslamicCivil_BaseFactory || (ɵNgbCalendarIslamicCivil_BaseFactory = ɵɵgetInheritedFactory(_NgbCalendarIslamicCivil)))(t || _NgbCalendarIslamicCivil);
-  };
-})();
-_NgbCalendarIslamicCivil.ɵprov = ɵɵdefineInjectable({
-  token: _NgbCalendarIslamicCivil,
-  factory: _NgbCalendarIslamicCivil.ɵfac
-});
-var NgbCalendarIslamicCivil = _NgbCalendarIslamicCivil;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbCalendarIslamicCivil, [{
     type: Injectable
@@ -7901,7 +8035,7 @@ function getDaysDiff(date1, date2) {
   const diff = Math.abs(time1 - time2);
   return Math.round(diff / ONE_DAY);
 }
-var _NgbCalendarIslamicUmalqura = class _NgbCalendarIslamicUmalqura extends NgbCalendarIslamicCivil {
+var NgbCalendarIslamicUmalqura = class _NgbCalendarIslamicUmalqura extends NgbCalendarIslamicCivil {
   /**
    * Returns the equivalent islamic(Umalqura) date value for a give input Gregorian date.
    * `gdate` is s JS Date to be converted to Hijri.
@@ -7972,18 +8106,21 @@ var _NgbCalendarIslamicUmalqura = class _NgbCalendarIslamicUmalqura extends NgbC
     }
     return super.getDaysPerMonth(hMonth, hYear);
   }
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵNgbCalendarIslamicUmalqura_BaseFactory;
+      return function NgbCalendarIslamicUmalqura_Factory(t) {
+        return (ɵNgbCalendarIslamicUmalqura_BaseFactory || (ɵNgbCalendarIslamicUmalqura_BaseFactory = ɵɵgetInheritedFactory(_NgbCalendarIslamicUmalqura)))(t || _NgbCalendarIslamicUmalqura);
+      };
+    })();
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbCalendarIslamicUmalqura,
+      factory: _NgbCalendarIslamicUmalqura.ɵfac
+    });
+  }
 };
-_NgbCalendarIslamicUmalqura.ɵfac = /* @__PURE__ */ (() => {
-  let ɵNgbCalendarIslamicUmalqura_BaseFactory;
-  return function NgbCalendarIslamicUmalqura_Factory(t) {
-    return (ɵNgbCalendarIslamicUmalqura_BaseFactory || (ɵNgbCalendarIslamicUmalqura_BaseFactory = ɵɵgetInheritedFactory(_NgbCalendarIslamicUmalqura)))(t || _NgbCalendarIslamicUmalqura);
-  };
-})();
-_NgbCalendarIslamicUmalqura.ɵprov = ɵɵdefineInjectable({
-  token: _NgbCalendarIslamicUmalqura,
-  factory: _NgbCalendarIslamicUmalqura.ɵfac
-});
-var NgbCalendarIslamicUmalqura = _NgbCalendarIslamicUmalqura;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbCalendarIslamicUmalqura, [{
     type: Injectable
@@ -8124,7 +8261,7 @@ function getDaysPerMonth$1(month, year) {
   }
   return 29;
 }
-var _NgbCalendarPersian = class _NgbCalendarPersian extends NgbCalendar {
+var NgbCalendarPersian = class _NgbCalendarPersian extends NgbCalendar {
   getDaysPerWeek() {
     return 7;
   }
@@ -8177,18 +8314,21 @@ var _NgbCalendarPersian = class _NgbCalendarPersian extends NgbCalendar {
   isValid(date) {
     return date != null && isInteger(date.year) && isInteger(date.month) && isInteger(date.day) && !isNaN(toGregorian$3(date).getTime());
   }
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵNgbCalendarPersian_BaseFactory;
+      return function NgbCalendarPersian_Factory(t) {
+        return (ɵNgbCalendarPersian_BaseFactory || (ɵNgbCalendarPersian_BaseFactory = ɵɵgetInheritedFactory(_NgbCalendarPersian)))(t || _NgbCalendarPersian);
+      };
+    })();
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbCalendarPersian,
+      factory: _NgbCalendarPersian.ɵfac
+    });
+  }
 };
-_NgbCalendarPersian.ɵfac = /* @__PURE__ */ (() => {
-  let ɵNgbCalendarPersian_BaseFactory;
-  return function NgbCalendarPersian_Factory(t) {
-    return (ɵNgbCalendarPersian_BaseFactory || (ɵNgbCalendarPersian_BaseFactory = ɵɵgetInheritedFactory(_NgbCalendarPersian)))(t || _NgbCalendarPersian);
-  };
-})();
-_NgbCalendarPersian.ɵprov = ɵɵdefineInjectable({
-  token: _NgbCalendarPersian,
-  factory: _NgbCalendarPersian.ɵfac
-});
-var NgbCalendarPersian = _NgbCalendarPersian;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbCalendarPersian, [{
     type: Injectable
@@ -8445,7 +8585,7 @@ function hebrewNumerals(numerals) {
   }
   return result.join("");
 }
-var _NgbCalendarHebrew = class _NgbCalendarHebrew extends NgbCalendar {
+var NgbCalendarHebrew = class _NgbCalendarHebrew extends NgbCalendar {
   getDaysPerWeek() {
     return 7;
   }
@@ -8512,18 +8652,21 @@ var _NgbCalendarHebrew = class _NgbCalendarHebrew extends NgbCalendar {
   fromGregorian(date) {
     return fromGregorian$2(toJSDate(date));
   }
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵNgbCalendarHebrew_BaseFactory;
+      return function NgbCalendarHebrew_Factory(t) {
+        return (ɵNgbCalendarHebrew_BaseFactory || (ɵNgbCalendarHebrew_BaseFactory = ɵɵgetInheritedFactory(_NgbCalendarHebrew)))(t || _NgbCalendarHebrew);
+      };
+    })();
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbCalendarHebrew,
+      factory: _NgbCalendarHebrew.ɵfac
+    });
+  }
 };
-_NgbCalendarHebrew.ɵfac = /* @__PURE__ */ (() => {
-  let ɵNgbCalendarHebrew_BaseFactory;
-  return function NgbCalendarHebrew_Factory(t) {
-    return (ɵNgbCalendarHebrew_BaseFactory || (ɵNgbCalendarHebrew_BaseFactory = ɵɵgetInheritedFactory(_NgbCalendarHebrew)))(t || _NgbCalendarHebrew);
-  };
-})();
-_NgbCalendarHebrew.ɵprov = ɵɵdefineInjectable({
-  token: _NgbCalendarHebrew,
-  factory: _NgbCalendarHebrew.ɵfac
-});
-var NgbCalendarHebrew = _NgbCalendarHebrew;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbCalendarHebrew, [{
     type: Injectable
@@ -8532,7 +8675,7 @@ var NgbCalendarHebrew = _NgbCalendarHebrew;
 var WEEKDAYS$1 = ["שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת", "ראשון"];
 var MONTHS$1 = ["תשרי", "חשון", "כסלו", "טבת", "שבט", "אדר", "ניסן", "אייר", "סיון", "תמוז", "אב", "אלול"];
 var MONTHS_LEAP = ["תשרי", "חשון", "כסלו", "טבת", "שבט", "אדר א׳", "אדר ב׳", "ניסן", "אייר", "סיון", "תמוז", "אב", "אלול"];
-var _NgbDatepickerI18nHebrew = class _NgbDatepickerI18nHebrew extends NgbDatepickerI18n {
+var NgbDatepickerI18nHebrew = class _NgbDatepickerI18nHebrew extends NgbDatepickerI18n {
   getMonthShortName(month, year) {
     return this.getMonthFullName(month, year);
   }
@@ -8554,18 +8697,21 @@ var _NgbDatepickerI18nHebrew = class _NgbDatepickerI18nHebrew extends NgbDatepic
   getYearNumerals(year) {
     return hebrewNumerals(year);
   }
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵNgbDatepickerI18nHebrew_BaseFactory;
+      return function NgbDatepickerI18nHebrew_Factory(t) {
+        return (ɵNgbDatepickerI18nHebrew_BaseFactory || (ɵNgbDatepickerI18nHebrew_BaseFactory = ɵɵgetInheritedFactory(_NgbDatepickerI18nHebrew)))(t || _NgbDatepickerI18nHebrew);
+      };
+    })();
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbDatepickerI18nHebrew,
+      factory: _NgbDatepickerI18nHebrew.ɵfac
+    });
+  }
 };
-_NgbDatepickerI18nHebrew.ɵfac = /* @__PURE__ */ (() => {
-  let ɵNgbDatepickerI18nHebrew_BaseFactory;
-  return function NgbDatepickerI18nHebrew_Factory(t) {
-    return (ɵNgbDatepickerI18nHebrew_BaseFactory || (ɵNgbDatepickerI18nHebrew_BaseFactory = ɵɵgetInheritedFactory(_NgbDatepickerI18nHebrew)))(t || _NgbDatepickerI18nHebrew);
-  };
-})();
-_NgbDatepickerI18nHebrew.ɵprov = ɵɵdefineInjectable({
-  token: _NgbDatepickerI18nHebrew,
-  factory: _NgbDatepickerI18nHebrew.ɵfac
-});
-var NgbDatepickerI18nHebrew = _NgbDatepickerI18nHebrew;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDatepickerI18nHebrew, [{
     type: Injectable
@@ -8577,7 +8723,7 @@ function toGregorian$1(date) {
 function fromGregorian$1(gdate) {
   return new NgbDate(gdate.getFullYear() + 543, gdate.getMonth() + 1, gdate.getDate());
 }
-var _NgbCalendarBuddhist = class _NgbCalendarBuddhist extends NgbCalendarGregorian {
+var NgbCalendarBuddhist = class _NgbCalendarBuddhist extends NgbCalendarGregorian {
   getToday() {
     return fromGregorian$1(/* @__PURE__ */ new Date());
   }
@@ -8640,18 +8786,21 @@ var _NgbCalendarBuddhist = class _NgbCalendarBuddhist extends NgbCalendarGregori
     const jsDate = toGregorian$1(date);
     return !isNaN(jsDate.getTime()) && jsDate.getFullYear() === date.year - 543 && jsDate.getMonth() + 1 === date.month && jsDate.getDate() === date.day;
   }
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵNgbCalendarBuddhist_BaseFactory;
+      return function NgbCalendarBuddhist_Factory(t) {
+        return (ɵNgbCalendarBuddhist_BaseFactory || (ɵNgbCalendarBuddhist_BaseFactory = ɵɵgetInheritedFactory(_NgbCalendarBuddhist)))(t || _NgbCalendarBuddhist);
+      };
+    })();
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbCalendarBuddhist,
+      factory: _NgbCalendarBuddhist.ɵfac
+    });
+  }
 };
-_NgbCalendarBuddhist.ɵfac = /* @__PURE__ */ (() => {
-  let ɵNgbCalendarBuddhist_BaseFactory;
-  return function NgbCalendarBuddhist_Factory(t) {
-    return (ɵNgbCalendarBuddhist_BaseFactory || (ɵNgbCalendarBuddhist_BaseFactory = ɵɵgetInheritedFactory(_NgbCalendarBuddhist)))(t || _NgbCalendarBuddhist);
-  };
-})();
-_NgbCalendarBuddhist.ɵprov = ɵɵdefineInjectable({
-  token: _NgbCalendarBuddhist,
-  factory: _NgbCalendarBuddhist.ɵfac
-});
-var NgbCalendarBuddhist = _NgbCalendarBuddhist;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbCalendarBuddhist, [{
     type: Injectable
@@ -8752,7 +8901,7 @@ function gregorianToJulian(year, month, day) {
   let b = 2 - a + Math.floor(a / 4);
   return Math.floor(365.25 * (year + 4716)) + Math.floor(30.6001 * (month + 1)) + day + b - 1524.5;
 }
-var _NgbCalendarEthiopian = class _NgbCalendarEthiopian extends NgbCalendar {
+var NgbCalendarEthiopian = class _NgbCalendarEthiopian extends NgbCalendar {
   getDaysPerWeek() {
     return 7;
   }
@@ -8805,18 +8954,21 @@ var _NgbCalendarEthiopian = class _NgbCalendarEthiopian extends NgbCalendar {
   isValid(date) {
     return date && isInteger(date.year) && isInteger(date.month) && isInteger(date.day) && !isNaN(toGregorian(date).getTime());
   }
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵNgbCalendarEthiopian_BaseFactory;
+      return function NgbCalendarEthiopian_Factory(t) {
+        return (ɵNgbCalendarEthiopian_BaseFactory || (ɵNgbCalendarEthiopian_BaseFactory = ɵɵgetInheritedFactory(_NgbCalendarEthiopian)))(t || _NgbCalendarEthiopian);
+      };
+    })();
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbCalendarEthiopian,
+      factory: _NgbCalendarEthiopian.ɵfac
+    });
+  }
 };
-_NgbCalendarEthiopian.ɵfac = /* @__PURE__ */ (() => {
-  let ɵNgbCalendarEthiopian_BaseFactory;
-  return function NgbCalendarEthiopian_Factory(t) {
-    return (ɵNgbCalendarEthiopian_BaseFactory || (ɵNgbCalendarEthiopian_BaseFactory = ɵɵgetInheritedFactory(_NgbCalendarEthiopian)))(t || _NgbCalendarEthiopian);
-  };
-})();
-_NgbCalendarEthiopian.ɵprov = ɵɵdefineInjectable({
-  token: _NgbCalendarEthiopian,
-  factory: _NgbCalendarEthiopian.ɵfac
-});
-var NgbCalendarEthiopian = _NgbCalendarEthiopian;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbCalendarEthiopian, [{
     type: Injectable
@@ -8824,7 +8976,7 @@ var NgbCalendarEthiopian = _NgbCalendarEthiopian;
 })();
 var WEEKDAYS = ["እሑድ", "ሰኞ", "ማክሰኞ", "ረቡዕ", "ሓሙስ", "ዓርብ", "ቅዳሜ"];
 var MONTHS = ["መስከረም", "ጥቅምት", "ኅዳር", "ታህሣሥ", "ጥር", "የካቲት", "መጋቢት", "ሚያዝያ", "ግንቦት", "ሰኔ", "ሐምሌ", "ነሐሴ", "ጳጉሜ"];
-var _NgbDatepickerI18nAmharic = class _NgbDatepickerI18nAmharic extends NgbDatepickerI18n {
+var NgbDatepickerI18nAmharic = class _NgbDatepickerI18nAmharic extends NgbDatepickerI18n {
   getMonthShortName(month, year) {
     return this.getMonthFullName(month, year);
   }
@@ -8837,24 +8989,27 @@ var _NgbDatepickerI18nAmharic = class _NgbDatepickerI18nAmharic extends NgbDatep
   getDayAriaLabel(date) {
     return `${date.day} ${this.getMonthFullName(date.month, date.year)} ${date.year}`;
   }
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵNgbDatepickerI18nAmharic_BaseFactory;
+      return function NgbDatepickerI18nAmharic_Factory(t) {
+        return (ɵNgbDatepickerI18nAmharic_BaseFactory || (ɵNgbDatepickerI18nAmharic_BaseFactory = ɵɵgetInheritedFactory(_NgbDatepickerI18nAmharic)))(t || _NgbDatepickerI18nAmharic);
+      };
+    })();
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbDatepickerI18nAmharic,
+      factory: _NgbDatepickerI18nAmharic.ɵfac
+    });
+  }
 };
-_NgbDatepickerI18nAmharic.ɵfac = /* @__PURE__ */ (() => {
-  let ɵNgbDatepickerI18nAmharic_BaseFactory;
-  return function NgbDatepickerI18nAmharic_Factory(t) {
-    return (ɵNgbDatepickerI18nAmharic_BaseFactory || (ɵNgbDatepickerI18nAmharic_BaseFactory = ɵɵgetInheritedFactory(_NgbDatepickerI18nAmharic)))(t || _NgbDatepickerI18nAmharic);
-  };
-})();
-_NgbDatepickerI18nAmharic.ɵprov = ɵɵdefineInjectable({
-  token: _NgbDatepickerI18nAmharic,
-  factory: _NgbDatepickerI18nAmharic.ɵfac
-});
-var NgbDatepickerI18nAmharic = _NgbDatepickerI18nAmharic;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDatepickerI18nAmharic, [{
     type: Injectable
   }], null, null);
 })();
-var _NgbDateNativeAdapter = class _NgbDateNativeAdapter extends NgbDateAdapter {
+var NgbDateNativeAdapter = class _NgbDateNativeAdapter extends NgbDateAdapter {
   /**
    * Converts a native `Date` to a `NgbDateStruct`.
    */
@@ -8879,24 +9034,27 @@ var _NgbDateNativeAdapter = class _NgbDateNativeAdapter extends NgbDateAdapter {
     jsDate.setFullYear(date.year);
     return jsDate;
   }
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵNgbDateNativeAdapter_BaseFactory;
+      return function NgbDateNativeAdapter_Factory(t) {
+        return (ɵNgbDateNativeAdapter_BaseFactory || (ɵNgbDateNativeAdapter_BaseFactory = ɵɵgetInheritedFactory(_NgbDateNativeAdapter)))(t || _NgbDateNativeAdapter);
+      };
+    })();
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbDateNativeAdapter,
+      factory: _NgbDateNativeAdapter.ɵfac
+    });
+  }
 };
-_NgbDateNativeAdapter.ɵfac = /* @__PURE__ */ (() => {
-  let ɵNgbDateNativeAdapter_BaseFactory;
-  return function NgbDateNativeAdapter_Factory(t) {
-    return (ɵNgbDateNativeAdapter_BaseFactory || (ɵNgbDateNativeAdapter_BaseFactory = ɵɵgetInheritedFactory(_NgbDateNativeAdapter)))(t || _NgbDateNativeAdapter);
-  };
-})();
-_NgbDateNativeAdapter.ɵprov = ɵɵdefineInjectable({
-  token: _NgbDateNativeAdapter,
-  factory: _NgbDateNativeAdapter.ɵfac
-});
-var NgbDateNativeAdapter = _NgbDateNativeAdapter;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDateNativeAdapter, [{
     type: Injectable
   }], null, null);
 })();
-var _NgbDateNativeUTCAdapter = class _NgbDateNativeUTCAdapter extends NgbDateNativeAdapter {
+var NgbDateNativeUTCAdapter = class _NgbDateNativeUTCAdapter extends NgbDateNativeAdapter {
   _fromNativeDate(date) {
     return {
       year: date.getUTCFullYear(),
@@ -8909,36 +9067,44 @@ var _NgbDateNativeUTCAdapter = class _NgbDateNativeUTCAdapter extends NgbDateNat
     jsDate.setUTCFullYear(date.year);
     return jsDate;
   }
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵNgbDateNativeUTCAdapter_BaseFactory;
+      return function NgbDateNativeUTCAdapter_Factory(t) {
+        return (ɵNgbDateNativeUTCAdapter_BaseFactory || (ɵNgbDateNativeUTCAdapter_BaseFactory = ɵɵgetInheritedFactory(_NgbDateNativeUTCAdapter)))(t || _NgbDateNativeUTCAdapter);
+      };
+    })();
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbDateNativeUTCAdapter,
+      factory: _NgbDateNativeUTCAdapter.ɵfac
+    });
+  }
 };
-_NgbDateNativeUTCAdapter.ɵfac = /* @__PURE__ */ (() => {
-  let ɵNgbDateNativeUTCAdapter_BaseFactory;
-  return function NgbDateNativeUTCAdapter_Factory(t) {
-    return (ɵNgbDateNativeUTCAdapter_BaseFactory || (ɵNgbDateNativeUTCAdapter_BaseFactory = ɵɵgetInheritedFactory(_NgbDateNativeUTCAdapter)))(t || _NgbDateNativeUTCAdapter);
-  };
-})();
-_NgbDateNativeUTCAdapter.ɵprov = ɵɵdefineInjectable({
-  token: _NgbDateNativeUTCAdapter,
-  factory: _NgbDateNativeUTCAdapter.ɵfac
-});
-var NgbDateNativeUTCAdapter = _NgbDateNativeUTCAdapter;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDateNativeUTCAdapter, [{
     type: Injectable
   }], null, null);
 })();
 var NGB_DATEPICKER_DIRECTIVES = [NgbDatepicker, NgbDatepickerContent, NgbInputDatepicker, NgbDatepickerMonth];
-var _NgbDatepickerModule = class _NgbDatepickerModule {
+var NgbDatepickerModule = class _NgbDatepickerModule {
+  static {
+    this.ɵfac = function NgbDatepickerModule_Factory(t) {
+      return new (t || _NgbDatepickerModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _NgbDatepickerModule,
+      imports: [NgbDatepicker, NgbDatepickerContent, NgbInputDatepicker, NgbDatepickerMonth],
+      exports: [NgbDatepicker, NgbDatepickerContent, NgbInputDatepicker, NgbDatepickerMonth]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_NgbDatepickerModule.ɵfac = function NgbDatepickerModule_Factory(t) {
-  return new (t || _NgbDatepickerModule)();
-};
-_NgbDatepickerModule.ɵmod = ɵɵdefineNgModule({
-  type: _NgbDatepickerModule,
-  imports: [NgbDatepicker, NgbDatepickerContent, NgbInputDatepicker, NgbDatepickerMonth],
-  exports: [NgbDatepicker, NgbDatepickerContent, NgbInputDatepicker, NgbDatepickerMonth]
-});
-_NgbDatepickerModule.ɵinj = ɵɵdefineInjector({});
-var NgbDatepickerModule = _NgbDatepickerModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDatepickerModule, [{
     type: NgModule,
@@ -8948,23 +9114,26 @@ var NgbDatepickerModule = _NgbDatepickerModule;
     }]
   }], null, null);
 })();
-var _NgbDropdownConfig = class _NgbDropdownConfig {
+var NgbDropdownConfig = class _NgbDropdownConfig {
   constructor() {
     this.autoClose = true;
     this.placement = ["bottom-start", "bottom-end", "top-start", "top-end"];
     this.popperOptions = (options) => options;
     this.container = null;
   }
+  static {
+    this.ɵfac = function NgbDropdownConfig_Factory(t) {
+      return new (t || _NgbDropdownConfig)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbDropdownConfig,
+      factory: _NgbDropdownConfig.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbDropdownConfig.ɵfac = function NgbDropdownConfig_Factory(t) {
-  return new (t || _NgbDropdownConfig)();
-};
-_NgbDropdownConfig.ɵprov = ɵɵdefineInjectable({
-  token: _NgbDropdownConfig,
-  factory: _NgbDropdownConfig.ɵfac,
-  providedIn: "root"
-});
-var NgbDropdownConfig = _NgbDropdownConfig;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDropdownConfig, [{
     type: Injectable,
@@ -8973,7 +9142,7 @@ var NgbDropdownConfig = _NgbDropdownConfig;
     }]
   }], null, null);
 })();
-var _NgbDropdownItem = class _NgbDropdownItem {
+var NgbDropdownItem = class _NgbDropdownItem {
   constructor() {
     this._disabled = false;
     this.nativeElement = inject(ElementRef).nativeElement;
@@ -8985,28 +9154,31 @@ var _NgbDropdownItem = class _NgbDropdownItem {
   get disabled() {
     return this._disabled;
   }
+  static {
+    this.ɵfac = function NgbDropdownItem_Factory(t) {
+      return new (t || _NgbDropdownItem)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbDropdownItem,
+      selectors: [["", "ngbDropdownItem", ""]],
+      hostAttrs: [1, "dropdown-item"],
+      hostVars: 3,
+      hostBindings: function NgbDropdownItem_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵhostProperty("tabIndex", ctx.disabled ? -1 : ctx.tabindex);
+          ɵɵclassProp("disabled", ctx.disabled);
+        }
+      },
+      inputs: {
+        tabindex: "tabindex",
+        disabled: "disabled"
+      },
+      standalone: true
+    });
+  }
 };
-_NgbDropdownItem.ɵfac = function NgbDropdownItem_Factory(t) {
-  return new (t || _NgbDropdownItem)();
-};
-_NgbDropdownItem.ɵdir = ɵɵdefineDirective({
-  type: _NgbDropdownItem,
-  selectors: [["", "ngbDropdownItem", ""]],
-  hostAttrs: [1, "dropdown-item"],
-  hostVars: 3,
-  hostBindings: function NgbDropdownItem_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵhostProperty("tabIndex", ctx.disabled ? -1 : ctx.tabindex);
-      ɵɵclassProp("disabled", ctx.disabled);
-    }
-  },
-  inputs: {
-    tabindex: "tabindex",
-    disabled: "disabled"
-  },
-  standalone: true
-});
-var NgbDropdownItem = _NgbDropdownItem;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDropdownItem, [{
     type: Directive,
@@ -9028,26 +9200,29 @@ var NgbDropdownItem = _NgbDropdownItem;
     }]
   });
 })();
-var _NgbDropdownButtonItem = class _NgbDropdownButtonItem {
+var NgbDropdownButtonItem = class _NgbDropdownButtonItem {
   constructor() {
     this.item = inject(NgbDropdownItem);
   }
+  static {
+    this.ɵfac = function NgbDropdownButtonItem_Factory(t) {
+      return new (t || _NgbDropdownButtonItem)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbDropdownButtonItem,
+      selectors: [["button", "ngbDropdownItem", ""]],
+      hostVars: 1,
+      hostBindings: function NgbDropdownButtonItem_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵhostProperty("disabled", ctx.item.disabled);
+        }
+      },
+      standalone: true
+    });
+  }
 };
-_NgbDropdownButtonItem.ɵfac = function NgbDropdownButtonItem_Factory(t) {
-  return new (t || _NgbDropdownButtonItem)();
-};
-_NgbDropdownButtonItem.ɵdir = ɵɵdefineDirective({
-  type: _NgbDropdownButtonItem,
-  selectors: [["button", "ngbDropdownItem", ""]],
-  hostVars: 1,
-  hostBindings: function NgbDropdownButtonItem_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵhostProperty("disabled", ctx.item.disabled);
-    }
-  },
-  standalone: true
-});
-var NgbDropdownButtonItem = _NgbDropdownButtonItem;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDropdownButtonItem, [{
     type: Directive,
@@ -9060,55 +9235,58 @@ var NgbDropdownButtonItem = _NgbDropdownButtonItem;
     }]
   }], null, null);
 })();
-var _NgbDropdownMenu = class _NgbDropdownMenu {
+var NgbDropdownMenu = class _NgbDropdownMenu {
   constructor() {
     this.dropdown = inject(NgbDropdown);
     this.nativeElement = inject(ElementRef).nativeElement;
   }
+  static {
+    this.ɵfac = function NgbDropdownMenu_Factory(t) {
+      return new (t || _NgbDropdownMenu)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbDropdownMenu,
+      selectors: [["", "ngbDropdownMenu", ""]],
+      contentQueries: function NgbDropdownMenu_ContentQueries(rf, ctx, dirIndex) {
+        if (rf & 1) {
+          ɵɵcontentQuery(dirIndex, NgbDropdownItem, 4);
+        }
+        if (rf & 2) {
+          let _t;
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.menuItems = _t);
+        }
+      },
+      hostVars: 4,
+      hostBindings: function NgbDropdownMenu_HostBindings(rf, ctx) {
+        if (rf & 1) {
+          ɵɵlistener("keydown.ArrowUp", function NgbDropdownMenu_keydown_ArrowUp_HostBindingHandler($event) {
+            return ctx.dropdown.onKeyDown($event);
+          })("keydown.ArrowDown", function NgbDropdownMenu_keydown_ArrowDown_HostBindingHandler($event) {
+            return ctx.dropdown.onKeyDown($event);
+          })("keydown.Home", function NgbDropdownMenu_keydown_Home_HostBindingHandler($event) {
+            return ctx.dropdown.onKeyDown($event);
+          })("keydown.End", function NgbDropdownMenu_keydown_End_HostBindingHandler($event) {
+            return ctx.dropdown.onKeyDown($event);
+          })("keydown.Enter", function NgbDropdownMenu_keydown_Enter_HostBindingHandler($event) {
+            return ctx.dropdown.onKeyDown($event);
+          })("keydown.Space", function NgbDropdownMenu_keydown_Space_HostBindingHandler($event) {
+            return ctx.dropdown.onKeyDown($event);
+          })("keydown.Tab", function NgbDropdownMenu_keydown_Tab_HostBindingHandler($event) {
+            return ctx.dropdown.onKeyDown($event);
+          })("keydown.Shift.Tab", function NgbDropdownMenu_keydown_Shift_Tab_HostBindingHandler($event) {
+            return ctx.dropdown.onKeyDown($event);
+          });
+        }
+        if (rf & 2) {
+          ɵɵclassProp("dropdown-menu", true)("show", ctx.dropdown.isOpen());
+        }
+      },
+      standalone: true
+    });
+  }
 };
-_NgbDropdownMenu.ɵfac = function NgbDropdownMenu_Factory(t) {
-  return new (t || _NgbDropdownMenu)();
-};
-_NgbDropdownMenu.ɵdir = ɵɵdefineDirective({
-  type: _NgbDropdownMenu,
-  selectors: [["", "ngbDropdownMenu", ""]],
-  contentQueries: function NgbDropdownMenu_ContentQueries(rf, ctx, dirIndex) {
-    if (rf & 1) {
-      ɵɵcontentQuery(dirIndex, NgbDropdownItem, 4);
-    }
-    if (rf & 2) {
-      let _t;
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.menuItems = _t);
-    }
-  },
-  hostVars: 4,
-  hostBindings: function NgbDropdownMenu_HostBindings(rf, ctx) {
-    if (rf & 1) {
-      ɵɵlistener("keydown.ArrowUp", function NgbDropdownMenu_keydown_ArrowUp_HostBindingHandler($event) {
-        return ctx.dropdown.onKeyDown($event);
-      })("keydown.ArrowDown", function NgbDropdownMenu_keydown_ArrowDown_HostBindingHandler($event) {
-        return ctx.dropdown.onKeyDown($event);
-      })("keydown.Home", function NgbDropdownMenu_keydown_Home_HostBindingHandler($event) {
-        return ctx.dropdown.onKeyDown($event);
-      })("keydown.End", function NgbDropdownMenu_keydown_End_HostBindingHandler($event) {
-        return ctx.dropdown.onKeyDown($event);
-      })("keydown.Enter", function NgbDropdownMenu_keydown_Enter_HostBindingHandler($event) {
-        return ctx.dropdown.onKeyDown($event);
-      })("keydown.Space", function NgbDropdownMenu_keydown_Space_HostBindingHandler($event) {
-        return ctx.dropdown.onKeyDown($event);
-      })("keydown.Tab", function NgbDropdownMenu_keydown_Tab_HostBindingHandler($event) {
-        return ctx.dropdown.onKeyDown($event);
-      })("keydown.Shift.Tab", function NgbDropdownMenu_keydown_Shift_Tab_HostBindingHandler($event) {
-        return ctx.dropdown.onKeyDown($event);
-      });
-    }
-    if (rf & 2) {
-      ɵɵclassProp("dropdown-menu", true)("show", ctx.dropdown.isOpen());
-    }
-  },
-  standalone: true
-});
-var NgbDropdownMenu = _NgbDropdownMenu;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDropdownMenu, [{
     type: Directive,
@@ -9135,29 +9313,32 @@ var NgbDropdownMenu = _NgbDropdownMenu;
     }]
   });
 })();
-var _NgbDropdownAnchor = class _NgbDropdownAnchor {
+var NgbDropdownAnchor = class _NgbDropdownAnchor {
   constructor() {
     this.dropdown = inject(NgbDropdown);
     this.nativeElement = inject(ElementRef).nativeElement;
   }
+  static {
+    this.ɵfac = function NgbDropdownAnchor_Factory(t) {
+      return new (t || _NgbDropdownAnchor)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbDropdownAnchor,
+      selectors: [["", "ngbDropdownAnchor", ""]],
+      hostAttrs: [1, "dropdown-toggle"],
+      hostVars: 3,
+      hostBindings: function NgbDropdownAnchor_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵattribute("aria-expanded", ctx.dropdown.isOpen());
+          ɵɵclassProp("show", ctx.dropdown.isOpen());
+        }
+      },
+      standalone: true
+    });
+  }
 };
-_NgbDropdownAnchor.ɵfac = function NgbDropdownAnchor_Factory(t) {
-  return new (t || _NgbDropdownAnchor)();
-};
-_NgbDropdownAnchor.ɵdir = ɵɵdefineDirective({
-  type: _NgbDropdownAnchor,
-  selectors: [["", "ngbDropdownAnchor", ""]],
-  hostAttrs: [1, "dropdown-toggle"],
-  hostVars: 3,
-  hostBindings: function NgbDropdownAnchor_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵattribute("aria-expanded", ctx.dropdown.isOpen());
-      ɵɵclassProp("show", ctx.dropdown.isOpen());
-    }
-  },
-  standalone: true
-});
-var NgbDropdownAnchor = _NgbDropdownAnchor;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDropdownAnchor, [{
     type: Directive,
@@ -9172,49 +9353,52 @@ var NgbDropdownAnchor = _NgbDropdownAnchor;
     }]
   }], null, null);
 })();
-var _NgbDropdownToggle = class _NgbDropdownToggle extends NgbDropdownAnchor {
+var NgbDropdownToggle = class _NgbDropdownToggle extends NgbDropdownAnchor {
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵNgbDropdownToggle_BaseFactory;
+      return function NgbDropdownToggle_Factory(t) {
+        return (ɵNgbDropdownToggle_BaseFactory || (ɵNgbDropdownToggle_BaseFactory = ɵɵgetInheritedFactory(_NgbDropdownToggle)))(t || _NgbDropdownToggle);
+      };
+    })();
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbDropdownToggle,
+      selectors: [["", "ngbDropdownToggle", ""]],
+      hostAttrs: [1, "dropdown-toggle"],
+      hostVars: 3,
+      hostBindings: function NgbDropdownToggle_HostBindings(rf, ctx) {
+        if (rf & 1) {
+          ɵɵlistener("click", function NgbDropdownToggle_click_HostBindingHandler() {
+            return ctx.dropdown.toggle();
+          })("keydown.ArrowUp", function NgbDropdownToggle_keydown_ArrowUp_HostBindingHandler($event) {
+            return ctx.dropdown.onKeyDown($event);
+          })("keydown.ArrowDown", function NgbDropdownToggle_keydown_ArrowDown_HostBindingHandler($event) {
+            return ctx.dropdown.onKeyDown($event);
+          })("keydown.Home", function NgbDropdownToggle_keydown_Home_HostBindingHandler($event) {
+            return ctx.dropdown.onKeyDown($event);
+          })("keydown.End", function NgbDropdownToggle_keydown_End_HostBindingHandler($event) {
+            return ctx.dropdown.onKeyDown($event);
+          })("keydown.Tab", function NgbDropdownToggle_keydown_Tab_HostBindingHandler($event) {
+            return ctx.dropdown.onKeyDown($event);
+          })("keydown.Shift.Tab", function NgbDropdownToggle_keydown_Shift_Tab_HostBindingHandler($event) {
+            return ctx.dropdown.onKeyDown($event);
+          });
+        }
+        if (rf & 2) {
+          ɵɵattribute("aria-expanded", ctx.dropdown.isOpen());
+          ɵɵclassProp("show", ctx.dropdown.isOpen());
+        }
+      },
+      standalone: true,
+      features: [ɵɵProvidersFeature([{
+        provide: NgbDropdownAnchor,
+        useExisting: forwardRef(() => _NgbDropdownToggle)
+      }]), ɵɵInheritDefinitionFeature]
+    });
+  }
 };
-_NgbDropdownToggle.ɵfac = /* @__PURE__ */ (() => {
-  let ɵNgbDropdownToggle_BaseFactory;
-  return function NgbDropdownToggle_Factory(t) {
-    return (ɵNgbDropdownToggle_BaseFactory || (ɵNgbDropdownToggle_BaseFactory = ɵɵgetInheritedFactory(_NgbDropdownToggle)))(t || _NgbDropdownToggle);
-  };
-})();
-_NgbDropdownToggle.ɵdir = ɵɵdefineDirective({
-  type: _NgbDropdownToggle,
-  selectors: [["", "ngbDropdownToggle", ""]],
-  hostAttrs: [1, "dropdown-toggle"],
-  hostVars: 3,
-  hostBindings: function NgbDropdownToggle_HostBindings(rf, ctx) {
-    if (rf & 1) {
-      ɵɵlistener("click", function NgbDropdownToggle_click_HostBindingHandler() {
-        return ctx.dropdown.toggle();
-      })("keydown.ArrowUp", function NgbDropdownToggle_keydown_ArrowUp_HostBindingHandler($event) {
-        return ctx.dropdown.onKeyDown($event);
-      })("keydown.ArrowDown", function NgbDropdownToggle_keydown_ArrowDown_HostBindingHandler($event) {
-        return ctx.dropdown.onKeyDown($event);
-      })("keydown.Home", function NgbDropdownToggle_keydown_Home_HostBindingHandler($event) {
-        return ctx.dropdown.onKeyDown($event);
-      })("keydown.End", function NgbDropdownToggle_keydown_End_HostBindingHandler($event) {
-        return ctx.dropdown.onKeyDown($event);
-      })("keydown.Tab", function NgbDropdownToggle_keydown_Tab_HostBindingHandler($event) {
-        return ctx.dropdown.onKeyDown($event);
-      })("keydown.Shift.Tab", function NgbDropdownToggle_keydown_Shift_Tab_HostBindingHandler($event) {
-        return ctx.dropdown.onKeyDown($event);
-      });
-    }
-    if (rf & 2) {
-      ɵɵattribute("aria-expanded", ctx.dropdown.isOpen());
-      ɵɵclassProp("show", ctx.dropdown.isOpen());
-    }
-  },
-  standalone: true,
-  features: [ɵɵProvidersFeature([{
-    provide: NgbDropdownAnchor,
-    useExisting: forwardRef(() => _NgbDropdownToggle)
-  }]), ɵɵInheritDefinitionFeature]
-});
-var NgbDropdownToggle = _NgbDropdownToggle;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDropdownToggle, [{
     type: Directive,
@@ -9240,7 +9424,7 @@ var NgbDropdownToggle = _NgbDropdownToggle;
     }]
   }], null, null);
 })();
-var _NgbDropdown = class _NgbDropdown {
+var NgbDropdown = class _NgbDropdown {
   constructor() {
     this._changeDetector = inject(ChangeDetectorRef);
     this._config = inject(NgbDropdownConfig);
@@ -9523,47 +9707,50 @@ var _NgbDropdown = class _NgbDropdown {
       }
     }
   }
+  static {
+    this.ɵfac = function NgbDropdown_Factory(t) {
+      return new (t || _NgbDropdown)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbDropdown,
+      selectors: [["", "ngbDropdown", ""]],
+      contentQueries: function NgbDropdown_ContentQueries(rf, ctx, dirIndex) {
+        if (rf & 1) {
+          ɵɵcontentQuery(dirIndex, NgbDropdownMenu, 5);
+          ɵɵcontentQuery(dirIndex, NgbDropdownAnchor, 5);
+        }
+        if (rf & 2) {
+          let _t;
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._menu = _t.first);
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._anchor = _t.first);
+        }
+      },
+      hostVars: 2,
+      hostBindings: function NgbDropdown_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵclassProp("show", ctx.isOpen());
+        }
+      },
+      inputs: {
+        autoClose: "autoClose",
+        dropdownClass: "dropdownClass",
+        _open: [InputFlags.None, "open", "_open"],
+        placement: "placement",
+        popperOptions: "popperOptions",
+        container: "container",
+        display: "display"
+      },
+      outputs: {
+        openChange: "openChange"
+      },
+      exportAs: ["ngbDropdown"],
+      standalone: true,
+      features: [ɵɵNgOnChangesFeature]
+    });
+  }
 };
-_NgbDropdown.ɵfac = function NgbDropdown_Factory(t) {
-  return new (t || _NgbDropdown)();
-};
-_NgbDropdown.ɵdir = ɵɵdefineDirective({
-  type: _NgbDropdown,
-  selectors: [["", "ngbDropdown", ""]],
-  contentQueries: function NgbDropdown_ContentQueries(rf, ctx, dirIndex) {
-    if (rf & 1) {
-      ɵɵcontentQuery(dirIndex, NgbDropdownMenu, 5);
-      ɵɵcontentQuery(dirIndex, NgbDropdownAnchor, 5);
-    }
-    if (rf & 2) {
-      let _t;
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._menu = _t.first);
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._anchor = _t.first);
-    }
-  },
-  hostVars: 2,
-  hostBindings: function NgbDropdown_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵclassProp("show", ctx.isOpen());
-    }
-  },
-  inputs: {
-    autoClose: "autoClose",
-    dropdownClass: "dropdownClass",
-    _open: [InputFlags.None, "open", "_open"],
-    placement: "placement",
-    popperOptions: "popperOptions",
-    container: "container",
-    display: "display"
-  },
-  outputs: {
-    openChange: "openChange"
-  },
-  exportAs: ["ngbDropdown"],
-  standalone: true,
-  features: [ɵɵNgOnChangesFeature]
-});
-var NgbDropdown = _NgbDropdown;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDropdown, [{
     type: Directive,
@@ -9616,18 +9803,23 @@ var NgbDropdown = _NgbDropdown;
   });
 })();
 var NGB_DROPDOWN_DIRECTIVES = [NgbDropdown, NgbDropdownAnchor, NgbDropdownToggle, NgbDropdownMenu, NgbDropdownItem, NgbDropdownButtonItem];
-var _NgbDropdownModule = class _NgbDropdownModule {
+var NgbDropdownModule = class _NgbDropdownModule {
+  static {
+    this.ɵfac = function NgbDropdownModule_Factory(t) {
+      return new (t || _NgbDropdownModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _NgbDropdownModule,
+      imports: [NgbDropdown, NgbDropdownAnchor, NgbDropdownToggle, NgbDropdownMenu, NgbDropdownItem, NgbDropdownButtonItem],
+      exports: [NgbDropdown, NgbDropdownAnchor, NgbDropdownToggle, NgbDropdownMenu, NgbDropdownItem, NgbDropdownButtonItem]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_NgbDropdownModule.ɵfac = function NgbDropdownModule_Factory(t) {
-  return new (t || _NgbDropdownModule)();
-};
-_NgbDropdownModule.ɵmod = ɵɵdefineNgModule({
-  type: _NgbDropdownModule,
-  imports: [NgbDropdown, NgbDropdownAnchor, NgbDropdownToggle, NgbDropdownMenu, NgbDropdownItem, NgbDropdownButtonItem],
-  exports: [NgbDropdown, NgbDropdownAnchor, NgbDropdownToggle, NgbDropdownMenu, NgbDropdownItem, NgbDropdownButtonItem]
-});
-_NgbDropdownModule.ɵinj = ɵɵdefineInjector({});
-var NgbDropdownModule = _NgbDropdownModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbDropdownModule, [{
     type: NgModule,
@@ -9637,7 +9829,7 @@ var NgbDropdownModule = _NgbDropdownModule;
     }]
   }], null, null);
 })();
-var _NgbModalConfig = class _NgbModalConfig {
+var NgbModalConfig = class _NgbModalConfig {
   constructor() {
     this._ngbConfig = inject(NgbConfig);
     this.backdrop = true;
@@ -9650,16 +9842,19 @@ var _NgbModalConfig = class _NgbModalConfig {
   set animation(animation) {
     this._animation = animation;
   }
+  static {
+    this.ɵfac = function NgbModalConfig_Factory(t) {
+      return new (t || _NgbModalConfig)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbModalConfig,
+      factory: _NgbModalConfig.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbModalConfig.ɵfac = function NgbModalConfig_Factory(t) {
-  return new (t || _NgbModalConfig)();
-};
-_NgbModalConfig.ɵprov = ɵɵdefineInjectable({
-  token: _NgbModalConfig,
-  factory: _NgbModalConfig.ɵfac,
-  providedIn: "root"
-});
-var NgbModalConfig = _NgbModalConfig;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbModalConfig, [{
     type: Injectable,
@@ -9741,7 +9936,7 @@ var PopupService = class {
     }
   }
 };
-var _ScrollBar = class _ScrollBar {
+var ScrollBar = class _ScrollBar {
   constructor() {
     this._document = inject(DOCUMENT);
   }
@@ -9773,16 +9968,19 @@ var _ScrollBar = class _ScrollBar {
       bodyStyle.overflow = overflow;
     };
   }
+  static {
+    this.ɵfac = function ScrollBar_Factory(t) {
+      return new (t || _ScrollBar)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _ScrollBar,
+      factory: _ScrollBar.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_ScrollBar.ɵfac = function ScrollBar_Factory(t) {
-  return new (t || _ScrollBar)();
-};
-_ScrollBar.ɵprov = ɵɵdefineInjectable({
-  token: _ScrollBar,
-  factory: _ScrollBar.ɵfac,
-  providedIn: "root"
-});
-var ScrollBar = _ScrollBar;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(ScrollBar, [{
     type: Injectable,
@@ -9791,7 +9989,7 @@ var ScrollBar = _ScrollBar;
     }]
   }], null, null);
 })();
-var _NgbModalBackdrop = class _NgbModalBackdrop {
+var NgbModalBackdrop = class _NgbModalBackdrop {
   constructor() {
     this._nativeElement = inject(ElementRef).nativeElement;
     this._zone = inject(NgZone);
@@ -9817,34 +10015,37 @@ var _NgbModalBackdrop = class _NgbModalBackdrop {
       runningTransition: "stop"
     });
   }
+  static {
+    this.ɵfac = function NgbModalBackdrop_Factory(t) {
+      return new (t || _NgbModalBackdrop)();
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbModalBackdrop,
+      selectors: [["ngb-modal-backdrop"]],
+      hostAttrs: [2, "z-index", "1055"],
+      hostVars: 6,
+      hostBindings: function NgbModalBackdrop_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵclassMap("modal-backdrop" + (ctx.backdropClass ? " " + ctx.backdropClass : ""));
+          ɵɵclassProp("show", !ctx.animation)("fade", ctx.animation);
+        }
+      },
+      inputs: {
+        animation: "animation",
+        backdropClass: "backdropClass"
+      },
+      standalone: true,
+      features: [ɵɵStandaloneFeature],
+      decls: 0,
+      vars: 0,
+      template: function NgbModalBackdrop_Template(rf, ctx) {
+      },
+      encapsulation: 2
+    });
+  }
 };
-_NgbModalBackdrop.ɵfac = function NgbModalBackdrop_Factory(t) {
-  return new (t || _NgbModalBackdrop)();
-};
-_NgbModalBackdrop.ɵcmp = ɵɵdefineComponent({
-  type: _NgbModalBackdrop,
-  selectors: [["ngb-modal-backdrop"]],
-  hostAttrs: [2, "z-index", "1055"],
-  hostVars: 6,
-  hostBindings: function NgbModalBackdrop_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵclassMap("modal-backdrop" + (ctx.backdropClass ? " " + ctx.backdropClass : ""));
-      ɵɵclassProp("show", !ctx.animation)("fade", ctx.animation);
-    }
-  },
-  inputs: {
-    animation: "animation",
-    backdropClass: "backdropClass"
-  },
-  standalone: true,
-  features: [ɵɵStandaloneFeature],
-  decls: 0,
-  vars: 0,
-  template: function NgbModalBackdrop_Template(rf, ctx) {
-  },
-  encapsulation: 2
-});
-var NgbModalBackdrop = _NgbModalBackdrop;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbModalBackdrop, [{
     type: Component,
@@ -10069,7 +10270,7 @@ var ModalDismissReasons;
   ModalDismissReasons2[ModalDismissReasons2["BACKDROP_CLICK"] = 0] = "BACKDROP_CLICK";
   ModalDismissReasons2[ModalDismissReasons2["ESC"] = 1] = "ESC";
 })(ModalDismissReasons || (ModalDismissReasons = {}));
-var _NgbModalWindow = class _NgbModalWindow {
+var NgbModalWindow = class _NgbModalWindow {
   constructor() {
     this._document = inject(DOCUMENT);
     this._elRef = inject(ElementRef);
@@ -10218,68 +10419,71 @@ var _NgbModalWindow = class _NgbModalWindow {
       });
     }
   }
+  static {
+    this.ɵfac = function NgbModalWindow_Factory(t) {
+      return new (t || _NgbModalWindow)();
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbModalWindow,
+      selectors: [["ngb-modal-window"]],
+      viewQuery: function NgbModalWindow_Query(rf, ctx) {
+        if (rf & 1) {
+          ɵɵviewQuery(_c7, 7);
+        }
+        if (rf & 2) {
+          let _t;
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._dialogEl = _t.first);
+        }
+      },
+      hostAttrs: ["role", "dialog", "tabindex", "-1"],
+      hostVars: 7,
+      hostBindings: function NgbModalWindow_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵattribute("aria-modal", true)("aria-labelledby", ctx.ariaLabelledBy)("aria-describedby", ctx.ariaDescribedBy);
+          ɵɵclassMap("modal d-block" + (ctx.windowClass ? " " + ctx.windowClass : ""));
+          ɵɵclassProp("fade", ctx.animation);
+        }
+      },
+      inputs: {
+        animation: "animation",
+        ariaLabelledBy: "ariaLabelledBy",
+        ariaDescribedBy: "ariaDescribedBy",
+        backdrop: "backdrop",
+        centered: "centered",
+        fullscreen: "fullscreen",
+        keyboard: "keyboard",
+        scrollable: "scrollable",
+        size: "size",
+        windowClass: "windowClass",
+        modalDialogClass: "modalDialogClass"
+      },
+      outputs: {
+        dismissEvent: "dismiss"
+      },
+      standalone: true,
+      features: [ɵɵStandaloneFeature],
+      ngContentSelectors: _c0,
+      decls: 4,
+      vars: 2,
+      consts: [["dialog", ""], ["role", "document"], [1, "modal-content"]],
+      template: function NgbModalWindow_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵprojectionDef();
+          ɵɵelementStart(0, "div", 1, 0)(2, "div", 2);
+          ɵɵprojection(3);
+          ɵɵelementEnd()();
+        }
+        if (rf & 2) {
+          ɵɵclassMap("modal-dialog" + (ctx.size ? " modal-" + ctx.size : "") + (ctx.centered ? " modal-dialog-centered" : "") + ctx.fullscreenClass + (ctx.scrollable ? " modal-dialog-scrollable" : "") + (ctx.modalDialogClass ? " " + ctx.modalDialogClass : ""));
+        }
+      },
+      styles: ["ngb-modal-window .component-host-scrollable{display:flex;flex-direction:column;overflow:hidden}\n"],
+      encapsulation: 2
+    });
+  }
 };
-_NgbModalWindow.ɵfac = function NgbModalWindow_Factory(t) {
-  return new (t || _NgbModalWindow)();
-};
-_NgbModalWindow.ɵcmp = ɵɵdefineComponent({
-  type: _NgbModalWindow,
-  selectors: [["ngb-modal-window"]],
-  viewQuery: function NgbModalWindow_Query(rf, ctx) {
-    if (rf & 1) {
-      ɵɵviewQuery(_c7, 7);
-    }
-    if (rf & 2) {
-      let _t;
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._dialogEl = _t.first);
-    }
-  },
-  hostAttrs: ["role", "dialog", "tabindex", "-1"],
-  hostVars: 7,
-  hostBindings: function NgbModalWindow_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵattribute("aria-modal", true)("aria-labelledby", ctx.ariaLabelledBy)("aria-describedby", ctx.ariaDescribedBy);
-      ɵɵclassMap("modal d-block" + (ctx.windowClass ? " " + ctx.windowClass : ""));
-      ɵɵclassProp("fade", ctx.animation);
-    }
-  },
-  inputs: {
-    animation: "animation",
-    ariaLabelledBy: "ariaLabelledBy",
-    ariaDescribedBy: "ariaDescribedBy",
-    backdrop: "backdrop",
-    centered: "centered",
-    fullscreen: "fullscreen",
-    keyboard: "keyboard",
-    scrollable: "scrollable",
-    size: "size",
-    windowClass: "windowClass",
-    modalDialogClass: "modalDialogClass"
-  },
-  outputs: {
-    dismissEvent: "dismiss"
-  },
-  standalone: true,
-  features: [ɵɵStandaloneFeature],
-  ngContentSelectors: _c0,
-  decls: 4,
-  vars: 2,
-  consts: [["dialog", ""], ["role", "document"], [1, "modal-content"]],
-  template: function NgbModalWindow_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵprojectionDef();
-      ɵɵelementStart(0, "div", 1, 0)(2, "div", 2);
-      ɵɵprojection(3);
-      ɵɵelementEnd()();
-    }
-    if (rf & 2) {
-      ɵɵclassMap("modal-dialog" + (ctx.size ? " modal-" + ctx.size : "") + (ctx.centered ? " modal-dialog-centered" : "") + ctx.fullscreenClass + (ctx.scrollable ? " modal-dialog-scrollable" : "") + (ctx.modalDialogClass ? " " + ctx.modalDialogClass : ""));
-    }
-  },
-  styles: ["ngb-modal-window .component-host-scrollable{display:flex;flex-direction:column;overflow:hidden}\n"],
-  encapsulation: 2
-});
-var NgbModalWindow = _NgbModalWindow;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbModalWindow, [{
     type: Component,
@@ -10360,7 +10564,7 @@ var NgbModalWindow = _NgbModalWindow;
     }]
   });
 })();
-var _NgbModalStack = class _NgbModalStack {
+var NgbModalStack = class _NgbModalStack {
   constructor() {
     this._applicationRef = inject(ApplicationRef);
     this._injector = inject(Injector);
@@ -10557,16 +10761,19 @@ var _NgbModalStack = class _NgbModalStack {
       }
     });
   }
+  static {
+    this.ɵfac = function NgbModalStack_Factory(t) {
+      return new (t || _NgbModalStack)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbModalStack,
+      factory: _NgbModalStack.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbModalStack.ɵfac = function NgbModalStack_Factory(t) {
-  return new (t || _NgbModalStack)();
-};
-_NgbModalStack.ɵprov = ɵɵdefineInjectable({
-  token: _NgbModalStack,
-  factory: _NgbModalStack.ɵfac,
-  providedIn: "root"
-});
-var NgbModalStack = _NgbModalStack;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbModalStack, [{
     type: Injectable,
@@ -10575,7 +10782,7 @@ var NgbModalStack = _NgbModalStack;
     }]
   }], () => [], null);
 })();
-var _NgbModal = class _NgbModal {
+var NgbModal = class _NgbModal {
   constructor() {
     this._injector = inject(Injector);
     this._modalStack = inject(NgbModalStack);
@@ -10618,16 +10825,19 @@ var _NgbModal = class _NgbModal {
   hasOpenModals() {
     return this._modalStack.hasOpenModals();
   }
+  static {
+    this.ɵfac = function NgbModal_Factory(t) {
+      return new (t || _NgbModal)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbModal,
+      factory: _NgbModal.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbModal.ɵfac = function NgbModal_Factory(t) {
-  return new (t || _NgbModal)();
-};
-_NgbModal.ɵprov = ɵɵdefineInjectable({
-  token: _NgbModal,
-  factory: _NgbModal.ɵfac,
-  providedIn: "root"
-});
-var NgbModal = _NgbModal;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbModal, [{
     type: Injectable,
@@ -10636,18 +10846,23 @@ var NgbModal = _NgbModal;
     }]
   }], null, null);
 })();
-var _NgbModalModule = class _NgbModalModule {
+var NgbModalModule = class _NgbModalModule {
+  static {
+    this.ɵfac = function NgbModalModule_Factory(t) {
+      return new (t || _NgbModalModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _NgbModalModule
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({
+      providers: [NgbModal]
+    });
+  }
 };
-_NgbModalModule.ɵfac = function NgbModalModule_Factory(t) {
-  return new (t || _NgbModalModule)();
-};
-_NgbModalModule.ɵmod = ɵɵdefineNgModule({
-  type: _NgbModalModule
-});
-_NgbModalModule.ɵinj = ɵɵdefineInjector({
-  providers: [NgbModal]
-});
-var NgbModalModule = _NgbModalModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbModalModule, [{
     type: NgModule,
@@ -10656,7 +10871,7 @@ var NgbModalModule = _NgbModalModule;
     }]
   }], null, null);
 })();
-var _NgbNavConfig = class _NgbNavConfig {
+var NgbNavConfig = class _NgbNavConfig {
   constructor() {
     this._ngbConfig = inject(NgbConfig);
     this.destroyOnHide = true;
@@ -10670,16 +10885,19 @@ var _NgbNavConfig = class _NgbNavConfig {
   set animation(animation) {
     this._animation = animation;
   }
+  static {
+    this.ɵfac = function NgbNavConfig_Factory(t) {
+      return new (t || _NgbNavConfig)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbNavConfig,
+      factory: _NgbNavConfig.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbNavConfig.ɵfac = function NgbNavConfig_Factory(t) {
-  return new (t || _NgbNavConfig)();
-};
-_NgbNavConfig.ɵprov = ɵɵdefineInjectable({
-  token: _NgbNavConfig,
-  factory: _NgbNavConfig.ɵfac,
-  providedIn: "root"
-});
-var NgbNavConfig = _NgbNavConfig;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbNavConfig, [{
     type: Injectable,
@@ -10690,20 +10908,23 @@ var NgbNavConfig = _NgbNavConfig;
 })();
 var isValidNavId = (id) => isDefined(id) && id !== "";
 var navCounter = 0;
-var _NgbNavContent = class _NgbNavContent {
+var NgbNavContent = class _NgbNavContent {
   constructor() {
     this.templateRef = inject(TemplateRef);
   }
+  static {
+    this.ɵfac = function NgbNavContent_Factory(t) {
+      return new (t || _NgbNavContent)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbNavContent,
+      selectors: [["ng-template", "ngbNavContent", ""]],
+      standalone: true
+    });
+  }
 };
-_NgbNavContent.ɵfac = function NgbNavContent_Factory(t) {
-  return new (t || _NgbNavContent)();
-};
-_NgbNavContent.ɵdir = ɵɵdefineDirective({
-  type: _NgbNavContent,
-  selectors: [["ng-template", "ngbNavContent", ""]],
-  standalone: true
-});
-var NgbNavContent = _NgbNavContent;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbNavContent, [{
     type: Directive,
@@ -10713,27 +10934,30 @@ var NgbNavContent = _NgbNavContent;
     }]
   }], null, null);
 })();
-var _NgbNavItemRole = class _NgbNavItemRole {
+var NgbNavItemRole = class _NgbNavItemRole {
   constructor(role) {
     this.role = role;
     this.nav = inject(NgbNav);
   }
+  static {
+    this.ɵfac = function NgbNavItemRole_Factory(t) {
+      return new (t || _NgbNavItemRole)(ɵɵinjectAttribute("role"));
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbNavItemRole,
+      selectors: [["", "ngbNavItem", "", 5, "ng-container"]],
+      hostVars: 1,
+      hostBindings: function NgbNavItemRole_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵattribute("role", ctx.role ? ctx.role : ctx.nav.roles ? "presentation" : void 0);
+        }
+      },
+      standalone: true
+    });
+  }
 };
-_NgbNavItemRole.ɵfac = function NgbNavItemRole_Factory(t) {
-  return new (t || _NgbNavItemRole)(ɵɵinjectAttribute("role"));
-};
-_NgbNavItemRole.ɵdir = ɵɵdefineDirective({
-  type: _NgbNavItemRole,
-  selectors: [["", "ngbNavItem", "", 5, "ng-container"]],
-  hostVars: 1,
-  hostBindings: function NgbNavItemRole_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵattribute("role", ctx.role ? ctx.role : ctx.nav.roles ? "presentation" : void 0);
-    }
-  },
-  standalone: true
-});
-var NgbNavItemRole = _NgbNavItemRole;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbNavItemRole, [{
     type: Directive,
@@ -10752,7 +10976,7 @@ var NgbNavItemRole = _NgbNavItemRole;
     }]
   }], null);
 })();
-var _NgbNavItem = class _NgbNavItem {
+var NgbNavItem = class _NgbNavItem {
   constructor() {
     this._nav = inject(NgbNav);
     this._nativeElement = inject(ElementRef).nativeElement;
@@ -10786,42 +11010,45 @@ var _NgbNavItem = class _NgbNavItem {
   isNgContainer() {
     return this._nativeElement.nodeType === Node.COMMENT_NODE;
   }
+  static {
+    this.ɵfac = function NgbNavItem_Factory(t) {
+      return new (t || _NgbNavItem)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbNavItem,
+      selectors: [["", "ngbNavItem", ""]],
+      contentQueries: function NgbNavItem_ContentQueries(rf, ctx, dirIndex) {
+        if (rf & 1) {
+          ɵɵcontentQuery(dirIndex, NgbNavContent, 4);
+        }
+        if (rf & 2) {
+          let _t;
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.contentTpls = _t);
+        }
+      },
+      hostVars: 2,
+      hostBindings: function NgbNavItem_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵclassProp("nav-item", true);
+        }
+      },
+      inputs: {
+        destroyOnHide: "destroyOnHide",
+        disabled: "disabled",
+        domId: "domId",
+        _id: [InputFlags.None, "ngbNavItem", "_id"]
+      },
+      outputs: {
+        shown: "shown",
+        hidden: "hidden"
+      },
+      exportAs: ["ngbNavItem"],
+      standalone: true
+    });
+  }
 };
-_NgbNavItem.ɵfac = function NgbNavItem_Factory(t) {
-  return new (t || _NgbNavItem)();
-};
-_NgbNavItem.ɵdir = ɵɵdefineDirective({
-  type: _NgbNavItem,
-  selectors: [["", "ngbNavItem", ""]],
-  contentQueries: function NgbNavItem_ContentQueries(rf, ctx, dirIndex) {
-    if (rf & 1) {
-      ɵɵcontentQuery(dirIndex, NgbNavContent, 4);
-    }
-    if (rf & 2) {
-      let _t;
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.contentTpls = _t);
-    }
-  },
-  hostVars: 2,
-  hostBindings: function NgbNavItem_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵclassProp("nav-item", true);
-    }
-  },
-  inputs: {
-    destroyOnHide: "destroyOnHide",
-    disabled: "disabled",
-    domId: "domId",
-    _id: [InputFlags.None, "ngbNavItem", "_id"]
-  },
-  outputs: {
-    shown: "shown",
-    hidden: "hidden"
-  },
-  exportAs: ["ngbNavItem"],
-  standalone: true
-});
-var NgbNavItem = _NgbNavItem;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbNavItem, [{
     type: Directive,
@@ -10861,7 +11088,7 @@ var NgbNavItem = _NgbNavItem;
     }]
   });
 })();
-var _NgbNav = class _NgbNav {
+var NgbNav = class _NgbNav {
   constructor(role) {
     this.role = role;
     this._config = inject(NgbNavConfig);
@@ -10982,67 +11209,70 @@ var _NgbNav = class _NgbNav {
   _getItemById(itemId) {
     return this.items && this.items.find((item) => item.id === itemId) || null;
   }
+  static {
+    this.ɵfac = function NgbNav_Factory(t) {
+      return new (t || _NgbNav)(ɵɵinjectAttribute("role"));
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbNav,
+      selectors: [["", "ngbNav", ""]],
+      contentQueries: function NgbNav_ContentQueries(rf, ctx, dirIndex) {
+        if (rf & 1) {
+          ɵɵcontentQuery(dirIndex, NgbNavItem, 4);
+          ɵɵcontentQuery(dirIndex, NgbNavLinkBase, 5);
+        }
+        if (rf & 2) {
+          let _t;
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.items = _t);
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.links = _t);
+        }
+      },
+      hostVars: 6,
+      hostBindings: function NgbNav_HostBindings(rf, ctx) {
+        if (rf & 1) {
+          ɵɵlistener("keydown.arrowLeft", function NgbNav_keydown_arrowLeft_HostBindingHandler($event) {
+            return ctx.onKeyDown($event);
+          })("keydown.arrowRight", function NgbNav_keydown_arrowRight_HostBindingHandler($event) {
+            return ctx.onKeyDown($event);
+          })("keydown.arrowDown", function NgbNav_keydown_arrowDown_HostBindingHandler($event) {
+            return ctx.onKeyDown($event);
+          })("keydown.arrowUp", function NgbNav_keydown_arrowUp_HostBindingHandler($event) {
+            return ctx.onKeyDown($event);
+          })("keydown.Home", function NgbNav_keydown_Home_HostBindingHandler($event) {
+            return ctx.onKeyDown($event);
+          })("keydown.End", function NgbNav_keydown_End_HostBindingHandler($event) {
+            return ctx.onKeyDown($event);
+          })("focusout", function NgbNav_focusout_HostBindingHandler($event) {
+            return ctx.onFocusout($event);
+          });
+        }
+        if (rf & 2) {
+          ɵɵattribute("aria-orientation", ctx.orientation === "vertical" && ctx.roles === "tablist" ? "vertical" : void 0)("role", ctx.role ? ctx.role : ctx.roles ? "tablist" : void 0);
+          ɵɵclassProp("nav", true)("flex-column", ctx.orientation === "vertical");
+        }
+      },
+      inputs: {
+        activeId: "activeId",
+        animation: "animation",
+        destroyOnHide: "destroyOnHide",
+        orientation: "orientation",
+        roles: "roles",
+        keyboard: "keyboard"
+      },
+      outputs: {
+        activeIdChange: "activeIdChange",
+        shown: "shown",
+        hidden: "hidden",
+        navChange: "navChange"
+      },
+      exportAs: ["ngbNav"],
+      standalone: true,
+      features: [ɵɵNgOnChangesFeature]
+    });
+  }
 };
-_NgbNav.ɵfac = function NgbNav_Factory(t) {
-  return new (t || _NgbNav)(ɵɵinjectAttribute("role"));
-};
-_NgbNav.ɵdir = ɵɵdefineDirective({
-  type: _NgbNav,
-  selectors: [["", "ngbNav", ""]],
-  contentQueries: function NgbNav_ContentQueries(rf, ctx, dirIndex) {
-    if (rf & 1) {
-      ɵɵcontentQuery(dirIndex, NgbNavItem, 4);
-      ɵɵcontentQuery(dirIndex, NgbNavLinkBase, 5);
-    }
-    if (rf & 2) {
-      let _t;
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.items = _t);
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.links = _t);
-    }
-  },
-  hostVars: 6,
-  hostBindings: function NgbNav_HostBindings(rf, ctx) {
-    if (rf & 1) {
-      ɵɵlistener("keydown.arrowLeft", function NgbNav_keydown_arrowLeft_HostBindingHandler($event) {
-        return ctx.onKeyDown($event);
-      })("keydown.arrowRight", function NgbNav_keydown_arrowRight_HostBindingHandler($event) {
-        return ctx.onKeyDown($event);
-      })("keydown.arrowDown", function NgbNav_keydown_arrowDown_HostBindingHandler($event) {
-        return ctx.onKeyDown($event);
-      })("keydown.arrowUp", function NgbNav_keydown_arrowUp_HostBindingHandler($event) {
-        return ctx.onKeyDown($event);
-      })("keydown.Home", function NgbNav_keydown_Home_HostBindingHandler($event) {
-        return ctx.onKeyDown($event);
-      })("keydown.End", function NgbNav_keydown_End_HostBindingHandler($event) {
-        return ctx.onKeyDown($event);
-      })("focusout", function NgbNav_focusout_HostBindingHandler($event) {
-        return ctx.onFocusout($event);
-      });
-    }
-    if (rf & 2) {
-      ɵɵattribute("aria-orientation", ctx.orientation === "vertical" && ctx.roles === "tablist" ? "vertical" : void 0)("role", ctx.role ? ctx.role : ctx.roles ? "tablist" : void 0);
-      ɵɵclassProp("nav", true)("flex-column", ctx.orientation === "vertical");
-    }
-  },
-  inputs: {
-    activeId: "activeId",
-    animation: "animation",
-    destroyOnHide: "destroyOnHide",
-    orientation: "orientation",
-    roles: "roles",
-    keyboard: "keyboard"
-  },
-  outputs: {
-    activeIdChange: "activeIdChange",
-    shown: "shown",
-    hidden: "hidden",
-    navChange: "navChange"
-  },
-  exportAs: ["ngbNav"],
-  standalone: true,
-  features: [ɵɵNgOnChangesFeature]
-});
-var NgbNav = _NgbNav;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbNav, [{
     type: Directive,
@@ -11113,7 +11343,7 @@ var NgbNav = _NgbNav;
     }]
   });
 })();
-var _NgbNavLinkBase = class _NgbNavLinkBase {
+var NgbNavLinkBase = class _NgbNavLinkBase {
   constructor(role) {
     this.role = role;
     this.navItem = inject(NgbNavItem);
@@ -11129,24 +11359,27 @@ var _NgbNavLinkBase = class _NgbNavLinkBase {
     }
     return this.navItem.disabled || !this.navItem.active ? -1 : void 0;
   }
+  static {
+    this.ɵfac = function NgbNavLinkBase_Factory(t) {
+      return new (t || _NgbNavLinkBase)(ɵɵinjectAttribute("role"));
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbNavLinkBase,
+      selectors: [["", "ngbNavLink", ""]],
+      hostVars: 14,
+      hostBindings: function NgbNavLinkBase_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵhostProperty("id", ctx.navItem.domId);
+          ɵɵattribute("role", ctx.role ? ctx.role : ctx.nav.roles ? "tab" : void 0)("tabindex", ctx.tabindex)("aria-controls", ctx.navItem.isPanelInDom() ? ctx.navItem.panelDomId : null)("aria-selected", ctx.navItem.active)("aria-disabled", ctx.navItem.disabled);
+          ɵɵclassProp("nav-link", true)("nav-item", ctx.navItem.isNgContainer())("active", ctx.navItem.active)("disabled", ctx.navItem.disabled);
+        }
+      },
+      standalone: true
+    });
+  }
 };
-_NgbNavLinkBase.ɵfac = function NgbNavLinkBase_Factory(t) {
-  return new (t || _NgbNavLinkBase)(ɵɵinjectAttribute("role"));
-};
-_NgbNavLinkBase.ɵdir = ɵɵdefineDirective({
-  type: _NgbNavLinkBase,
-  selectors: [["", "ngbNavLink", ""]],
-  hostVars: 14,
-  hostBindings: function NgbNavLinkBase_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵhostProperty("id", ctx.navItem.domId);
-      ɵɵattribute("role", ctx.role ? ctx.role : ctx.nav.roles ? "tab" : void 0)("tabindex", ctx.tabindex)("aria-controls", ctx.navItem.isPanelInDom() ? ctx.navItem.panelDomId : null)("aria-selected", ctx.navItem.active)("aria-disabled", ctx.navItem.disabled);
-      ɵɵclassProp("nav-link", true)("nav-item", ctx.navItem.isNgContainer())("active", ctx.navItem.active)("disabled", ctx.navItem.disabled);
-    }
-  },
-  standalone: true
-});
-var NgbNavLinkBase = _NgbNavLinkBase;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbNavLinkBase, [{
     type: Directive,
@@ -11174,33 +11407,36 @@ var NgbNavLinkBase = _NgbNavLinkBase;
     }]
   }], null);
 })();
-var _NgbNavLinkButton = class _NgbNavLinkButton extends NgbNavLinkBase {
+var NgbNavLinkButton = class _NgbNavLinkButton extends NgbNavLinkBase {
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵNgbNavLinkButton_BaseFactory;
+      return function NgbNavLinkButton_Factory(t) {
+        return (ɵNgbNavLinkButton_BaseFactory || (ɵNgbNavLinkButton_BaseFactory = ɵɵgetInheritedFactory(_NgbNavLinkButton)))(t || _NgbNavLinkButton);
+      };
+    })();
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbNavLinkButton,
+      selectors: [["button", "ngbNavLink", ""]],
+      hostAttrs: ["type", "button"],
+      hostVars: 1,
+      hostBindings: function NgbNavLinkButton_HostBindings(rf, ctx) {
+        if (rf & 1) {
+          ɵɵlistener("click", function NgbNavLinkButton_click_HostBindingHandler() {
+            return ctx.nav.click(ctx.navItem);
+          });
+        }
+        if (rf & 2) {
+          ɵɵhostProperty("disabled", ctx.navItem.disabled);
+        }
+      },
+      standalone: true,
+      features: [ɵɵInheritDefinitionFeature]
+    });
+  }
 };
-_NgbNavLinkButton.ɵfac = /* @__PURE__ */ (() => {
-  let ɵNgbNavLinkButton_BaseFactory;
-  return function NgbNavLinkButton_Factory(t) {
-    return (ɵNgbNavLinkButton_BaseFactory || (ɵNgbNavLinkButton_BaseFactory = ɵɵgetInheritedFactory(_NgbNavLinkButton)))(t || _NgbNavLinkButton);
-  };
-})();
-_NgbNavLinkButton.ɵdir = ɵɵdefineDirective({
-  type: _NgbNavLinkButton,
-  selectors: [["button", "ngbNavLink", ""]],
-  hostAttrs: ["type", "button"],
-  hostVars: 1,
-  hostBindings: function NgbNavLinkButton_HostBindings(rf, ctx) {
-    if (rf & 1) {
-      ɵɵlistener("click", function NgbNavLinkButton_click_HostBindingHandler() {
-        return ctx.nav.click(ctx.navItem);
-      });
-    }
-    if (rf & 2) {
-      ɵɵhostProperty("disabled", ctx.navItem.disabled);
-    }
-  },
-  standalone: true,
-  features: [ɵɵInheritDefinitionFeature]
-});
-var NgbNavLinkButton = _NgbNavLinkButton;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbNavLinkButton, [{
     type: Directive,
@@ -11215,30 +11451,33 @@ var NgbNavLinkButton = _NgbNavLinkButton;
     }]
   }], null, null);
 })();
-var _NgbNavLink = class _NgbNavLink extends NgbNavLinkBase {
+var NgbNavLink = class _NgbNavLink extends NgbNavLinkBase {
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵNgbNavLink_BaseFactory;
+      return function NgbNavLink_Factory(t) {
+        return (ɵNgbNavLink_BaseFactory || (ɵNgbNavLink_BaseFactory = ɵɵgetInheritedFactory(_NgbNavLink)))(t || _NgbNavLink);
+      };
+    })();
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbNavLink,
+      selectors: [["a", "ngbNavLink", ""]],
+      hostAttrs: ["href", ""],
+      hostBindings: function NgbNavLink_HostBindings(rf, ctx) {
+        if (rf & 1) {
+          ɵɵlistener("click", function NgbNavLink_click_HostBindingHandler($event) {
+            ctx.nav.click(ctx.navItem);
+            return $event.preventDefault();
+          });
+        }
+      },
+      standalone: true,
+      features: [ɵɵInheritDefinitionFeature]
+    });
+  }
 };
-_NgbNavLink.ɵfac = /* @__PURE__ */ (() => {
-  let ɵNgbNavLink_BaseFactory;
-  return function NgbNavLink_Factory(t) {
-    return (ɵNgbNavLink_BaseFactory || (ɵNgbNavLink_BaseFactory = ɵɵgetInheritedFactory(_NgbNavLink)))(t || _NgbNavLink);
-  };
-})();
-_NgbNavLink.ɵdir = ɵɵdefineDirective({
-  type: _NgbNavLink,
-  selectors: [["a", "ngbNavLink", ""]],
-  hostAttrs: ["href", ""],
-  hostBindings: function NgbNavLink_HostBindings(rf, ctx) {
-    if (rf & 1) {
-      ɵɵlistener("click", function NgbNavLink_click_HostBindingHandler($event) {
-        ctx.nav.click(ctx.navItem);
-        return $event.preventDefault();
-      });
-    }
-  },
-  standalone: true,
-  features: [ɵɵInheritDefinitionFeature]
-});
-var NgbNavLink = _NgbNavLink;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbNavLink, [{
     type: Directive,
@@ -11264,34 +11503,37 @@ var ngbNavFadeInTransition = (element, animation) => {
   }
   element.classList.add("show");
 };
-var _NgbNavPane = class _NgbNavPane {
+var NgbNavPane = class _NgbNavPane {
   constructor() {
     this.nativeElement = inject(ElementRef).nativeElement;
   }
+  static {
+    this.ɵfac = function NgbNavPane_Factory(t) {
+      return new (t || _NgbNavPane)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbNavPane,
+      selectors: [["", "ngbNavPane", ""]],
+      hostAttrs: [1, "tab-pane"],
+      hostVars: 5,
+      hostBindings: function NgbNavPane_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵhostProperty("id", ctx.item.panelDomId);
+          ɵɵattribute("role", ctx.role ? ctx.role : ctx.nav.roles ? "tabpanel" : void 0)("aria-labelledby", ctx.item.domId);
+          ɵɵclassProp("fade", ctx.nav.animation);
+        }
+      },
+      inputs: {
+        item: "item",
+        nav: "nav",
+        role: "role"
+      },
+      standalone: true
+    });
+  }
 };
-_NgbNavPane.ɵfac = function NgbNavPane_Factory(t) {
-  return new (t || _NgbNavPane)();
-};
-_NgbNavPane.ɵdir = ɵɵdefineDirective({
-  type: _NgbNavPane,
-  selectors: [["", "ngbNavPane", ""]],
-  hostAttrs: [1, "tab-pane"],
-  hostVars: 5,
-  hostBindings: function NgbNavPane_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵhostProperty("id", ctx.item.panelDomId);
-      ɵɵattribute("role", ctx.role ? ctx.role : ctx.nav.roles ? "tabpanel" : void 0)("aria-labelledby", ctx.item.domId);
-      ɵɵclassProp("fade", ctx.nav.animation);
-    }
-  },
-  inputs: {
-    item: "item",
-    nav: "nav",
-    role: "role"
-  },
-  standalone: true
-});
-var NgbNavPane = _NgbNavPane;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbNavPane, [{
     type: Directive,
@@ -11318,7 +11560,7 @@ var NgbNavPane = _NgbNavPane;
     }]
   });
 })();
-var _NgbNavOutlet = class _NgbNavOutlet {
+var NgbNavOutlet = class _NgbNavOutlet {
   constructor() {
     this._cd = inject(ChangeDetectorRef);
     this._ngZone = inject(NgZone);
@@ -11370,51 +11612,54 @@ var _NgbNavOutlet = class _NgbNavOutlet {
   _getActivePane() {
     return this._panes && this._panes.find((pane) => pane.item.active) || null;
   }
+  static {
+    this.ɵfac = function NgbNavOutlet_Factory(t) {
+      return new (t || _NgbNavOutlet)();
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbNavOutlet,
+      selectors: [["", "ngbNavOutlet", ""]],
+      viewQuery: function NgbNavOutlet_Query(rf, ctx) {
+        if (rf & 1) {
+          ɵɵviewQuery(NgbNavPane, 5);
+        }
+        if (rf & 2) {
+          let _t;
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._panes = _t);
+        }
+      },
+      hostVars: 2,
+      hostBindings: function NgbNavOutlet_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵclassProp("tab-content", true);
+        }
+      },
+      inputs: {
+        paneRole: "paneRole",
+        nav: [InputFlags.None, "ngbNavOutlet", "nav"]
+      },
+      standalone: true,
+      features: [ɵɵStandaloneFeature],
+      attrs: _c8,
+      decls: 2,
+      vars: 0,
+      consts: [["ngbNavPane", "", 3, "item", "nav", "role"], [3, "ngTemplateOutlet", "ngTemplateOutletContext"]],
+      template: function NgbNavOutlet_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵrepeaterCreate(0, NgbNavOutlet_For_1_Template, 1, 1, null, null, ɵɵrepeaterTrackByIdentity);
+        }
+        if (rf & 2) {
+          ɵɵrepeater(ctx.nav.items);
+        }
+      },
+      dependencies: [NgbNavPane, NgTemplateOutlet],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_NgbNavOutlet.ɵfac = function NgbNavOutlet_Factory(t) {
-  return new (t || _NgbNavOutlet)();
-};
-_NgbNavOutlet.ɵcmp = ɵɵdefineComponent({
-  type: _NgbNavOutlet,
-  selectors: [["", "ngbNavOutlet", ""]],
-  viewQuery: function NgbNavOutlet_Query(rf, ctx) {
-    if (rf & 1) {
-      ɵɵviewQuery(NgbNavPane, 5);
-    }
-    if (rf & 2) {
-      let _t;
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._panes = _t);
-    }
-  },
-  hostVars: 2,
-  hostBindings: function NgbNavOutlet_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵclassProp("tab-content", true);
-    }
-  },
-  inputs: {
-    paneRole: "paneRole",
-    nav: [InputFlags.None, "ngbNavOutlet", "nav"]
-  },
-  standalone: true,
-  features: [ɵɵStandaloneFeature],
-  attrs: _c8,
-  decls: 2,
-  vars: 0,
-  consts: [["ngbNavPane", "", 3, "item", "nav", "role"], [3, "ngTemplateOutlet", "ngTemplateOutletContext"]],
-  template: function NgbNavOutlet_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵrepeaterCreate(0, NgbNavOutlet_For_1_Template, 1, 1, null, null, ɵɵrepeaterTrackByIdentity);
-    }
-    if (rf & 2) {
-      ɵɵrepeater(ctx.nav.items);
-    }
-  },
-  dependencies: [NgbNavPane, NgTemplateOutlet],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var NgbNavOutlet = _NgbNavOutlet;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbNavOutlet, [{
     type: Component,
@@ -11455,18 +11700,23 @@ var NgbNavOutlet = _NgbNavOutlet;
   });
 })();
 var NGB_NAV_DIRECTIVES = [NgbNavContent, NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavLinkButton, NgbNavLinkBase, NgbNavOutlet, NgbNavPane];
-var _NgbNavModule = class _NgbNavModule {
+var NgbNavModule = class _NgbNavModule {
+  static {
+    this.ɵfac = function NgbNavModule_Factory(t) {
+      return new (t || _NgbNavModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _NgbNavModule,
+      imports: [NgbNavContent, NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavLinkButton, NgbNavLinkBase, NgbNavOutlet, NgbNavPane],
+      exports: [NgbNavContent, NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavLinkButton, NgbNavLinkBase, NgbNavOutlet, NgbNavPane]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_NgbNavModule.ɵfac = function NgbNavModule_Factory(t) {
-  return new (t || _NgbNavModule)();
-};
-_NgbNavModule.ɵmod = ɵɵdefineNgModule({
-  type: _NgbNavModule,
-  imports: [NgbNavContent, NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavLinkButton, NgbNavLinkBase, NgbNavOutlet, NgbNavPane],
-  exports: [NgbNavContent, NgbNav, NgbNavItem, NgbNavItemRole, NgbNavLink, NgbNavLinkButton, NgbNavLinkBase, NgbNavOutlet, NgbNavPane]
-});
-_NgbNavModule.ɵinj = ɵɵdefineInjector({});
-var NgbNavModule = _NgbNavModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbNavModule, [{
     type: NgModule,
@@ -11476,7 +11726,7 @@ var NgbNavModule = _NgbNavModule;
     }]
   }], null, null);
 })();
-var _NgbPaginationConfig = class _NgbPaginationConfig {
+var NgbPaginationConfig = class _NgbPaginationConfig {
   constructor() {
     this.disabled = false;
     this.boundaryLinks = false;
@@ -11486,16 +11736,19 @@ var _NgbPaginationConfig = class _NgbPaginationConfig {
     this.pageSize = 10;
     this.rotate = false;
   }
+  static {
+    this.ɵfac = function NgbPaginationConfig_Factory(t) {
+      return new (t || _NgbPaginationConfig)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbPaginationConfig,
+      factory: _NgbPaginationConfig.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbPaginationConfig.ɵfac = function NgbPaginationConfig_Factory(t) {
-  return new (t || _NgbPaginationConfig)();
-};
-_NgbPaginationConfig.ɵprov = ɵɵdefineInjectable({
-  token: _NgbPaginationConfig,
-  factory: _NgbPaginationConfig.ɵfac,
-  providedIn: "root"
-});
-var NgbPaginationConfig = _NgbPaginationConfig;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbPaginationConfig, [{
     type: Injectable,
@@ -11504,20 +11757,23 @@ var NgbPaginationConfig = _NgbPaginationConfig;
     }]
   }], null, null);
 })();
-var _NgbPaginationEllipsis = class _NgbPaginationEllipsis {
+var NgbPaginationEllipsis = class _NgbPaginationEllipsis {
   constructor() {
     this.templateRef = inject(TemplateRef);
   }
+  static {
+    this.ɵfac = function NgbPaginationEllipsis_Factory(t) {
+      return new (t || _NgbPaginationEllipsis)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbPaginationEllipsis,
+      selectors: [["ng-template", "ngbPaginationEllipsis", ""]],
+      standalone: true
+    });
+  }
 };
-_NgbPaginationEllipsis.ɵfac = function NgbPaginationEllipsis_Factory(t) {
-  return new (t || _NgbPaginationEllipsis)();
-};
-_NgbPaginationEllipsis.ɵdir = ɵɵdefineDirective({
-  type: _NgbPaginationEllipsis,
-  selectors: [["ng-template", "ngbPaginationEllipsis", ""]],
-  standalone: true
-});
-var NgbPaginationEllipsis = _NgbPaginationEllipsis;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbPaginationEllipsis, [{
     type: Directive,
@@ -11527,20 +11783,23 @@ var NgbPaginationEllipsis = _NgbPaginationEllipsis;
     }]
   }], null, null);
 })();
-var _NgbPaginationFirst = class _NgbPaginationFirst {
+var NgbPaginationFirst = class _NgbPaginationFirst {
   constructor() {
     this.templateRef = inject(TemplateRef);
   }
+  static {
+    this.ɵfac = function NgbPaginationFirst_Factory(t) {
+      return new (t || _NgbPaginationFirst)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbPaginationFirst,
+      selectors: [["ng-template", "ngbPaginationFirst", ""]],
+      standalone: true
+    });
+  }
 };
-_NgbPaginationFirst.ɵfac = function NgbPaginationFirst_Factory(t) {
-  return new (t || _NgbPaginationFirst)();
-};
-_NgbPaginationFirst.ɵdir = ɵɵdefineDirective({
-  type: _NgbPaginationFirst,
-  selectors: [["ng-template", "ngbPaginationFirst", ""]],
-  standalone: true
-});
-var NgbPaginationFirst = _NgbPaginationFirst;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbPaginationFirst, [{
     type: Directive,
@@ -11550,20 +11809,23 @@ var NgbPaginationFirst = _NgbPaginationFirst;
     }]
   }], null, null);
 })();
-var _NgbPaginationLast = class _NgbPaginationLast {
+var NgbPaginationLast = class _NgbPaginationLast {
   constructor() {
     this.templateRef = inject(TemplateRef);
   }
+  static {
+    this.ɵfac = function NgbPaginationLast_Factory(t) {
+      return new (t || _NgbPaginationLast)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbPaginationLast,
+      selectors: [["ng-template", "ngbPaginationLast", ""]],
+      standalone: true
+    });
+  }
 };
-_NgbPaginationLast.ɵfac = function NgbPaginationLast_Factory(t) {
-  return new (t || _NgbPaginationLast)();
-};
-_NgbPaginationLast.ɵdir = ɵɵdefineDirective({
-  type: _NgbPaginationLast,
-  selectors: [["ng-template", "ngbPaginationLast", ""]],
-  standalone: true
-});
-var NgbPaginationLast = _NgbPaginationLast;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbPaginationLast, [{
     type: Directive,
@@ -11573,20 +11835,23 @@ var NgbPaginationLast = _NgbPaginationLast;
     }]
   }], null, null);
 })();
-var _NgbPaginationNext = class _NgbPaginationNext {
+var NgbPaginationNext = class _NgbPaginationNext {
   constructor() {
     this.templateRef = inject(TemplateRef);
   }
+  static {
+    this.ɵfac = function NgbPaginationNext_Factory(t) {
+      return new (t || _NgbPaginationNext)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbPaginationNext,
+      selectors: [["ng-template", "ngbPaginationNext", ""]],
+      standalone: true
+    });
+  }
 };
-_NgbPaginationNext.ɵfac = function NgbPaginationNext_Factory(t) {
-  return new (t || _NgbPaginationNext)();
-};
-_NgbPaginationNext.ɵdir = ɵɵdefineDirective({
-  type: _NgbPaginationNext,
-  selectors: [["ng-template", "ngbPaginationNext", ""]],
-  standalone: true
-});
-var NgbPaginationNext = _NgbPaginationNext;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbPaginationNext, [{
     type: Directive,
@@ -11596,20 +11861,23 @@ var NgbPaginationNext = _NgbPaginationNext;
     }]
   }], null, null);
 })();
-var _NgbPaginationNumber = class _NgbPaginationNumber {
+var NgbPaginationNumber = class _NgbPaginationNumber {
   constructor() {
     this.templateRef = inject(TemplateRef);
   }
+  static {
+    this.ɵfac = function NgbPaginationNumber_Factory(t) {
+      return new (t || _NgbPaginationNumber)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbPaginationNumber,
+      selectors: [["ng-template", "ngbPaginationNumber", ""]],
+      standalone: true
+    });
+  }
 };
-_NgbPaginationNumber.ɵfac = function NgbPaginationNumber_Factory(t) {
-  return new (t || _NgbPaginationNumber)();
-};
-_NgbPaginationNumber.ɵdir = ɵɵdefineDirective({
-  type: _NgbPaginationNumber,
-  selectors: [["ng-template", "ngbPaginationNumber", ""]],
-  standalone: true
-});
-var NgbPaginationNumber = _NgbPaginationNumber;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbPaginationNumber, [{
     type: Directive,
@@ -11619,20 +11887,23 @@ var NgbPaginationNumber = _NgbPaginationNumber;
     }]
   }], null, null);
 })();
-var _NgbPaginationPrevious = class _NgbPaginationPrevious {
+var NgbPaginationPrevious = class _NgbPaginationPrevious {
   constructor() {
     this.templateRef = inject(TemplateRef);
   }
+  static {
+    this.ɵfac = function NgbPaginationPrevious_Factory(t) {
+      return new (t || _NgbPaginationPrevious)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbPaginationPrevious,
+      selectors: [["ng-template", "ngbPaginationPrevious", ""]],
+      standalone: true
+    });
+  }
 };
-_NgbPaginationPrevious.ɵfac = function NgbPaginationPrevious_Factory(t) {
-  return new (t || _NgbPaginationPrevious)();
-};
-_NgbPaginationPrevious.ɵdir = ɵɵdefineDirective({
-  type: _NgbPaginationPrevious,
-  selectors: [["ng-template", "ngbPaginationPrevious", ""]],
-  standalone: true
-});
-var NgbPaginationPrevious = _NgbPaginationPrevious;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbPaginationPrevious, [{
     type: Directive,
@@ -11642,20 +11913,23 @@ var NgbPaginationPrevious = _NgbPaginationPrevious;
     }]
   }], null, null);
 })();
-var _NgbPaginationPages = class _NgbPaginationPages {
+var NgbPaginationPages = class _NgbPaginationPages {
   constructor() {
     this.templateRef = inject(TemplateRef);
   }
+  static {
+    this.ɵfac = function NgbPaginationPages_Factory(t) {
+      return new (t || _NgbPaginationPages)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbPaginationPages,
+      selectors: [["ng-template", "ngbPaginationPages", ""]],
+      standalone: true
+    });
+  }
 };
-_NgbPaginationPages.ɵfac = function NgbPaginationPages_Factory(t) {
-  return new (t || _NgbPaginationPages)();
-};
-_NgbPaginationPages.ɵdir = ɵɵdefineDirective({
-  type: _NgbPaginationPages,
-  selectors: [["ng-template", "ngbPaginationPages", ""]],
-  standalone: true
-});
-var NgbPaginationPages = _NgbPaginationPages;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbPaginationPages, [{
     type: Directive,
@@ -11665,7 +11939,7 @@ var NgbPaginationPages = _NgbPaginationPages;
     }]
   }], null, null);
 })();
-var _NgbPagination = class _NgbPagination {
+var NgbPagination = class _NgbPagination {
   constructor() {
     this._config = inject(NgbPaginationConfig);
     this.pageCount = 0;
@@ -11786,141 +12060,144 @@ var _NgbPagination = class _NgbPagination {
       this._applyEllipses(start2, end2);
     }
   }
+  static {
+    this.ɵfac = function NgbPagination_Factory(t) {
+      return new (t || _NgbPagination)();
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbPagination,
+      selectors: [["ngb-pagination"]],
+      contentQueries: function NgbPagination_ContentQueries(rf, ctx, dirIndex) {
+        if (rf & 1) {
+          ɵɵcontentQuery(dirIndex, NgbPaginationEllipsis, 5);
+          ɵɵcontentQuery(dirIndex, NgbPaginationFirst, 5);
+          ɵɵcontentQuery(dirIndex, NgbPaginationLast, 5);
+          ɵɵcontentQuery(dirIndex, NgbPaginationNext, 5);
+          ɵɵcontentQuery(dirIndex, NgbPaginationNumber, 5);
+          ɵɵcontentQuery(dirIndex, NgbPaginationPrevious, 5);
+          ɵɵcontentQuery(dirIndex, NgbPaginationPages, 5);
+        }
+        if (rf & 2) {
+          let _t;
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.tplEllipsis = _t.first);
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.tplFirst = _t.first);
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.tplLast = _t.first);
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.tplNext = _t.first);
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.tplNumber = _t.first);
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.tplPrevious = _t.first);
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.tplPages = _t.first);
+        }
+      },
+      hostAttrs: ["role", "navigation"],
+      inputs: {
+        disabled: "disabled",
+        boundaryLinks: "boundaryLinks",
+        directionLinks: "directionLinks",
+        ellipses: "ellipses",
+        rotate: "rotate",
+        collectionSize: "collectionSize",
+        maxSize: "maxSize",
+        page: "page",
+        pageSize: "pageSize",
+        size: "size"
+      },
+      outputs: {
+        pageChange: "pageChange"
+      },
+      standalone: true,
+      features: [ɵɵNgOnChangesFeature, ɵɵStandaloneFeature],
+      decls: 20,
+      vars: 12,
+      consts: () => {
+        let i18n_12;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_12 = goog.getMsg("««");
+          i18n_12 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_12;
+        } else {
+          i18n_12 = $localize`:@@ngb.pagination.first:««`;
+        }
+        let i18n_13;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_13 = goog.getMsg("«");
+          i18n_13 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_13;
+        } else {
+          i18n_13 = $localize`:@@ngb.pagination.previous:«`;
+        }
+        let i18n_14;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_14 = goog.getMsg("»");
+          i18n_14 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_14;
+        } else {
+          i18n_14 = $localize`:@@ngb.pagination.next:»`;
+        }
+        let i18n_15;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_15 = goog.getMsg("»»");
+          i18n_15 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_15;
+        } else {
+          i18n_15 = $localize`:@@ngb.pagination.last:»»`;
+        }
+        let i18n_16;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_16 = goog.getMsg("First");
+          i18n_16 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_16;
+        } else {
+          i18n_16 = $localize`:@@ngb.pagination.first-aria:First`;
+        }
+        let i18n_17;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_17 = goog.getMsg("Previous");
+          i18n_17 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_17;
+        } else {
+          i18n_17 = $localize`:@@ngb.pagination.previous-aria:Previous`;
+        }
+        let i18n_18;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_18 = goog.getMsg("Next");
+          i18n_18 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_18;
+        } else {
+          i18n_18 = $localize`:@@ngb.pagination.next-aria:Next`;
+        }
+        let i18n_19;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_19 = goog.getMsg("Last");
+          i18n_19 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_19;
+        } else {
+          i18n_19 = $localize`:@@ngb.pagination.last-aria:Last`;
+        }
+        return [["first", ""], ["previous", ""], ["next", ""], ["last", ""], ["ellipsis", ""], ["defaultNumber", ""], ["defaultPages", ""], i18n_12, i18n_13, i18n_14, i18n_15, [1, "page-item", 3, "disabled"], [3, "ngTemplateOutlet", "ngTemplateOutletContext"], ["aria-hidden", "true"], [1, "page-item", 3, "active", "disabled"], [1, "page-item"], ["tabindex", "-1", "aria-disabled", "true", 1, "page-link"], ["href", "", 1, "page-link", 3, "click"], ["aria-label", i18n_16, "href", "", 1, "page-link", 3, "click"], ["aria-label", i18n_17, "href", "", 1, "page-link", 3, "click"], ["aria-label", i18n_18, "href", "", 1, "page-link", 3, "click"], ["aria-label", i18n_19, "href", "", 1, "page-link", 3, "click"]];
+      },
+      template: function NgbPagination_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵtemplate(0, NgbPagination_ng_template_0_Template, 2, 0, "ng-template", null, 0, ɵɵtemplateRefExtractor)(2, NgbPagination_ng_template_2_Template, 2, 0, "ng-template", null, 1, ɵɵtemplateRefExtractor)(4, NgbPagination_ng_template_4_Template, 2, 0, "ng-template", null, 2, ɵɵtemplateRefExtractor)(6, NgbPagination_ng_template_6_Template, 2, 0, "ng-template", null, 3, ɵɵtemplateRefExtractor)(8, NgbPagination_ng_template_8_Template, 1, 0, "ng-template", null, 4, ɵɵtemplateRefExtractor)(10, NgbPagination_ng_template_10_Template, 1, 1, "ng-template", null, 5, ɵɵtemplateRefExtractor)(12, NgbPagination_ng_template_12_Template, 2, 0, "ng-template", null, 6, ɵɵtemplateRefExtractor);
+          ɵɵelementStart(14, "ul");
+          ɵɵtemplate(15, NgbPagination_Conditional_15_Template, 3, 9, "li", 11)(16, NgbPagination_Conditional_16_Template, 3, 8, "li", 11)(17, NgbPagination_ng_template_17_Template, 0, 0, "ng-template", 12)(18, NgbPagination_Conditional_18_Template, 3, 9, "li", 11)(19, NgbPagination_Conditional_19_Template, 3, 9, "li", 11);
+          ɵɵelementEnd();
+        }
+        if (rf & 2) {
+          const defaultPages_r19 = ɵɵreference(13);
+          ɵɵadvance(14);
+          ɵɵclassMap("pagination" + (ctx.size ? " pagination-" + ctx.size : ""));
+          ɵɵadvance();
+          ɵɵconditional(15, ctx.boundaryLinks ? 15 : -1);
+          ɵɵadvance();
+          ɵɵconditional(16, ctx.directionLinks ? 16 : -1);
+          ɵɵadvance();
+          ɵɵproperty("ngTemplateOutlet", (ctx.tplPages == null ? null : ctx.tplPages.templateRef) || defaultPages_r19)("ngTemplateOutletContext", ɵɵpureFunction3(8, _c9, ctx.page, ctx.pages, ctx.disabled));
+          ɵɵadvance();
+          ɵɵconditional(18, ctx.directionLinks ? 18 : -1);
+          ɵɵadvance();
+          ɵɵconditional(19, ctx.boundaryLinks ? 19 : -1);
+        }
+      },
+      dependencies: [NgTemplateOutlet],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_NgbPagination.ɵfac = function NgbPagination_Factory(t) {
-  return new (t || _NgbPagination)();
-};
-_NgbPagination.ɵcmp = ɵɵdefineComponent({
-  type: _NgbPagination,
-  selectors: [["ngb-pagination"]],
-  contentQueries: function NgbPagination_ContentQueries(rf, ctx, dirIndex) {
-    if (rf & 1) {
-      ɵɵcontentQuery(dirIndex, NgbPaginationEllipsis, 5);
-      ɵɵcontentQuery(dirIndex, NgbPaginationFirst, 5);
-      ɵɵcontentQuery(dirIndex, NgbPaginationLast, 5);
-      ɵɵcontentQuery(dirIndex, NgbPaginationNext, 5);
-      ɵɵcontentQuery(dirIndex, NgbPaginationNumber, 5);
-      ɵɵcontentQuery(dirIndex, NgbPaginationPrevious, 5);
-      ɵɵcontentQuery(dirIndex, NgbPaginationPages, 5);
-    }
-    if (rf & 2) {
-      let _t;
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.tplEllipsis = _t.first);
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.tplFirst = _t.first);
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.tplLast = _t.first);
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.tplNext = _t.first);
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.tplNumber = _t.first);
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.tplPrevious = _t.first);
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.tplPages = _t.first);
-    }
-  },
-  hostAttrs: ["role", "navigation"],
-  inputs: {
-    disabled: "disabled",
-    boundaryLinks: "boundaryLinks",
-    directionLinks: "directionLinks",
-    ellipses: "ellipses",
-    rotate: "rotate",
-    collectionSize: "collectionSize",
-    maxSize: "maxSize",
-    page: "page",
-    pageSize: "pageSize",
-    size: "size"
-  },
-  outputs: {
-    pageChange: "pageChange"
-  },
-  standalone: true,
-  features: [ɵɵNgOnChangesFeature, ɵɵStandaloneFeature],
-  decls: 20,
-  vars: 12,
-  consts: () => {
-    let i18n_12;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_12 = goog.getMsg("««");
-      i18n_12 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_12;
-    } else {
-      i18n_12 = $localize`:@@ngb.pagination.first:««`;
-    }
-    let i18n_13;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_13 = goog.getMsg("«");
-      i18n_13 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_13;
-    } else {
-      i18n_13 = $localize`:@@ngb.pagination.previous:«`;
-    }
-    let i18n_14;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_14 = goog.getMsg("»");
-      i18n_14 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_14;
-    } else {
-      i18n_14 = $localize`:@@ngb.pagination.next:»`;
-    }
-    let i18n_15;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_15 = goog.getMsg("»»");
-      i18n_15 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_15;
-    } else {
-      i18n_15 = $localize`:@@ngb.pagination.last:»»`;
-    }
-    let i18n_16;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_16 = goog.getMsg("First");
-      i18n_16 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_16;
-    } else {
-      i18n_16 = $localize`:@@ngb.pagination.first-aria:First`;
-    }
-    let i18n_17;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_17 = goog.getMsg("Previous");
-      i18n_17 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_17;
-    } else {
-      i18n_17 = $localize`:@@ngb.pagination.previous-aria:Previous`;
-    }
-    let i18n_18;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_18 = goog.getMsg("Next");
-      i18n_18 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_18;
-    } else {
-      i18n_18 = $localize`:@@ngb.pagination.next-aria:Next`;
-    }
-    let i18n_19;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_19 = goog.getMsg("Last");
-      i18n_19 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_19;
-    } else {
-      i18n_19 = $localize`:@@ngb.pagination.last-aria:Last`;
-    }
-    return [["first", ""], ["previous", ""], ["next", ""], ["last", ""], ["ellipsis", ""], ["defaultNumber", ""], ["defaultPages", ""], i18n_12, i18n_13, i18n_14, i18n_15, [1, "page-item", 3, "disabled"], [3, "ngTemplateOutlet", "ngTemplateOutletContext"], ["aria-hidden", "true"], [1, "page-item", 3, "active", "disabled"], [1, "page-item"], ["tabindex", "-1", "aria-disabled", "true", 1, "page-link"], ["href", "", 1, "page-link", 3, "click"], ["aria-label", i18n_16, "href", "", 1, "page-link", 3, "click"], ["aria-label", i18n_17, "href", "", 1, "page-link", 3, "click"], ["aria-label", i18n_18, "href", "", 1, "page-link", 3, "click"], ["aria-label", i18n_19, "href", "", 1, "page-link", 3, "click"]];
-  },
-  template: function NgbPagination_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵtemplate(0, NgbPagination_ng_template_0_Template, 2, 0, "ng-template", null, 0, ɵɵtemplateRefExtractor)(2, NgbPagination_ng_template_2_Template, 2, 0, "ng-template", null, 1, ɵɵtemplateRefExtractor)(4, NgbPagination_ng_template_4_Template, 2, 0, "ng-template", null, 2, ɵɵtemplateRefExtractor)(6, NgbPagination_ng_template_6_Template, 2, 0, "ng-template", null, 3, ɵɵtemplateRefExtractor)(8, NgbPagination_ng_template_8_Template, 1, 0, "ng-template", null, 4, ɵɵtemplateRefExtractor)(10, NgbPagination_ng_template_10_Template, 1, 1, "ng-template", null, 5, ɵɵtemplateRefExtractor)(12, NgbPagination_ng_template_12_Template, 2, 0, "ng-template", null, 6, ɵɵtemplateRefExtractor);
-      ɵɵelementStart(14, "ul");
-      ɵɵtemplate(15, NgbPagination_Conditional_15_Template, 3, 9, "li", 11)(16, NgbPagination_Conditional_16_Template, 3, 8, "li", 11)(17, NgbPagination_ng_template_17_Template, 0, 0, "ng-template", 12)(18, NgbPagination_Conditional_18_Template, 3, 9, "li", 11)(19, NgbPagination_Conditional_19_Template, 3, 9, "li", 11);
-      ɵɵelementEnd();
-    }
-    if (rf & 2) {
-      const defaultPages_r19 = ɵɵreference(13);
-      ɵɵadvance(14);
-      ɵɵclassMap("pagination" + (ctx.size ? " pagination-" + ctx.size : ""));
-      ɵɵadvance();
-      ɵɵconditional(15, ctx.boundaryLinks ? 15 : -1);
-      ɵɵadvance();
-      ɵɵconditional(16, ctx.directionLinks ? 16 : -1);
-      ɵɵadvance();
-      ɵɵproperty("ngTemplateOutlet", (ctx.tplPages == null ? null : ctx.tplPages.templateRef) || defaultPages_r19)("ngTemplateOutletContext", ɵɵpureFunction3(8, _c9, ctx.page, ctx.pages, ctx.disabled));
-      ɵɵadvance();
-      ɵɵconditional(18, ctx.directionLinks ? 18 : -1);
-      ɵɵadvance();
-      ɵɵconditional(19, ctx.boundaryLinks ? 19 : -1);
-    }
-  },
-  dependencies: [NgTemplateOutlet],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var NgbPagination = _NgbPagination;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbPagination, [{
     type: Component,
@@ -12133,18 +12410,23 @@ var NgbPagination = _NgbPagination;
   });
 })();
 var NGB_PAGINATION_DIRECTIVES = [NgbPagination, NgbPaginationEllipsis, NgbPaginationFirst, NgbPaginationLast, NgbPaginationNext, NgbPaginationNumber, NgbPaginationPrevious, NgbPaginationPages];
-var _NgbPaginationModule = class _NgbPaginationModule {
+var NgbPaginationModule = class _NgbPaginationModule {
+  static {
+    this.ɵfac = function NgbPaginationModule_Factory(t) {
+      return new (t || _NgbPaginationModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _NgbPaginationModule,
+      imports: [NgbPagination, NgbPaginationEllipsis, NgbPaginationFirst, NgbPaginationLast, NgbPaginationNext, NgbPaginationNumber, NgbPaginationPrevious, NgbPaginationPages],
+      exports: [NgbPagination, NgbPaginationEllipsis, NgbPaginationFirst, NgbPaginationLast, NgbPaginationNext, NgbPaginationNumber, NgbPaginationPrevious, NgbPaginationPages]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_NgbPaginationModule.ɵfac = function NgbPaginationModule_Factory(t) {
-  return new (t || _NgbPaginationModule)();
-};
-_NgbPaginationModule.ɵmod = ɵɵdefineNgModule({
-  type: _NgbPaginationModule,
-  imports: [NgbPagination, NgbPaginationEllipsis, NgbPaginationFirst, NgbPaginationLast, NgbPaginationNext, NgbPaginationNumber, NgbPaginationPrevious, NgbPaginationPages],
-  exports: [NgbPagination, NgbPaginationEllipsis, NgbPaginationFirst, NgbPaginationLast, NgbPaginationNext, NgbPaginationNumber, NgbPaginationPrevious, NgbPaginationPages]
-});
-_NgbPaginationModule.ɵinj = ɵɵdefineInjector({});
-var NgbPaginationModule = _NgbPaginationModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbPaginationModule, [{
     type: NgModule,
@@ -12210,7 +12492,7 @@ function listenToTriggers(element, triggers, isOpenedFn, openFn, closeFn, openDe
   }
   return () => cleanupFns.forEach((cleanupFn) => cleanupFn());
 }
-var _NgbPopoverConfig = class _NgbPopoverConfig {
+var NgbPopoverConfig = class _NgbPopoverConfig {
   constructor() {
     this._ngbConfig = inject(NgbConfig);
     this.autoClose = true;
@@ -12227,16 +12509,19 @@ var _NgbPopoverConfig = class _NgbPopoverConfig {
   set animation(animation) {
     this._animation = animation;
   }
+  static {
+    this.ɵfac = function NgbPopoverConfig_Factory(t) {
+      return new (t || _NgbPopoverConfig)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbPopoverConfig,
+      factory: _NgbPopoverConfig.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbPopoverConfig.ɵfac = function NgbPopoverConfig_Factory(t) {
-  return new (t || _NgbPopoverConfig)();
-};
-_NgbPopoverConfig.ɵprov = ɵɵdefineInjectable({
-  token: _NgbPopoverConfig,
-  factory: _NgbPopoverConfig.ɵfac,
-  providedIn: "root"
-});
-var NgbPopoverConfig = _NgbPopoverConfig;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbPopoverConfig, [{
     type: Injectable,
@@ -12246,58 +12531,61 @@ var NgbPopoverConfig = _NgbPopoverConfig;
   }], null, null);
 })();
 var nextId$1 = 0;
-var _NgbPopoverWindow = class _NgbPopoverWindow {
+var NgbPopoverWindow = class _NgbPopoverWindow {
   isTitleTemplate() {
     return this.title instanceof TemplateRef;
   }
+  static {
+    this.ɵfac = function NgbPopoverWindow_Factory(t) {
+      return new (t || _NgbPopoverWindow)();
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbPopoverWindow,
+      selectors: [["ngb-popover-window"]],
+      hostAttrs: ["role", "tooltip", 2, "position", "absolute"],
+      hostVars: 5,
+      hostBindings: function NgbPopoverWindow_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵhostProperty("id", ctx.id);
+          ɵɵclassMap("popover" + (ctx.popoverClass ? " " + ctx.popoverClass : ""));
+          ɵɵclassProp("fade", ctx.animation);
+        }
+      },
+      inputs: {
+        animation: "animation",
+        title: "title",
+        id: "id",
+        popoverClass: "popoverClass",
+        context: "context"
+      },
+      standalone: true,
+      features: [ɵɵStandaloneFeature],
+      ngContentSelectors: _c0,
+      decls: 4,
+      vars: 1,
+      consts: [["simpleTitle", ""], ["data-popper-arrow", "", 1, "popover-arrow"], [1, "popover-header"], [1, "popover-body"], [3, "ngTemplateOutlet", "ngTemplateOutletContext"]],
+      template: function NgbPopoverWindow_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵprojectionDef();
+          ɵɵelement(0, "div", 1);
+          ɵɵtemplate(1, NgbPopoverWindow_Conditional_1_Template, 4, 2, "h3", 2);
+          ɵɵelementStart(2, "div", 3);
+          ɵɵprojection(3);
+          ɵɵelementEnd();
+        }
+        if (rf & 2) {
+          ɵɵadvance();
+          ɵɵconditional(1, ctx.title ? 1 : -1);
+        }
+      },
+      dependencies: [NgTemplateOutlet],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_NgbPopoverWindow.ɵfac = function NgbPopoverWindow_Factory(t) {
-  return new (t || _NgbPopoverWindow)();
-};
-_NgbPopoverWindow.ɵcmp = ɵɵdefineComponent({
-  type: _NgbPopoverWindow,
-  selectors: [["ngb-popover-window"]],
-  hostAttrs: ["role", "tooltip", 2, "position", "absolute"],
-  hostVars: 5,
-  hostBindings: function NgbPopoverWindow_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵhostProperty("id", ctx.id);
-      ɵɵclassMap("popover" + (ctx.popoverClass ? " " + ctx.popoverClass : ""));
-      ɵɵclassProp("fade", ctx.animation);
-    }
-  },
-  inputs: {
-    animation: "animation",
-    title: "title",
-    id: "id",
-    popoverClass: "popoverClass",
-    context: "context"
-  },
-  standalone: true,
-  features: [ɵɵStandaloneFeature],
-  ngContentSelectors: _c0,
-  decls: 4,
-  vars: 1,
-  consts: [["simpleTitle", ""], ["data-popper-arrow", "", 1, "popover-arrow"], [1, "popover-header"], [1, "popover-body"], [3, "ngTemplateOutlet", "ngTemplateOutletContext"]],
-  template: function NgbPopoverWindow_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵprojectionDef();
-      ɵɵelement(0, "div", 1);
-      ɵɵtemplate(1, NgbPopoverWindow_Conditional_1_Template, 4, 2, "h3", 2);
-      ɵɵelementStart(2, "div", 3);
-      ɵɵprojection(3);
-      ɵɵelementEnd();
-    }
-    if (rf & 2) {
-      ɵɵadvance();
-      ɵɵconditional(1, ctx.title ? 1 : -1);
-    }
-  },
-  dependencies: [NgTemplateOutlet],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var NgbPopoverWindow = _NgbPopoverWindow;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbPopoverWindow, [{
     type: Component,
@@ -12348,7 +12636,7 @@ var NgbPopoverWindow = _NgbPopoverWindow;
     }]
   });
 })();
-var _NgbPopover = class _NgbPopover {
+var NgbPopover = class _NgbPopover {
   constructor() {
     this._config = inject(NgbPopoverConfig);
     this.animation = this._config.animation;
@@ -12475,38 +12763,41 @@ var _NgbPopover = class _NgbPopover {
   _getPositionTargetElement() {
     return (isString(this.positionTarget) ? this._document.querySelector(this.positionTarget) : this.positionTarget) || this._nativeElement;
   }
+  static {
+    this.ɵfac = function NgbPopover_Factory(t) {
+      return new (t || _NgbPopover)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbPopover,
+      selectors: [["", "ngbPopover", ""]],
+      inputs: {
+        animation: "animation",
+        autoClose: "autoClose",
+        ngbPopover: "ngbPopover",
+        popoverTitle: "popoverTitle",
+        placement: "placement",
+        popperOptions: "popperOptions",
+        triggers: "triggers",
+        positionTarget: "positionTarget",
+        container: "container",
+        disablePopover: "disablePopover",
+        popoverClass: "popoverClass",
+        popoverContext: "popoverContext",
+        openDelay: "openDelay",
+        closeDelay: "closeDelay"
+      },
+      outputs: {
+        shown: "shown",
+        hidden: "hidden"
+      },
+      exportAs: ["ngbPopover"],
+      standalone: true,
+      features: [ɵɵNgOnChangesFeature]
+    });
+  }
 };
-_NgbPopover.ɵfac = function NgbPopover_Factory(t) {
-  return new (t || _NgbPopover)();
-};
-_NgbPopover.ɵdir = ɵɵdefineDirective({
-  type: _NgbPopover,
-  selectors: [["", "ngbPopover", ""]],
-  inputs: {
-    animation: "animation",
-    autoClose: "autoClose",
-    ngbPopover: "ngbPopover",
-    popoverTitle: "popoverTitle",
-    placement: "placement",
-    popperOptions: "popperOptions",
-    triggers: "triggers",
-    positionTarget: "positionTarget",
-    container: "container",
-    disablePopover: "disablePopover",
-    popoverClass: "popoverClass",
-    popoverContext: "popoverContext",
-    openDelay: "openDelay",
-    closeDelay: "closeDelay"
-  },
-  outputs: {
-    shown: "shown",
-    hidden: "hidden"
-  },
-  exportAs: ["ngbPopover"],
-  standalone: true,
-  features: [ɵɵNgOnChangesFeature]
-});
-var NgbPopover = _NgbPopover;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbPopover, [{
     type: Directive,
@@ -12566,18 +12857,23 @@ var NgbPopover = _NgbPopover;
     }]
   });
 })();
-var _NgbPopoverModule = class _NgbPopoverModule {
+var NgbPopoverModule = class _NgbPopoverModule {
+  static {
+    this.ɵfac = function NgbPopoverModule_Factory(t) {
+      return new (t || _NgbPopoverModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _NgbPopoverModule,
+      imports: [NgbPopover],
+      exports: [NgbPopover]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_NgbPopoverModule.ɵfac = function NgbPopoverModule_Factory(t) {
-  return new (t || _NgbPopoverModule)();
-};
-_NgbPopoverModule.ɵmod = ɵɵdefineNgModule({
-  type: _NgbPopoverModule,
-  imports: [NgbPopover],
-  exports: [NgbPopover]
-});
-_NgbPopoverModule.ɵinj = ɵɵdefineInjector({});
-var NgbPopoverModule = _NgbPopoverModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbPopoverModule, [{
     type: NgModule,
@@ -12587,7 +12883,7 @@ var NgbPopoverModule = _NgbPopoverModule;
     }]
   }], null, null);
 })();
-var _NgbProgressbarConfig = class _NgbProgressbarConfig {
+var NgbProgressbarConfig = class _NgbProgressbarConfig {
   constructor() {
     this.max = 100;
     this.animated = false;
@@ -12595,16 +12891,19 @@ var _NgbProgressbarConfig = class _NgbProgressbarConfig {
     this.striped = false;
     this.showValue = false;
   }
+  static {
+    this.ɵfac = function NgbProgressbarConfig_Factory(t) {
+      return new (t || _NgbProgressbarConfig)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbProgressbarConfig,
+      factory: _NgbProgressbarConfig.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbProgressbarConfig.ɵfac = function NgbProgressbarConfig_Factory(t) {
-  return new (t || _NgbProgressbarConfig)();
-};
-_NgbProgressbarConfig.ɵprov = ɵɵdefineInjectable({
-  token: _NgbProgressbarConfig,
-  factory: _NgbProgressbarConfig.ɵfac,
-  providedIn: "root"
-});
-var NgbProgressbarConfig = _NgbProgressbarConfig;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbProgressbarConfig, [{
     type: Injectable,
@@ -12613,7 +12912,7 @@ var NgbProgressbarConfig = _NgbProgressbarConfig;
     }]
   }], null, null);
 })();
-var _NgbProgressbar = class _NgbProgressbar {
+var NgbProgressbar = class _NgbProgressbar {
   /**
    * The maximal value to be displayed in the progress bar.
    *
@@ -12646,74 +12945,77 @@ var _NgbProgressbar = class _NgbProgressbar {
   getPercentValue() {
     return 100 * this.getValue() / this.max;
   }
-};
-_NgbProgressbar.ɵfac = function NgbProgressbar_Factory(t) {
-  return new (t || _NgbProgressbar)();
-};
-_NgbProgressbar.ɵcmp = ɵɵdefineComponent({
-  type: _NgbProgressbar,
-  selectors: [["ngb-progressbar"]],
-  hostAttrs: ["role", "progressbar", "aria-valuemin", "0", 1, "progress"],
-  hostVars: 7,
-  hostBindings: function NgbProgressbar_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵattribute("aria-valuenow", ctx.getValue())("aria-valuemax", ctx.max)("aria-label", ctx.ariaLabel);
-      ɵɵstyleProp("width", ctx.stacked ? ctx.getPercentValue() : null, "%")("height", ctx.height);
-    }
-  },
-  inputs: {
-    max: "max",
-    animated: "animated",
-    ariaLabel: "ariaLabel",
-    striped: "striped",
-    showValue: "showValue",
-    textType: "textType",
-    type: "type",
-    value: "value",
-    height: "height"
-  },
-  standalone: true,
-  features: [ɵɵStandaloneFeature],
-  ngContentSelectors: _c0,
-  decls: 3,
-  vars: 11,
-  consts: () => {
-    let i18n_20;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_20 = goog.getMsg("{$interpolation}", {
-        "interpolation": "�0�"
-      }, {
-        original_code: {
-          "interpolation": "{{ getValue() / max | percent }}"
+  static {
+    this.ɵfac = function NgbProgressbar_Factory(t) {
+      return new (t || _NgbProgressbar)();
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbProgressbar,
+      selectors: [["ngb-progressbar"]],
+      hostAttrs: ["role", "progressbar", "aria-valuemin", "0", 1, "progress"],
+      hostVars: 7,
+      hostBindings: function NgbProgressbar_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵattribute("aria-valuenow", ctx.getValue())("aria-valuemax", ctx.max)("aria-label", ctx.ariaLabel);
+          ɵɵstyleProp("width", ctx.stacked ? ctx.getPercentValue() : null, "%")("height", ctx.height);
         }
-      });
-      i18n_20 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_20;
-    } else {
-      i18n_20 = $localize`:@@ngb.progressbar.value:${"�0�"}:INTERPOLATION:`;
-    }
-    return [i18n_20];
-  },
-  template: function NgbProgressbar_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵprojectionDef();
-      ɵɵelementStart(0, "div");
-      ɵɵtemplate(1, NgbProgressbar_Conditional_1_Template, 3, 3, "span");
-      ɵɵprojection(2);
-      ɵɵelementEnd();
-    }
-    if (rf & 2) {
-      ɵɵclassMapInterpolate2("progress-bar", ctx.type ? ctx.textType ? " bg-" + ctx.type : " text-bg-" + ctx.type : "", "", ctx.textType ? " text-" + ctx.textType : "", "");
-      ɵɵstyleProp("width", !ctx.stacked ? ctx.getPercentValue() : null, "%");
-      ɵɵclassProp("progress-bar-animated", ctx.animated)("progress-bar-striped", ctx.striped);
-      ɵɵadvance();
-      ɵɵconditional(1, ctx.showValue ? 1 : -1);
-    }
-  },
-  dependencies: [PercentPipe],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var NgbProgressbar = _NgbProgressbar;
+      },
+      inputs: {
+        max: "max",
+        animated: "animated",
+        ariaLabel: "ariaLabel",
+        striped: "striped",
+        showValue: "showValue",
+        textType: "textType",
+        type: "type",
+        value: "value",
+        height: "height"
+      },
+      standalone: true,
+      features: [ɵɵStandaloneFeature],
+      ngContentSelectors: _c0,
+      decls: 3,
+      vars: 11,
+      consts: () => {
+        let i18n_20;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_20 = goog.getMsg("{$interpolation}", {
+            "interpolation": "�0�"
+          }, {
+            original_code: {
+              "interpolation": "{{ getValue() / max | percent }}"
+            }
+          });
+          i18n_20 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_20;
+        } else {
+          i18n_20 = $localize`:@@ngb.progressbar.value:${"�0�"}:INTERPOLATION:`;
+        }
+        return [i18n_20];
+      },
+      template: function NgbProgressbar_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵprojectionDef();
+          ɵɵelementStart(0, "div");
+          ɵɵtemplate(1, NgbProgressbar_Conditional_1_Template, 3, 3, "span");
+          ɵɵprojection(2);
+          ɵɵelementEnd();
+        }
+        if (rf & 2) {
+          ɵɵclassMapInterpolate2("progress-bar", ctx.type ? ctx.textType ? " bg-" + ctx.type : " text-bg-" + ctx.type : "", "", ctx.textType ? " text-" + ctx.textType : "", "");
+          ɵɵstyleProp("width", !ctx.stacked ? ctx.getPercentValue() : null, "%");
+          ɵɵclassProp("progress-bar-animated", ctx.animated)("progress-bar-striped", ctx.striped);
+          ɵɵadvance();
+          ɵɵconditional(1, ctx.showValue ? 1 : -1);
+        }
+      },
+      dependencies: [PercentPipe],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
+};
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbProgressbar, [{
     type: Component,
@@ -12784,30 +13086,33 @@ var NgbProgressbar = _NgbProgressbar;
     }]
   });
 })();
-var _NgbProgressbarStacked = class _NgbProgressbarStacked {
+var NgbProgressbarStacked = class _NgbProgressbarStacked {
+  static {
+    this.ɵfac = function NgbProgressbarStacked_Factory(t) {
+      return new (t || _NgbProgressbarStacked)();
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbProgressbarStacked,
+      selectors: [["ngb-progressbar-stacked"]],
+      hostAttrs: [1, "progress-stacked"],
+      standalone: true,
+      features: [ɵɵStandaloneFeature],
+      ngContentSelectors: _c0,
+      decls: 1,
+      vars: 0,
+      template: function NgbProgressbarStacked_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵprojectionDef();
+          ɵɵprojection(0);
+        }
+      },
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_NgbProgressbarStacked.ɵfac = function NgbProgressbarStacked_Factory(t) {
-  return new (t || _NgbProgressbarStacked)();
-};
-_NgbProgressbarStacked.ɵcmp = ɵɵdefineComponent({
-  type: _NgbProgressbarStacked,
-  selectors: [["ngb-progressbar-stacked"]],
-  hostAttrs: [1, "progress-stacked"],
-  standalone: true,
-  features: [ɵɵStandaloneFeature],
-  ngContentSelectors: _c0,
-  decls: 1,
-  vars: 0,
-  template: function NgbProgressbarStacked_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵprojectionDef();
-      ɵɵprojection(0);
-    }
-  },
-  encapsulation: 2,
-  changeDetection: 0
-});
-var NgbProgressbarStacked = _NgbProgressbarStacked;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbProgressbarStacked, [{
     type: Component,
@@ -12823,18 +13128,23 @@ var NgbProgressbarStacked = _NgbProgressbarStacked;
     }]
   }], null, null);
 })();
-var _NgbProgressbarModule = class _NgbProgressbarModule {
+var NgbProgressbarModule = class _NgbProgressbarModule {
+  static {
+    this.ɵfac = function NgbProgressbarModule_Factory(t) {
+      return new (t || _NgbProgressbarModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _NgbProgressbarModule,
+      imports: [NgbProgressbar, NgbProgressbarStacked],
+      exports: [NgbProgressbar, NgbProgressbarStacked]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_NgbProgressbarModule.ɵfac = function NgbProgressbarModule_Factory(t) {
-  return new (t || _NgbProgressbarModule)();
-};
-_NgbProgressbarModule.ɵmod = ɵɵdefineNgModule({
-  type: _NgbProgressbarModule,
-  imports: [NgbProgressbar, NgbProgressbarStacked],
-  exports: [NgbProgressbar, NgbProgressbarStacked]
-});
-_NgbProgressbarModule.ɵinj = ɵɵdefineInjector({});
-var NgbProgressbarModule = _NgbProgressbarModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbProgressbarModule, [{
     type: NgModule,
@@ -12844,23 +13154,26 @@ var NgbProgressbarModule = _NgbProgressbarModule;
     }]
   }], null, null);
 })();
-var _NgbRatingConfig = class _NgbRatingConfig {
+var NgbRatingConfig = class _NgbRatingConfig {
   constructor() {
     this.max = 10;
     this.readonly = false;
     this.resettable = false;
     this.tabindex = 0;
   }
+  static {
+    this.ɵfac = function NgbRatingConfig_Factory(t) {
+      return new (t || _NgbRatingConfig)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbRatingConfig,
+      factory: _NgbRatingConfig.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbRatingConfig.ɵfac = function NgbRatingConfig_Factory(t) {
-  return new (t || _NgbRatingConfig)();
-};
-_NgbRatingConfig.ɵprov = ɵɵdefineInjectable({
-  token: _NgbRatingConfig,
-  factory: _NgbRatingConfig.ɵfac,
-  providedIn: "root"
-});
-var NgbRatingConfig = _NgbRatingConfig;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbRatingConfig, [{
     type: Injectable,
@@ -12869,7 +13182,7 @@ var NgbRatingConfig = _NgbRatingConfig;
     }]
   }], null, null);
 })();
-var _NgbRating = class _NgbRating {
+var NgbRating = class _NgbRating {
   constructor() {
     this.contexts = [];
     this._config = inject(NgbRatingConfig);
@@ -12992,78 +13305,81 @@ var _NgbRating = class _NgbRating {
       index: k
     }));
   }
+  static {
+    this.ɵfac = function NgbRating_Factory(t) {
+      return new (t || _NgbRating)();
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbRating,
+      selectors: [["ngb-rating"]],
+      contentQueries: function NgbRating_ContentQueries(rf, ctx, dirIndex) {
+        if (rf & 1) {
+          ɵɵcontentQuery(dirIndex, TemplateRef, 5);
+        }
+        if (rf & 2) {
+          let _t;
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.starTemplateFromContent = _t.first);
+        }
+      },
+      hostAttrs: ["role", "slider", "aria-valuemin", "0", 1, "d-inline-flex"],
+      hostVars: 6,
+      hostBindings: function NgbRating_HostBindings(rf, ctx) {
+        if (rf & 1) {
+          ɵɵlistener("blur", function NgbRating_blur_HostBindingHandler() {
+            return ctx.handleBlur();
+          })("keydown", function NgbRating_keydown_HostBindingHandler($event) {
+            return ctx.handleKeyDown($event);
+          })("mouseleave", function NgbRating_mouseleave_HostBindingHandler() {
+            return ctx.reset();
+          });
+        }
+        if (rf & 2) {
+          ɵɵhostProperty("tabindex", ctx.disabled ? -1 : ctx.tabindex);
+          ɵɵattribute("aria-valuemax", ctx.max)("aria-valuenow", ctx.nextRate)("aria-valuetext", ctx.ariaValueText(ctx.nextRate, ctx.max))("aria-readonly", ctx.readonly && !ctx.disabled ? true : null)("aria-disabled", ctx.disabled ? true : null);
+        }
+      },
+      inputs: {
+        disabled: "disabled",
+        max: "max",
+        rate: "rate",
+        readonly: "readonly",
+        resettable: "resettable",
+        starTemplate: "starTemplate",
+        tabindex: "tabindex",
+        ariaValueText: "ariaValueText"
+      },
+      outputs: {
+        hover: "hover",
+        leave: "leave",
+        rateChange: "rateChange"
+      },
+      standalone: true,
+      features: [ɵɵProvidersFeature([{
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: forwardRef(() => _NgbRating),
+        multi: true
+      }]), ɵɵNgOnChangesFeature, ɵɵStandaloneFeature],
+      decls: 4,
+      vars: 0,
+      consts: [["t", ""], [1, "visually-hidden"], [3, "mouseenter", "click"], [3, "ngTemplateOutlet", "ngTemplateOutletContext"]],
+      template: function NgbRating_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵtemplate(0, NgbRating_ng_template_0_Template, 1, 1, "ng-template", null, 0, ɵɵtemplateRefExtractor);
+          ɵɵrepeaterCreate(2, NgbRating_For_3_Template, 4, 5, null, null, ɵɵrepeaterTrackByIdentity);
+        }
+        if (rf & 2) {
+          ɵɵadvance(2);
+          ɵɵrepeater(ctx.contexts);
+        }
+      },
+      dependencies: [NgTemplateOutlet],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_NgbRating.ɵfac = function NgbRating_Factory(t) {
-  return new (t || _NgbRating)();
-};
-_NgbRating.ɵcmp = ɵɵdefineComponent({
-  type: _NgbRating,
-  selectors: [["ngb-rating"]],
-  contentQueries: function NgbRating_ContentQueries(rf, ctx, dirIndex) {
-    if (rf & 1) {
-      ɵɵcontentQuery(dirIndex, TemplateRef, 5);
-    }
-    if (rf & 2) {
-      let _t;
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.starTemplateFromContent = _t.first);
-    }
-  },
-  hostAttrs: ["role", "slider", "aria-valuemin", "0", 1, "d-inline-flex"],
-  hostVars: 6,
-  hostBindings: function NgbRating_HostBindings(rf, ctx) {
-    if (rf & 1) {
-      ɵɵlistener("blur", function NgbRating_blur_HostBindingHandler() {
-        return ctx.handleBlur();
-      })("keydown", function NgbRating_keydown_HostBindingHandler($event) {
-        return ctx.handleKeyDown($event);
-      })("mouseleave", function NgbRating_mouseleave_HostBindingHandler() {
-        return ctx.reset();
-      });
-    }
-    if (rf & 2) {
-      ɵɵhostProperty("tabindex", ctx.disabled ? -1 : ctx.tabindex);
-      ɵɵattribute("aria-valuemax", ctx.max)("aria-valuenow", ctx.nextRate)("aria-valuetext", ctx.ariaValueText(ctx.nextRate, ctx.max))("aria-readonly", ctx.readonly && !ctx.disabled ? true : null)("aria-disabled", ctx.disabled ? true : null);
-    }
-  },
-  inputs: {
-    disabled: "disabled",
-    max: "max",
-    rate: "rate",
-    readonly: "readonly",
-    resettable: "resettable",
-    starTemplate: "starTemplate",
-    tabindex: "tabindex",
-    ariaValueText: "ariaValueText"
-  },
-  outputs: {
-    hover: "hover",
-    leave: "leave",
-    rateChange: "rateChange"
-  },
-  standalone: true,
-  features: [ɵɵProvidersFeature([{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => _NgbRating),
-    multi: true
-  }]), ɵɵNgOnChangesFeature, ɵɵStandaloneFeature],
-  decls: 4,
-  vars: 0,
-  consts: [["t", ""], [1, "visually-hidden"], [3, "mouseenter", "click"], [3, "ngTemplateOutlet", "ngTemplateOutletContext"]],
-  template: function NgbRating_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵtemplate(0, NgbRating_ng_template_0_Template, 1, 1, "ng-template", null, 0, ɵɵtemplateRefExtractor);
-      ɵɵrepeaterCreate(2, NgbRating_For_3_Template, 4, 5, null, null, ɵɵrepeaterTrackByIdentity);
-    }
-    if (rf & 2) {
-      ɵɵadvance(2);
-      ɵɵrepeater(ctx.contexts);
-    }
-  },
-  dependencies: [NgTemplateOutlet],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var NgbRating = _NgbRating;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbRating, [{
     type: Component,
@@ -13151,18 +13467,23 @@ var NgbRating = _NgbRating;
     }]
   });
 })();
-var _NgbRatingModule = class _NgbRatingModule {
+var NgbRatingModule = class _NgbRatingModule {
+  static {
+    this.ɵfac = function NgbRatingModule_Factory(t) {
+      return new (t || _NgbRatingModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _NgbRatingModule,
+      imports: [NgbRating],
+      exports: [NgbRating]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_NgbRatingModule.ɵfac = function NgbRatingModule_Factory(t) {
-  return new (t || _NgbRatingModule)();
-};
-_NgbRatingModule.ɵmod = ɵɵdefineNgModule({
-  type: _NgbRatingModule,
-  imports: [NgbRating],
-  exports: [NgbRating]
-});
-_NgbRatingModule.ɵinj = ɵɵdefineInjector({});
-var NgbRatingModule = _NgbRatingModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbRatingModule, [{
     type: NgModule,
@@ -13244,21 +13565,24 @@ var defaultProcessChanges = (state, changeActive, ctx) => {
     }
   }
 };
-var _NgbScrollSpyConfig = class _NgbScrollSpyConfig {
+var NgbScrollSpyConfig = class _NgbScrollSpyConfig {
   constructor() {
     this.scrollBehavior = "smooth";
     this.processChanges = defaultProcessChanges;
   }
+  static {
+    this.ɵfac = function NgbScrollSpyConfig_Factory(t) {
+      return new (t || _NgbScrollSpyConfig)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbScrollSpyConfig,
+      factory: _NgbScrollSpyConfig.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbScrollSpyConfig.ɵfac = function NgbScrollSpyConfig_Factory(t) {
-  return new (t || _NgbScrollSpyConfig)();
-};
-_NgbScrollSpyConfig.ɵprov = ɵɵdefineInjectable({
-  token: _NgbScrollSpyConfig,
-  factory: _NgbScrollSpyConfig.ɵfac,
-  providedIn: "root"
-});
-var NgbScrollSpyConfig = _NgbScrollSpyConfig;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbScrollSpyConfig, [{
     type: Injectable,
@@ -13268,7 +13592,7 @@ var NgbScrollSpyConfig = _NgbScrollSpyConfig;
   }], null, null);
 })();
 var MATCH_THRESHOLD = 3;
-var _NgbScrollSpyService = class _NgbScrollSpyService {
+var NgbScrollSpyService = class _NgbScrollSpyService {
   constructor() {
     this._observer = null;
     this._containerElement = null;
@@ -13439,16 +13763,19 @@ var _NgbScrollSpyService = class _NgbScrollSpyService {
     this._observer = null;
     this._containerElement = null;
   }
+  static {
+    this.ɵfac = function NgbScrollSpyService_Factory(t) {
+      return new (t || _NgbScrollSpyService)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbScrollSpyService,
+      factory: _NgbScrollSpyService.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbScrollSpyService.ɵfac = function NgbScrollSpyService_Factory(t) {
-  return new (t || _NgbScrollSpyService)();
-};
-_NgbScrollSpyService.ɵprov = ɵɵdefineInjectable({
-  token: _NgbScrollSpyService,
-  factory: _NgbScrollSpyService.ɵfac,
-  providedIn: "root"
-});
-var NgbScrollSpyService = _NgbScrollSpyService;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbScrollSpyService, [{
     type: Injectable,
@@ -13457,7 +13784,7 @@ var NgbScrollSpyService = _NgbScrollSpyService;
     }]
   }], () => [], null);
 })();
-var _NgbScrollSpyItem = class _NgbScrollSpyItem {
+var NgbScrollSpyItem = class _NgbScrollSpyItem {
   constructor() {
     this._changeDetector = inject(ChangeDetectorRef);
     this._scrollSpyMenu = inject(NgbScrollSpyMenu, {
@@ -13531,33 +13858,36 @@ var _NgbScrollSpyItem = class _NgbScrollSpyItem {
   scrollTo(options) {
     this._scrollSpyAPI.scrollTo(this.fragment, options);
   }
+  static {
+    this.ɵfac = function NgbScrollSpyItem_Factory(t) {
+      return new (t || _NgbScrollSpyItem)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbScrollSpyItem,
+      selectors: [["", "ngbScrollSpyItem", ""]],
+      hostVars: 2,
+      hostBindings: function NgbScrollSpyItem_HostBindings(rf, ctx) {
+        if (rf & 1) {
+          ɵɵlistener("click", function NgbScrollSpyItem_click_HostBindingHandler() {
+            return ctx.scrollTo();
+          });
+        }
+        if (rf & 2) {
+          ɵɵclassProp("active", ctx.isActive());
+        }
+      },
+      inputs: {
+        data: [InputFlags.None, "ngbScrollSpyItem", "data"],
+        fragment: "fragment",
+        parent: "parent"
+      },
+      exportAs: ["ngbScrollSpyItem"],
+      standalone: true
+    });
+  }
 };
-_NgbScrollSpyItem.ɵfac = function NgbScrollSpyItem_Factory(t) {
-  return new (t || _NgbScrollSpyItem)();
-};
-_NgbScrollSpyItem.ɵdir = ɵɵdefineDirective({
-  type: _NgbScrollSpyItem,
-  selectors: [["", "ngbScrollSpyItem", ""]],
-  hostVars: 2,
-  hostBindings: function NgbScrollSpyItem_HostBindings(rf, ctx) {
-    if (rf & 1) {
-      ɵɵlistener("click", function NgbScrollSpyItem_click_HostBindingHandler() {
-        return ctx.scrollTo();
-      });
-    }
-    if (rf & 2) {
-      ɵɵclassProp("active", ctx.isActive());
-    }
-  },
-  inputs: {
-    data: [InputFlags.None, "ngbScrollSpyItem", "data"],
-    fragment: "fragment",
-    parent: "parent"
-  },
-  exportAs: ["ngbScrollSpyItem"],
-  standalone: true
-});
-var NgbScrollSpyItem = _NgbScrollSpyItem;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbScrollSpyItem, [{
     type: Directive,
@@ -13583,7 +13913,7 @@ var NgbScrollSpyItem = _NgbScrollSpyItem;
     }]
   });
 })();
-var _NgbScrollSpyMenu = class _NgbScrollSpyMenu {
+var NgbScrollSpyMenu = class _NgbScrollSpyMenu {
   constructor() {
     this._scrollSpyRef = inject(NgbScrollSpyService);
     this._destroyRef = inject(DestroyRef);
@@ -13623,28 +13953,31 @@ var _NgbScrollSpyMenu = class _NgbScrollSpyMenu {
       this._map.set(item.fragment, item);
     }
   }
+  static {
+    this.ɵfac = function NgbScrollSpyMenu_Factory(t) {
+      return new (t || _NgbScrollSpyMenu)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbScrollSpyMenu,
+      selectors: [["", "ngbScrollSpyMenu", ""]],
+      contentQueries: function NgbScrollSpyMenu_ContentQueries(rf, ctx, dirIndex) {
+        if (rf & 1) {
+          ɵɵcontentQuery(dirIndex, NgbScrollSpyItem, 5);
+        }
+        if (rf & 2) {
+          let _t;
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._items = _t);
+        }
+      },
+      inputs: {
+        scrollSpy: [InputFlags.None, "ngbScrollSpyMenu", "scrollSpy"]
+      },
+      standalone: true
+    });
+  }
 };
-_NgbScrollSpyMenu.ɵfac = function NgbScrollSpyMenu_Factory(t) {
-  return new (t || _NgbScrollSpyMenu)();
-};
-_NgbScrollSpyMenu.ɵdir = ɵɵdefineDirective({
-  type: _NgbScrollSpyMenu,
-  selectors: [["", "ngbScrollSpyMenu", ""]],
-  contentQueries: function NgbScrollSpyMenu_ContentQueries(rf, ctx, dirIndex) {
-    if (rf & 1) {
-      ɵɵcontentQuery(dirIndex, NgbScrollSpyItem, 5);
-    }
-    if (rf & 2) {
-      let _t;
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._items = _t);
-    }
-  },
-  inputs: {
-    scrollSpy: [InputFlags.None, "ngbScrollSpyMenu", "scrollSpy"]
-  },
-  standalone: true
-});
-var NgbScrollSpyMenu = _NgbScrollSpyMenu;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbScrollSpyMenu, [{
     type: Directive,
@@ -13665,7 +13998,7 @@ var NgbScrollSpyMenu = _NgbScrollSpyMenu;
     }]
   });
 })();
-var _NgbScrollSpy = class _NgbScrollSpy {
+var NgbScrollSpy = class _NgbScrollSpy {
   constructor() {
     this._initialFragment = null;
     this._service = inject(NgbScrollSpyService);
@@ -13719,29 +14052,32 @@ var _NgbScrollSpy = class _NgbScrollSpy {
       behavior: this.scrollBehavior
     }), options));
   }
+  static {
+    this.ɵfac = function NgbScrollSpy_Factory(t) {
+      return new (t || _NgbScrollSpy)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbScrollSpy,
+      selectors: [["", "ngbScrollSpy", ""]],
+      hostAttrs: ["tabindex", "0", 2, "overflow-y", "auto"],
+      inputs: {
+        processChanges: "processChanges",
+        rootMargin: "rootMargin",
+        scrollBehavior: "scrollBehavior",
+        threshold: "threshold",
+        active: "active"
+      },
+      outputs: {
+        activeChange: "activeChange"
+      },
+      exportAs: ["ngbScrollSpy"],
+      standalone: true,
+      features: [ɵɵProvidersFeature([NgbScrollSpyService])]
+    });
+  }
 };
-_NgbScrollSpy.ɵfac = function NgbScrollSpy_Factory(t) {
-  return new (t || _NgbScrollSpy)();
-};
-_NgbScrollSpy.ɵdir = ɵɵdefineDirective({
-  type: _NgbScrollSpy,
-  selectors: [["", "ngbScrollSpy", ""]],
-  hostAttrs: ["tabindex", "0", 2, "overflow-y", "auto"],
-  inputs: {
-    processChanges: "processChanges",
-    rootMargin: "rootMargin",
-    scrollBehavior: "scrollBehavior",
-    threshold: "threshold",
-    active: "active"
-  },
-  outputs: {
-    activeChange: "activeChange"
-  },
-  exportAs: ["ngbScrollSpy"],
-  standalone: true,
-  features: [ɵɵProvidersFeature([NgbScrollSpyService])]
-});
-var NgbScrollSpy = _NgbScrollSpy;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbScrollSpy, [{
     type: Directive,
@@ -13776,7 +14112,7 @@ var NgbScrollSpy = _NgbScrollSpy;
     }]
   });
 })();
-var _NgbScrollSpyFragment = class _NgbScrollSpyFragment {
+var NgbScrollSpyFragment = class _NgbScrollSpyFragment {
   constructor() {
     this._destroyRef = inject(DestroyRef);
     this._scrollSpy = inject(NgbScrollSpy);
@@ -13785,25 +14121,28 @@ var _NgbScrollSpyFragment = class _NgbScrollSpyFragment {
     this._scrollSpy._registerFragment(this);
     this._destroyRef.onDestroy(() => this._scrollSpy._unregisterFragment(this));
   }
+  static {
+    this.ɵfac = function NgbScrollSpyFragment_Factory(t) {
+      return new (t || _NgbScrollSpyFragment)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbScrollSpyFragment,
+      selectors: [["", "ngbScrollSpyFragment", ""]],
+      hostVars: 1,
+      hostBindings: function NgbScrollSpyFragment_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵhostProperty("id", ctx.id);
+        }
+      },
+      inputs: {
+        id: [InputFlags.None, "ngbScrollSpyFragment", "id"]
+      },
+      standalone: true
+    });
+  }
 };
-_NgbScrollSpyFragment.ɵfac = function NgbScrollSpyFragment_Factory(t) {
-  return new (t || _NgbScrollSpyFragment)();
-};
-_NgbScrollSpyFragment.ɵdir = ɵɵdefineDirective({
-  type: _NgbScrollSpyFragment,
-  selectors: [["", "ngbScrollSpyFragment", ""]],
-  hostVars: 1,
-  hostBindings: function NgbScrollSpyFragment_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵhostProperty("id", ctx.id);
-    }
-  },
-  inputs: {
-    id: [InputFlags.None, "ngbScrollSpyFragment", "id"]
-  },
-  standalone: true
-});
-var NgbScrollSpyFragment = _NgbScrollSpyFragment;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbScrollSpyFragment, [{
     type: Directive,
@@ -13821,18 +14160,23 @@ var NgbScrollSpyFragment = _NgbScrollSpyFragment;
     }]
   });
 })();
-var _NgbScrollSpyModule = class _NgbScrollSpyModule {
+var NgbScrollSpyModule = class _NgbScrollSpyModule {
+  static {
+    this.ɵfac = function NgbScrollSpyModule_Factory(t) {
+      return new (t || _NgbScrollSpyModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _NgbScrollSpyModule,
+      imports: [NgbScrollSpy, NgbScrollSpyItem, NgbScrollSpyFragment, NgbScrollSpyMenu],
+      exports: [NgbScrollSpy, NgbScrollSpyItem, NgbScrollSpyFragment, NgbScrollSpyMenu]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_NgbScrollSpyModule.ɵfac = function NgbScrollSpyModule_Factory(t) {
-  return new (t || _NgbScrollSpyModule)();
-};
-_NgbScrollSpyModule.ɵmod = ɵɵdefineNgModule({
-  type: _NgbScrollSpyModule,
-  imports: [NgbScrollSpy, NgbScrollSpyItem, NgbScrollSpyFragment, NgbScrollSpyMenu],
-  exports: [NgbScrollSpy, NgbScrollSpyItem, NgbScrollSpyFragment, NgbScrollSpyMenu]
-});
-_NgbScrollSpyModule.ɵinj = ɵɵdefineInjector({});
-var NgbScrollSpyModule = _NgbScrollSpyModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbScrollSpyModule, [{
     type: NgModule,
@@ -13887,7 +14231,7 @@ var NgbTime = class {
     return `${this.hour || 0}:${this.minute || 0}:${this.second || 0}`;
   }
 };
-var _NgbTimepickerConfig = class _NgbTimepickerConfig {
+var NgbTimepickerConfig = class _NgbTimepickerConfig {
   constructor() {
     this.meridian = false;
     this.spinners = true;
@@ -13899,16 +14243,19 @@ var _NgbTimepickerConfig = class _NgbTimepickerConfig {
     this.readonlyInputs = false;
     this.size = "medium";
   }
+  static {
+    this.ɵfac = function NgbTimepickerConfig_Factory(t) {
+      return new (t || _NgbTimepickerConfig)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbTimepickerConfig,
+      factory: _NgbTimepickerConfig.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbTimepickerConfig.ɵfac = function NgbTimepickerConfig_Factory(t) {
-  return new (t || _NgbTimepickerConfig)();
-};
-_NgbTimepickerConfig.ɵprov = ɵɵdefineInjectable({
-  token: _NgbTimepickerConfig,
-  factory: _NgbTimepickerConfig.ɵfac,
-  providedIn: "root"
-});
-var NgbTimepickerConfig = _NgbTimepickerConfig;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbTimepickerConfig, [{
     type: Injectable,
@@ -13920,17 +14267,20 @@ var NgbTimepickerConfig = _NgbTimepickerConfig;
 function NGB_DATEPICKER_TIME_ADAPTER_FACTORY() {
   return new NgbTimeStructAdapter();
 }
-var _NgbTimeAdapter = class _NgbTimeAdapter {
+var NgbTimeAdapter = class _NgbTimeAdapter {
+  static {
+    this.ɵfac = function NgbTimeAdapter_Factory(t) {
+      return new (t || _NgbTimeAdapter)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbTimeAdapter,
+      factory: () => NGB_DATEPICKER_TIME_ADAPTER_FACTORY(),
+      providedIn: "root"
+    });
+  }
 };
-_NgbTimeAdapter.ɵfac = function NgbTimeAdapter_Factory(t) {
-  return new (t || _NgbTimeAdapter)();
-};
-_NgbTimeAdapter.ɵprov = ɵɵdefineInjectable({
-  token: _NgbTimeAdapter,
-  factory: () => NGB_DATEPICKER_TIME_ADAPTER_FACTORY(),
-  providedIn: "root"
-});
-var NgbTimeAdapter = _NgbTimeAdapter;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbTimeAdapter, [{
     type: Injectable,
@@ -13940,7 +14290,7 @@ var NgbTimeAdapter = _NgbTimeAdapter;
     }]
   }], null, null);
 })();
-var _NgbTimeStructAdapter = class _NgbTimeStructAdapter extends NgbTimeAdapter {
+var NgbTimeStructAdapter = class _NgbTimeStructAdapter extends NgbTimeAdapter {
   /**
    * Converts a NgbTimeStruct value into NgbTimeStruct value
    */
@@ -13961,34 +14311,40 @@ var _NgbTimeStructAdapter = class _NgbTimeStructAdapter extends NgbTimeAdapter {
       second: isInteger(time.second) ? time.second : null
     } : null;
   }
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵNgbTimeStructAdapter_BaseFactory;
+      return function NgbTimeStructAdapter_Factory(t) {
+        return (ɵNgbTimeStructAdapter_BaseFactory || (ɵNgbTimeStructAdapter_BaseFactory = ɵɵgetInheritedFactory(_NgbTimeStructAdapter)))(t || _NgbTimeStructAdapter);
+      };
+    })();
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbTimeStructAdapter,
+      factory: _NgbTimeStructAdapter.ɵfac
+    });
+  }
 };
-_NgbTimeStructAdapter.ɵfac = /* @__PURE__ */ (() => {
-  let ɵNgbTimeStructAdapter_BaseFactory;
-  return function NgbTimeStructAdapter_Factory(t) {
-    return (ɵNgbTimeStructAdapter_BaseFactory || (ɵNgbTimeStructAdapter_BaseFactory = ɵɵgetInheritedFactory(_NgbTimeStructAdapter)))(t || _NgbTimeStructAdapter);
-  };
-})();
-_NgbTimeStructAdapter.ɵprov = ɵɵdefineInjectable({
-  token: _NgbTimeStructAdapter,
-  factory: _NgbTimeStructAdapter.ɵfac
-});
-var NgbTimeStructAdapter = _NgbTimeStructAdapter;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbTimeStructAdapter, [{
     type: Injectable
   }], null, null);
 })();
-var _NgbTimepickerI18n = class _NgbTimepickerI18n {
+var NgbTimepickerI18n = class _NgbTimepickerI18n {
+  static {
+    this.ɵfac = function NgbTimepickerI18n_Factory(t) {
+      return new (t || _NgbTimepickerI18n)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbTimepickerI18n,
+      factory: () => (() => new NgbTimepickerI18nDefault())(),
+      providedIn: "root"
+    });
+  }
 };
-_NgbTimepickerI18n.ɵfac = function NgbTimepickerI18n_Factory(t) {
-  return new (t || _NgbTimepickerI18n)();
-};
-_NgbTimepickerI18n.ɵprov = ɵɵdefineInjectable({
-  token: _NgbTimepickerI18n,
-  factory: () => (() => new NgbTimepickerI18nDefault())(),
-  providedIn: "root"
-});
-var NgbTimepickerI18n = _NgbTimepickerI18n;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbTimepickerI18n, [{
     type: Injectable,
@@ -13998,7 +14354,7 @@ var NgbTimepickerI18n = _NgbTimepickerI18n;
     }]
   }], null, null);
 })();
-var _NgbTimepickerI18nDefault = class _NgbTimepickerI18nDefault extends NgbTimepickerI18n {
+var NgbTimepickerI18nDefault = class _NgbTimepickerI18nDefault extends NgbTimepickerI18n {
   constructor() {
     super(...arguments);
     this._periods = getLocaleDayPeriods(inject(LOCALE_ID), FormStyle.Standalone, TranslationWidth.Narrow);
@@ -14009,25 +14365,28 @@ var _NgbTimepickerI18nDefault = class _NgbTimepickerI18nDefault extends NgbTimep
   getAfternoonPeriod() {
     return this._periods[1];
   }
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵNgbTimepickerI18nDefault_BaseFactory;
+      return function NgbTimepickerI18nDefault_Factory(t) {
+        return (ɵNgbTimepickerI18nDefault_BaseFactory || (ɵNgbTimepickerI18nDefault_BaseFactory = ɵɵgetInheritedFactory(_NgbTimepickerI18nDefault)))(t || _NgbTimepickerI18nDefault);
+      };
+    })();
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbTimepickerI18nDefault,
+      factory: _NgbTimepickerI18nDefault.ɵfac
+    });
+  }
 };
-_NgbTimepickerI18nDefault.ɵfac = /* @__PURE__ */ (() => {
-  let ɵNgbTimepickerI18nDefault_BaseFactory;
-  return function NgbTimepickerI18nDefault_Factory(t) {
-    return (ɵNgbTimepickerI18nDefault_BaseFactory || (ɵNgbTimepickerI18nDefault_BaseFactory = ɵɵgetInheritedFactory(_NgbTimepickerI18nDefault)))(t || _NgbTimepickerI18nDefault);
-  };
-})();
-_NgbTimepickerI18nDefault.ɵprov = ɵɵdefineInjectable({
-  token: _NgbTimepickerI18nDefault,
-  factory: _NgbTimepickerI18nDefault.ɵfac
-});
-var NgbTimepickerI18nDefault = _NgbTimepickerI18nDefault;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbTimepickerI18nDefault, [{
     type: Injectable
   }], null, null);
 })();
 var FILTER_REGEX = /[^0-9]/g;
-var _NgbTimepicker = class _NgbTimepicker {
+var NgbTimepicker = class _NgbTimepicker {
   /**
    * The number of hours to add/subtract when clicking hour spinners.
    */
@@ -14190,205 +14549,208 @@ var _NgbTimepicker = class _NgbTimepicker {
       this.onChange(this._ngbTimeAdapter.toModel(null));
     }
   }
-};
-_NgbTimepicker.ɵfac = function NgbTimepicker_Factory(t) {
-  return new (t || _NgbTimepicker)(ɵɵdirectiveInject(NgbTimepickerConfig), ɵɵdirectiveInject(NgbTimeAdapter), ɵɵdirectiveInject(ChangeDetectorRef), ɵɵdirectiveInject(NgbTimepickerI18n));
-};
-_NgbTimepicker.ɵcmp = ɵɵdefineComponent({
-  type: _NgbTimepicker,
-  selectors: [["ngb-timepicker"]],
-  inputs: {
-    meridian: "meridian",
-    spinners: "spinners",
-    seconds: "seconds",
-    hourStep: "hourStep",
-    minuteStep: "minuteStep",
-    secondStep: "secondStep",
-    readonlyInputs: "readonlyInputs",
-    size: "size"
-  },
-  exportAs: ["ngbTimepicker"],
-  standalone: true,
-  features: [ɵɵProvidersFeature([{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => _NgbTimepicker),
-    multi: true
-  }]), ɵɵNgOnChangesFeature, ɵɵStandaloneFeature],
-  decls: 14,
-  vars: 23,
-  consts: () => {
-    let i18n_21;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_21 = goog.getMsg("HH");
-      i18n_21 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_21;
-    } else {
-      i18n_21 = $localize`:@@ngb.timepicker.HH:HH`;
-    }
-    let i18n_22;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_22 = goog.getMsg("Hours");
-      i18n_22 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_22;
-    } else {
-      i18n_22 = $localize`:@@ngb.timepicker.hours:Hours`;
-    }
-    let i18n_23;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_23 = goog.getMsg("MM");
-      i18n_23 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_23;
-    } else {
-      i18n_23 = $localize`:@@ngb.timepicker.MM:MM`;
-    }
-    let i18n_24;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_24 = goog.getMsg("Minutes");
-      i18n_24 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_24;
-    } else {
-      i18n_24 = $localize`:@@ngb.timepicker.minutes:Minutes`;
-    }
-    let i18n_25;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_25 = goog.getMsg("Increment hours");
-      i18n_25 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_25;
-    } else {
-      i18n_25 = $localize`:@@ngb.timepicker.increment-hours:Increment hours`;
-    }
-    let i18n_26;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_26 = goog.getMsg("Decrement hours");
-      i18n_26 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_26;
-    } else {
-      i18n_26 = $localize`:@@ngb.timepicker.decrement-hours:Decrement hours`;
-    }
-    let i18n_27;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_27 = goog.getMsg("Increment minutes");
-      i18n_27 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_27;
-    } else {
-      i18n_27 = $localize`:@@ngb.timepicker.increment-minutes:Increment minutes`;
-    }
-    let i18n_28;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_28 = goog.getMsg("Decrement minutes");
-      i18n_28 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_28;
-    } else {
-      i18n_28 = $localize`:@@ngb.timepicker.decrement-minutes:Decrement minutes`;
-    }
-    let i18n_29;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_29 = goog.getMsg("SS");
-      i18n_29 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_29;
-    } else {
-      i18n_29 = $localize`:@@ngb.timepicker.SS:SS`;
-    }
-    let i18n_30;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_30 = goog.getMsg("Seconds");
-      i18n_30 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_30;
-    } else {
-      i18n_30 = $localize`:@@ngb.timepicker.seconds:Seconds`;
-    }
-    let i18n_31;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_31 = goog.getMsg("Increment seconds");
-      i18n_31 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_31;
-    } else {
-      i18n_31 = $localize`:@@ngb.timepicker.increment-seconds:Increment seconds`;
-    }
-    let i18n_32;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_32 = goog.getMsg("Decrement seconds");
-      i18n_32 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_32;
-    } else {
-      i18n_32 = $localize`:@@ngb.timepicker.decrement-seconds:Decrement seconds`;
-    }
-    let i18n_33;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_33 = goog.getMsg("{$interpolation}", {
-        "interpolation": "�0�"
-      }, {
-        original_code: {
-          "interpolation": "{{ i18n.getAfternoonPeriod() }}"
+  static {
+    this.ɵfac = function NgbTimepicker_Factory(t) {
+      return new (t || _NgbTimepicker)(ɵɵdirectiveInject(NgbTimepickerConfig), ɵɵdirectiveInject(NgbTimeAdapter), ɵɵdirectiveInject(ChangeDetectorRef), ɵɵdirectiveInject(NgbTimepickerI18n));
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbTimepicker,
+      selectors: [["ngb-timepicker"]],
+      inputs: {
+        meridian: "meridian",
+        spinners: "spinners",
+        seconds: "seconds",
+        hourStep: "hourStep",
+        minuteStep: "minuteStep",
+        secondStep: "secondStep",
+        readonlyInputs: "readonlyInputs",
+        size: "size"
+      },
+      exportAs: ["ngbTimepicker"],
+      standalone: true,
+      features: [ɵɵProvidersFeature([{
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: forwardRef(() => _NgbTimepicker),
+        multi: true
+      }]), ɵɵNgOnChangesFeature, ɵɵStandaloneFeature],
+      decls: 14,
+      vars: 23,
+      consts: () => {
+        let i18n_21;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_21 = goog.getMsg("HH");
+          i18n_21 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_21;
+        } else {
+          i18n_21 = $localize`:@@ngb.timepicker.HH:HH`;
         }
-      });
-      i18n_33 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_33;
-    } else {
-      i18n_33 = $localize`:@@ngb.timepicker.PM:${"�0�"}:INTERPOLATION:`;
-    }
-    return [i18n_25, i18n_26, i18n_27, i18n_28, i18n_31, i18n_32, i18n_33, [3, "disabled"], [1, "ngb-tp"], [1, "ngb-tp-input-container", "ngb-tp-hour"], ["tabindex", "-1", "type", "button", 1, "btn", "btn-link", 3, "btn-sm", "btn-lg", "disabled"], ["type", "text", "maxlength", "2", "inputmode", "numeric", "placeholder", i18n_21, "aria-label", i18n_22, 1, "ngb-tp-input", "form-control", 3, "change", "blur", "input", "keydown.ArrowUp", "keydown.ArrowDown", "value", "readOnly", "disabled"], [1, "ngb-tp-spacer"], [1, "ngb-tp-input-container", "ngb-tp-minute"], ["type", "text", "maxlength", "2", "inputmode", "numeric", "placeholder", i18n_23, "aria-label", i18n_24, 1, "ngb-tp-input", "form-control", 3, "change", "blur", "input", "keydown.ArrowUp", "keydown.ArrowDown", "value", "readOnly", "disabled"], ["tabindex", "-1", "type", "button", 1, "btn", "btn-link", 3, "click", "disabled"], [1, "chevron", "ngb-tp-chevron"], [1, "visually-hidden"], [1, "chevron", "ngb-tp-chevron", "bottom"], [1, "ngb-tp-input-container", "ngb-tp-second"], ["type", "text", "maxlength", "2", "inputmode", "numeric", "placeholder", i18n_29, "aria-label", i18n_30, 1, "ngb-tp-input", "form-control", 3, "change", "blur", "input", "keydown.ArrowUp", "keydown.ArrowDown", "value", "readOnly", "disabled"], [1, "ngb-tp-meridian"], ["type", "button", 1, "btn", "btn-outline-primary", 3, "click", "disabled"]];
-  },
-  template: function NgbTimepicker_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵelementStart(0, "fieldset", 7)(1, "div", 8)(2, "div", 9);
-      ɵɵtemplate(3, NgbTimepicker_Conditional_3_Template, 4, 7, "button", 10);
-      ɵɵelementStart(4, "input", 11);
-      ɵɵlistener("change", function NgbTimepicker_Template_input_change_4_listener($event) {
-        return ctx.updateHour($event.target.value);
-      })("blur", function NgbTimepicker_Template_input_blur_4_listener() {
-        return ctx.handleBlur();
-      })("input", function NgbTimepicker_Template_input_input_4_listener($event) {
-        return ctx.formatInput($event.target);
-      })("keydown.ArrowUp", function NgbTimepicker_Template_input_keydown_ArrowUp_4_listener($event) {
-        ctx.changeHour(ctx.hourStep);
-        return $event.preventDefault();
-      })("keydown.ArrowDown", function NgbTimepicker_Template_input_keydown_ArrowDown_4_listener($event) {
-        ctx.changeHour(-ctx.hourStep);
-        return $event.preventDefault();
-      });
-      ɵɵelementEnd();
-      ɵɵtemplate(5, NgbTimepicker_Conditional_5_Template, 4, 7, "button", 10);
-      ɵɵelementEnd();
-      ɵɵelementStart(6, "div", 12);
-      ɵɵtext(7, ":");
-      ɵɵelementEnd();
-      ɵɵelementStart(8, "div", 13);
-      ɵɵtemplate(9, NgbTimepicker_Conditional_9_Template, 4, 7, "button", 10);
-      ɵɵelementStart(10, "input", 14);
-      ɵɵlistener("change", function NgbTimepicker_Template_input_change_10_listener($event) {
-        return ctx.updateMinute($event.target.value);
-      })("blur", function NgbTimepicker_Template_input_blur_10_listener() {
-        return ctx.handleBlur();
-      })("input", function NgbTimepicker_Template_input_input_10_listener($event) {
-        return ctx.formatInput($event.target);
-      })("keydown.ArrowUp", function NgbTimepicker_Template_input_keydown_ArrowUp_10_listener($event) {
-        ctx.changeMinute(ctx.minuteStep);
-        return $event.preventDefault();
-      })("keydown.ArrowDown", function NgbTimepicker_Template_input_keydown_ArrowDown_10_listener($event) {
-        ctx.changeMinute(-ctx.minuteStep);
-        return $event.preventDefault();
-      });
-      ɵɵelementEnd();
-      ɵɵtemplate(11, NgbTimepicker_Conditional_11_Template, 4, 7, "button", 10);
-      ɵɵelementEnd();
-      ɵɵtemplate(12, NgbTimepicker_Conditional_12_Template, 6, 9)(13, NgbTimepicker_Conditional_13_Template, 5, 8);
-      ɵɵelementEnd()();
-    }
-    if (rf & 2) {
-      ɵɵclassProp("disabled", ctx.disabled);
-      ɵɵproperty("disabled", ctx.disabled);
-      ɵɵadvance(3);
-      ɵɵconditional(3, ctx.spinners ? 3 : -1);
-      ɵɵadvance();
-      ɵɵclassProp("form-control-sm", ctx.isSmallSize)("form-control-lg", ctx.isLargeSize);
-      ɵɵproperty("value", ctx.formatHour(ctx.model == null ? null : ctx.model.hour))("readOnly", ctx.readonlyInputs)("disabled", ctx.disabled);
-      ɵɵadvance();
-      ɵɵconditional(5, ctx.spinners ? 5 : -1);
-      ɵɵadvance(4);
-      ɵɵconditional(9, ctx.spinners ? 9 : -1);
-      ɵɵadvance();
-      ɵɵclassProp("form-control-sm", ctx.isSmallSize)("form-control-lg", ctx.isLargeSize);
-      ɵɵproperty("value", ctx.formatMinSec(ctx.model == null ? null : ctx.model.minute))("readOnly", ctx.readonlyInputs)("disabled", ctx.disabled);
-      ɵɵadvance();
-      ɵɵconditional(11, ctx.spinners ? 11 : -1);
-      ɵɵadvance();
-      ɵɵconditional(12, ctx.seconds ? 12 : -1);
-      ɵɵadvance();
-      ɵɵconditional(13, ctx.meridian ? 13 : -1);
-    }
-  },
-  styles: ['ngb-timepicker{font-size:1rem}.ngb-tp{display:flex;align-items:center}.ngb-tp-input-container{width:4em}.ngb-tp-chevron:before{border-style:solid;border-width:.29em .29em 0 0;content:"";display:inline-block;height:.69em;left:.05em;position:relative;top:.15em;transform:rotate(-45deg);vertical-align:middle;width:.69em}.ngb-tp-chevron.bottom:before{top:-.3em;transform:rotate(135deg)}.ngb-tp-input{text-align:center}.ngb-tp-hour,.ngb-tp-minute,.ngb-tp-second,.ngb-tp-meridian{display:flex;flex-direction:column;align-items:center;justify-content:space-around}.ngb-tp-spacer{width:1em;text-align:center}\n'],
-  encapsulation: 2
-});
-var NgbTimepicker = _NgbTimepicker;
+        let i18n_22;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_22 = goog.getMsg("Hours");
+          i18n_22 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_22;
+        } else {
+          i18n_22 = $localize`:@@ngb.timepicker.hours:Hours`;
+        }
+        let i18n_23;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_23 = goog.getMsg("MM");
+          i18n_23 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_23;
+        } else {
+          i18n_23 = $localize`:@@ngb.timepicker.MM:MM`;
+        }
+        let i18n_24;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_24 = goog.getMsg("Minutes");
+          i18n_24 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_24;
+        } else {
+          i18n_24 = $localize`:@@ngb.timepicker.minutes:Minutes`;
+        }
+        let i18n_25;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_25 = goog.getMsg("Increment hours");
+          i18n_25 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_25;
+        } else {
+          i18n_25 = $localize`:@@ngb.timepicker.increment-hours:Increment hours`;
+        }
+        let i18n_26;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_26 = goog.getMsg("Decrement hours");
+          i18n_26 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_26;
+        } else {
+          i18n_26 = $localize`:@@ngb.timepicker.decrement-hours:Decrement hours`;
+        }
+        let i18n_27;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_27 = goog.getMsg("Increment minutes");
+          i18n_27 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_27;
+        } else {
+          i18n_27 = $localize`:@@ngb.timepicker.increment-minutes:Increment minutes`;
+        }
+        let i18n_28;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_28 = goog.getMsg("Decrement minutes");
+          i18n_28 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_28;
+        } else {
+          i18n_28 = $localize`:@@ngb.timepicker.decrement-minutes:Decrement minutes`;
+        }
+        let i18n_29;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_29 = goog.getMsg("SS");
+          i18n_29 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_29;
+        } else {
+          i18n_29 = $localize`:@@ngb.timepicker.SS:SS`;
+        }
+        let i18n_30;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_30 = goog.getMsg("Seconds");
+          i18n_30 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_30;
+        } else {
+          i18n_30 = $localize`:@@ngb.timepicker.seconds:Seconds`;
+        }
+        let i18n_31;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_31 = goog.getMsg("Increment seconds");
+          i18n_31 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_31;
+        } else {
+          i18n_31 = $localize`:@@ngb.timepicker.increment-seconds:Increment seconds`;
+        }
+        let i18n_32;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_32 = goog.getMsg("Decrement seconds");
+          i18n_32 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_32;
+        } else {
+          i18n_32 = $localize`:@@ngb.timepicker.decrement-seconds:Decrement seconds`;
+        }
+        let i18n_33;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_33 = goog.getMsg("{$interpolation}", {
+            "interpolation": "�0�"
+          }, {
+            original_code: {
+              "interpolation": "{{ i18n.getAfternoonPeriod() }}"
+            }
+          });
+          i18n_33 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_33;
+        } else {
+          i18n_33 = $localize`:@@ngb.timepicker.PM:${"�0�"}:INTERPOLATION:`;
+        }
+        return [i18n_25, i18n_26, i18n_27, i18n_28, i18n_31, i18n_32, i18n_33, [3, "disabled"], [1, "ngb-tp"], [1, "ngb-tp-input-container", "ngb-tp-hour"], ["tabindex", "-1", "type", "button", 1, "btn", "btn-link", 3, "btn-sm", "btn-lg", "disabled"], ["type", "text", "maxlength", "2", "inputmode", "numeric", "placeholder", i18n_21, "aria-label", i18n_22, 1, "ngb-tp-input", "form-control", 3, "change", "blur", "input", "keydown.ArrowUp", "keydown.ArrowDown", "value", "readOnly", "disabled"], [1, "ngb-tp-spacer"], [1, "ngb-tp-input-container", "ngb-tp-minute"], ["type", "text", "maxlength", "2", "inputmode", "numeric", "placeholder", i18n_23, "aria-label", i18n_24, 1, "ngb-tp-input", "form-control", 3, "change", "blur", "input", "keydown.ArrowUp", "keydown.ArrowDown", "value", "readOnly", "disabled"], ["tabindex", "-1", "type", "button", 1, "btn", "btn-link", 3, "click", "disabled"], [1, "chevron", "ngb-tp-chevron"], [1, "visually-hidden"], [1, "chevron", "ngb-tp-chevron", "bottom"], [1, "ngb-tp-input-container", "ngb-tp-second"], ["type", "text", "maxlength", "2", "inputmode", "numeric", "placeholder", i18n_29, "aria-label", i18n_30, 1, "ngb-tp-input", "form-control", 3, "change", "blur", "input", "keydown.ArrowUp", "keydown.ArrowDown", "value", "readOnly", "disabled"], [1, "ngb-tp-meridian"], ["type", "button", 1, "btn", "btn-outline-primary", 3, "click", "disabled"]];
+      },
+      template: function NgbTimepicker_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵelementStart(0, "fieldset", 7)(1, "div", 8)(2, "div", 9);
+          ɵɵtemplate(3, NgbTimepicker_Conditional_3_Template, 4, 7, "button", 10);
+          ɵɵelementStart(4, "input", 11);
+          ɵɵlistener("change", function NgbTimepicker_Template_input_change_4_listener($event) {
+            return ctx.updateHour($event.target.value);
+          })("blur", function NgbTimepicker_Template_input_blur_4_listener() {
+            return ctx.handleBlur();
+          })("input", function NgbTimepicker_Template_input_input_4_listener($event) {
+            return ctx.formatInput($event.target);
+          })("keydown.ArrowUp", function NgbTimepicker_Template_input_keydown_ArrowUp_4_listener($event) {
+            ctx.changeHour(ctx.hourStep);
+            return $event.preventDefault();
+          })("keydown.ArrowDown", function NgbTimepicker_Template_input_keydown_ArrowDown_4_listener($event) {
+            ctx.changeHour(-ctx.hourStep);
+            return $event.preventDefault();
+          });
+          ɵɵelementEnd();
+          ɵɵtemplate(5, NgbTimepicker_Conditional_5_Template, 4, 7, "button", 10);
+          ɵɵelementEnd();
+          ɵɵelementStart(6, "div", 12);
+          ɵɵtext(7, ":");
+          ɵɵelementEnd();
+          ɵɵelementStart(8, "div", 13);
+          ɵɵtemplate(9, NgbTimepicker_Conditional_9_Template, 4, 7, "button", 10);
+          ɵɵelementStart(10, "input", 14);
+          ɵɵlistener("change", function NgbTimepicker_Template_input_change_10_listener($event) {
+            return ctx.updateMinute($event.target.value);
+          })("blur", function NgbTimepicker_Template_input_blur_10_listener() {
+            return ctx.handleBlur();
+          })("input", function NgbTimepicker_Template_input_input_10_listener($event) {
+            return ctx.formatInput($event.target);
+          })("keydown.ArrowUp", function NgbTimepicker_Template_input_keydown_ArrowUp_10_listener($event) {
+            ctx.changeMinute(ctx.minuteStep);
+            return $event.preventDefault();
+          })("keydown.ArrowDown", function NgbTimepicker_Template_input_keydown_ArrowDown_10_listener($event) {
+            ctx.changeMinute(-ctx.minuteStep);
+            return $event.preventDefault();
+          });
+          ɵɵelementEnd();
+          ɵɵtemplate(11, NgbTimepicker_Conditional_11_Template, 4, 7, "button", 10);
+          ɵɵelementEnd();
+          ɵɵtemplate(12, NgbTimepicker_Conditional_12_Template, 6, 9)(13, NgbTimepicker_Conditional_13_Template, 5, 8);
+          ɵɵelementEnd()();
+        }
+        if (rf & 2) {
+          ɵɵclassProp("disabled", ctx.disabled);
+          ɵɵproperty("disabled", ctx.disabled);
+          ɵɵadvance(3);
+          ɵɵconditional(3, ctx.spinners ? 3 : -1);
+          ɵɵadvance();
+          ɵɵclassProp("form-control-sm", ctx.isSmallSize)("form-control-lg", ctx.isLargeSize);
+          ɵɵproperty("value", ctx.formatHour(ctx.model == null ? null : ctx.model.hour))("readOnly", ctx.readonlyInputs)("disabled", ctx.disabled);
+          ɵɵadvance();
+          ɵɵconditional(5, ctx.spinners ? 5 : -1);
+          ɵɵadvance(4);
+          ɵɵconditional(9, ctx.spinners ? 9 : -1);
+          ɵɵadvance();
+          ɵɵclassProp("form-control-sm", ctx.isSmallSize)("form-control-lg", ctx.isLargeSize);
+          ɵɵproperty("value", ctx.formatMinSec(ctx.model == null ? null : ctx.model.minute))("readOnly", ctx.readonlyInputs)("disabled", ctx.disabled);
+          ɵɵadvance();
+          ɵɵconditional(11, ctx.spinners ? 11 : -1);
+          ɵɵadvance();
+          ɵɵconditional(12, ctx.seconds ? 12 : -1);
+          ɵɵadvance();
+          ɵɵconditional(13, ctx.meridian ? 13 : -1);
+        }
+      },
+      styles: ['ngb-timepicker{font-size:1rem}.ngb-tp{display:flex;align-items:center}.ngb-tp-input-container{width:4em}.ngb-tp-chevron:before{border-style:solid;border-width:.29em .29em 0 0;content:"";display:inline-block;height:.69em;left:.05em;position:relative;top:.15em;transform:rotate(-45deg);vertical-align:middle;width:.69em}.ngb-tp-chevron.bottom:before{top:-.3em;transform:rotate(135deg)}.ngb-tp-input{text-align:center}.ngb-tp-hour,.ngb-tp-minute,.ngb-tp-second,.ngb-tp-meridian{display:flex;flex-direction:column;align-items:center;justify-content:space-around}.ngb-tp-spacer{width:1em;text-align:center}\n'],
+      encapsulation: 2
+    });
+  }
+};
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbTimepicker, [{
     type: Component,
@@ -14625,18 +14987,23 @@ var NgbTimepicker = _NgbTimepicker;
     }]
   });
 })();
-var _NgbTimepickerModule = class _NgbTimepickerModule {
+var NgbTimepickerModule = class _NgbTimepickerModule {
+  static {
+    this.ɵfac = function NgbTimepickerModule_Factory(t) {
+      return new (t || _NgbTimepickerModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _NgbTimepickerModule,
+      imports: [NgbTimepicker],
+      exports: [NgbTimepicker]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_NgbTimepickerModule.ɵfac = function NgbTimepickerModule_Factory(t) {
-  return new (t || _NgbTimepickerModule)();
-};
-_NgbTimepickerModule.ɵmod = ɵɵdefineNgModule({
-  type: _NgbTimepickerModule,
-  imports: [NgbTimepicker],
-  exports: [NgbTimepicker]
-});
-_NgbTimepickerModule.ɵinj = ɵɵdefineInjector({});
-var NgbTimepickerModule = _NgbTimepickerModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbTimepickerModule, [{
     type: NgModule,
@@ -14646,7 +15013,7 @@ var NgbTimepickerModule = _NgbTimepickerModule;
     }]
   }], null, null);
 })();
-var _NgbToastConfig = class _NgbToastConfig {
+var NgbToastConfig = class _NgbToastConfig {
   constructor() {
     this._ngbConfig = inject(NgbConfig);
     this.autohide = true;
@@ -14659,16 +15026,19 @@ var _NgbToastConfig = class _NgbToastConfig {
   set animation(animation) {
     this._animation = animation;
   }
+  static {
+    this.ɵfac = function NgbToastConfig_Factory(t) {
+      return new (t || _NgbToastConfig)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbToastConfig,
+      factory: _NgbToastConfig.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbToastConfig.ɵfac = function NgbToastConfig_Factory(t) {
-  return new (t || _NgbToastConfig)();
-};
-_NgbToastConfig.ɵprov = ɵɵdefineInjectable({
-  token: _NgbToastConfig,
-  factory: _NgbToastConfig.ɵfac,
-  providedIn: "root"
-});
-var NgbToastConfig = _NgbToastConfig;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbToastConfig, [{
     type: Injectable,
@@ -14701,17 +15071,20 @@ var ngbToastFadeOutTransition = ({
     classList.remove("show", "showing");
   };
 };
-var _NgbToastHeader = class _NgbToastHeader {
+var NgbToastHeader = class _NgbToastHeader {
+  static {
+    this.ɵfac = function NgbToastHeader_Factory(t) {
+      return new (t || _NgbToastHeader)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbToastHeader,
+      selectors: [["", "ngbToastHeader", ""]],
+      standalone: true
+    });
+  }
 };
-_NgbToastHeader.ɵfac = function NgbToastHeader_Factory(t) {
-  return new (t || _NgbToastHeader)();
-};
-_NgbToastHeader.ɵdir = ɵɵdefineDirective({
-  type: _NgbToastHeader,
-  selectors: [["", "ngbToastHeader", ""]],
-  standalone: true
-});
-var NgbToastHeader = _NgbToastHeader;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbToastHeader, [{
     type: Directive,
@@ -14721,7 +15094,7 @@ var NgbToastHeader = _NgbToastHeader;
     }]
   }], null, null);
 })();
-var _NgbToast = class _NgbToast {
+var NgbToast = class _NgbToast {
   constructor(ariaLive) {
     this.ariaLive = ariaLive;
     this._config = inject(NgbToastConfig);
@@ -14799,74 +15172,77 @@ var _NgbToast = class _NgbToast {
       this._timeoutID = null;
     }
   }
+  static {
+    this.ɵfac = function NgbToast_Factory(t) {
+      return new (t || _NgbToast)(ɵɵinjectAttribute("aria-live"));
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbToast,
+      selectors: [["ngb-toast"]],
+      contentQueries: function NgbToast_ContentQueries(rf, ctx, dirIndex) {
+        if (rf & 1) {
+          ɵɵcontentQuery(dirIndex, NgbToastHeader, 7, TemplateRef);
+        }
+        if (rf & 2) {
+          let _t;
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.contentHeaderTpl = _t.first);
+        }
+      },
+      hostAttrs: ["role", "alert", "aria-atomic", "true", 1, "toast"],
+      hostVars: 3,
+      hostBindings: function NgbToast_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵattribute("aria-live", ctx.ariaLive);
+          ɵɵclassProp("fade", ctx.animation);
+        }
+      },
+      inputs: {
+        animation: "animation",
+        delay: "delay",
+        autohide: "autohide",
+        header: "header"
+      },
+      outputs: {
+        shown: "shown",
+        hidden: "hidden"
+      },
+      exportAs: ["ngbToast"],
+      standalone: true,
+      features: [ɵɵNgOnChangesFeature, ɵɵStandaloneFeature],
+      ngContentSelectors: _c0,
+      decls: 5,
+      vars: 1,
+      consts: () => {
+        let i18n_34;
+        if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
+          const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_34 = goog.getMsg("Close");
+          i18n_34 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_34;
+        } else {
+          i18n_34 = $localize`:@@ngb.toast.close-aria:Close`;
+        }
+        return [["headerTpl", ""], [1, "toast-header"], [1, "toast-body"], [1, "me-auto"], [3, "ngTemplateOutlet"], ["type", "button", "aria-label", i18n_34, 1, "btn-close", 3, "click"]];
+      },
+      template: function NgbToast_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵprojectionDef();
+          ɵɵtemplate(0, NgbToast_ng_template_0_Template, 2, 1, "ng-template", null, 0, ɵɵtemplateRefExtractor)(2, NgbToast_Conditional_2_Template, 3, 1, "div", 1);
+          ɵɵelementStart(3, "div", 2);
+          ɵɵprojection(4);
+          ɵɵelementEnd();
+        }
+        if (rf & 2) {
+          ɵɵadvance(2);
+          ɵɵconditional(2, ctx.contentHeaderTpl || ctx.header ? 2 : -1);
+        }
+      },
+      dependencies: [NgTemplateOutlet],
+      styles: ["ngb-toast{display:block}ngb-toast .toast-header .close{margin-left:auto;margin-bottom:.25rem}\n"],
+      encapsulation: 2
+    });
+  }
 };
-_NgbToast.ɵfac = function NgbToast_Factory(t) {
-  return new (t || _NgbToast)(ɵɵinjectAttribute("aria-live"));
-};
-_NgbToast.ɵcmp = ɵɵdefineComponent({
-  type: _NgbToast,
-  selectors: [["ngb-toast"]],
-  contentQueries: function NgbToast_ContentQueries(rf, ctx, dirIndex) {
-    if (rf & 1) {
-      ɵɵcontentQuery(dirIndex, NgbToastHeader, 7, TemplateRef);
-    }
-    if (rf & 2) {
-      let _t;
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.contentHeaderTpl = _t.first);
-    }
-  },
-  hostAttrs: ["role", "alert", "aria-atomic", "true", 1, "toast"],
-  hostVars: 3,
-  hostBindings: function NgbToast_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵattribute("aria-live", ctx.ariaLive);
-      ɵɵclassProp("fade", ctx.animation);
-    }
-  },
-  inputs: {
-    animation: "animation",
-    delay: "delay",
-    autohide: "autohide",
-    header: "header"
-  },
-  outputs: {
-    shown: "shown",
-    hidden: "hidden"
-  },
-  exportAs: ["ngbToast"],
-  standalone: true,
-  features: [ɵɵNgOnChangesFeature, ɵɵStandaloneFeature],
-  ngContentSelectors: _c0,
-  decls: 5,
-  vars: 1,
-  consts: () => {
-    let i18n_34;
-    if (typeof ngI18nClosureMode !== "undefined" && ngI18nClosureMode) {
-      const MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_34 = goog.getMsg("Close");
-      i18n_34 = MSG__USERS_BRYANALEMAN_DOCUMENTS_PROYECTO3THYMIA_THYMIA_FRONTEND_NODE_MODULES__NG_BOOTSTRAP_NG_BOOTSTRAP_FESM2022_NG_BOOTSTRAP_MJS_34;
-    } else {
-      i18n_34 = $localize`:@@ngb.toast.close-aria:Close`;
-    }
-    return [["headerTpl", ""], [1, "toast-header"], [1, "toast-body"], [1, "me-auto"], [3, "ngTemplateOutlet"], ["type", "button", "aria-label", i18n_34, 1, "btn-close", 3, "click"]];
-  },
-  template: function NgbToast_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵprojectionDef();
-      ɵɵtemplate(0, NgbToast_ng_template_0_Template, 2, 1, "ng-template", null, 0, ɵɵtemplateRefExtractor)(2, NgbToast_Conditional_2_Template, 3, 1, "div", 1);
-      ɵɵelementStart(3, "div", 2);
-      ɵɵprojection(4);
-      ɵɵelementEnd();
-    }
-    if (rf & 2) {
-      ɵɵadvance(2);
-      ɵɵconditional(2, ctx.contentHeaderTpl || ctx.header ? 2 : -1);
-    }
-  },
-  dependencies: [NgTemplateOutlet],
-  styles: ["ngb-toast{display:block}ngb-toast .toast-header .close{margin-left:auto;margin-bottom:.25rem}\n"],
-  encapsulation: 2
-});
-var NgbToast = _NgbToast;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbToast, [{
     type: Component,
@@ -14940,18 +15316,23 @@ var NgbToast = _NgbToast;
     }]
   });
 })();
-var _NgbToastModule = class _NgbToastModule {
+var NgbToastModule = class _NgbToastModule {
+  static {
+    this.ɵfac = function NgbToastModule_Factory(t) {
+      return new (t || _NgbToastModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _NgbToastModule,
+      imports: [NgbToast, NgbToastHeader],
+      exports: [NgbToast, NgbToastHeader]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_NgbToastModule.ɵfac = function NgbToastModule_Factory(t) {
-  return new (t || _NgbToastModule)();
-};
-_NgbToastModule.ɵmod = ɵɵdefineNgModule({
-  type: _NgbToastModule,
-  imports: [NgbToast, NgbToastHeader],
-  exports: [NgbToast, NgbToastHeader]
-});
-_NgbToastModule.ɵinj = ɵɵdefineInjector({});
-var NgbToastModule = _NgbToastModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbToastModule, [{
     type: NgModule,
@@ -14961,7 +15342,7 @@ var NgbToastModule = _NgbToastModule;
     }]
   }], null, null);
 })();
-var _NgbTooltipConfig = class _NgbTooltipConfig {
+var NgbTooltipConfig = class _NgbTooltipConfig {
   constructor() {
     this._ngbConfig = inject(NgbConfig);
     this.autoClose = true;
@@ -14978,16 +15359,19 @@ var _NgbTooltipConfig = class _NgbTooltipConfig {
   set animation(animation) {
     this._animation = animation;
   }
+  static {
+    this.ɵfac = function NgbTooltipConfig_Factory(t) {
+      return new (t || _NgbTooltipConfig)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbTooltipConfig,
+      factory: _NgbTooltipConfig.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbTooltipConfig.ɵfac = function NgbTooltipConfig_Factory(t) {
-  return new (t || _NgbTooltipConfig)();
-};
-_NgbTooltipConfig.ɵprov = ɵɵdefineInjectable({
-  token: _NgbTooltipConfig,
-  factory: _NgbTooltipConfig.ɵfac,
-  providedIn: "root"
-});
-var NgbTooltipConfig = _NgbTooltipConfig;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbTooltipConfig, [{
     type: Injectable,
@@ -14997,48 +15381,51 @@ var NgbTooltipConfig = _NgbTooltipConfig;
   }], null, null);
 })();
 var nextId = 0;
-var _NgbTooltipWindow = class _NgbTooltipWindow {
+var NgbTooltipWindow = class _NgbTooltipWindow {
+  static {
+    this.ɵfac = function NgbTooltipWindow_Factory(t) {
+      return new (t || _NgbTooltipWindow)();
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbTooltipWindow,
+      selectors: [["ngb-tooltip-window"]],
+      hostAttrs: ["role", "tooltip"],
+      hostVars: 5,
+      hostBindings: function NgbTooltipWindow_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵhostProperty("id", ctx.id);
+          ɵɵclassMap("tooltip" + (ctx.tooltipClass ? " " + ctx.tooltipClass : ""));
+          ɵɵclassProp("fade", ctx.animation);
+        }
+      },
+      inputs: {
+        animation: "animation",
+        id: "id",
+        tooltipClass: "tooltipClass"
+      },
+      standalone: true,
+      features: [ɵɵStandaloneFeature],
+      ngContentSelectors: _c0,
+      decls: 3,
+      vars: 0,
+      consts: [["data-popper-arrow", "", 1, "tooltip-arrow"], [1, "tooltip-inner"]],
+      template: function NgbTooltipWindow_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵprojectionDef();
+          ɵɵelement(0, "div", 0);
+          ɵɵelementStart(1, "div", 1);
+          ɵɵprojection(2);
+          ɵɵelementEnd();
+        }
+      },
+      styles: ["ngb-tooltip-window{pointer-events:none;position:absolute}ngb-tooltip-window .tooltip-inner{pointer-events:auto}ngb-tooltip-window.bs-tooltip-top,ngb-tooltip-window.bs-tooltip-bottom{padding-left:0;padding-right:0}ngb-tooltip-window.bs-tooltip-start,ngb-tooltip-window.bs-tooltip-end{padding-top:0;padding-bottom:0}\n"],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_NgbTooltipWindow.ɵfac = function NgbTooltipWindow_Factory(t) {
-  return new (t || _NgbTooltipWindow)();
-};
-_NgbTooltipWindow.ɵcmp = ɵɵdefineComponent({
-  type: _NgbTooltipWindow,
-  selectors: [["ngb-tooltip-window"]],
-  hostAttrs: ["role", "tooltip"],
-  hostVars: 5,
-  hostBindings: function NgbTooltipWindow_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵhostProperty("id", ctx.id);
-      ɵɵclassMap("tooltip" + (ctx.tooltipClass ? " " + ctx.tooltipClass : ""));
-      ɵɵclassProp("fade", ctx.animation);
-    }
-  },
-  inputs: {
-    animation: "animation",
-    id: "id",
-    tooltipClass: "tooltipClass"
-  },
-  standalone: true,
-  features: [ɵɵStandaloneFeature],
-  ngContentSelectors: _c0,
-  decls: 3,
-  vars: 0,
-  consts: [["data-popper-arrow", "", 1, "tooltip-arrow"], [1, "tooltip-inner"]],
-  template: function NgbTooltipWindow_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵprojectionDef();
-      ɵɵelement(0, "div", 0);
-      ɵɵelementStart(1, "div", 1);
-      ɵɵprojection(2);
-      ɵɵelementEnd();
-    }
-  },
-  styles: ["ngb-tooltip-window{pointer-events:none;position:absolute}ngb-tooltip-window .tooltip-inner{pointer-events:auto}ngb-tooltip-window.bs-tooltip-top,ngb-tooltip-window.bs-tooltip-bottom{padding-left:0;padding-right:0}ngb-tooltip-window.bs-tooltip-start,ngb-tooltip-window.bs-tooltip-end{padding-top:0;padding-bottom:0}\n"],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var NgbTooltipWindow = _NgbTooltipWindow;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbTooltipWindow, [{
     type: Component,
@@ -15073,7 +15460,7 @@ var NgbTooltipWindow = _NgbTooltipWindow;
     }]
   });
 })();
-var _NgbTooltip = class _NgbTooltip {
+var NgbTooltip = class _NgbTooltip {
   constructor() {
     this._config = inject(NgbTooltipConfig);
     this.animation = this._config.animation;
@@ -15203,37 +15590,40 @@ var _NgbTooltip = class _NgbTooltip {
   _getPositionTargetElement() {
     return (isString(this.positionTarget) ? this._document.querySelector(this.positionTarget) : this.positionTarget) || this._nativeElement;
   }
+  static {
+    this.ɵfac = function NgbTooltip_Factory(t) {
+      return new (t || _NgbTooltip)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbTooltip,
+      selectors: [["", "ngbTooltip", ""]],
+      inputs: {
+        animation: "animation",
+        autoClose: "autoClose",
+        placement: "placement",
+        popperOptions: "popperOptions",
+        triggers: "triggers",
+        positionTarget: "positionTarget",
+        container: "container",
+        disableTooltip: "disableTooltip",
+        tooltipClass: "tooltipClass",
+        tooltipContext: "tooltipContext",
+        openDelay: "openDelay",
+        closeDelay: "closeDelay",
+        ngbTooltip: "ngbTooltip"
+      },
+      outputs: {
+        shown: "shown",
+        hidden: "hidden"
+      },
+      exportAs: ["ngbTooltip"],
+      standalone: true,
+      features: [ɵɵNgOnChangesFeature]
+    });
+  }
 };
-_NgbTooltip.ɵfac = function NgbTooltip_Factory(t) {
-  return new (t || _NgbTooltip)();
-};
-_NgbTooltip.ɵdir = ɵɵdefineDirective({
-  type: _NgbTooltip,
-  selectors: [["", "ngbTooltip", ""]],
-  inputs: {
-    animation: "animation",
-    autoClose: "autoClose",
-    placement: "placement",
-    popperOptions: "popperOptions",
-    triggers: "triggers",
-    positionTarget: "positionTarget",
-    container: "container",
-    disableTooltip: "disableTooltip",
-    tooltipClass: "tooltipClass",
-    tooltipContext: "tooltipContext",
-    openDelay: "openDelay",
-    closeDelay: "closeDelay",
-    ngbTooltip: "ngbTooltip"
-  },
-  outputs: {
-    shown: "shown",
-    hidden: "hidden"
-  },
-  exportAs: ["ngbTooltip"],
-  standalone: true,
-  features: [ɵɵNgOnChangesFeature]
-});
-var NgbTooltip = _NgbTooltip;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbTooltip, [{
     type: Directive,
@@ -15290,18 +15680,23 @@ var NgbTooltip = _NgbTooltip;
     }]
   });
 })();
-var _NgbTooltipModule = class _NgbTooltipModule {
+var NgbTooltipModule = class _NgbTooltipModule {
+  static {
+    this.ɵfac = function NgbTooltipModule_Factory(t) {
+      return new (t || _NgbTooltipModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _NgbTooltipModule,
+      imports: [NgbTooltip],
+      exports: [NgbTooltip]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_NgbTooltipModule.ɵfac = function NgbTooltipModule_Factory(t) {
-  return new (t || _NgbTooltipModule)();
-};
-_NgbTooltipModule.ɵmod = ɵɵdefineNgModule({
-  type: _NgbTooltipModule,
-  imports: [NgbTooltip],
-  exports: [NgbTooltip]
-});
-_NgbTooltipModule.ɵinj = ɵɵdefineInjector({});
-var NgbTooltipModule = _NgbTooltipModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbTooltipModule, [{
     type: NgModule,
@@ -15311,7 +15706,7 @@ var NgbTooltipModule = _NgbTooltipModule;
     }]
   }], null, null);
 })();
-var _NgbHighlight = class _NgbHighlight {
+var NgbHighlight = class _NgbHighlight {
   constructor() {
     this.highlightClass = "ngb-highlight";
     this.accentSensitive = true;
@@ -15334,37 +15729,40 @@ var _NgbHighlight = class _NgbHighlight {
       this.parts = parts.map((part) => result.substring(offset2, offset2 += part.length));
     }
   }
+  static {
+    this.ɵfac = function NgbHighlight_Factory(t) {
+      return new (t || _NgbHighlight)();
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbHighlight,
+      selectors: [["ngb-highlight"]],
+      inputs: {
+        highlightClass: "highlightClass",
+        result: "result",
+        term: "term",
+        accentSensitive: "accentSensitive"
+      },
+      standalone: true,
+      features: [ɵɵNgOnChangesFeature, ɵɵStandaloneFeature],
+      decls: 2,
+      vars: 0,
+      consts: [[3, "class"]],
+      template: function NgbHighlight_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵrepeaterCreate(0, NgbHighlight_For_1_Template, 2, 1, null, null, ɵɵrepeaterTrackByIdentity);
+        }
+        if (rf & 2) {
+          ɵɵrepeater(ctx.parts);
+        }
+      },
+      styles: [".ngb-highlight{font-weight:700}\n"],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_NgbHighlight.ɵfac = function NgbHighlight_Factory(t) {
-  return new (t || _NgbHighlight)();
-};
-_NgbHighlight.ɵcmp = ɵɵdefineComponent({
-  type: _NgbHighlight,
-  selectors: [["ngb-highlight"]],
-  inputs: {
-    highlightClass: "highlightClass",
-    result: "result",
-    term: "term",
-    accentSensitive: "accentSensitive"
-  },
-  standalone: true,
-  features: [ɵɵNgOnChangesFeature, ɵɵStandaloneFeature],
-  decls: 2,
-  vars: 0,
-  consts: [[3, "class"]],
-  template: function NgbHighlight_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵrepeaterCreate(0, NgbHighlight_For_1_Template, 2, 1, null, null, ɵɵrepeaterTrackByIdentity);
-    }
-    if (rf & 2) {
-      ɵɵrepeater(ctx.parts);
-    }
-  },
-  styles: [".ngb-highlight{font-weight:700}\n"],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var NgbHighlight = _NgbHighlight;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbHighlight, [{
     type: Component,
@@ -15421,7 +15819,7 @@ function getLiveElement(document2, lazyCreate = false) {
   }
   return element;
 }
-var _Live = class _Live {
+var Live = class _Live {
   constructor() {
     this._document = inject(DOCUMENT);
     this._delay = inject(ARIA_LIVE_DELAY);
@@ -15445,16 +15843,19 @@ var _Live = class _Live {
       }
     }
   }
+  static {
+    this.ɵfac = function Live_Factory(t) {
+      return new (t || _Live)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _Live,
+      factory: _Live.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_Live.ɵfac = function Live_Factory(t) {
-  return new (t || _Live)();
-};
-_Live.ɵprov = ɵɵdefineInjectable({
-  token: _Live,
-  factory: _Live.ɵfac,
-  providedIn: "root"
-});
-var Live = _Live;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(Live, [{
     type: Injectable,
@@ -15463,7 +15864,7 @@ var Live = _Live;
     }]
   }], null, null);
 })();
-var _NgbTypeaheadConfig = class _NgbTypeaheadConfig {
+var NgbTypeaheadConfig = class _NgbTypeaheadConfig {
   constructor() {
     this.editable = true;
     this.focusFirst = true;
@@ -15472,16 +15873,19 @@ var _NgbTypeaheadConfig = class _NgbTypeaheadConfig {
     this.placement = ["bottom-start", "bottom-end", "top-start", "top-end"];
     this.popperOptions = (options) => options;
   }
+  static {
+    this.ɵfac = function NgbTypeaheadConfig_Factory(t) {
+      return new (t || _NgbTypeaheadConfig)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbTypeaheadConfig,
+      factory: _NgbTypeaheadConfig.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbTypeaheadConfig.ɵfac = function NgbTypeaheadConfig_Factory(t) {
-  return new (t || _NgbTypeaheadConfig)();
-};
-_NgbTypeaheadConfig.ɵprov = ɵɵdefineInjectable({
-  token: _NgbTypeaheadConfig,
-  factory: _NgbTypeaheadConfig.ɵfac,
-  providedIn: "root"
-});
-var NgbTypeaheadConfig = _NgbTypeaheadConfig;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbTypeaheadConfig, [{
     type: Injectable,
@@ -15490,7 +15894,7 @@ var NgbTypeaheadConfig = _NgbTypeaheadConfig;
     }]
   }], null, null);
 })();
-var _NgbTypeaheadWindow = class _NgbTypeaheadWindow {
+var NgbTypeaheadWindow = class _NgbTypeaheadWindow {
   constructor() {
     this.activeIdx = 0;
     this.focusFirst = true;
@@ -15539,59 +15943,62 @@ var _NgbTypeaheadWindow = class _NgbTypeaheadWindow {
   _activeChanged() {
     this.activeChangeEvent.emit(this.activeIdx >= 0 ? this.id + "-" + this.activeIdx : void 0);
   }
+  static {
+    this.ɵfac = function NgbTypeaheadWindow_Factory(t) {
+      return new (t || _NgbTypeaheadWindow)();
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbTypeaheadWindow,
+      selectors: [["ngb-typeahead-window"]],
+      hostAttrs: ["role", "listbox"],
+      hostVars: 3,
+      hostBindings: function NgbTypeaheadWindow_HostBindings(rf, ctx) {
+        if (rf & 1) {
+          ɵɵlistener("mousedown", function NgbTypeaheadWindow_mousedown_HostBindingHandler($event) {
+            return $event.preventDefault();
+          });
+        }
+        if (rf & 2) {
+          ɵɵhostProperty("id", ctx.id);
+          ɵɵclassMap("dropdown-menu show" + (ctx.popupClass ? " " + ctx.popupClass : ""));
+        }
+      },
+      inputs: {
+        id: "id",
+        focusFirst: "focusFirst",
+        results: "results",
+        term: "term",
+        formatter: "formatter",
+        resultTemplate: "resultTemplate",
+        popupClass: "popupClass"
+      },
+      outputs: {
+        selectEvent: "select",
+        activeChangeEvent: "activeChange"
+      },
+      exportAs: ["ngbTypeaheadWindow"],
+      standalone: true,
+      features: [ɵɵStandaloneFeature],
+      decls: 4,
+      vars: 0,
+      consts: [["rt", ""], ["type", "button", "role", "option", 1, "dropdown-item", 3, "id", "active"], [3, "result", "term"], ["type", "button", "role", "option", 1, "dropdown-item", 3, "mouseenter", "click", "id"], [3, "ngTemplateOutlet", "ngTemplateOutletContext"]],
+      template: function NgbTypeaheadWindow_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵtemplate(0, NgbTypeaheadWindow_ng_template_0_Template, 1, 2, "ng-template", null, 0, ɵɵtemplateRefExtractor);
+          ɵɵrepeaterCreate(2, NgbTypeaheadWindow_For_3_Template, 2, 9, "button", 1, ɵɵrepeaterTrackByIdentity);
+        }
+        if (rf & 2) {
+          ɵɵadvance(2);
+          ɵɵrepeater(ctx.results);
+        }
+      },
+      dependencies: [NgbHighlight, NgTemplateOutlet],
+      encapsulation: 2
+    });
+  }
 };
-_NgbTypeaheadWindow.ɵfac = function NgbTypeaheadWindow_Factory(t) {
-  return new (t || _NgbTypeaheadWindow)();
-};
-_NgbTypeaheadWindow.ɵcmp = ɵɵdefineComponent({
-  type: _NgbTypeaheadWindow,
-  selectors: [["ngb-typeahead-window"]],
-  hostAttrs: ["role", "listbox"],
-  hostVars: 3,
-  hostBindings: function NgbTypeaheadWindow_HostBindings(rf, ctx) {
-    if (rf & 1) {
-      ɵɵlistener("mousedown", function NgbTypeaheadWindow_mousedown_HostBindingHandler($event) {
-        return $event.preventDefault();
-      });
-    }
-    if (rf & 2) {
-      ɵɵhostProperty("id", ctx.id);
-      ɵɵclassMap("dropdown-menu show" + (ctx.popupClass ? " " + ctx.popupClass : ""));
-    }
-  },
-  inputs: {
-    id: "id",
-    focusFirst: "focusFirst",
-    results: "results",
-    term: "term",
-    formatter: "formatter",
-    resultTemplate: "resultTemplate",
-    popupClass: "popupClass"
-  },
-  outputs: {
-    selectEvent: "select",
-    activeChangeEvent: "activeChange"
-  },
-  exportAs: ["ngbTypeaheadWindow"],
-  standalone: true,
-  features: [ɵɵStandaloneFeature],
-  decls: 4,
-  vars: 0,
-  consts: [["rt", ""], ["type", "button", "role", "option", 1, "dropdown-item", 3, "id", "active"], [3, "result", "term"], ["type", "button", "role", "option", 1, "dropdown-item", 3, "mouseenter", "click", "id"], [3, "ngTemplateOutlet", "ngTemplateOutletContext"]],
-  template: function NgbTypeaheadWindow_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵtemplate(0, NgbTypeaheadWindow_ng_template_0_Template, 1, 2, "ng-template", null, 0, ɵɵtemplateRefExtractor);
-      ɵɵrepeaterCreate(2, NgbTypeaheadWindow_For_3_Template, 2, 9, "button", 1, ɵɵrepeaterTrackByIdentity);
-    }
-    if (rf & 2) {
-      ɵɵadvance(2);
-      ɵɵrepeater(ctx.results);
-    }
-  },
-  dependencies: [NgbHighlight, NgTemplateOutlet],
-  encapsulation: 2
-});
-var NgbTypeaheadWindow = _NgbTypeaheadWindow;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbTypeaheadWindow, [{
     type: Component,
@@ -15662,7 +16069,7 @@ var NgbTypeaheadWindow = _NgbTypeaheadWindow;
   });
 })();
 var nextWindowId = 0;
-var _NgbTypeahead = class _NgbTypeahead {
+var NgbTypeahead = class _NgbTypeahead {
   constructor() {
     this._nativeElement = inject(ElementRef).nativeElement;
     this._config = inject(NgbTypeaheadConfig);
@@ -15891,56 +16298,59 @@ var _NgbTypeahead = class _NgbTypeahead {
     }
     this._subscription = null;
   }
+  static {
+    this.ɵfac = function NgbTypeahead_Factory(t) {
+      return new (t || _NgbTypeahead)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _NgbTypeahead,
+      selectors: [["input", "ngbTypeahead", ""]],
+      hostAttrs: ["autocapitalize", "off", "autocorrect", "off", "role", "combobox"],
+      hostVars: 7,
+      hostBindings: function NgbTypeahead_HostBindings(rf, ctx) {
+        if (rf & 1) {
+          ɵɵlistener("blur", function NgbTypeahead_blur_HostBindingHandler() {
+            return ctx.handleBlur();
+          })("keydown", function NgbTypeahead_keydown_HostBindingHandler($event) {
+            return ctx.handleKeyDown($event);
+          });
+        }
+        if (rf & 2) {
+          ɵɵhostProperty("autocomplete", ctx.autocomplete);
+          ɵɵattribute("aria-autocomplete", ctx.showHint ? "both" : "list")("aria-activedescendant", ctx.activeDescendant)("aria-owns", ctx.isPopupOpen() ? ctx.popupId : null)("aria-expanded", ctx.isPopupOpen());
+          ɵɵclassProp("open", ctx.isPopupOpen());
+        }
+      },
+      inputs: {
+        autocomplete: "autocomplete",
+        container: "container",
+        editable: "editable",
+        focusFirst: "focusFirst",
+        inputFormatter: "inputFormatter",
+        ngbTypeahead: "ngbTypeahead",
+        resultFormatter: "resultFormatter",
+        resultTemplate: "resultTemplate",
+        selectOnExact: "selectOnExact",
+        showHint: "showHint",
+        placement: "placement",
+        popperOptions: "popperOptions",
+        popupClass: "popupClass"
+      },
+      outputs: {
+        selectItem: "selectItem"
+      },
+      exportAs: ["ngbTypeahead"],
+      standalone: true,
+      features: [ɵɵProvidersFeature([{
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: forwardRef(() => _NgbTypeahead),
+        multi: true
+      }]), ɵɵNgOnChangesFeature]
+    });
+  }
 };
-_NgbTypeahead.ɵfac = function NgbTypeahead_Factory(t) {
-  return new (t || _NgbTypeahead)();
-};
-_NgbTypeahead.ɵdir = ɵɵdefineDirective({
-  type: _NgbTypeahead,
-  selectors: [["input", "ngbTypeahead", ""]],
-  hostAttrs: ["autocapitalize", "off", "autocorrect", "off", "role", "combobox"],
-  hostVars: 7,
-  hostBindings: function NgbTypeahead_HostBindings(rf, ctx) {
-    if (rf & 1) {
-      ɵɵlistener("blur", function NgbTypeahead_blur_HostBindingHandler() {
-        return ctx.handleBlur();
-      })("keydown", function NgbTypeahead_keydown_HostBindingHandler($event) {
-        return ctx.handleKeyDown($event);
-      });
-    }
-    if (rf & 2) {
-      ɵɵhostProperty("autocomplete", ctx.autocomplete);
-      ɵɵattribute("aria-autocomplete", ctx.showHint ? "both" : "list")("aria-activedescendant", ctx.activeDescendant)("aria-owns", ctx.isPopupOpen() ? ctx.popupId : null)("aria-expanded", ctx.isPopupOpen());
-      ɵɵclassProp("open", ctx.isPopupOpen());
-    }
-  },
-  inputs: {
-    autocomplete: "autocomplete",
-    container: "container",
-    editable: "editable",
-    focusFirst: "focusFirst",
-    inputFormatter: "inputFormatter",
-    ngbTypeahead: "ngbTypeahead",
-    resultFormatter: "resultFormatter",
-    resultTemplate: "resultTemplate",
-    selectOnExact: "selectOnExact",
-    showHint: "showHint",
-    placement: "placement",
-    popperOptions: "popperOptions",
-    popupClass: "popupClass"
-  },
-  outputs: {
-    selectItem: "selectItem"
-  },
-  exportAs: ["ngbTypeahead"],
-  standalone: true,
-  features: [ɵɵProvidersFeature([{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => _NgbTypeahead),
-    multi: true
-  }]), ɵɵNgOnChangesFeature]
-});
-var NgbTypeahead = _NgbTypeahead;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbTypeahead, [{
     type: Directive,
@@ -16012,18 +16422,23 @@ var NgbTypeahead = _NgbTypeahead;
     }]
   });
 })();
-var _NgbTypeaheadModule = class _NgbTypeaheadModule {
+var NgbTypeaheadModule = class _NgbTypeaheadModule {
+  static {
+    this.ɵfac = function NgbTypeaheadModule_Factory(t) {
+      return new (t || _NgbTypeaheadModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _NgbTypeaheadModule,
+      imports: [NgbHighlight, NgbTypeahead],
+      exports: [NgbHighlight, NgbTypeahead]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_NgbTypeaheadModule.ɵfac = function NgbTypeaheadModule_Factory(t) {
-  return new (t || _NgbTypeaheadModule)();
-};
-_NgbTypeaheadModule.ɵmod = ɵɵdefineNgModule({
-  type: _NgbTypeaheadModule,
-  imports: [NgbHighlight, NgbTypeahead],
-  exports: [NgbHighlight, NgbTypeahead]
-});
-_NgbTypeaheadModule.ɵinj = ɵɵdefineInjector({});
-var NgbTypeaheadModule = _NgbTypeaheadModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbTypeaheadModule, [{
     type: NgModule,
@@ -16033,7 +16448,7 @@ var NgbTypeaheadModule = _NgbTypeaheadModule;
     }]
   }], null, null);
 })();
-var _NgbOffcanvasConfig = class _NgbOffcanvasConfig {
+var NgbOffcanvasConfig = class _NgbOffcanvasConfig {
   constructor() {
     this._ngbConfig = inject(NgbConfig);
     this.backdrop = true;
@@ -16047,16 +16462,19 @@ var _NgbOffcanvasConfig = class _NgbOffcanvasConfig {
   set animation(animation) {
     this._animation = animation;
   }
+  static {
+    this.ɵfac = function NgbOffcanvasConfig_Factory(t) {
+      return new (t || _NgbOffcanvasConfig)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbOffcanvasConfig,
+      factory: _NgbOffcanvasConfig.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbOffcanvasConfig.ɵfac = function NgbOffcanvasConfig_Factory(t) {
-  return new (t || _NgbOffcanvasConfig)();
-};
-_NgbOffcanvasConfig.ɵprov = ɵɵdefineInjectable({
-  token: _NgbOffcanvasConfig,
-  factory: _NgbOffcanvasConfig.ɵfac,
-  providedIn: "root"
-});
-var NgbOffcanvasConfig = _NgbOffcanvasConfig;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbOffcanvasConfig, [{
     type: Injectable,
@@ -16228,7 +16646,7 @@ var OffcanvasDismissReasons;
   OffcanvasDismissReasons2[OffcanvasDismissReasons2["BACKDROP_CLICK"] = 0] = "BACKDROP_CLICK";
   OffcanvasDismissReasons2[OffcanvasDismissReasons2["ESC"] = 1] = "ESC";
 })(OffcanvasDismissReasons || (OffcanvasDismissReasons = {}));
-var _NgbOffcanvasBackdrop = class _NgbOffcanvasBackdrop {
+var NgbOffcanvasBackdrop = class _NgbOffcanvasBackdrop {
   constructor() {
     this._nativeElement = inject(ElementRef).nativeElement;
     this._zone = inject(NgZone);
@@ -16260,42 +16678,45 @@ var _NgbOffcanvasBackdrop = class _NgbOffcanvasBackdrop {
       this.dismissEvent.emit(OffcanvasDismissReasons.BACKDROP_CLICK);
     }
   }
+  static {
+    this.ɵfac = function NgbOffcanvasBackdrop_Factory(t) {
+      return new (t || _NgbOffcanvasBackdrop)();
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbOffcanvasBackdrop,
+      selectors: [["ngb-offcanvas-backdrop"]],
+      hostVars: 6,
+      hostBindings: function NgbOffcanvasBackdrop_HostBindings(rf, ctx) {
+        if (rf & 1) {
+          ɵɵlistener("mousedown", function NgbOffcanvasBackdrop_mousedown_HostBindingHandler() {
+            return ctx.dismiss();
+          });
+        }
+        if (rf & 2) {
+          ɵɵclassMap("offcanvas-backdrop" + (ctx.backdropClass ? " " + ctx.backdropClass : ""));
+          ɵɵclassProp("show", !ctx.animation)("fade", ctx.animation);
+        }
+      },
+      inputs: {
+        animation: "animation",
+        backdropClass: "backdropClass",
+        static: "static"
+      },
+      outputs: {
+        dismissEvent: "dismiss"
+      },
+      standalone: true,
+      features: [ɵɵStandaloneFeature],
+      decls: 0,
+      vars: 0,
+      template: function NgbOffcanvasBackdrop_Template(rf, ctx) {
+      },
+      encapsulation: 2
+    });
+  }
 };
-_NgbOffcanvasBackdrop.ɵfac = function NgbOffcanvasBackdrop_Factory(t) {
-  return new (t || _NgbOffcanvasBackdrop)();
-};
-_NgbOffcanvasBackdrop.ɵcmp = ɵɵdefineComponent({
-  type: _NgbOffcanvasBackdrop,
-  selectors: [["ngb-offcanvas-backdrop"]],
-  hostVars: 6,
-  hostBindings: function NgbOffcanvasBackdrop_HostBindings(rf, ctx) {
-    if (rf & 1) {
-      ɵɵlistener("mousedown", function NgbOffcanvasBackdrop_mousedown_HostBindingHandler() {
-        return ctx.dismiss();
-      });
-    }
-    if (rf & 2) {
-      ɵɵclassMap("offcanvas-backdrop" + (ctx.backdropClass ? " " + ctx.backdropClass : ""));
-      ɵɵclassProp("show", !ctx.animation)("fade", ctx.animation);
-    }
-  },
-  inputs: {
-    animation: "animation",
-    backdropClass: "backdropClass",
-    static: "static"
-  },
-  outputs: {
-    dismissEvent: "dismiss"
-  },
-  standalone: true,
-  features: [ɵɵStandaloneFeature],
-  decls: 0,
-  vars: 0,
-  template: function NgbOffcanvasBackdrop_Template(rf, ctx) {
-  },
-  encapsulation: 2
-});
-var NgbOffcanvasBackdrop = _NgbOffcanvasBackdrop;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbOffcanvasBackdrop, [{
     type: Component,
@@ -16327,7 +16748,7 @@ var NgbOffcanvasBackdrop = _NgbOffcanvasBackdrop;
     }]
   });
 })();
-var _NgbOffcanvasPanel = class _NgbOffcanvasPanel {
+var NgbOffcanvasPanel = class _NgbOffcanvasPanel {
   constructor() {
     this._document = inject(DOCUMENT);
     this._elRef = inject(ElementRef);
@@ -16437,46 +16858,49 @@ var _NgbOffcanvasPanel = class _NgbOffcanvasPanel {
       this._elWithFocus = null;
     });
   }
+  static {
+    this.ɵfac = function NgbOffcanvasPanel_Factory(t) {
+      return new (t || _NgbOffcanvasPanel)();
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _NgbOffcanvasPanel,
+      selectors: [["ngb-offcanvas-panel"]],
+      hostAttrs: ["role", "dialog", "tabindex", "-1"],
+      hostVars: 5,
+      hostBindings: function NgbOffcanvasPanel_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵattribute("aria-modal", true)("aria-labelledby", ctx.ariaLabelledBy)("aria-describedby", ctx.ariaDescribedBy);
+          ɵɵclassMap("offcanvas offcanvas-" + ctx.position + (ctx.panelClass ? " " + ctx.panelClass : ""));
+        }
+      },
+      inputs: {
+        animation: "animation",
+        ariaLabelledBy: "ariaLabelledBy",
+        ariaDescribedBy: "ariaDescribedBy",
+        keyboard: "keyboard",
+        panelClass: "panelClass",
+        position: "position"
+      },
+      outputs: {
+        dismissEvent: "dismiss"
+      },
+      standalone: true,
+      features: [ɵɵStandaloneFeature],
+      ngContentSelectors: _c0,
+      decls: 1,
+      vars: 0,
+      template: function NgbOffcanvasPanel_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵprojectionDef();
+          ɵɵprojection(0);
+        }
+      },
+      encapsulation: 2
+    });
+  }
 };
-_NgbOffcanvasPanel.ɵfac = function NgbOffcanvasPanel_Factory(t) {
-  return new (t || _NgbOffcanvasPanel)();
-};
-_NgbOffcanvasPanel.ɵcmp = ɵɵdefineComponent({
-  type: _NgbOffcanvasPanel,
-  selectors: [["ngb-offcanvas-panel"]],
-  hostAttrs: ["role", "dialog", "tabindex", "-1"],
-  hostVars: 5,
-  hostBindings: function NgbOffcanvasPanel_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵattribute("aria-modal", true)("aria-labelledby", ctx.ariaLabelledBy)("aria-describedby", ctx.ariaDescribedBy);
-      ɵɵclassMap("offcanvas offcanvas-" + ctx.position + (ctx.panelClass ? " " + ctx.panelClass : ""));
-    }
-  },
-  inputs: {
-    animation: "animation",
-    ariaLabelledBy: "ariaLabelledBy",
-    ariaDescribedBy: "ariaDescribedBy",
-    keyboard: "keyboard",
-    panelClass: "panelClass",
-    position: "position"
-  },
-  outputs: {
-    dismissEvent: "dismiss"
-  },
-  standalone: true,
-  features: [ɵɵStandaloneFeature],
-  ngContentSelectors: _c0,
-  decls: 1,
-  vars: 0,
-  template: function NgbOffcanvasPanel_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵprojectionDef();
-      ɵɵprojection(0);
-    }
-  },
-  encapsulation: 2
-});
-var NgbOffcanvasPanel = _NgbOffcanvasPanel;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbOffcanvasPanel, [{
     type: Component,
@@ -16519,7 +16943,7 @@ var NgbOffcanvasPanel = _NgbOffcanvasPanel;
     }]
   });
 })();
-var _NgbOffcanvasStack = class _NgbOffcanvasStack {
+var NgbOffcanvasStack = class _NgbOffcanvasStack {
   constructor() {
     this._applicationRef = inject(ApplicationRef);
     this._injector = inject(Injector);
@@ -16684,16 +17108,19 @@ var _NgbOffcanvasStack = class _NgbOffcanvasStack {
       this._activePanelCmptHasChanged.next();
     });
   }
+  static {
+    this.ɵfac = function NgbOffcanvasStack_Factory(t) {
+      return new (t || _NgbOffcanvasStack)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbOffcanvasStack,
+      factory: _NgbOffcanvasStack.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbOffcanvasStack.ɵfac = function NgbOffcanvasStack_Factory(t) {
-  return new (t || _NgbOffcanvasStack)();
-};
-_NgbOffcanvasStack.ɵprov = ɵɵdefineInjectable({
-  token: _NgbOffcanvasStack,
-  factory: _NgbOffcanvasStack.ɵfac,
-  providedIn: "root"
-});
-var NgbOffcanvasStack = _NgbOffcanvasStack;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbOffcanvasStack, [{
     type: Injectable,
@@ -16702,7 +17129,7 @@ var NgbOffcanvasStack = _NgbOffcanvasStack;
     }]
   }], () => [], null);
 })();
-var _NgbOffcanvas = class _NgbOffcanvas {
+var NgbOffcanvas = class _NgbOffcanvas {
   constructor() {
     this._injector = inject(Injector);
     this._offcanvasStack = inject(NgbOffcanvasStack);
@@ -16742,16 +17169,19 @@ var _NgbOffcanvas = class _NgbOffcanvas {
   hasOpenOffcanvas() {
     return this._offcanvasStack.hasOpenOffcanvas();
   }
+  static {
+    this.ɵfac = function NgbOffcanvas_Factory(t) {
+      return new (t || _NgbOffcanvas)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NgbOffcanvas,
+      factory: _NgbOffcanvas.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_NgbOffcanvas.ɵfac = function NgbOffcanvas_Factory(t) {
-  return new (t || _NgbOffcanvas)();
-};
-_NgbOffcanvas.ɵprov = ɵɵdefineInjectable({
-  token: _NgbOffcanvas,
-  factory: _NgbOffcanvas.ɵfac,
-  providedIn: "root"
-});
-var NgbOffcanvas = _NgbOffcanvas;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbOffcanvas, [{
     type: Injectable,
@@ -16760,16 +17190,21 @@ var NgbOffcanvas = _NgbOffcanvas;
     }]
   }], null, null);
 })();
-var _NgbOffcanvasModule = class _NgbOffcanvasModule {
+var NgbOffcanvasModule = class _NgbOffcanvasModule {
+  static {
+    this.ɵfac = function NgbOffcanvasModule_Factory(t) {
+      return new (t || _NgbOffcanvasModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _NgbOffcanvasModule
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_NgbOffcanvasModule.ɵfac = function NgbOffcanvasModule_Factory(t) {
-  return new (t || _NgbOffcanvasModule)();
-};
-_NgbOffcanvasModule.ɵmod = ɵɵdefineNgModule({
-  type: _NgbOffcanvasModule
-});
-_NgbOffcanvasModule.ɵinj = ɵɵdefineInjector({});
-var NgbOffcanvasModule = _NgbOffcanvasModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbOffcanvasModule, [{
     type: NgModule,
@@ -16777,20 +17212,25 @@ var NgbOffcanvasModule = _NgbOffcanvasModule;
   }], null, null);
 })();
 var NGB_MODULES = [NgbAccordionModule, NgbAlertModule, NgbCarouselModule, NgbCollapseModule, NgbDatepickerModule, NgbDropdownModule, NgbModalModule, NgbNavModule, NgbOffcanvasModule, NgbPaginationModule, NgbPopoverModule, NgbProgressbarModule, NgbRatingModule, NgbScrollSpyModule, NgbTimepickerModule, NgbToastModule, NgbTooltipModule, NgbTypeaheadModule];
-var _NgbModule = class _NgbModule {
+var NgbModule = class _NgbModule {
+  static {
+    this.ɵfac = function NgbModule_Factory(t) {
+      return new (t || _NgbModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _NgbModule,
+      imports: [NgbAccordionModule, NgbAlertModule, NgbCarouselModule, NgbCollapseModule, NgbDatepickerModule, NgbDropdownModule, NgbModalModule, NgbNavModule, NgbOffcanvasModule, NgbPaginationModule, NgbPopoverModule, NgbProgressbarModule, NgbRatingModule, NgbScrollSpyModule, NgbTimepickerModule, NgbToastModule, NgbTooltipModule, NgbTypeaheadModule],
+      exports: [NgbAccordionModule, NgbAlertModule, NgbCarouselModule, NgbCollapseModule, NgbDatepickerModule, NgbDropdownModule, NgbModalModule, NgbNavModule, NgbOffcanvasModule, NgbPaginationModule, NgbPopoverModule, NgbProgressbarModule, NgbRatingModule, NgbScrollSpyModule, NgbTimepickerModule, NgbToastModule, NgbTooltipModule, NgbTypeaheadModule]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({
+      imports: [NGB_MODULES, NgbAccordionModule, NgbAlertModule, NgbCarouselModule, NgbCollapseModule, NgbDatepickerModule, NgbDropdownModule, NgbModalModule, NgbNavModule, NgbOffcanvasModule, NgbPaginationModule, NgbPopoverModule, NgbProgressbarModule, NgbRatingModule, NgbScrollSpyModule, NgbTimepickerModule, NgbToastModule, NgbTooltipModule, NgbTypeaheadModule]
+    });
+  }
 };
-_NgbModule.ɵfac = function NgbModule_Factory(t) {
-  return new (t || _NgbModule)();
-};
-_NgbModule.ɵmod = ɵɵdefineNgModule({
-  type: _NgbModule,
-  imports: [NgbAccordionModule, NgbAlertModule, NgbCarouselModule, NgbCollapseModule, NgbDatepickerModule, NgbDropdownModule, NgbModalModule, NgbNavModule, NgbOffcanvasModule, NgbPaginationModule, NgbPopoverModule, NgbProgressbarModule, NgbRatingModule, NgbScrollSpyModule, NgbTimepickerModule, NgbToastModule, NgbTooltipModule, NgbTypeaheadModule],
-  exports: [NgbAccordionModule, NgbAlertModule, NgbCarouselModule, NgbCollapseModule, NgbDatepickerModule, NgbDropdownModule, NgbModalModule, NgbNavModule, NgbOffcanvasModule, NgbPaginationModule, NgbPopoverModule, NgbProgressbarModule, NgbRatingModule, NgbScrollSpyModule, NgbTimepickerModule, NgbToastModule, NgbTooltipModule, NgbTypeaheadModule]
-});
-_NgbModule.ɵinj = ɵɵdefineInjector({
-  imports: [NGB_MODULES, NgbAccordionModule, NgbAlertModule, NgbCarouselModule, NgbCollapseModule, NgbDatepickerModule, NgbDropdownModule, NgbModalModule, NgbNavModule, NgbOffcanvasModule, NgbPaginationModule, NgbPopoverModule, NgbProgressbarModule, NgbRatingModule, NgbScrollSpyModule, NgbTimepickerModule, NgbToastModule, NgbTooltipModule, NgbTypeaheadModule]
-});
-var NgbModule = _NgbModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NgbModule, [{
     type: NgModule,

@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --theme-default: #7366ff;
   --theme-secondary: #f73164;
@@ -53,7 +57,11 @@ body[class="dark-only"] {
 html, body { 
   height: 100%; 
 }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+ margin: 0; font-family: 'Plus Jakarta Sans', 'Noto Sans', sans-serif;
+}
+
 
 .error-snackbar .mdc-snackbar__surface{
   background-color: rgb(197, 49, 49) !important;
@@ -74,16 +82,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   left: -300px;
   z-index: 99;
   transition: color 1s ease;
-  /* overflow: auto; */
-  /* color: rgba(0, 0, 0, 0); */
   margin-top: 20px;
   margin-bottom: 30px;
 }
 
-/* styles.scss */
-.fio-modal {
-  z-index: 9999 !important;
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
+body, html, app-root {
+  background-color: #181411 !important;
+  color: white;
 }
