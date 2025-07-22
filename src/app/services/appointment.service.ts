@@ -13,12 +13,7 @@ export class AppointmentService {
 
   constructor(private http: HttpClient) {}
 
-  createAppointment(appointment: IAppointment, accessToken: string): Observable<IResponse<IAppointment>> {
-    return this.http.post<IResponse<IAppointment>>(this.apiUrl, appointment, {
-      headers: { Authorization: `Bearer ${accessToken}` }
-    });
-  }
-
+ 
   getAppointmentsByPatient(patientId: number): Observable<IResponse<IAppointment[]>> {
     return this.http.get<IResponse<IAppointment[]>>(`${this.apiUrl}/patient/${patientId}`);
   }
@@ -27,11 +22,21 @@ export class AppointmentService {
     return this.http.get<IResponse<IAppointment[]>>(`${this.apiUrl}/doctor/${doctorId}`);
   }
 
-  updateAppointment(id: number, appointment: Partial<IAppointment>): Observable<IResponse<IAppointment>> {
-    return this.http.put<IResponse<IAppointment>>(`${this.apiUrl}/${id}`, appointment);
-  }
-
   deleteAppointment(id: number): Observable<IResponse<void>> {
     return this.http.delete<IResponse<void>>(`${this.apiUrl}/${id}`);
+  }
+
+  getCalendarAppointments(start: Date, end: Date): Observable<IAppointment[]> {
+    return this.http.get<IAppointment[]>(
+      `${this.apiUrl}?start=${start.toISOString()}&end=${end.toISOString()}`
+    );
+  }
+
+  createAppointment(appointment: Partial<IAppointment>): Observable<IResponse<IAppointment>> {
+    return this.http.post<IResponse<IAppointment>>(this.apiUrl, appointment);
+  }
+
+  updateAppointment(id: number, changes: Partial<IAppointment>): Observable<IResponse<IAppointment>> {
+    return this.http.patch<IResponse<IAppointment>>(`${this.apiUrl}/${id}`, changes);
   }
 }

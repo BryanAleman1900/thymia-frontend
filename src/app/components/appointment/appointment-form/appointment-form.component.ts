@@ -1,100 +1,70 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatSelectModule } from '@angular/material/select';
-import { MatIconModule } from '@angular/material/icon';
-import { IAppointment, IUser } from '../../../interfaces';
-import { UserService } from '../../../services/user.service';
-import { GoogleCalendarService } from '../../../services/google-calendar.service';
+// import { Component, Inject, OnInit } from '@angular/core';
+// import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+// import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// import { AppointmentService } from '../../../services/appointment.service';
+// import { UserService } from '../../../services/user.service';
+// import { IUser } from '../../../interfaces';
 
-@Component({
-  selector: 'app-appointment-form',
-  standalone: true, 
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatSelectModule,
-    MatIconModule
-  ],
-  templateUrl: './appointment-form.component.html',
-  styleUrls: ['./appointment-form.component.scss']
-})
+// @Component({
+//   selector: 'app-appointment-form',
+//   templateUrl: './appointment-form.component.html',
+//   styleUrls: ['./appointment-form.component.scss']
+// })
+// export class AppointmentFormComponent implements OnInit {
+//   form: FormGroup;
+//   patients: IUser[] = [];
+//   guests: IUser[] = [];
+//   minDate = new Date();
 
-export class AppointmentFormComponent {
-  @Input() doctorId?: number;
-  @Output() appointmentCreated = new EventEmitter<IAppointment>();
-  
-  appointmentForm: FormGroup;
-  patients: IUser[] = [];
-  minDate = new Date();
-  snackBar: any;
+//   constructor(
+//     private fb: FormBuilder,
+//     private appointmentService: AppointmentService,
+//     private userService: UserService,
+//     private dialogRef: MatDialogRef<AppointmentFormComponent>,
+//     @Inject(MAT_DIALOG_DATA) public data: any
+//   ) {
+//     this.form = this.fb.group({
+//       title: ['', Validators.required],
+//       startTime: ['', Validators.required],
+//       endTime: ['', Validators.required],
+//       description: [''],
+//       patientId: ['', Validators.required],
+//       guestIds: [[]]
+//     });
+//   }
 
-  constructor(
-    private fb: FormBuilder,
-    private userService: UserService,
-    private googleService: GoogleCalendarService
-  ) {
-    this.appointmentForm = this.fb.group({
-      patientId: ['', Validators.required],
-      title: ['', [Validators.required, Validators.maxLength(100)]],
-      description: ['', Validators.maxLength(500)],
-      startTime: ['', Validators.required],
-      endTime: ['', Validators.required]
-    });
+//   ngOnInit(): void {
+//     this.loadUsers();
+//     if (this.data.isEdit) {
+//       this.patchForm();
+//     }
+//   }
 
-    this.loadPatients();
-  }
+//   loadUsers(): void {
+//     this.userService.getPatients().subscribe(patients => {
+//       this.patients = patients;
+//     });
+//     this.userService.getAllUsers().subscribe(users => {
+//       this.guests = users;
+//     });
+//   }
 
-  loadPatients(): void {
-  this.userService.getPatients().subscribe({
-    next: (response) => {
-      this.patients = response?.data || [];
-    },
-    error: (err) => {
-      this.snackBar.open('Error al cargar pacientes', 'Cerrar', { duration: 3000 });
-      this.patients = []; 
-    }
-  });
-}
+//   onSubmit(): void {
+//     if (this.form.invalid) return;
 
-  async onSubmit() {
-    if (this.appointmentForm.invalid || !this.doctorId) return;
+//     const formValue = this.form.value;
+//     const appointmentData = {
+//       ...formValue,
+//       startTime: new Date(formValue.startTime).toISOString(),
+//       endTime: new Date(formValue.endTime).toISOString()
+//     };
 
-    try {
-      const accessToken = await this.googleService.signIn();
-      const formValue = this.appointmentForm.value;
-      
-      const appointmentData: IAppointment = {
-        patientId: formValue.patientId,
-        doctorId: this.doctorId,
-        title: formValue.title,
-        description: formValue.description,
-        startTime: formValue.startTime.toISOString(),
-        endTime: formValue.endTime.toISOString()
-      };
-
-     
-      const googleEvent = await this.googleService.createEvent({
-        summary: formValue.title,
-        description: formValue.description,
-        start: { dateTime: formValue.startTime.toISOString() },
-        end: { dateTime: formValue.endTime.toISOString() }
-      }, accessToken);
-
-      appointmentData.googleEventId = googleEvent.id;
-      this.appointmentCreated.emit(appointmentData);
-      this.appointmentForm.reset();
-      
-    } catch (error) {
-      console.error('Error creating appointment:', error);
-    }
-  }
-}
+//     if (this.data.isEdit) {
+//       this.appointmentService.updateAppointment(this.data.eventId, appointmentData)
+//         .subscribe(() => this.dialogRef.close('updated'));
+//     } else {
+//       this.appointmentService.createAppointment(appointmentData)
+//         .subscribe(() => this.dialogRef.close('created'));
+//     }
+//   }
+// }
