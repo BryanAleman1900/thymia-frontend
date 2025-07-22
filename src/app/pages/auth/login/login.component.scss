@@ -156,8 +156,6 @@
           font-size: 14px;
         }
       }
-
-      // 🔵 Estilo durante el reconocimiento facial
       .face-id-status {
         animation: fadeIn 0.4s ease-in-out;
         h3 {
@@ -174,8 +172,6 @@
       }
     }
   }
-
-  // 👉 Aplica cuando Face ID está activo
   &.face-id-mode {
     pointer-events: none;
 
@@ -196,8 +192,6 @@
     }
   }
 }
-
-// 🔁 Animación suave
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -207,4 +201,8 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.espacioBarra {
+  margin-bottom: 20px;
 }
