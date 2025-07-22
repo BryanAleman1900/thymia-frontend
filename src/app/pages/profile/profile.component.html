@@ -1,75 +1,101 @@
+<div class="profile-main-container px-[10%] py-6 text-white">
+  <div class="row info-container">
 
-<div class="row info-container">
-  <div class="col-6">
-    <div class="shadow-sm bg-body rounded px-4 py-4 h-100">
-      <div>
-        <i class="fa-solid fa-user-tie"></i>
-      </div>
-      <div class="border-bottom my-3">
-        <label>Name:</label>
-        <p>{{profileService.user$().name}}</p>
-      </div>
-      <div class="border-bottom my-3">
-        <label>Lastname:</label>
-        <p>{{profileService.user$().lastname}}</p>
-      </div>
-      <div class="border-bottom my-3">
-        <label>email:</label>
-        <p>{{profileService.user$().email}}</p>
-      </div>
-      <div class=" my-3">
-        <label>Last update:</label>
-        <p>{{profileService.user$().updatedAt | date:'dd/MM/YYYY'}}</p>
+    <div class="col-6">
+      <div class="bg-[#2b2420] rounded-xl px-6 py-6 h-100">
+        <div class="text-4xl mb-4 text-center">
+          <i class="fa-solid fa-user-tie"></i>
+        </div>
+
+        <div class="border-b border-[#393028] my-4">
+          <label class="text-[#baa99c] block">Name:</label>
+          <p>{{ profileService.user$().name }}</p>
+        </div>
+
+        <div class="border-b border-[#393028] my-4">
+          <label class="text-[#baa99c] block">Lastname:</label>
+          <p>{{ profileService.user$().lastname }}</p>
+        </div>
+
+        <div class="border-b border-[#393028] my-4">
+          <label class="text-[#baa99c] block">Email:</label>
+          <p>{{ profileService.user$().email }}</p>
+        </div>
+
+        <div class="my-4">
+          <label class="text-[#baa99c] block">Last update:</label>
+          <p>{{ profileService.user$().updatedAt | date: 'dd/MM/yyyy' }}</p>
+        </div>
+
+        <!-- Face ID -->
+        <div class="text-center mt-6">
+          <button
+            class="border border-white text-white rounded-full px-4 py-2 hover:bg-white hover:text-[#181411] transition"
+            (click)="enableFaceID()"
+          >
+            Activar Face ID
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-6">
-    <div class="row">
-      <div class="col-12 shadow-sm bg-body rounded px-4 py-4 mb-3">
-        <label>Rol:</label>
-        <div class="border-bottom my-3">
-          <label>Name:</label>
-          <p>{{profileService.user$().role?.name}}</p>
+
+    <div class="col-6">
+      <div class="row">
+        <div class="col-12 mb-4">
+          <div class="bg-[#2b2420] rounded-xl px-6 py-6">
+            <label class="text-[#baa99c]">Rol:</label>
+
+            <div class="border-b border-[#393028] my-4">
+              <label class="text-[#baa99c] block">Name:</label>
+              <p>{{ profileService.user$().role?.name }}</p>
+            </div>
+
+            <div class="border-b border-[#393028] my-4">
+              <label class="text-[#baa99c] block">Description:</label>
+              <p>{{ profileService.user$().role?.description }}</p>
+            </div>
+
+            <div class="my-4">
+              <label class="text-[#baa99c] block">Last update:</label>
+              <p>{{ profileService.user$().role?.updatedAt | date: 'dd/MM/yyyy' }}</p>
+            </div>
+          </div>
         </div>
-        <div class="border-bottom my-3">
-          <label>Description:</label>
-          <p>{{profileService.user$().role?.description}}</p>
+
+        <div class="col-12">
+          <div class="bg-[#2b2420] rounded-xl px-6 py-6">
+            <label class="text-[#baa99c] block mb-2">Last actions:</label>
+            <div class="overflow-x-auto">
+              <table class="table-auto w-full text-sm">
+                <thead class="text-[#baa99c] border-b border-[#393028]">
+                  <tr>
+                    <th class="text-left py-2">#</th>
+                    <th class="text-left py-2">Date</th>
+                    <th class="text-left py-2">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b border-[#393028]">
+                    <td class="py-2">1</td>
+                    <td>10/06/2024</td>
+                    <td>Deleted user</td>
+                  </tr>
+                  <tr class="border-b border-[#393028]">
+                    <td class="py-2">2</td>
+                    <td>10/06/2024</td>
+                    <td>Deleted user</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2">3</td>
+                    <td>10/06/2024</td>
+                    <td>Deleted user</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-        <div class=" my-3">
-          <label>Last update:</label>
-          <p>{{profileService.user$().role?.updatedAt | date:'dd/MM/YYYY'}}</p>
-        </div>
-      </div>
-      <div class="col-12 shadow-sm bg-body rounded px-4 py-4">
-        <label>Last actions:</label>
-        <div>
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Date</th>
-                <th scope="col">Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>10/06/2024</td>
-                <td>Deleted user</td>
-              </tr>
-              <tr>
-                <th scope="row">1</th>
-                <td>10/06/2024</td>
-                <td>Deleted user</td>
-              </tr>
-              <tr>
-                <th scope="row">1</th>
-                <td>10/06/2024</td>
-                <td>Deleted user</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+
       </div>
     </div>
   </div>

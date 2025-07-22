@@ -4,12 +4,12 @@ import {
   style,
   transition,
   trigger
-} from "./chunk-55FNZD6Q.js";
+} from "./chunk-57H4YCVN.js";
 import {
   DOCUMENT,
   Location,
   isPlatformBrowser
-} from "./chunk-VWGNI36Q.js";
+} from "./chunk-AWS5CNEC.js";
 import {
   ANIMATION_MODULE_TYPE,
   APP_ID,
@@ -86,7 +86,7 @@ import {
   ɵɵtext,
   ɵɵtextInterpolate1,
   ɵɵviewQuery
-} from "./chunk-KRPM2RXB.js";
+} from "./chunk-FRQGASU3.js";
 import {
   BehaviorSubject,
   ConnectableObservable,
@@ -125,7 +125,7 @@ try {
 } catch {
   hasV8BreakIterator = false;
 }
-var _Platform = class _Platform {
+var Platform = class _Platform {
   constructor(_platformId) {
     this._platformId = _platformId;
     this.isBrowser = this._platformId ? isPlatformBrowser(this._platformId) : typeof document === "object" && !!document;
@@ -138,16 +138,19 @@ var _Platform = class _Platform {
     this.ANDROID = this.isBrowser && /android/i.test(navigator.userAgent) && !this.TRIDENT;
     this.SAFARI = this.isBrowser && /safari/i.test(navigator.userAgent) && this.WEBKIT;
   }
+  static {
+    this.ɵfac = function Platform_Factory(t) {
+      return new (t || _Platform)(ɵɵinject(PLATFORM_ID));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _Platform,
+      factory: _Platform.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_Platform.ɵfac = function Platform_Factory(t) {
-  return new (t || _Platform)(ɵɵinject(PLATFORM_ID));
-};
-_Platform.ɵprov = ɵɵdefineInjectable({
-  token: _Platform,
-  factory: _Platform.ɵfac,
-  providedIn: "root"
-});
-var Platform = _Platform;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(Platform, [{
     type: Injectable,
@@ -162,16 +165,21 @@ var Platform = _Platform;
     }]
   }], null);
 })();
-var _PlatformModule = class _PlatformModule {
+var PlatformModule = class _PlatformModule {
+  static {
+    this.ɵfac = function PlatformModule_Factory(t) {
+      return new (t || _PlatformModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _PlatformModule
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_PlatformModule.ɵfac = function PlatformModule_Factory(t) {
-  return new (t || _PlatformModule)();
-};
-_PlatformModule.ɵmod = ɵɵdefineNgModule({
-  type: _PlatformModule
-});
-_PlatformModule.ɵinj = ɵɵdefineInjector({});
-var PlatformModule = _PlatformModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(PlatformModule, [{
     type: NgModule,
@@ -347,20 +355,23 @@ function shouldIgnoreRecord(record) {
   }
   return false;
 }
-var _MutationObserverFactory = class _MutationObserverFactory {
+var MutationObserverFactory = class _MutationObserverFactory {
   create(callback) {
     return typeof MutationObserver === "undefined" ? null : new MutationObserver(callback);
   }
+  static {
+    this.ɵfac = function MutationObserverFactory_Factory(t) {
+      return new (t || _MutationObserverFactory)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _MutationObserverFactory,
+      factory: _MutationObserverFactory.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_MutationObserverFactory.ɵfac = function MutationObserverFactory_Factory(t) {
-  return new (t || _MutationObserverFactory)();
-};
-_MutationObserverFactory.ɵprov = ɵɵdefineInjectable({
-  token: _MutationObserverFactory,
-  factory: _MutationObserverFactory.ɵfac,
-  providedIn: "root"
-});
-var MutationObserverFactory = _MutationObserverFactory;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MutationObserverFactory, [{
     type: Injectable,
@@ -369,7 +380,7 @@ var MutationObserverFactory = _MutationObserverFactory;
     }]
   }], null, null);
 })();
-var _ContentObserver = class _ContentObserver {
+var ContentObserver = class _ContentObserver {
   constructor(_mutationObserverFactory) {
     this._mutationObserverFactory = _mutationObserverFactory;
     this._observedElements = /* @__PURE__ */ new Map();
@@ -439,16 +450,19 @@ var _ContentObserver = class _ContentObserver {
       this._observedElements.delete(element);
     }
   }
+  static {
+    this.ɵfac = function ContentObserver_Factory(t) {
+      return new (t || _ContentObserver)(ɵɵinject(MutationObserverFactory));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _ContentObserver,
+      factory: _ContentObserver.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_ContentObserver.ɵfac = function ContentObserver_Factory(t) {
-  return new (t || _ContentObserver)(ɵɵinject(MutationObserverFactory));
-};
-_ContentObserver.ɵprov = ɵɵdefineInjectable({
-  token: _ContentObserver,
-  factory: _ContentObserver.ɵfac,
-  providedIn: "root"
-});
-var ContentObserver = _ContentObserver;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(ContentObserver, [{
     type: Injectable,
@@ -459,7 +473,7 @@ var ContentObserver = _ContentObserver;
     type: MutationObserverFactory
   }], null);
 })();
-var _CdkObserveContent = class _CdkObserveContent {
+var CdkObserveContent = class _CdkObserveContent {
   /**
    * Whether observing content is disabled. This option can be used
    * to disconnect the underlying MutationObserver until it is needed.
@@ -505,25 +519,28 @@ var _CdkObserveContent = class _CdkObserveContent {
   _unsubscribe() {
     this._currentSubscription?.unsubscribe();
   }
+  static {
+    this.ɵfac = function CdkObserveContent_Factory(t) {
+      return new (t || _CdkObserveContent)(ɵɵdirectiveInject(ContentObserver), ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(NgZone));
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _CdkObserveContent,
+      selectors: [["", "cdkObserveContent", ""]],
+      inputs: {
+        disabled: [InputFlags.HasDecoratorInputTransform, "cdkObserveContentDisabled", "disabled", booleanAttribute],
+        debounce: "debounce"
+      },
+      outputs: {
+        event: "cdkObserveContent"
+      },
+      exportAs: ["cdkObserveContent"],
+      standalone: true,
+      features: [ɵɵInputTransformsFeature]
+    });
+  }
 };
-_CdkObserveContent.ɵfac = function CdkObserveContent_Factory(t) {
-  return new (t || _CdkObserveContent)(ɵɵdirectiveInject(ContentObserver), ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(NgZone));
-};
-_CdkObserveContent.ɵdir = ɵɵdefineDirective({
-  type: _CdkObserveContent,
-  selectors: [["", "cdkObserveContent", ""]],
-  inputs: {
-    disabled: [InputFlags.HasDecoratorInputTransform, "cdkObserveContentDisabled", "disabled", booleanAttribute],
-    debounce: "debounce"
-  },
-  outputs: {
-    event: "cdkObserveContent"
-  },
-  exportAs: ["cdkObserveContent"],
-  standalone: true,
-  features: [ɵɵInputTransformsFeature]
-});
-var CdkObserveContent = _CdkObserveContent;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(CdkObserveContent, [{
     type: Directive,
@@ -555,20 +572,25 @@ var CdkObserveContent = _CdkObserveContent;
     }]
   });
 })();
-var _ObserversModule = class _ObserversModule {
+var ObserversModule = class _ObserversModule {
+  static {
+    this.ɵfac = function ObserversModule_Factory(t) {
+      return new (t || _ObserversModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _ObserversModule,
+      imports: [CdkObserveContent],
+      exports: [CdkObserveContent]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({
+      providers: [MutationObserverFactory]
+    });
+  }
 };
-_ObserversModule.ɵfac = function ObserversModule_Factory(t) {
-  return new (t || _ObserversModule)();
-};
-_ObserversModule.ɵmod = ɵɵdefineNgModule({
-  type: _ObserversModule,
-  imports: [CdkObserveContent],
-  exports: [CdkObserveContent]
-});
-_ObserversModule.ɵinj = ɵɵdefineInjector({
-  providers: [MutationObserverFactory]
-});
-var ObserversModule = _ObserversModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(ObserversModule, [{
     type: NgModule,
@@ -581,16 +603,21 @@ var ObserversModule = _ObserversModule;
 })();
 
 // node_modules/@angular/cdk/fesm2022/layout.mjs
-var _LayoutModule = class _LayoutModule {
+var LayoutModule = class _LayoutModule {
+  static {
+    this.ɵfac = function LayoutModule_Factory(t) {
+      return new (t || _LayoutModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _LayoutModule
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_LayoutModule.ɵfac = function LayoutModule_Factory(t) {
-  return new (t || _LayoutModule)();
-};
-_LayoutModule.ɵmod = ɵɵdefineNgModule({
-  type: _LayoutModule
-});
-_LayoutModule.ɵinj = ɵɵdefineInjector({});
-var LayoutModule = _LayoutModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(LayoutModule, [{
     type: NgModule,
@@ -599,7 +626,7 @@ var LayoutModule = _LayoutModule;
 })();
 var mediaQueriesForWebkitCompatibility = /* @__PURE__ */ new Set();
 var mediaQueryStyleNode;
-var _MediaMatcher = class _MediaMatcher {
+var MediaMatcher = class _MediaMatcher {
   constructor(_platform, _nonce) {
     this._platform = _platform;
     this._nonce = _nonce;
@@ -621,16 +648,19 @@ var _MediaMatcher = class _MediaMatcher {
     }
     return this._matchMedia(query);
   }
+  static {
+    this.ɵfac = function MediaMatcher_Factory(t) {
+      return new (t || _MediaMatcher)(ɵɵinject(Platform), ɵɵinject(CSP_NONCE, 8));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _MediaMatcher,
+      factory: _MediaMatcher.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_MediaMatcher.ɵfac = function MediaMatcher_Factory(t) {
-  return new (t || _MediaMatcher)(ɵɵinject(Platform), ɵɵinject(CSP_NONCE, 8));
-};
-_MediaMatcher.ɵprov = ɵɵdefineInjectable({
-  token: _MediaMatcher,
-  factory: _MediaMatcher.ɵfac,
-  providedIn: "root"
-});
-var MediaMatcher = _MediaMatcher;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MediaMatcher, [{
     type: Injectable,
@@ -680,7 +710,7 @@ function noopMatchMedia(query) {
     }
   };
 }
-var _BreakpointObserver = class _BreakpointObserver {
+var BreakpointObserver = class _BreakpointObserver {
   constructor(_mediaMatcher, _zone) {
     this._mediaMatcher = _mediaMatcher;
     this._zone = _zone;
@@ -752,16 +782,19 @@ var _BreakpointObserver = class _BreakpointObserver {
     this._queries.set(query, output);
     return output;
   }
+  static {
+    this.ɵfac = function BreakpointObserver_Factory(t) {
+      return new (t || _BreakpointObserver)(ɵɵinject(MediaMatcher), ɵɵinject(NgZone));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _BreakpointObserver,
+      factory: _BreakpointObserver.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_BreakpointObserver.ɵfac = function BreakpointObserver_Factory(t) {
-  return new (t || _BreakpointObserver)(ɵɵinject(MediaMatcher), ɵɵinject(NgZone));
-};
-_BreakpointObserver.ɵprov = ɵɵdefineInjectable({
-  token: _BreakpointObserver,
-  factory: _BreakpointObserver.ɵfac,
-  providedIn: "root"
-});
-var BreakpointObserver = _BreakpointObserver;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(BreakpointObserver, [{
     type: Injectable,
@@ -822,7 +855,7 @@ function getAriaReferenceIds(el, attr) {
 var CDK_DESCRIBEDBY_ID_PREFIX = "cdk-describedby-message";
 var CDK_DESCRIBEDBY_HOST_ATTRIBUTE = "cdk-describedby-host";
 var nextId = 0;
-var _AriaDescriber = class _AriaDescriber {
+var AriaDescriber = class _AriaDescriber {
   constructor(_document, _platform) {
     this._platform = _platform;
     this._messageRegistry = /* @__PURE__ */ new Map();
@@ -970,16 +1003,19 @@ var _AriaDescriber = class _AriaDescriber {
   _isElementNode(element) {
     return element.nodeType === this._document.ELEMENT_NODE;
   }
+  static {
+    this.ɵfac = function AriaDescriber_Factory(t) {
+      return new (t || _AriaDescriber)(ɵɵinject(DOCUMENT), ɵɵinject(Platform));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _AriaDescriber,
+      factory: _AriaDescriber.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_AriaDescriber.ɵfac = function AriaDescriber_Factory(t) {
-  return new (t || _AriaDescriber)(ɵɵinject(DOCUMENT), ɵɵinject(Platform));
-};
-_AriaDescriber.ɵprov = ɵɵdefineInjectable({
-  token: _AriaDescriber,
-  factory: _AriaDescriber.ɵfac,
-  providedIn: "root"
-});
-var AriaDescriber = _AriaDescriber;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(AriaDescriber, [{
     type: Injectable,
@@ -1004,7 +1040,7 @@ function setMessageId(element, serviceId) {
     element.id = `${CDK_DESCRIBEDBY_ID_PREFIX}-${serviceId}-${nextId++}`;
   }
 }
-var _InteractivityChecker = class _InteractivityChecker {
+var InteractivityChecker = class _InteractivityChecker {
   constructor(_platform) {
     this._platform = _platform;
   }
@@ -1086,16 +1122,19 @@ var _InteractivityChecker = class _InteractivityChecker {
   isFocusable(element, config) {
     return isPotentiallyFocusable(element) && !this.isDisabled(element) && (config?.ignoreVisibility || this.isVisible(element));
   }
+  static {
+    this.ɵfac = function InteractivityChecker_Factory(t) {
+      return new (t || _InteractivityChecker)(ɵɵinject(Platform));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _InteractivityChecker,
+      factory: _InteractivityChecker.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_InteractivityChecker.ɵfac = function InteractivityChecker_Factory(t) {
-  return new (t || _InteractivityChecker)(ɵɵinject(Platform));
-};
-_InteractivityChecker.ɵprov = ɵɵdefineInjectable({
-  token: _InteractivityChecker,
-  factory: _InteractivityChecker.ɵfac,
-  providedIn: "root"
-});
-var InteractivityChecker = _InteractivityChecker;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(InteractivityChecker, [{
     type: Injectable,
@@ -1395,7 +1434,7 @@ var FocusTrap = class {
     }
   }
 };
-var _FocusTrapFactory = class _FocusTrapFactory {
+var FocusTrapFactory = class _FocusTrapFactory {
   constructor(_checker, _ngZone, _document) {
     this._checker = _checker;
     this._ngZone = _ngZone;
@@ -1411,16 +1450,19 @@ var _FocusTrapFactory = class _FocusTrapFactory {
   create(element, deferCaptureElements = false) {
     return new FocusTrap(element, this._checker, this._ngZone, this._document, deferCaptureElements);
   }
+  static {
+    this.ɵfac = function FocusTrapFactory_Factory(t) {
+      return new (t || _FocusTrapFactory)(ɵɵinject(InteractivityChecker), ɵɵinject(NgZone), ɵɵinject(DOCUMENT));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _FocusTrapFactory,
+      factory: _FocusTrapFactory.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_FocusTrapFactory.ɵfac = function FocusTrapFactory_Factory(t) {
-  return new (t || _FocusTrapFactory)(ɵɵinject(InteractivityChecker), ɵɵinject(NgZone), ɵɵinject(DOCUMENT));
-};
-_FocusTrapFactory.ɵprov = ɵɵdefineInjectable({
-  token: _FocusTrapFactory,
-  factory: _FocusTrapFactory.ɵfac,
-  providedIn: "root"
-});
-var FocusTrapFactory = _FocusTrapFactory;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(FocusTrapFactory, [{
     type: Injectable,
@@ -1439,7 +1481,7 @@ var FocusTrapFactory = _FocusTrapFactory;
     }]
   }], null);
 })();
-var _CdkTrapFocus = class _CdkTrapFocus {
+var CdkTrapFocus = class _CdkTrapFocus {
   /** Whether the focus trap is active. */
   get enabled() {
     return this.focusTrap?.enabled || false;
@@ -1486,22 +1528,25 @@ var _CdkTrapFocus = class _CdkTrapFocus {
     this._previouslyFocusedElement = _getFocusedElementPierceShadowDom();
     this.focusTrap?.focusInitialElementWhenReady();
   }
+  static {
+    this.ɵfac = function CdkTrapFocus_Factory(t) {
+      return new (t || _CdkTrapFocus)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(FocusTrapFactory), ɵɵdirectiveInject(DOCUMENT));
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _CdkTrapFocus,
+      selectors: [["", "cdkTrapFocus", ""]],
+      inputs: {
+        enabled: [InputFlags.HasDecoratorInputTransform, "cdkTrapFocus", "enabled", booleanAttribute],
+        autoCapture: [InputFlags.HasDecoratorInputTransform, "cdkTrapFocusAutoCapture", "autoCapture", booleanAttribute]
+      },
+      exportAs: ["cdkTrapFocus"],
+      standalone: true,
+      features: [ɵɵInputTransformsFeature, ɵɵNgOnChangesFeature]
+    });
+  }
 };
-_CdkTrapFocus.ɵfac = function CdkTrapFocus_Factory(t) {
-  return new (t || _CdkTrapFocus)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(FocusTrapFactory), ɵɵdirectiveInject(DOCUMENT));
-};
-_CdkTrapFocus.ɵdir = ɵɵdefineDirective({
-  type: _CdkTrapFocus,
-  selectors: [["", "cdkTrapFocus", ""]],
-  inputs: {
-    enabled: [InputFlags.HasDecoratorInputTransform, "cdkTrapFocus", "enabled", booleanAttribute],
-    autoCapture: [InputFlags.HasDecoratorInputTransform, "cdkTrapFocusAutoCapture", "autoCapture", booleanAttribute]
-  },
-  exportAs: ["cdkTrapFocus"],
-  standalone: true,
-  features: [ɵɵInputTransformsFeature, ɵɵNgOnChangesFeature]
-});
-var CdkTrapFocus = _CdkTrapFocus;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(CdkTrapFocus, [{
     type: Directive,
@@ -1614,7 +1659,7 @@ var EventListenerFocusTrapInertStrategy = class {
     }
   }
 };
-var _FocusTrapManager = class _FocusTrapManager {
+var FocusTrapManager = class _FocusTrapManager {
   constructor() {
     this._focusTrapStack = [];
   }
@@ -1646,16 +1691,19 @@ var _FocusTrapManager = class _FocusTrapManager {
       }
     }
   }
+  static {
+    this.ɵfac = function FocusTrapManager_Factory(t) {
+      return new (t || _FocusTrapManager)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _FocusTrapManager,
+      factory: _FocusTrapManager.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_FocusTrapManager.ɵfac = function FocusTrapManager_Factory(t) {
-  return new (t || _FocusTrapManager)();
-};
-_FocusTrapManager.ɵprov = ɵɵdefineInjectable({
-  token: _FocusTrapManager,
-  factory: _FocusTrapManager.ɵfac,
-  providedIn: "root"
-});
-var FocusTrapManager = _FocusTrapManager;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(FocusTrapManager, [{
     type: Injectable,
@@ -1664,7 +1712,7 @@ var FocusTrapManager = _FocusTrapManager;
     }]
   }], null, null);
 })();
-var _ConfigurableFocusTrapFactory = class _ConfigurableFocusTrapFactory {
+var ConfigurableFocusTrapFactory = class _ConfigurableFocusTrapFactory {
   constructor(_checker, _ngZone, _focusTrapManager, _document, _inertStrategy) {
     this._checker = _checker;
     this._ngZone = _ngZone;
@@ -1685,16 +1733,19 @@ var _ConfigurableFocusTrapFactory = class _ConfigurableFocusTrapFactory {
     }
     return new ConfigurableFocusTrap(element, this._checker, this._ngZone, this._document, this._focusTrapManager, this._inertStrategy, configObject);
   }
+  static {
+    this.ɵfac = function ConfigurableFocusTrapFactory_Factory(t) {
+      return new (t || _ConfigurableFocusTrapFactory)(ɵɵinject(InteractivityChecker), ɵɵinject(NgZone), ɵɵinject(FocusTrapManager), ɵɵinject(DOCUMENT), ɵɵinject(FOCUS_TRAP_INERT_STRATEGY, 8));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _ConfigurableFocusTrapFactory,
+      factory: _ConfigurableFocusTrapFactory.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_ConfigurableFocusTrapFactory.ɵfac = function ConfigurableFocusTrapFactory_Factory(t) {
-  return new (t || _ConfigurableFocusTrapFactory)(ɵɵinject(InteractivityChecker), ɵɵinject(NgZone), ɵɵinject(FocusTrapManager), ɵɵinject(DOCUMENT), ɵɵinject(FOCUS_TRAP_INERT_STRATEGY, 8));
-};
-_ConfigurableFocusTrapFactory.ɵprov = ɵɵdefineInjectable({
-  token: _ConfigurableFocusTrapFactory,
-  factory: _ConfigurableFocusTrapFactory.ɵfac,
-  providedIn: "root"
-});
-var ConfigurableFocusTrapFactory = _ConfigurableFocusTrapFactory;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(ConfigurableFocusTrapFactory, [{
     type: Injectable,
@@ -1739,7 +1790,7 @@ var modalityEventListenerOptions = normalizePassiveListenerOptions({
   passive: true,
   capture: true
 });
-var _InputModalityDetector = class _InputModalityDetector {
+var InputModalityDetector = class _InputModalityDetector {
   /** The most recently detected input modality. */
   get mostRecentModality() {
     return this._modality.value;
@@ -1791,16 +1842,19 @@ var _InputModalityDetector = class _InputModalityDetector {
       document.removeEventListener("touchstart", this._onTouchstart, modalityEventListenerOptions);
     }
   }
+  static {
+    this.ɵfac = function InputModalityDetector_Factory(t) {
+      return new (t || _InputModalityDetector)(ɵɵinject(Platform), ɵɵinject(NgZone), ɵɵinject(DOCUMENT), ɵɵinject(INPUT_MODALITY_DETECTOR_OPTIONS, 8));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _InputModalityDetector,
+      factory: _InputModalityDetector.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_InputModalityDetector.ɵfac = function InputModalityDetector_Factory(t) {
-  return new (t || _InputModalityDetector)(ɵɵinject(Platform), ɵɵinject(NgZone), ɵɵinject(DOCUMENT), ɵɵinject(INPUT_MODALITY_DETECTOR_OPTIONS, 8));
-};
-_InputModalityDetector.ɵprov = ɵɵdefineInjectable({
-  token: _InputModalityDetector,
-  factory: _InputModalityDetector.ɵfac,
-  providedIn: "root"
-});
-var InputModalityDetector = _InputModalityDetector;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(InputModalityDetector, [{
     type: Injectable,
@@ -1836,7 +1890,7 @@ function LIVE_ANNOUNCER_ELEMENT_TOKEN_FACTORY() {
 }
 var LIVE_ANNOUNCER_DEFAULT_OPTIONS = new InjectionToken("LIVE_ANNOUNCER_DEFAULT_OPTIONS");
 var uniqueIds = 0;
-var _LiveAnnouncer = class _LiveAnnouncer {
+var LiveAnnouncer = class _LiveAnnouncer {
   constructor(elementToken, _ngZone, _document, _defaultOptions) {
     this._ngZone = _ngZone;
     this._defaultOptions = _defaultOptions;
@@ -1929,16 +1983,19 @@ var _LiveAnnouncer = class _LiveAnnouncer {
       }
     }
   }
+  static {
+    this.ɵfac = function LiveAnnouncer_Factory(t) {
+      return new (t || _LiveAnnouncer)(ɵɵinject(LIVE_ANNOUNCER_ELEMENT_TOKEN, 8), ɵɵinject(NgZone), ɵɵinject(DOCUMENT), ɵɵinject(LIVE_ANNOUNCER_DEFAULT_OPTIONS, 8));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _LiveAnnouncer,
+      factory: _LiveAnnouncer.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_LiveAnnouncer.ɵfac = function LiveAnnouncer_Factory(t) {
-  return new (t || _LiveAnnouncer)(ɵɵinject(LIVE_ANNOUNCER_ELEMENT_TOKEN, 8), ɵɵinject(NgZone), ɵɵinject(DOCUMENT), ɵɵinject(LIVE_ANNOUNCER_DEFAULT_OPTIONS, 8));
-};
-_LiveAnnouncer.ɵprov = ɵɵdefineInjectable({
-  token: _LiveAnnouncer,
-  factory: _LiveAnnouncer.ɵfac,
-  providedIn: "root"
-});
-var LiveAnnouncer = _LiveAnnouncer;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(LiveAnnouncer, [{
     type: Injectable,
@@ -1971,7 +2028,7 @@ var LiveAnnouncer = _LiveAnnouncer;
     }]
   }], null);
 })();
-var _CdkAriaLive = class _CdkAriaLive {
+var CdkAriaLive = class _CdkAriaLive {
   /** The aria-live politeness level to use when announcing messages. */
   get politeness() {
     return this._politeness;
@@ -2007,21 +2064,24 @@ var _CdkAriaLive = class _CdkAriaLive {
       this._subscription.unsubscribe();
     }
   }
+  static {
+    this.ɵfac = function CdkAriaLive_Factory(t) {
+      return new (t || _CdkAriaLive)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(LiveAnnouncer), ɵɵdirectiveInject(ContentObserver), ɵɵdirectiveInject(NgZone));
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _CdkAriaLive,
+      selectors: [["", "cdkAriaLive", ""]],
+      inputs: {
+        politeness: [InputFlags.None, "cdkAriaLive", "politeness"],
+        duration: [InputFlags.None, "cdkAriaLiveDuration", "duration"]
+      },
+      exportAs: ["cdkAriaLive"],
+      standalone: true
+    });
+  }
 };
-_CdkAriaLive.ɵfac = function CdkAriaLive_Factory(t) {
-  return new (t || _CdkAriaLive)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(LiveAnnouncer), ɵɵdirectiveInject(ContentObserver), ɵɵdirectiveInject(NgZone));
-};
-_CdkAriaLive.ɵdir = ɵɵdefineDirective({
-  type: _CdkAriaLive,
-  selectors: [["", "cdkAriaLive", ""]],
-  inputs: {
-    politeness: [InputFlags.None, "cdkAriaLive", "politeness"],
-    duration: [InputFlags.None, "cdkAriaLiveDuration", "duration"]
-  },
-  exportAs: ["cdkAriaLive"],
-  standalone: true
-});
-var CdkAriaLive = _CdkAriaLive;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(CdkAriaLive, [{
     type: Directive,
@@ -2059,7 +2119,7 @@ var captureEventListenerOptions = normalizePassiveListenerOptions({
   passive: true,
   capture: true
 });
-var _FocusMonitor = class _FocusMonitor {
+var FocusMonitor = class _FocusMonitor {
   constructor(_ngZone, _platform, _inputModalityDetector, document2, options) {
     this._ngZone = _ngZone;
     this._platform = _platform;
@@ -2322,16 +2382,19 @@ var _FocusMonitor = class _FocusMonitor {
     }
     return false;
   }
+  static {
+    this.ɵfac = function FocusMonitor_Factory(t) {
+      return new (t || _FocusMonitor)(ɵɵinject(NgZone), ɵɵinject(Platform), ɵɵinject(InputModalityDetector), ɵɵinject(DOCUMENT, 8), ɵɵinject(FOCUS_MONITOR_DEFAULT_OPTIONS, 8));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _FocusMonitor,
+      factory: _FocusMonitor.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_FocusMonitor.ɵfac = function FocusMonitor_Factory(t) {
-  return new (t || _FocusMonitor)(ɵɵinject(NgZone), ɵɵinject(Platform), ɵɵinject(InputModalityDetector), ɵɵinject(DOCUMENT, 8), ɵɵinject(FOCUS_MONITOR_DEFAULT_OPTIONS, 8));
-};
-_FocusMonitor.ɵprov = ɵɵdefineInjectable({
-  token: _FocusMonitor,
-  factory: _FocusMonitor.ɵfac,
-  providedIn: "root"
-});
-var FocusMonitor = _FocusMonitor;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(FocusMonitor, [{
     type: Injectable,
@@ -2362,7 +2425,7 @@ var FocusMonitor = _FocusMonitor;
     }]
   }], null);
 })();
-var _CdkMonitorFocus = class _CdkMonitorFocus {
+var CdkMonitorFocus = class _CdkMonitorFocus {
   constructor(_elementRef, _focusMonitor) {
     this._elementRef = _elementRef;
     this._focusMonitor = _focusMonitor;
@@ -2385,20 +2448,23 @@ var _CdkMonitorFocus = class _CdkMonitorFocus {
       this._monitorSubscription.unsubscribe();
     }
   }
+  static {
+    this.ɵfac = function CdkMonitorFocus_Factory(t) {
+      return new (t || _CdkMonitorFocus)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(FocusMonitor));
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _CdkMonitorFocus,
+      selectors: [["", "cdkMonitorElementFocus", ""], ["", "cdkMonitorSubtreeFocus", ""]],
+      outputs: {
+        cdkFocusChange: "cdkFocusChange"
+      },
+      exportAs: ["cdkMonitorFocus"],
+      standalone: true
+    });
+  }
 };
-_CdkMonitorFocus.ɵfac = function CdkMonitorFocus_Factory(t) {
-  return new (t || _CdkMonitorFocus)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(FocusMonitor));
-};
-_CdkMonitorFocus.ɵdir = ɵɵdefineDirective({
-  type: _CdkMonitorFocus,
-  selectors: [["", "cdkMonitorElementFocus", ""], ["", "cdkMonitorSubtreeFocus", ""]],
-  outputs: {
-    cdkFocusChange: "cdkFocusChange"
-  },
-  exportAs: ["cdkMonitorFocus"],
-  standalone: true
-});
-var CdkMonitorFocus = _CdkMonitorFocus;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(CdkMonitorFocus, [{
     type: Directive,
@@ -2426,7 +2492,7 @@ var HighContrastMode;
 var BLACK_ON_WHITE_CSS_CLASS = "cdk-high-contrast-black-on-white";
 var WHITE_ON_BLACK_CSS_CLASS = "cdk-high-contrast-white-on-black";
 var HIGH_CONTRAST_MODE_ACTIVE_CSS_CLASS = "cdk-high-contrast-active";
-var _HighContrastModeDetector = class _HighContrastModeDetector {
+var HighContrastModeDetector = class _HighContrastModeDetector {
   constructor(_platform, document2) {
     this._platform = _platform;
     this._document = document2;
@@ -2478,16 +2544,19 @@ var _HighContrastModeDetector = class _HighContrastModeDetector {
       }
     }
   }
+  static {
+    this.ɵfac = function HighContrastModeDetector_Factory(t) {
+      return new (t || _HighContrastModeDetector)(ɵɵinject(Platform), ɵɵinject(DOCUMENT));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _HighContrastModeDetector,
+      factory: _HighContrastModeDetector.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_HighContrastModeDetector.ɵfac = function HighContrastModeDetector_Factory(t) {
-  return new (t || _HighContrastModeDetector)(ɵɵinject(Platform), ɵɵinject(DOCUMENT));
-};
-_HighContrastModeDetector.ɵprov = ɵɵdefineInjectable({
-  token: _HighContrastModeDetector,
-  factory: _HighContrastModeDetector.ɵfac,
-  providedIn: "root"
-});
-var HighContrastModeDetector = _HighContrastModeDetector;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(HighContrastModeDetector, [{
     type: Injectable,
@@ -2504,23 +2573,28 @@ var HighContrastModeDetector = _HighContrastModeDetector;
     }]
   }], null);
 })();
-var _A11yModule = class _A11yModule {
+var A11yModule = class _A11yModule {
   constructor(highContrastModeDetector) {
     highContrastModeDetector._applyBodyHighContrastModeCssClasses();
   }
+  static {
+    this.ɵfac = function A11yModule_Factory(t) {
+      return new (t || _A11yModule)(ɵɵinject(HighContrastModeDetector));
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _A11yModule,
+      imports: [ObserversModule, CdkAriaLive, CdkTrapFocus, CdkMonitorFocus],
+      exports: [CdkAriaLive, CdkTrapFocus, CdkMonitorFocus]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({
+      imports: [ObserversModule]
+    });
+  }
 };
-_A11yModule.ɵfac = function A11yModule_Factory(t) {
-  return new (t || _A11yModule)(ɵɵinject(HighContrastModeDetector));
-};
-_A11yModule.ɵmod = ɵɵdefineNgModule({
-  type: _A11yModule,
-  imports: [ObserversModule, CdkAriaLive, CdkTrapFocus, CdkMonitorFocus],
-  exports: [CdkAriaLive, CdkTrapFocus, CdkMonitorFocus]
-});
-_A11yModule.ɵinj = ɵɵdefineInjector({
-  imports: [ObserversModule]
-});
-var A11yModule = _A11yModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(A11yModule, [{
     type: NgModule,
@@ -2549,7 +2623,7 @@ function _resolveDirectionality(rawValue) {
   }
   return value === "rtl" ? "rtl" : "ltr";
 }
-var _Directionality = class _Directionality {
+var Directionality = class _Directionality {
   constructor(_document) {
     this.value = "ltr";
     this.change = new EventEmitter();
@@ -2562,16 +2636,19 @@ var _Directionality = class _Directionality {
   ngOnDestroy() {
     this.change.complete();
   }
+  static {
+    this.ɵfac = function Directionality_Factory(t) {
+      return new (t || _Directionality)(ɵɵinject(DIR_DOCUMENT, 8));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _Directionality,
+      factory: _Directionality.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_Directionality.ɵfac = function Directionality_Factory(t) {
-  return new (t || _Directionality)(ɵɵinject(DIR_DOCUMENT, 8));
-};
-_Directionality.ɵprov = ɵɵdefineInjectable({
-  token: _Directionality,
-  factory: _Directionality.ɵfac,
-  providedIn: "root"
-});
-var Directionality = _Directionality;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(Directionality, [{
     type: Injectable,
@@ -2588,7 +2665,7 @@ var Directionality = _Directionality;
     }]
   }], null);
 })();
-var _Dir = class _Dir {
+var Dir = class _Dir {
   constructor() {
     this._dir = "ltr";
     this._isInitialized = false;
@@ -2617,33 +2694,36 @@ var _Dir = class _Dir {
   ngOnDestroy() {
     this.change.complete();
   }
+  static {
+    this.ɵfac = function Dir_Factory(t) {
+      return new (t || _Dir)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _Dir,
+      selectors: [["", "dir", ""]],
+      hostVars: 1,
+      hostBindings: function Dir_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵattribute("dir", ctx._rawDir);
+        }
+      },
+      inputs: {
+        dir: "dir"
+      },
+      outputs: {
+        change: "dirChange"
+      },
+      exportAs: ["dir"],
+      standalone: true,
+      features: [ɵɵProvidersFeature([{
+        provide: Directionality,
+        useExisting: _Dir
+      }])]
+    });
+  }
 };
-_Dir.ɵfac = function Dir_Factory(t) {
-  return new (t || _Dir)();
-};
-_Dir.ɵdir = ɵɵdefineDirective({
-  type: _Dir,
-  selectors: [["", "dir", ""]],
-  hostVars: 1,
-  hostBindings: function Dir_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵattribute("dir", ctx._rawDir);
-    }
-  },
-  inputs: {
-    dir: "dir"
-  },
-  outputs: {
-    change: "dirChange"
-  },
-  exportAs: ["dir"],
-  standalone: true,
-  features: [ɵɵProvidersFeature([{
-    provide: Directionality,
-    useExisting: _Dir
-  }])]
-});
-var Dir = _Dir;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(Dir, [{
     type: Directive,
@@ -2669,18 +2749,23 @@ var Dir = _Dir;
     }]
   });
 })();
-var _BidiModule = class _BidiModule {
+var BidiModule = class _BidiModule {
+  static {
+    this.ɵfac = function BidiModule_Factory(t) {
+      return new (t || _BidiModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _BidiModule,
+      imports: [Dir],
+      exports: [Dir]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_BidiModule.ɵfac = function BidiModule_Factory(t) {
-  return new (t || _BidiModule)();
-};
-_BidiModule.ɵmod = ɵɵdefineNgModule({
-  type: _BidiModule,
-  imports: [Dir],
-  exports: [Dir]
-});
-_BidiModule.ɵinj = ɵɵdefineInjector({});
-var BidiModule = _BidiModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(BidiModule, [{
     type: NgModule,
@@ -2733,19 +2818,31 @@ function MatOption_Conditional_6_Template(rf, ctx) {
 var _c5 = ["mat-internal-form-field", ""];
 var _c6 = ["*"];
 var VERSION2 = new Version("17.3.9");
-var _AnimationCurves = class _AnimationCurves {
+var AnimationCurves = class {
+  static {
+    this.STANDARD_CURVE = "cubic-bezier(0.4,0.0,0.2,1)";
+  }
+  static {
+    this.DECELERATION_CURVE = "cubic-bezier(0.0,0.0,0.2,1)";
+  }
+  static {
+    this.ACCELERATION_CURVE = "cubic-bezier(0.4,0.0,1,1)";
+  }
+  static {
+    this.SHARP_CURVE = "cubic-bezier(0.4,0.0,0.6,1)";
+  }
 };
-_AnimationCurves.STANDARD_CURVE = "cubic-bezier(0.4,0.0,0.2,1)";
-_AnimationCurves.DECELERATION_CURVE = "cubic-bezier(0.0,0.0,0.2,1)";
-_AnimationCurves.ACCELERATION_CURVE = "cubic-bezier(0.4,0.0,1,1)";
-_AnimationCurves.SHARP_CURVE = "cubic-bezier(0.4,0.0,0.6,1)";
-var AnimationCurves = _AnimationCurves;
-var _AnimationDurations = class _AnimationDurations {
+var AnimationDurations = class {
+  static {
+    this.COMPLEX = "375ms";
+  }
+  static {
+    this.ENTERING = "225ms";
+  }
+  static {
+    this.EXITING = "195ms";
+  }
 };
-_AnimationDurations.COMPLEX = "375ms";
-_AnimationDurations.ENTERING = "225ms";
-_AnimationDurations.EXITING = "195ms";
-var AnimationDurations = _AnimationDurations;
 function MATERIAL_SANITY_CHECKS_FACTORY() {
   return true;
 }
@@ -2753,7 +2850,7 @@ var MATERIAL_SANITY_CHECKS = new InjectionToken("mat-sanity-checks", {
   providedIn: "root",
   factory: MATERIAL_SANITY_CHECKS_FACTORY
 });
-var _MatCommonModule = class _MatCommonModule {
+var MatCommonModule = class _MatCommonModule {
   constructor(highContrastModeDetector, _sanityChecks, _document) {
     this._sanityChecks = _sanityChecks;
     this._document = _document;
@@ -2787,19 +2884,24 @@ var _MatCommonModule = class _MatCommonModule {
     }
     return !!this._sanityChecks[name];
   }
+  static {
+    this.ɵfac = function MatCommonModule_Factory(t) {
+      return new (t || _MatCommonModule)(ɵɵinject(HighContrastModeDetector), ɵɵinject(MATERIAL_SANITY_CHECKS, 8), ɵɵinject(DOCUMENT));
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _MatCommonModule,
+      imports: [BidiModule],
+      exports: [BidiModule]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({
+      imports: [BidiModule, BidiModule]
+    });
+  }
 };
-_MatCommonModule.ɵfac = function MatCommonModule_Factory(t) {
-  return new (t || _MatCommonModule)(ɵɵinject(HighContrastModeDetector), ɵɵinject(MATERIAL_SANITY_CHECKS, 8), ɵɵinject(DOCUMENT));
-};
-_MatCommonModule.ɵmod = ɵɵdefineNgModule({
-  type: _MatCommonModule,
-  imports: [BidiModule],
-  exports: [BidiModule]
-});
-_MatCommonModule.ɵinj = ɵɵdefineInjector({
-  imports: [BidiModule, BidiModule]
-});
-var MatCommonModule = _MatCommonModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatCommonModule, [{
     type: NgModule,
@@ -2950,7 +3052,7 @@ function range(length, valueFunction) {
   }
   return valuesArray;
 }
-var _NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
+var NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
   constructor(matDateLocale) {
     super();
     this.useUtcForDisplay = false;
@@ -3120,15 +3222,18 @@ var _NativeDateAdapter = class _NativeDateAdapter extends DateAdapter {
     d.setUTCHours(date.getHours(), date.getMinutes(), date.getSeconds(), date.getMilliseconds());
     return dtf.format(d);
   }
+  static {
+    this.ɵfac = function NativeDateAdapter_Factory(t) {
+      return new (t || _NativeDateAdapter)(ɵɵinject(MAT_DATE_LOCALE, 8));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _NativeDateAdapter,
+      factory: _NativeDateAdapter.ɵfac
+    });
+  }
 };
-_NativeDateAdapter.ɵfac = function NativeDateAdapter_Factory(t) {
-  return new (t || _NativeDateAdapter)(ɵɵinject(MAT_DATE_LOCALE, 8));
-};
-_NativeDateAdapter.ɵprov = ɵɵdefineInjectable({
-  token: _NativeDateAdapter,
-  factory: _NativeDateAdapter.ɵfac
-});
-var NativeDateAdapter = _NativeDateAdapter;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NativeDateAdapter, [{
     type: Injectable
@@ -3167,21 +3272,26 @@ var MAT_NATIVE_DATE_FORMATS = {
     }
   }
 };
-var _NativeDateModule = class _NativeDateModule {
+var NativeDateModule = class _NativeDateModule {
+  static {
+    this.ɵfac = function NativeDateModule_Factory(t) {
+      return new (t || _NativeDateModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _NativeDateModule
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({
+      providers: [{
+        provide: DateAdapter,
+        useClass: NativeDateAdapter
+      }]
+    });
+  }
 };
-_NativeDateModule.ɵfac = function NativeDateModule_Factory(t) {
-  return new (t || _NativeDateModule)();
-};
-_NativeDateModule.ɵmod = ɵɵdefineNgModule({
-  type: _NativeDateModule
-});
-_NativeDateModule.ɵinj = ɵɵdefineInjector({
-  providers: [{
-    provide: DateAdapter,
-    useClass: NativeDateAdapter
-  }]
-});
-var NativeDateModule = _NativeDateModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(NativeDateModule, [{
     type: NgModule,
@@ -3193,18 +3303,23 @@ var NativeDateModule = _NativeDateModule;
     }]
   }], null, null);
 })();
-var _MatNativeDateModule = class _MatNativeDateModule {
+var MatNativeDateModule = class _MatNativeDateModule {
+  static {
+    this.ɵfac = function MatNativeDateModule_Factory(t) {
+      return new (t || _MatNativeDateModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _MatNativeDateModule
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({
+      providers: [provideNativeDateAdapter()]
+    });
+  }
 };
-_MatNativeDateModule.ɵfac = function MatNativeDateModule_Factory(t) {
-  return new (t || _MatNativeDateModule)();
-};
-_MatNativeDateModule.ɵmod = ɵɵdefineNgModule({
-  type: _MatNativeDateModule
-});
-_MatNativeDateModule.ɵinj = ɵɵdefineInjector({
-  providers: [provideNativeDateAdapter()]
-});
-var MatNativeDateModule = _MatNativeDateModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatNativeDateModule, [{
     type: NgModule,
@@ -3222,38 +3337,44 @@ function provideNativeDateAdapter(formats = MAT_NATIVE_DATE_FORMATS) {
     useValue: formats
   }];
 }
-var _ShowOnDirtyErrorStateMatcher = class _ShowOnDirtyErrorStateMatcher {
+var ShowOnDirtyErrorStateMatcher = class _ShowOnDirtyErrorStateMatcher {
   isErrorState(control, form) {
     return !!(control && control.invalid && (control.dirty || form && form.submitted));
   }
+  static {
+    this.ɵfac = function ShowOnDirtyErrorStateMatcher_Factory(t) {
+      return new (t || _ShowOnDirtyErrorStateMatcher)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _ShowOnDirtyErrorStateMatcher,
+      factory: _ShowOnDirtyErrorStateMatcher.ɵfac
+    });
+  }
 };
-_ShowOnDirtyErrorStateMatcher.ɵfac = function ShowOnDirtyErrorStateMatcher_Factory(t) {
-  return new (t || _ShowOnDirtyErrorStateMatcher)();
-};
-_ShowOnDirtyErrorStateMatcher.ɵprov = ɵɵdefineInjectable({
-  token: _ShowOnDirtyErrorStateMatcher,
-  factory: _ShowOnDirtyErrorStateMatcher.ɵfac
-});
-var ShowOnDirtyErrorStateMatcher = _ShowOnDirtyErrorStateMatcher;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(ShowOnDirtyErrorStateMatcher, [{
     type: Injectable
   }], null, null);
 })();
-var _ErrorStateMatcher = class _ErrorStateMatcher {
+var ErrorStateMatcher = class _ErrorStateMatcher {
   isErrorState(control, form) {
     return !!(control && control.invalid && (control.touched || form && form.submitted));
   }
+  static {
+    this.ɵfac = function ErrorStateMatcher_Factory(t) {
+      return new (t || _ErrorStateMatcher)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _ErrorStateMatcher,
+      factory: _ErrorStateMatcher.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_ErrorStateMatcher.ɵfac = function ErrorStateMatcher_Factory(t) {
-  return new (t || _ErrorStateMatcher)();
-};
-_ErrorStateMatcher.ɵprov = ɵɵdefineInjectable({
-  token: _ErrorStateMatcher,
-  factory: _ErrorStateMatcher.ɵfac,
-  providedIn: "root"
-});
-var ErrorStateMatcher = _ErrorStateMatcher;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(ErrorStateMatcher, [{
     type: Injectable,
@@ -3262,18 +3383,21 @@ var ErrorStateMatcher = _ErrorStateMatcher;
     }]
   }], null, null);
 })();
-var _MatLine = class _MatLine {
+var MatLine = class _MatLine {
+  static {
+    this.ɵfac = function MatLine_Factory(t) {
+      return new (t || _MatLine)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _MatLine,
+      selectors: [["", "mat-line", ""], ["", "matLine", ""]],
+      hostAttrs: [1, "mat-line"],
+      standalone: true
+    });
+  }
 };
-_MatLine.ɵfac = function MatLine_Factory(t) {
-  return new (t || _MatLine)();
-};
-_MatLine.ɵdir = ɵɵdefineDirective({
-  type: _MatLine,
-  selectors: [["", "mat-line", ""], ["", "matLine", ""]],
-  hostAttrs: [1, "mat-line"],
-  standalone: true
-});
-var MatLine = _MatLine;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatLine, [{
     type: Directive,
@@ -3286,20 +3410,25 @@ var MatLine = _MatLine;
     }]
   }], null, null);
 })();
-var _MatLineModule = class _MatLineModule {
+var MatLineModule = class _MatLineModule {
+  static {
+    this.ɵfac = function MatLineModule_Factory(t) {
+      return new (t || _MatLineModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _MatLineModule,
+      imports: [MatCommonModule, MatLine],
+      exports: [MatLine, MatCommonModule]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({
+      imports: [MatCommonModule, MatCommonModule]
+    });
+  }
 };
-_MatLineModule.ɵfac = function MatLineModule_Factory(t) {
-  return new (t || _MatLineModule)();
-};
-_MatLineModule.ɵmod = ɵɵdefineNgModule({
-  type: _MatLineModule,
-  imports: [MatCommonModule, MatLine],
-  exports: [MatLine, MatCommonModule]
-});
-_MatLineModule.ɵinj = ɵɵdefineInjector({
-  imports: [MatCommonModule, MatCommonModule]
-});
-var MatLineModule = _MatLineModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatLineModule, [{
     type: NgModule,
@@ -3395,7 +3524,10 @@ var passiveCapturingEventOptions = normalizePassiveListenerOptions({
 });
 var pointerDownEvents = ["mousedown", "touchstart"];
 var pointerUpEvents = ["mouseup", "mouseleave", "touchend", "touchcancel"];
-var _RippleRenderer = class _RippleRenderer {
+var RippleRenderer = class _RippleRenderer {
+  static {
+    this._eventManager = new RippleEventManager();
+  }
   constructor(_target, _ngZone, elementOrElementRef, _platform) {
     this._target = _target;
     this._ngZone = _ngZone;
@@ -3615,15 +3747,13 @@ var _RippleRenderer = class _RippleRenderer {
     }
   }
 };
-_RippleRenderer._eventManager = new RippleEventManager();
-var RippleRenderer = _RippleRenderer;
 function distanceToFurthestCorner(x, y, rect) {
   const distX = Math.max(Math.abs(x - rect.left), Math.abs(x - rect.right));
   const distY = Math.max(Math.abs(y - rect.top), Math.abs(y - rect.bottom));
   return Math.sqrt(distX * distX + distY * distY);
 }
 var MAT_RIPPLE_GLOBAL_OPTIONS = new InjectionToken("mat-ripple-global-options");
-var _MatRipple = class _MatRipple {
+var MatRipple = class _MatRipple {
   /**
    * Whether click events will not trigger the ripple. Ripples can be still launched manually
    * by using the `launch()` method.
@@ -3710,33 +3840,36 @@ var _MatRipple = class _MatRipple {
       return this._rippleRenderer.fadeInRipple(0, 0, __spreadValues(__spreadValues({}, this.rippleConfig), configOrX));
     }
   }
+  static {
+    this.ɵfac = function MatRipple_Factory(t) {
+      return new (t || _MatRipple)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(Platform), ɵɵdirectiveInject(MAT_RIPPLE_GLOBAL_OPTIONS, 8), ɵɵdirectiveInject(ANIMATION_MODULE_TYPE, 8));
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _MatRipple,
+      selectors: [["", "mat-ripple", ""], ["", "matRipple", ""]],
+      hostAttrs: [1, "mat-ripple"],
+      hostVars: 2,
+      hostBindings: function MatRipple_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵclassProp("mat-ripple-unbounded", ctx.unbounded);
+        }
+      },
+      inputs: {
+        color: [InputFlags.None, "matRippleColor", "color"],
+        unbounded: [InputFlags.None, "matRippleUnbounded", "unbounded"],
+        centered: [InputFlags.None, "matRippleCentered", "centered"],
+        radius: [InputFlags.None, "matRippleRadius", "radius"],
+        animation: [InputFlags.None, "matRippleAnimation", "animation"],
+        disabled: [InputFlags.None, "matRippleDisabled", "disabled"],
+        trigger: [InputFlags.None, "matRippleTrigger", "trigger"]
+      },
+      exportAs: ["matRipple"],
+      standalone: true
+    });
+  }
 };
-_MatRipple.ɵfac = function MatRipple_Factory(t) {
-  return new (t || _MatRipple)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(Platform), ɵɵdirectiveInject(MAT_RIPPLE_GLOBAL_OPTIONS, 8), ɵɵdirectiveInject(ANIMATION_MODULE_TYPE, 8));
-};
-_MatRipple.ɵdir = ɵɵdefineDirective({
-  type: _MatRipple,
-  selectors: [["", "mat-ripple", ""], ["", "matRipple", ""]],
-  hostAttrs: [1, "mat-ripple"],
-  hostVars: 2,
-  hostBindings: function MatRipple_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵclassProp("mat-ripple-unbounded", ctx.unbounded);
-    }
-  },
-  inputs: {
-    color: [InputFlags.None, "matRippleColor", "color"],
-    unbounded: [InputFlags.None, "matRippleUnbounded", "unbounded"],
-    centered: [InputFlags.None, "matRippleCentered", "centered"],
-    radius: [InputFlags.None, "matRippleRadius", "radius"],
-    animation: [InputFlags.None, "matRippleAnimation", "animation"],
-    disabled: [InputFlags.None, "matRippleDisabled", "disabled"],
-    trigger: [InputFlags.None, "matRippleTrigger", "trigger"]
-  },
-  exportAs: ["matRipple"],
-  standalone: true
-});
-var MatRipple = _MatRipple;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatRipple, [{
     type: Directive,
@@ -3802,20 +3935,25 @@ var MatRipple = _MatRipple;
     }]
   });
 })();
-var _MatRippleModule = class _MatRippleModule {
+var MatRippleModule = class _MatRippleModule {
+  static {
+    this.ɵfac = function MatRippleModule_Factory(t) {
+      return new (t || _MatRippleModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _MatRippleModule,
+      imports: [MatCommonModule, MatRipple],
+      exports: [MatRipple, MatCommonModule]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({
+      imports: [MatCommonModule, MatCommonModule]
+    });
+  }
 };
-_MatRippleModule.ɵfac = function MatRippleModule_Factory(t) {
-  return new (t || _MatRippleModule)();
-};
-_MatRippleModule.ɵmod = ɵɵdefineNgModule({
-  type: _MatRippleModule,
-  imports: [MatCommonModule, MatRipple],
-  exports: [MatRipple, MatCommonModule]
-});
-_MatRippleModule.ɵinj = ɵɵdefineInjector({
-  imports: [MatCommonModule, MatCommonModule]
-});
-var MatRippleModule = _MatRippleModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatRippleModule, [{
     type: NgModule,
@@ -3825,43 +3963,46 @@ var MatRippleModule = _MatRippleModule;
     }]
   }], null, null);
 })();
-var _MatPseudoCheckbox = class _MatPseudoCheckbox {
+var MatPseudoCheckbox = class _MatPseudoCheckbox {
   constructor(_animationMode) {
     this._animationMode = _animationMode;
     this.state = "unchecked";
     this.disabled = false;
     this.appearance = "full";
   }
+  static {
+    this.ɵfac = function MatPseudoCheckbox_Factory(t) {
+      return new (t || _MatPseudoCheckbox)(ɵɵdirectiveInject(ANIMATION_MODULE_TYPE, 8));
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _MatPseudoCheckbox,
+      selectors: [["mat-pseudo-checkbox"]],
+      hostAttrs: [1, "mat-pseudo-checkbox"],
+      hostVars: 12,
+      hostBindings: function MatPseudoCheckbox_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵclassProp("mat-pseudo-checkbox-indeterminate", ctx.state === "indeterminate")("mat-pseudo-checkbox-checked", ctx.state === "checked")("mat-pseudo-checkbox-disabled", ctx.disabled)("mat-pseudo-checkbox-minimal", ctx.appearance === "minimal")("mat-pseudo-checkbox-full", ctx.appearance === "full")("_mat-animation-noopable", ctx._animationMode === "NoopAnimations");
+        }
+      },
+      inputs: {
+        state: "state",
+        disabled: "disabled",
+        appearance: "appearance"
+      },
+      standalone: true,
+      features: [ɵɵStandaloneFeature],
+      decls: 0,
+      vars: 0,
+      template: function MatPseudoCheckbox_Template(rf, ctx) {
+      },
+      styles: ['.mat-pseudo-checkbox{border-radius:2px;cursor:pointer;display:inline-block;vertical-align:middle;box-sizing:border-box;position:relative;flex-shrink:0;transition:border-color 90ms cubic-bezier(0, 0, 0.2, 0.1),background-color 90ms cubic-bezier(0, 0, 0.2, 0.1)}.mat-pseudo-checkbox::after{position:absolute;opacity:0;content:"";border-bottom:2px solid currentColor;transition:opacity 90ms cubic-bezier(0, 0, 0.2, 0.1)}.mat-pseudo-checkbox._mat-animation-noopable{transition:none !important;animation:none !important}.mat-pseudo-checkbox._mat-animation-noopable::after{transition:none}.mat-pseudo-checkbox-disabled{cursor:default}.mat-pseudo-checkbox-indeterminate::after{left:1px;opacity:1;border-radius:2px}.mat-pseudo-checkbox-checked::after{left:1px;border-left:2px solid currentColor;transform:rotate(-45deg);opacity:1;box-sizing:content-box}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after,.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after{color:var(--mat-minimal-pseudo-checkbox-selected-checkmark-color)}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled::after,.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled::after{color:var(--mat-minimal-pseudo-checkbox-disabled-selected-checkmark-color)}.mat-pseudo-checkbox-full{border-color:var(--mat-full-pseudo-checkbox-unselected-icon-color);border-width:2px;border-style:solid}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-disabled{border-color:var(--mat-full-pseudo-checkbox-disabled-unselected-icon-color)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate{background-color:var(--mat-full-pseudo-checkbox-selected-icon-color);border-color:rgba(0,0,0,0)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked::after,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate::after{color:var(--mat-full-pseudo-checkbox-selected-checkmark-color)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled{background-color:var(--mat-full-pseudo-checkbox-disabled-selected-icon-color)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled::after,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled::after{color:var(--mat-full-pseudo-checkbox-disabled-selected-checkmark-color)}.mat-pseudo-checkbox{width:18px;height:18px}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after{width:14px;height:6px;transform-origin:center;top:-4.2426406871px;left:0;bottom:0;right:0;margin:auto}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after{top:8px;width:16px}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked::after{width:10px;height:4px;transform-origin:center;top:-2.8284271247px;left:0;bottom:0;right:0;margin:auto}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate::after{top:6px;width:12px}'],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_MatPseudoCheckbox.ɵfac = function MatPseudoCheckbox_Factory(t) {
-  return new (t || _MatPseudoCheckbox)(ɵɵdirectiveInject(ANIMATION_MODULE_TYPE, 8));
-};
-_MatPseudoCheckbox.ɵcmp = ɵɵdefineComponent({
-  type: _MatPseudoCheckbox,
-  selectors: [["mat-pseudo-checkbox"]],
-  hostAttrs: [1, "mat-pseudo-checkbox"],
-  hostVars: 12,
-  hostBindings: function MatPseudoCheckbox_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵclassProp("mat-pseudo-checkbox-indeterminate", ctx.state === "indeterminate")("mat-pseudo-checkbox-checked", ctx.state === "checked")("mat-pseudo-checkbox-disabled", ctx.disabled)("mat-pseudo-checkbox-minimal", ctx.appearance === "minimal")("mat-pseudo-checkbox-full", ctx.appearance === "full")("_mat-animation-noopable", ctx._animationMode === "NoopAnimations");
-    }
-  },
-  inputs: {
-    state: "state",
-    disabled: "disabled",
-    appearance: "appearance"
-  },
-  standalone: true,
-  features: [ɵɵStandaloneFeature],
-  decls: 0,
-  vars: 0,
-  template: function MatPseudoCheckbox_Template(rf, ctx) {
-  },
-  styles: ['.mat-pseudo-checkbox{border-radius:2px;cursor:pointer;display:inline-block;vertical-align:middle;box-sizing:border-box;position:relative;flex-shrink:0;transition:border-color 90ms cubic-bezier(0, 0, 0.2, 0.1),background-color 90ms cubic-bezier(0, 0, 0.2, 0.1)}.mat-pseudo-checkbox::after{position:absolute;opacity:0;content:"";border-bottom:2px solid currentColor;transition:opacity 90ms cubic-bezier(0, 0, 0.2, 0.1)}.mat-pseudo-checkbox._mat-animation-noopable{transition:none !important;animation:none !important}.mat-pseudo-checkbox._mat-animation-noopable::after{transition:none}.mat-pseudo-checkbox-disabled{cursor:default}.mat-pseudo-checkbox-indeterminate::after{left:1px;opacity:1;border-radius:2px}.mat-pseudo-checkbox-checked::after{left:1px;border-left:2px solid currentColor;transform:rotate(-45deg);opacity:1;box-sizing:content-box}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after,.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after{color:var(--mat-minimal-pseudo-checkbox-selected-checkmark-color)}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled::after,.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled::after{color:var(--mat-minimal-pseudo-checkbox-disabled-selected-checkmark-color)}.mat-pseudo-checkbox-full{border-color:var(--mat-full-pseudo-checkbox-unselected-icon-color);border-width:2px;border-style:solid}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-disabled{border-color:var(--mat-full-pseudo-checkbox-disabled-unselected-icon-color)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate{background-color:var(--mat-full-pseudo-checkbox-selected-icon-color);border-color:rgba(0,0,0,0)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked::after,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate::after{color:var(--mat-full-pseudo-checkbox-selected-checkmark-color)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled{background-color:var(--mat-full-pseudo-checkbox-disabled-selected-icon-color)}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked.mat-pseudo-checkbox-disabled::after,.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-disabled::after{color:var(--mat-full-pseudo-checkbox-disabled-selected-checkmark-color)}.mat-pseudo-checkbox{width:18px;height:18px}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after{width:14px;height:6px;transform-origin:center;top:-4.2426406871px;left:0;bottom:0;right:0;margin:auto}.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after{top:8px;width:16px}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked::after{width:10px;height:4px;transform-origin:center;top:-2.8284271247px;left:0;bottom:0;right:0;margin:auto}.mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate::after{top:6px;width:12px}'],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var MatPseudoCheckbox = _MatPseudoCheckbox;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatPseudoCheckbox, [{
     type: Component,
@@ -3902,20 +4043,25 @@ var MatPseudoCheckbox = _MatPseudoCheckbox;
     }]
   });
 })();
-var _MatPseudoCheckboxModule = class _MatPseudoCheckboxModule {
+var MatPseudoCheckboxModule = class _MatPseudoCheckboxModule {
+  static {
+    this.ɵfac = function MatPseudoCheckboxModule_Factory(t) {
+      return new (t || _MatPseudoCheckboxModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _MatPseudoCheckboxModule,
+      imports: [MatCommonModule, MatPseudoCheckbox],
+      exports: [MatPseudoCheckbox]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({
+      imports: [MatCommonModule]
+    });
+  }
 };
-_MatPseudoCheckboxModule.ɵfac = function MatPseudoCheckboxModule_Factory(t) {
-  return new (t || _MatPseudoCheckboxModule)();
-};
-_MatPseudoCheckboxModule.ɵmod = ɵɵdefineNgModule({
-  type: _MatPseudoCheckboxModule,
-  imports: [MatCommonModule, MatPseudoCheckbox],
-  exports: [MatPseudoCheckbox]
-});
-_MatPseudoCheckboxModule.ɵinj = ɵɵdefineInjector({
-  imports: [MatCommonModule]
-});
-var MatPseudoCheckboxModule = _MatPseudoCheckboxModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatPseudoCheckboxModule, [{
     type: NgModule,
@@ -3928,61 +4074,64 @@ var MatPseudoCheckboxModule = _MatPseudoCheckboxModule;
 var MAT_OPTION_PARENT_COMPONENT = new InjectionToken("MAT_OPTION_PARENT_COMPONENT");
 var _uniqueOptgroupIdCounter = 0;
 var MAT_OPTGROUP = new InjectionToken("MatOptgroup");
-var _MatOptgroup = class _MatOptgroup {
+var MatOptgroup = class _MatOptgroup {
   constructor(parent) {
     this.disabled = false;
     this._labelId = `mat-optgroup-label-${_uniqueOptgroupIdCounter++}`;
     this._inert = parent?.inertGroups ?? false;
   }
+  static {
+    this.ɵfac = function MatOptgroup_Factory(t) {
+      return new (t || _MatOptgroup)(ɵɵdirectiveInject(MAT_OPTION_PARENT_COMPONENT, 8));
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _MatOptgroup,
+      selectors: [["mat-optgroup"]],
+      hostAttrs: [1, "mat-mdc-optgroup"],
+      hostVars: 3,
+      hostBindings: function MatOptgroup_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵattribute("role", ctx._inert ? null : "group")("aria-disabled", ctx._inert ? null : ctx.disabled.toString())("aria-labelledby", ctx._inert ? null : ctx._labelId);
+        }
+      },
+      inputs: {
+        label: "label",
+        disabled: [InputFlags.HasDecoratorInputTransform, "disabled", "disabled", booleanAttribute]
+      },
+      exportAs: ["matOptgroup"],
+      standalone: true,
+      features: [ɵɵProvidersFeature([{
+        provide: MAT_OPTGROUP,
+        useExisting: _MatOptgroup
+      }]), ɵɵInputTransformsFeature, ɵɵStandaloneFeature],
+      ngContentSelectors: _c1,
+      decls: 5,
+      vars: 4,
+      consts: [["role", "presentation", 1, "mat-mdc-optgroup-label", 3, "id"], [1, "mdc-list-item__primary-text"]],
+      template: function MatOptgroup_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵprojectionDef(_c0);
+          ɵɵelementStart(0, "span", 0)(1, "span", 1);
+          ɵɵtext(2);
+          ɵɵprojection(3);
+          ɵɵelementEnd()();
+          ɵɵprojection(4, 1);
+        }
+        if (rf & 2) {
+          ɵɵclassProp("mdc-list-item--disabled", ctx.disabled);
+          ɵɵproperty("id", ctx._labelId);
+          ɵɵadvance(2);
+          ɵɵtextInterpolate1("", ctx.label, " ");
+        }
+      },
+      styles: [".mat-mdc-optgroup{color:var(--mat-optgroup-label-text-color);font-family:var(--mat-optgroup-label-text-font);line-height:var(--mat-optgroup-label-text-line-height);font-size:var(--mat-optgroup-label-text-size);letter-spacing:var(--mat-optgroup-label-text-tracking);font-weight:var(--mat-optgroup-label-text-weight)}.mat-mdc-optgroup-label{display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:16px;padding-right:16px;min-height:48px}.mat-mdc-optgroup-label:focus{outline:none}[dir=rtl] .mat-mdc-optgroup-label,.mat-mdc-optgroup-label[dir=rtl]{padding-left:16px;padding-right:16px}.mat-mdc-optgroup-label.mdc-list-item--disabled{opacity:.38}.mat-mdc-optgroup-label .mdc-list-item__primary-text{font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;font-family:inherit;text-decoration:inherit;text-transform:inherit;white-space:normal}"],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_MatOptgroup.ɵfac = function MatOptgroup_Factory(t) {
-  return new (t || _MatOptgroup)(ɵɵdirectiveInject(MAT_OPTION_PARENT_COMPONENT, 8));
-};
-_MatOptgroup.ɵcmp = ɵɵdefineComponent({
-  type: _MatOptgroup,
-  selectors: [["mat-optgroup"]],
-  hostAttrs: [1, "mat-mdc-optgroup"],
-  hostVars: 3,
-  hostBindings: function MatOptgroup_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵattribute("role", ctx._inert ? null : "group")("aria-disabled", ctx._inert ? null : ctx.disabled.toString())("aria-labelledby", ctx._inert ? null : ctx._labelId);
-    }
-  },
-  inputs: {
-    label: "label",
-    disabled: [InputFlags.HasDecoratorInputTransform, "disabled", "disabled", booleanAttribute]
-  },
-  exportAs: ["matOptgroup"],
-  standalone: true,
-  features: [ɵɵProvidersFeature([{
-    provide: MAT_OPTGROUP,
-    useExisting: _MatOptgroup
-  }]), ɵɵInputTransformsFeature, ɵɵStandaloneFeature],
-  ngContentSelectors: _c1,
-  decls: 5,
-  vars: 4,
-  consts: [["role", "presentation", 1, "mat-mdc-optgroup-label", 3, "id"], [1, "mdc-list-item__primary-text"]],
-  template: function MatOptgroup_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵprojectionDef(_c0);
-      ɵɵelementStart(0, "span", 0)(1, "span", 1);
-      ɵɵtext(2);
-      ɵɵprojection(3);
-      ɵɵelementEnd()();
-      ɵɵprojection(4, 1);
-    }
-    if (rf & 2) {
-      ɵɵclassProp("mdc-list-item--disabled", ctx.disabled);
-      ɵɵproperty("id", ctx._labelId);
-      ɵɵadvance(2);
-      ɵɵtextInterpolate1("", ctx.label, " ");
-    }
-  },
-  styles: [".mat-mdc-optgroup{color:var(--mat-optgroup-label-text-color);font-family:var(--mat-optgroup-label-text-font);line-height:var(--mat-optgroup-label-text-line-height);font-size:var(--mat-optgroup-label-text-size);letter-spacing:var(--mat-optgroup-label-text-tracking);font-weight:var(--mat-optgroup-label-text-weight)}.mat-mdc-optgroup-label{display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:16px;padding-right:16px;min-height:48px}.mat-mdc-optgroup-label:focus{outline:none}[dir=rtl] .mat-mdc-optgroup-label,.mat-mdc-optgroup-label[dir=rtl]{padding-left:16px;padding-right:16px}.mat-mdc-optgroup-label.mdc-list-item--disabled{opacity:.38}.mat-mdc-optgroup-label .mdc-list-item__primary-text{font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;font-family:inherit;text-decoration:inherit;text-transform:inherit;white-space:normal}"],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var MatOptgroup = _MatOptgroup;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatOptgroup, [{
     type: Component,
@@ -4032,7 +4181,7 @@ var MatOptionSelectionChange = class {
     this.isUserInput = isUserInput;
   }
 };
-var _MatOption = class _MatOption {
+var MatOption = class _MatOption {
   /** Whether the wrapping component is in multiple selection mode. */
   get multiple() {
     return this._parent && this._parent.multiple;
@@ -4185,80 +4334,83 @@ var _MatOption = class _MatOption {
   _emitSelectionChangeEvent(isUserInput = false) {
     this.onSelectionChange.emit(new MatOptionSelectionChange(this, isUserInput));
   }
+  static {
+    this.ɵfac = function MatOption_Factory(t) {
+      return new (t || _MatOption)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(ChangeDetectorRef), ɵɵdirectiveInject(MAT_OPTION_PARENT_COMPONENT, 8), ɵɵdirectiveInject(MAT_OPTGROUP, 8));
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _MatOption,
+      selectors: [["mat-option"]],
+      viewQuery: function MatOption_Query(rf, ctx) {
+        if (rf & 1) {
+          ɵɵviewQuery(_c2, 7);
+        }
+        if (rf & 2) {
+          let _t;
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._text = _t.first);
+        }
+      },
+      hostAttrs: ["role", "option", 1, "mat-mdc-option", "mdc-list-item"],
+      hostVars: 11,
+      hostBindings: function MatOption_HostBindings(rf, ctx) {
+        if (rf & 1) {
+          ɵɵlistener("click", function MatOption_click_HostBindingHandler() {
+            return ctx._selectViaInteraction();
+          })("keydown", function MatOption_keydown_HostBindingHandler($event) {
+            return ctx._handleKeydown($event);
+          });
+        }
+        if (rf & 2) {
+          ɵɵhostProperty("id", ctx.id);
+          ɵɵattribute("aria-selected", ctx.selected)("aria-disabled", ctx.disabled.toString());
+          ɵɵclassProp("mdc-list-item--selected", ctx.selected)("mat-mdc-option-multiple", ctx.multiple)("mat-mdc-option-active", ctx.active)("mdc-list-item--disabled", ctx.disabled);
+        }
+      },
+      inputs: {
+        value: "value",
+        id: "id",
+        disabled: [InputFlags.HasDecoratorInputTransform, "disabled", "disabled", booleanAttribute]
+      },
+      outputs: {
+        onSelectionChange: "onSelectionChange"
+      },
+      exportAs: ["matOption"],
+      standalone: true,
+      features: [ɵɵInputTransformsFeature, ɵɵStandaloneFeature],
+      ngContentSelectors: _c4,
+      decls: 8,
+      vars: 5,
+      consts: [["text", ""], ["aria-hidden", "true", 1, "mat-mdc-option-pseudo-checkbox", 3, "disabled", "state"], [1, "mdc-list-item__primary-text"], ["state", "checked", "aria-hidden", "true", "appearance", "minimal", 1, "mat-mdc-option-pseudo-checkbox", 3, "disabled"], [1, "cdk-visually-hidden"], ["aria-hidden", "true", "mat-ripple", "", 1, "mat-mdc-option-ripple", "mat-mdc-focus-indicator", 3, "matRippleTrigger", "matRippleDisabled"]],
+      template: function MatOption_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵprojectionDef(_c3);
+          ɵɵtemplate(0, MatOption_Conditional_0_Template, 1, 2, "mat-pseudo-checkbox", 1);
+          ɵɵprojection(1);
+          ɵɵelementStart(2, "span", 2, 0);
+          ɵɵprojection(4, 1);
+          ɵɵelementEnd();
+          ɵɵtemplate(5, MatOption_Conditional_5_Template, 1, 1, "mat-pseudo-checkbox", 3)(6, MatOption_Conditional_6_Template, 2, 1, "span", 4);
+          ɵɵelement(7, "div", 5);
+        }
+        if (rf & 2) {
+          ɵɵconditional(0, ctx.multiple ? 0 : -1);
+          ɵɵadvance(5);
+          ɵɵconditional(5, !ctx.multiple && ctx.selected && !ctx.hideSingleSelectionIndicator ? 5 : -1);
+          ɵɵadvance();
+          ɵɵconditional(6, ctx.group && ctx.group._inert ? 6 : -1);
+          ɵɵadvance();
+          ɵɵproperty("matRippleTrigger", ctx._getHostElement())("matRippleDisabled", ctx.disabled || ctx.disableRipple);
+        }
+      },
+      dependencies: [MatPseudoCheckbox, MatRipple],
+      styles: ['.mat-mdc-option{display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:16px;padding-right:16px;-webkit-user-select:none;user-select:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;cursor:pointer;-webkit-tap-highlight-color:rgba(0,0,0,0);color:var(--mat-option-label-text-color);font-family:var(--mat-option-label-text-font);line-height:var(--mat-option-label-text-line-height);font-size:var(--mat-option-label-text-size);letter-spacing:var(--mat-option-label-text-tracking);font-weight:var(--mat-option-label-text-weight);min-height:48px}.mat-mdc-option:focus{outline:none}[dir=rtl] .mat-mdc-option,.mat-mdc-option[dir=rtl]{padding-left:16px;padding-right:16px}.mat-mdc-option:hover:not(.mdc-list-item--disabled){background-color:var(--mat-option-hover-state-layer-color)}.mat-mdc-option:focus.mdc-list-item,.mat-mdc-option.mat-mdc-option-active.mdc-list-item{background-color:var(--mat-option-focus-state-layer-color)}.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text{color:var(--mat-option-selected-state-label-text-color)}.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled):not(.mat-mdc-option-multiple){background-color:var(--mat-option-selected-state-layer-color)}.mat-mdc-option.mdc-list-item{align-items:center;background:rgba(0,0,0,0)}.mat-mdc-option.mdc-list-item--disabled{cursor:default;pointer-events:none}.mat-mdc-option.mdc-list-item--disabled .mat-mdc-option-pseudo-checkbox,.mat-mdc-option.mdc-list-item--disabled .mdc-list-item__primary-text,.mat-mdc-option.mdc-list-item--disabled>mat-icon{opacity:.38}.mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:32px}[dir=rtl] .mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:16px;padding-right:32px}.mat-mdc-option .mat-icon,.mat-mdc-option .mat-pseudo-checkbox-full{margin-right:16px;flex-shrink:0}[dir=rtl] .mat-mdc-option .mat-icon,[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox-full{margin-right:0;margin-left:16px}.mat-mdc-option .mat-pseudo-checkbox-minimal{margin-left:16px;flex-shrink:0}[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox-minimal{margin-right:16px;margin-left:0}.mat-mdc-option .mat-mdc-option-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-mdc-option .mdc-list-item__primary-text{white-space:normal;font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;font-family:inherit;text-decoration:inherit;text-transform:inherit;margin-right:auto}[dir=rtl] .mat-mdc-option .mdc-list-item__primary-text{margin-right:0;margin-left:auto}.cdk-high-contrast-active .mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple)::after{content:"";position:absolute;top:50%;right:16px;transform:translateY(-50%);width:10px;height:0;border-bottom:solid 10px;border-radius:10px}[dir=rtl] .cdk-high-contrast-active .mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple)::after{right:auto;left:16px}.mat-mdc-option-multiple{--mdc-list-list-item-selected-container-color:var(--mdc-list-list-item-container-color, transparent)}.mat-mdc-option-active .mat-mdc-focus-indicator::before{content:""}'],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_MatOption.ɵfac = function MatOption_Factory(t) {
-  return new (t || _MatOption)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(ChangeDetectorRef), ɵɵdirectiveInject(MAT_OPTION_PARENT_COMPONENT, 8), ɵɵdirectiveInject(MAT_OPTGROUP, 8));
-};
-_MatOption.ɵcmp = ɵɵdefineComponent({
-  type: _MatOption,
-  selectors: [["mat-option"]],
-  viewQuery: function MatOption_Query(rf, ctx) {
-    if (rf & 1) {
-      ɵɵviewQuery(_c2, 7);
-    }
-    if (rf & 2) {
-      let _t;
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._text = _t.first);
-    }
-  },
-  hostAttrs: ["role", "option", 1, "mat-mdc-option", "mdc-list-item"],
-  hostVars: 11,
-  hostBindings: function MatOption_HostBindings(rf, ctx) {
-    if (rf & 1) {
-      ɵɵlistener("click", function MatOption_click_HostBindingHandler() {
-        return ctx._selectViaInteraction();
-      })("keydown", function MatOption_keydown_HostBindingHandler($event) {
-        return ctx._handleKeydown($event);
-      });
-    }
-    if (rf & 2) {
-      ɵɵhostProperty("id", ctx.id);
-      ɵɵattribute("aria-selected", ctx.selected)("aria-disabled", ctx.disabled.toString());
-      ɵɵclassProp("mdc-list-item--selected", ctx.selected)("mat-mdc-option-multiple", ctx.multiple)("mat-mdc-option-active", ctx.active)("mdc-list-item--disabled", ctx.disabled);
-    }
-  },
-  inputs: {
-    value: "value",
-    id: "id",
-    disabled: [InputFlags.HasDecoratorInputTransform, "disabled", "disabled", booleanAttribute]
-  },
-  outputs: {
-    onSelectionChange: "onSelectionChange"
-  },
-  exportAs: ["matOption"],
-  standalone: true,
-  features: [ɵɵInputTransformsFeature, ɵɵStandaloneFeature],
-  ngContentSelectors: _c4,
-  decls: 8,
-  vars: 5,
-  consts: [["text", ""], ["aria-hidden", "true", 1, "mat-mdc-option-pseudo-checkbox", 3, "disabled", "state"], [1, "mdc-list-item__primary-text"], ["state", "checked", "aria-hidden", "true", "appearance", "minimal", 1, "mat-mdc-option-pseudo-checkbox", 3, "disabled"], [1, "cdk-visually-hidden"], ["aria-hidden", "true", "mat-ripple", "", 1, "mat-mdc-option-ripple", "mat-mdc-focus-indicator", 3, "matRippleTrigger", "matRippleDisabled"]],
-  template: function MatOption_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵprojectionDef(_c3);
-      ɵɵtemplate(0, MatOption_Conditional_0_Template, 1, 2, "mat-pseudo-checkbox", 1);
-      ɵɵprojection(1);
-      ɵɵelementStart(2, "span", 2, 0);
-      ɵɵprojection(4, 1);
-      ɵɵelementEnd();
-      ɵɵtemplate(5, MatOption_Conditional_5_Template, 1, 1, "mat-pseudo-checkbox", 3)(6, MatOption_Conditional_6_Template, 2, 1, "span", 4);
-      ɵɵelement(7, "div", 5);
-    }
-    if (rf & 2) {
-      ɵɵconditional(0, ctx.multiple ? 0 : -1);
-      ɵɵadvance(5);
-      ɵɵconditional(5, !ctx.multiple && ctx.selected && !ctx.hideSingleSelectionIndicator ? 5 : -1);
-      ɵɵadvance();
-      ɵɵconditional(6, ctx.group && ctx.group._inert ? 6 : -1);
-      ɵɵadvance();
-      ɵɵproperty("matRippleTrigger", ctx._getHostElement())("matRippleDisabled", ctx.disabled || ctx.disableRipple);
-    }
-  },
-  dependencies: [MatPseudoCheckbox, MatRipple],
-  styles: ['.mat-mdc-option{display:flex;position:relative;align-items:center;justify-content:flex-start;overflow:hidden;padding:0;padding-left:16px;padding-right:16px;-webkit-user-select:none;user-select:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;cursor:pointer;-webkit-tap-highlight-color:rgba(0,0,0,0);color:var(--mat-option-label-text-color);font-family:var(--mat-option-label-text-font);line-height:var(--mat-option-label-text-line-height);font-size:var(--mat-option-label-text-size);letter-spacing:var(--mat-option-label-text-tracking);font-weight:var(--mat-option-label-text-weight);min-height:48px}.mat-mdc-option:focus{outline:none}[dir=rtl] .mat-mdc-option,.mat-mdc-option[dir=rtl]{padding-left:16px;padding-right:16px}.mat-mdc-option:hover:not(.mdc-list-item--disabled){background-color:var(--mat-option-hover-state-layer-color)}.mat-mdc-option:focus.mdc-list-item,.mat-mdc-option.mat-mdc-option-active.mdc-list-item{background-color:var(--mat-option-focus-state-layer-color)}.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text{color:var(--mat-option-selected-state-label-text-color)}.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled):not(.mat-mdc-option-multiple){background-color:var(--mat-option-selected-state-layer-color)}.mat-mdc-option.mdc-list-item{align-items:center;background:rgba(0,0,0,0)}.mat-mdc-option.mdc-list-item--disabled{cursor:default;pointer-events:none}.mat-mdc-option.mdc-list-item--disabled .mat-mdc-option-pseudo-checkbox,.mat-mdc-option.mdc-list-item--disabled .mdc-list-item__primary-text,.mat-mdc-option.mdc-list-item--disabled>mat-icon{opacity:.38}.mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:32px}[dir=rtl] .mat-mdc-optgroup .mat-mdc-option:not(.mat-mdc-option-multiple){padding-left:16px;padding-right:32px}.mat-mdc-option .mat-icon,.mat-mdc-option .mat-pseudo-checkbox-full{margin-right:16px;flex-shrink:0}[dir=rtl] .mat-mdc-option .mat-icon,[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox-full{margin-right:0;margin-left:16px}.mat-mdc-option .mat-pseudo-checkbox-minimal{margin-left:16px;flex-shrink:0}[dir=rtl] .mat-mdc-option .mat-pseudo-checkbox-minimal{margin-right:16px;margin-left:0}.mat-mdc-option .mat-mdc-option-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-mdc-option .mdc-list-item__primary-text{white-space:normal;font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;font-family:inherit;text-decoration:inherit;text-transform:inherit;margin-right:auto}[dir=rtl] .mat-mdc-option .mdc-list-item__primary-text{margin-right:0;margin-left:auto}.cdk-high-contrast-active .mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple)::after{content:"";position:absolute;top:50%;right:16px;transform:translateY(-50%);width:10px;height:0;border-bottom:solid 10px;border-radius:10px}[dir=rtl] .cdk-high-contrast-active .mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple)::after{right:auto;left:16px}.mat-mdc-option-multiple{--mdc-list-list-item-selected-container-color:var(--mdc-list-list-item-container-color, transparent)}.mat-mdc-option-active .mat-mdc-focus-indicator::before{content:""}'],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var MatOption = _MatOption;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatOption, [{
     type: Component,
@@ -4372,20 +4524,25 @@ var MatOption = _MatOption;
     }]
   });
 })();
-var _MatOptionModule = class _MatOptionModule {
+var MatOptionModule = class _MatOptionModule {
+  static {
+    this.ɵfac = function MatOptionModule_Factory(t) {
+      return new (t || _MatOptionModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _MatOptionModule,
+      imports: [MatRippleModule, MatCommonModule, MatPseudoCheckboxModule, MatOption, MatOptgroup],
+      exports: [MatOption, MatOptgroup]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({
+      imports: [MatRippleModule, MatCommonModule, MatPseudoCheckboxModule]
+    });
+  }
 };
-_MatOptionModule.ɵfac = function MatOptionModule_Factory(t) {
-  return new (t || _MatOptionModule)();
-};
-_MatOptionModule.ɵmod = ɵɵdefineNgModule({
-  type: _MatOptionModule,
-  imports: [MatRippleModule, MatCommonModule, MatPseudoCheckboxModule, MatOption, MatOptgroup],
-  exports: [MatOption, MatOptgroup]
-});
-_MatOptionModule.ɵinj = ɵɵdefineInjector({
-  imports: [MatRippleModule, MatCommonModule, MatPseudoCheckboxModule]
-});
-var MatOptionModule = _MatOptionModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatOptionModule, [{
     type: NgModule,
@@ -4403,7 +4560,7 @@ var matRippleUninitialized = "mat-ripple-loader-uninitialized";
 var matRippleClassName = "mat-ripple-loader-class-name";
 var matRippleCentered = "mat-ripple-loader-centered";
 var matRippleDisabled = "mat-ripple-loader-disabled";
-var _MatRippleLoader = class _MatRippleLoader {
+var MatRippleLoader = class _MatRippleLoader {
   constructor() {
     this._document = inject(DOCUMENT, {
       optional: true
@@ -4510,16 +4667,19 @@ var _MatRippleLoader = class _MatRippleLoader {
       this._hosts.delete(host);
     }
   }
+  static {
+    this.ɵfac = function MatRippleLoader_Factory(t) {
+      return new (t || _MatRippleLoader)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _MatRippleLoader,
+      factory: _MatRippleLoader.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_MatRippleLoader.ɵfac = function MatRippleLoader_Factory(t) {
-  return new (t || _MatRippleLoader)();
-};
-_MatRippleLoader.ɵprov = ɵɵdefineInjectable({
-  token: _MatRippleLoader,
-  factory: _MatRippleLoader.ɵfac,
-  providedIn: "root"
-});
-var MatRippleLoader = _MatRippleLoader;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatRippleLoader, [{
     type: Injectable,
@@ -4528,41 +4688,44 @@ var MatRippleLoader = _MatRippleLoader;
     }]
   }], () => [], null);
 })();
-var __MatInternalFormField = class __MatInternalFormField {
+var _MatInternalFormField = class __MatInternalFormField {
+  static {
+    this.ɵfac = function _MatInternalFormField_Factory(t) {
+      return new (t || __MatInternalFormField)();
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: __MatInternalFormField,
+      selectors: [["div", "mat-internal-form-field", ""]],
+      hostAttrs: [1, "mdc-form-field", "mat-internal-form-field"],
+      hostVars: 2,
+      hostBindings: function _MatInternalFormField_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵclassProp("mdc-form-field--align-end", ctx.labelPosition === "before");
+        }
+      },
+      inputs: {
+        labelPosition: "labelPosition"
+      },
+      standalone: true,
+      features: [ɵɵStandaloneFeature],
+      attrs: _c5,
+      ngContentSelectors: _c6,
+      decls: 1,
+      vars: 0,
+      template: function _MatInternalFormField_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵprojectionDef();
+          ɵɵprojection(0);
+        }
+      },
+      styles: [".mdc-form-field{display:inline-flex;align-items:center;vertical-align:middle}.mdc-form-field[hidden]{display:none}.mdc-form-field>label{margin-left:0;margin-right:auto;padding-left:4px;padding-right:0;order:0}[dir=rtl] .mdc-form-field>label,.mdc-form-field>label[dir=rtl]{margin-left:auto;margin-right:0}[dir=rtl] .mdc-form-field>label,.mdc-form-field>label[dir=rtl]{padding-left:0;padding-right:4px}.mdc-form-field--nowrap>label{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.mdc-form-field--align-end>label{margin-left:auto;margin-right:0;padding-left:0;padding-right:4px;order:-1}[dir=rtl] .mdc-form-field--align-end>label,.mdc-form-field--align-end>label[dir=rtl]{margin-left:0;margin-right:auto}[dir=rtl] .mdc-form-field--align-end>label,.mdc-form-field--align-end>label[dir=rtl]{padding-left:4px;padding-right:0}.mdc-form-field--space-between{justify-content:space-between}.mdc-form-field--space-between>label{margin:0}[dir=rtl] .mdc-form-field--space-between>label,.mdc-form-field--space-between>label[dir=rtl]{margin:0}.mdc-form-field{font-family:var(--mdc-form-field-label-text-font);line-height:var(--mdc-form-field-label-text-line-height);font-size:var(--mdc-form-field-label-text-size);font-weight:var(--mdc-form-field-label-text-weight);letter-spacing:var(--mdc-form-field-label-text-tracking);color:var(--mdc-form-field-label-text-color)}.mat-internal-form-field{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}"],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-__MatInternalFormField.ɵfac = function _MatInternalFormField_Factory(t) {
-  return new (t || __MatInternalFormField)();
-};
-__MatInternalFormField.ɵcmp = ɵɵdefineComponent({
-  type: __MatInternalFormField,
-  selectors: [["div", "mat-internal-form-field", ""]],
-  hostAttrs: [1, "mdc-form-field", "mat-internal-form-field"],
-  hostVars: 2,
-  hostBindings: function _MatInternalFormField_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵclassProp("mdc-form-field--align-end", ctx.labelPosition === "before");
-    }
-  },
-  inputs: {
-    labelPosition: "labelPosition"
-  },
-  standalone: true,
-  features: [ɵɵStandaloneFeature],
-  attrs: _c5,
-  ngContentSelectors: _c6,
-  decls: 1,
-  vars: 0,
-  template: function _MatInternalFormField_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵprojectionDef();
-      ɵɵprojection(0);
-    }
-  },
-  styles: [".mdc-form-field{display:inline-flex;align-items:center;vertical-align:middle}.mdc-form-field[hidden]{display:none}.mdc-form-field>label{margin-left:0;margin-right:auto;padding-left:4px;padding-right:0;order:0}[dir=rtl] .mdc-form-field>label,.mdc-form-field>label[dir=rtl]{margin-left:auto;margin-right:0}[dir=rtl] .mdc-form-field>label,.mdc-form-field>label[dir=rtl]{padding-left:0;padding-right:4px}.mdc-form-field--nowrap>label{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.mdc-form-field--align-end>label{margin-left:auto;margin-right:0;padding-left:0;padding-right:4px;order:-1}[dir=rtl] .mdc-form-field--align-end>label,.mdc-form-field--align-end>label[dir=rtl]{margin-left:0;margin-right:auto}[dir=rtl] .mdc-form-field--align-end>label,.mdc-form-field--align-end>label[dir=rtl]{padding-left:4px;padding-right:0}.mdc-form-field--space-between{justify-content:space-between}.mdc-form-field--space-between>label{margin:0}[dir=rtl] .mdc-form-field--space-between>label,.mdc-form-field--space-between>label[dir=rtl]{margin:0}.mdc-form-field{font-family:var(--mdc-form-field-label-text-font);line-height:var(--mdc-form-field-label-text-line-height);font-size:var(--mdc-form-field-label-text-size);font-weight:var(--mdc-form-field-label-text-weight);letter-spacing:var(--mdc-form-field-label-text-tracking);color:var(--mdc-form-field-label-text-color)}.mat-internal-form-field{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}"],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var _MatInternalFormField = __MatInternalFormField;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(_MatInternalFormField, [{
     type: Component,
@@ -4638,7 +4801,7 @@ var HOST_SELECTOR_MDC_CLASS_PAIR = [{
   attribute: "mat-icon-button",
   mdcClasses: ["mdc-icon-button", "mat-mdc-icon-button"]
 }];
-var _MatButtonBase = class _MatButtonBase {
+var MatButtonBase = class _MatButtonBase {
   /**
    * Reference to the MatRipple instance of the button.
    * @deprecated Considered an implementation detail. To be removed.
@@ -4721,22 +4884,25 @@ var _MatButtonBase = class _MatButtonBase {
   _updateRippleDisabled() {
     this._rippleLoader?.setDisabled(this._elementRef.nativeElement, this.disableRipple || this.disabled);
   }
+  static {
+    this.ɵfac = function MatButtonBase_Factory(t) {
+      ɵɵinvalidFactory();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _MatButtonBase,
+      inputs: {
+        color: "color",
+        disableRipple: [InputFlags.HasDecoratorInputTransform, "disableRipple", "disableRipple", booleanAttribute],
+        disabled: [InputFlags.HasDecoratorInputTransform, "disabled", "disabled", booleanAttribute],
+        ariaDisabled: [InputFlags.HasDecoratorInputTransform, "aria-disabled", "ariaDisabled", booleanAttribute],
+        disabledInteractive: [InputFlags.HasDecoratorInputTransform, "disabledInteractive", "disabledInteractive", booleanAttribute]
+      },
+      features: [ɵɵInputTransformsFeature]
+    });
+  }
 };
-_MatButtonBase.ɵfac = function MatButtonBase_Factory(t) {
-  ɵɵinvalidFactory();
-};
-_MatButtonBase.ɵdir = ɵɵdefineDirective({
-  type: _MatButtonBase,
-  inputs: {
-    color: "color",
-    disableRipple: [InputFlags.HasDecoratorInputTransform, "disableRipple", "disableRipple", booleanAttribute],
-    disabled: [InputFlags.HasDecoratorInputTransform, "disabled", "disabled", booleanAttribute],
-    ariaDisabled: [InputFlags.HasDecoratorInputTransform, "aria-disabled", "ariaDisabled", booleanAttribute],
-    disabledInteractive: [InputFlags.HasDecoratorInputTransform, "disabledInteractive", "disabledInteractive", booleanAttribute]
-  },
-  features: [ɵɵInputTransformsFeature]
-});
-var MatButtonBase = _MatButtonBase;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatButtonBase, [{
     type: Directive
@@ -4798,7 +4964,7 @@ var MAT_ANCHOR_HOST = {
   "[class.mat-mdc-button-base]": "true",
   "[class]": 'color ? "mat-" + color : ""'
 };
-var _MatAnchorBase = class _MatAnchorBase extends MatButtonBase {
+var MatAnchorBase = class _MatAnchorBase extends MatButtonBase {
   constructor(elementRef, platform, ngZone, animationMode) {
     super(elementRef, platform, ngZone, animationMode);
     this._haltDisabledEvents = (event) => {
@@ -4820,20 +4986,23 @@ var _MatAnchorBase = class _MatAnchorBase extends MatButtonBase {
   _getAriaDisabled() {
     return this.ariaDisabled == null ? this.disabled : this.ariaDisabled;
   }
+  static {
+    this.ɵfac = function MatAnchorBase_Factory(t) {
+      ɵɵinvalidFactory();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _MatAnchorBase,
+      inputs: {
+        tabIndex: [InputFlags.HasDecoratorInputTransform, "tabIndex", "tabIndex", (value) => {
+          return value == null ? void 0 : numberAttribute(value);
+        }]
+      },
+      features: [ɵɵInputTransformsFeature, ɵɵInheritDefinitionFeature]
+    });
+  }
 };
-_MatAnchorBase.ɵfac = function MatAnchorBase_Factory(t) {
-  ɵɵinvalidFactory();
-};
-_MatAnchorBase.ɵdir = ɵɵdefineDirective({
-  type: _MatAnchorBase,
-  inputs: {
-    tabIndex: [InputFlags.HasDecoratorInputTransform, "tabIndex", "tabIndex", (value) => {
-      return value == null ? void 0 : numberAttribute(value);
-    }]
-  },
-  features: [ɵɵInputTransformsFeature, ɵɵInheritDefinitionFeature]
-});
-var MatAnchorBase = _MatAnchorBase;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatAnchorBase, [{
     type: Directive
@@ -4856,53 +5025,56 @@ var MatAnchorBase = _MatAnchorBase;
     }]
   });
 })();
-var _MatButton = class _MatButton extends MatButtonBase {
+var MatButton = class _MatButton extends MatButtonBase {
   constructor(elementRef, platform, ngZone, animationMode) {
     super(elementRef, platform, ngZone, animationMode);
   }
+  static {
+    this.ɵfac = function MatButton_Factory(t) {
+      return new (t || _MatButton)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(Platform), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(ANIMATION_MODULE_TYPE, 8));
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _MatButton,
+      selectors: [["button", "mat-button", ""], ["button", "mat-raised-button", ""], ["button", "mat-flat-button", ""], ["button", "mat-stroked-button", ""]],
+      hostVars: 14,
+      hostBindings: function MatButton_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵattribute("disabled", ctx._getDisabledAttribute())("aria-disabled", ctx._getAriaDisabled());
+          ɵɵclassMap(ctx.color ? "mat-" + ctx.color : "");
+          ɵɵclassProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true);
+        }
+      },
+      exportAs: ["matButton"],
+      standalone: true,
+      features: [ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
+      attrs: _c02,
+      ngContentSelectors: _c22,
+      decls: 7,
+      vars: 4,
+      consts: [[1, "mat-mdc-button-persistent-ripple"], [1, "mdc-button__label"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
+      template: function MatButton_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵprojectionDef(_c12);
+          ɵɵelement(0, "span", 0);
+          ɵɵprojection(1);
+          ɵɵelementStart(2, "span", 1);
+          ɵɵprojection(3, 1);
+          ɵɵelementEnd();
+          ɵɵprojection(4, 2);
+          ɵɵelement(5, "span", 2)(6, "span", 3);
+        }
+        if (rf & 2) {
+          ɵɵclassProp("mdc-button__ripple", !ctx._isFab)("mdc-fab__ripple", ctx._isFab);
+        }
+      },
+      styles: ['.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;pointer-events:none;opacity:var(--mdc-elevation-overlay-opacity, 0);transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-button{position:relative;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-width:64px;border:none;outline:none;line-height:inherit;user-select:none;-webkit-appearance:none;overflow:visible;vertical-align:middle;background:rgba(0,0,0,0)}.mdc-button .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-button::-moz-focus-inner{padding:0;border:0}.mdc-button:active{outline:none}.mdc-button:hover{cursor:pointer}.mdc-button:disabled{cursor:default;pointer-events:none}.mdc-button[hidden]{display:none}.mdc-button .mdc-button__icon{margin-left:0;margin-right:8px;display:inline-block;position:relative;vertical-align:top}[dir=rtl] .mdc-button .mdc-button__icon,.mdc-button .mdc-button__icon[dir=rtl]{margin-left:8px;margin-right:0}.mdc-button .mdc-button__progress-indicator{font-size:0;position:absolute;transform:translate(-50%, -50%);top:50%;left:50%;line-height:initial}.mdc-button .mdc-button__label{position:relative}.mdc-button .mdc-button__focus-ring{pointer-events:none;border:2px solid rgba(0,0,0,0);border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px);display:none}@media screen and (forced-colors: active){.mdc-button .mdc-button__focus-ring{border-color:CanvasText}}.mdc-button .mdc-button__focus-ring::after{content:"";border:2px solid rgba(0,0,0,0);border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-button .mdc-button__focus-ring::after{border-color:CanvasText}}@media screen and (forced-colors: active){.mdc-button.mdc-ripple-upgraded--background-focused .mdc-button__focus-ring,.mdc-button:not(.mdc-ripple-upgraded):focus .mdc-button__focus-ring{display:block}}.mdc-button .mdc-button__touch{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%)}.mdc-button__label+.mdc-button__icon{margin-left:8px;margin-right:0}[dir=rtl] .mdc-button__label+.mdc-button__icon,.mdc-button__label+.mdc-button__icon[dir=rtl]{margin-left:0;margin-right:8px}svg.mdc-button__icon{fill:currentColor}.mdc-button--touch{margin-top:6px;margin-bottom:6px}.mdc-button{padding:0 8px 0 8px}.mdc-button--unelevated{transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);padding:0 16px 0 16px}.mdc-button--unelevated.mdc-button--icon-trailing{padding:0 12px 0 16px}.mdc-button--unelevated.mdc-button--icon-leading{padding:0 16px 0 12px}.mdc-button--raised{transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);padding:0 16px 0 16px}.mdc-button--raised.mdc-button--icon-trailing{padding:0 12px 0 16px}.mdc-button--raised.mdc-button--icon-leading{padding:0 16px 0 12px}.mdc-button--outlined{border-style:solid;transition:border 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-button--outlined .mdc-button__ripple{border-style:solid;border-color:rgba(0,0,0,0)}.mat-mdc-button{font-family:var(--mdc-text-button-label-text-font);font-size:var(--mdc-text-button-label-text-size);letter-spacing:var(--mdc-text-button-label-text-tracking);font-weight:var(--mdc-text-button-label-text-weight);text-transform:var(--mdc-text-button-label-text-transform);height:var(--mdc-text-button-container-height);border-radius:var(--mdc-text-button-container-shape);padding:0 var(--mat-text-button-horizontal-padding, 8px)}.mat-mdc-button:not(:disabled){color:var(--mdc-text-button-label-text-color)}.mat-mdc-button:disabled{color:var(--mdc-text-button-disabled-label-text-color)}.mat-mdc-button .mdc-button__ripple{border-radius:var(--mdc-text-button-container-shape)}.mat-mdc-button:has(.material-icons,mat-icon,[matButtonIcon]){padding:0 var(--mat-text-button-with-icon-horizontal-padding, 8px)}.mat-mdc-button>.mat-icon{margin-right:var(--mat-text-button-icon-spacing, 8px);margin-left:var(--mat-text-button-icon-offset, 0)}[dir=rtl] .mat-mdc-button>.mat-icon{margin-right:var(--mat-text-button-icon-offset, 0);margin-left:var(--mat-text-button-icon-spacing, 8px)}.mat-mdc-button .mdc-button__label+.mat-icon{margin-right:var(--mat-text-button-icon-offset, 0);margin-left:var(--mat-text-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-button .mdc-button__label+.mat-icon{margin-right:var(--mat-text-button-icon-spacing, 8px);margin-left:var(--mat-text-button-icon-offset, 0)}.mat-mdc-button .mat-ripple-element{background-color:var(--mat-text-button-ripple-color)}.mat-mdc-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-text-button-state-layer-color)}.mat-mdc-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-text-button-disabled-state-layer-color)}.mat-mdc-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-text-button-hover-state-layer-opacity)}.mat-mdc-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-text-button-focus-state-layer-opacity)}.mat-mdc-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-text-button-pressed-state-layer-opacity)}.mat-mdc-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-text-button-touch-target-display)}.mat-mdc-button[disabled],.mat-mdc-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-text-button-disabled-label-text-color)}.mat-mdc-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-unelevated-button{font-family:var(--mdc-filled-button-label-text-font);font-size:var(--mdc-filled-button-label-text-size);letter-spacing:var(--mdc-filled-button-label-text-tracking);font-weight:var(--mdc-filled-button-label-text-weight);text-transform:var(--mdc-filled-button-label-text-transform);height:var(--mdc-filled-button-container-height);border-radius:var(--mdc-filled-button-container-shape);padding:0 var(--mat-filled-button-horizontal-padding, 16px)}.mat-mdc-unelevated-button:not(:disabled){background-color:var(--mdc-filled-button-container-color)}.mat-mdc-unelevated-button:disabled{background-color:var(--mdc-filled-button-disabled-container-color)}.mat-mdc-unelevated-button:not(:disabled){color:var(--mdc-filled-button-label-text-color)}.mat-mdc-unelevated-button:disabled{color:var(--mdc-filled-button-disabled-label-text-color)}.mat-mdc-unelevated-button .mdc-button__ripple{border-radius:var(--mdc-filled-button-container-shape)}.mat-mdc-unelevated-button>.mat-icon{margin-right:var(--mat-filled-button-icon-spacing, 8px);margin-left:var(--mat-filled-button-icon-offset, -4px)}[dir=rtl] .mat-mdc-unelevated-button>.mat-icon{margin-right:var(--mat-filled-button-icon-offset, -4px);margin-left:var(--mat-filled-button-icon-spacing, 8px)}.mat-mdc-unelevated-button .mdc-button__label+.mat-icon{margin-right:var(--mat-filled-button-icon-offset, -4px);margin-left:var(--mat-filled-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-unelevated-button .mdc-button__label+.mat-icon{margin-right:var(--mat-filled-button-icon-spacing, 8px);margin-left:var(--mat-filled-button-icon-offset, -4px)}.mat-mdc-unelevated-button .mat-ripple-element{background-color:var(--mat-filled-button-ripple-color)}.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-filled-button-state-layer-color)}.mat-mdc-unelevated-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-filled-button-disabled-state-layer-color)}.mat-mdc-unelevated-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-filled-button-hover-state-layer-opacity)}.mat-mdc-unelevated-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-filled-button-focus-state-layer-opacity)}.mat-mdc-unelevated-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-filled-button-pressed-state-layer-opacity)}.mat-mdc-unelevated-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-filled-button-touch-target-display)}.mat-mdc-unelevated-button[disabled],.mat-mdc-unelevated-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-filled-button-disabled-label-text-color);background-color:var(--mdc-filled-button-disabled-container-color)}.mat-mdc-unelevated-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-raised-button{font-family:var(--mdc-protected-button-label-text-font);font-size:var(--mdc-protected-button-label-text-size);letter-spacing:var(--mdc-protected-button-label-text-tracking);font-weight:var(--mdc-protected-button-label-text-weight);text-transform:var(--mdc-protected-button-label-text-transform);height:var(--mdc-protected-button-container-height);border-radius:var(--mdc-protected-button-container-shape);padding:0 var(--mat-protected-button-horizontal-padding, 16px);box-shadow:var(--mdc-protected-button-container-elevation-shadow)}.mat-mdc-raised-button:not(:disabled){background-color:var(--mdc-protected-button-container-color)}.mat-mdc-raised-button:disabled{background-color:var(--mdc-protected-button-disabled-container-color)}.mat-mdc-raised-button:not(:disabled){color:var(--mdc-protected-button-label-text-color)}.mat-mdc-raised-button:disabled{color:var(--mdc-protected-button-disabled-label-text-color)}.mat-mdc-raised-button .mdc-button__ripple{border-radius:var(--mdc-protected-button-container-shape)}.mat-mdc-raised-button>.mat-icon{margin-right:var(--mat-protected-button-icon-spacing, 8px);margin-left:var(--mat-protected-button-icon-offset, -4px)}[dir=rtl] .mat-mdc-raised-button>.mat-icon{margin-right:var(--mat-protected-button-icon-offset, -4px);margin-left:var(--mat-protected-button-icon-spacing, 8px)}.mat-mdc-raised-button .mdc-button__label+.mat-icon{margin-right:var(--mat-protected-button-icon-offset, -4px);margin-left:var(--mat-protected-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-raised-button .mdc-button__label+.mat-icon{margin-right:var(--mat-protected-button-icon-spacing, 8px);margin-left:var(--mat-protected-button-icon-offset, -4px)}.mat-mdc-raised-button .mat-ripple-element{background-color:var(--mat-protected-button-ripple-color)}.mat-mdc-raised-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-protected-button-state-layer-color)}.mat-mdc-raised-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-protected-button-disabled-state-layer-color)}.mat-mdc-raised-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-protected-button-hover-state-layer-opacity)}.mat-mdc-raised-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-protected-button-focus-state-layer-opacity)}.mat-mdc-raised-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-protected-button-pressed-state-layer-opacity)}.mat-mdc-raised-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-protected-button-touch-target-display)}.mat-mdc-raised-button:hover{box-shadow:var(--mdc-protected-button-hover-container-elevation-shadow)}.mat-mdc-raised-button:focus{box-shadow:var(--mdc-protected-button-focus-container-elevation-shadow)}.mat-mdc-raised-button:active,.mat-mdc-raised-button:focus:active{box-shadow:var(--mdc-protected-button-pressed-container-elevation-shadow)}.mat-mdc-raised-button[disabled],.mat-mdc-raised-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-protected-button-disabled-label-text-color);background-color:var(--mdc-protected-button-disabled-container-color)}.mat-mdc-raised-button[disabled].mat-mdc-button-disabled,.mat-mdc-raised-button.mat-mdc-button-disabled.mat-mdc-button-disabled{box-shadow:var(--mdc-protected-button-disabled-container-elevation-shadow)}.mat-mdc-raised-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-outlined-button{font-family:var(--mdc-outlined-button-label-text-font);font-size:var(--mdc-outlined-button-label-text-size);letter-spacing:var(--mdc-outlined-button-label-text-tracking);font-weight:var(--mdc-outlined-button-label-text-weight);text-transform:var(--mdc-outlined-button-label-text-transform);height:var(--mdc-outlined-button-container-height);border-radius:var(--mdc-outlined-button-container-shape);padding:0 15px 0 15px;border-width:var(--mdc-outlined-button-outline-width);padding:0 var(--mat-outlined-button-horizontal-padding, 15px)}.mat-mdc-outlined-button:not(:disabled){color:var(--mdc-outlined-button-label-text-color)}.mat-mdc-outlined-button:disabled{color:var(--mdc-outlined-button-disabled-label-text-color)}.mat-mdc-outlined-button .mdc-button__ripple{border-radius:var(--mdc-outlined-button-container-shape)}.mat-mdc-outlined-button:not(:disabled){border-color:var(--mdc-outlined-button-outline-color)}.mat-mdc-outlined-button:disabled{border-color:var(--mdc-outlined-button-disabled-outline-color)}.mat-mdc-outlined-button.mdc-button--icon-trailing{padding:0 11px 0 15px}.mat-mdc-outlined-button.mdc-button--icon-leading{padding:0 15px 0 11px}.mat-mdc-outlined-button .mdc-button__ripple{top:-1px;left:-1px;bottom:-1px;right:-1px;border-width:var(--mdc-outlined-button-outline-width)}.mat-mdc-outlined-button .mdc-button__touch{left:calc(-1 * var(--mdc-outlined-button-outline-width));width:calc(100% + 2 * var(--mdc-outlined-button-outline-width))}.mat-mdc-outlined-button>.mat-icon{margin-right:var(--mat-outlined-button-icon-spacing, 8px);margin-left:var(--mat-outlined-button-icon-offset, -4px)}[dir=rtl] .mat-mdc-outlined-button>.mat-icon{margin-right:var(--mat-outlined-button-icon-offset, -4px);margin-left:var(--mat-outlined-button-icon-spacing, 8px)}.mat-mdc-outlined-button .mdc-button__label+.mat-icon{margin-right:var(--mat-outlined-button-icon-offset, -4px);margin-left:var(--mat-outlined-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-outlined-button .mdc-button__label+.mat-icon{margin-right:var(--mat-outlined-button-icon-spacing, 8px);margin-left:var(--mat-outlined-button-icon-offset, -4px)}.mat-mdc-outlined-button .mat-ripple-element{background-color:var(--mat-outlined-button-ripple-color)}.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-outlined-button-state-layer-color)}.mat-mdc-outlined-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-outlined-button-disabled-state-layer-color)}.mat-mdc-outlined-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-outlined-button-hover-state-layer-opacity)}.mat-mdc-outlined-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-outlined-button-focus-state-layer-opacity)}.mat-mdc-outlined-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-outlined-button-pressed-state-layer-opacity)}.mat-mdc-outlined-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-outlined-button-touch-target-display)}.mat-mdc-outlined-button[disabled],.mat-mdc-outlined-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-outlined-button-disabled-label-text-color);border-color:var(--mdc-outlined-button-disabled-outline-color)}.mat-mdc-outlined-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-button-base{text-decoration:none}.mat-mdc-button,.mat-mdc-unelevated-button,.mat-mdc-raised-button,.mat-mdc-outlined-button{-webkit-tap-highlight-color:rgba(0,0,0,0)}.mat-mdc-button .mat-mdc-button-ripple,.mat-mdc-button .mat-mdc-button-persistent-ripple,.mat-mdc-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button .mat-mdc-button-ripple,.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple,.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button .mat-mdc-button-ripple,.mat-mdc-raised-button .mat-mdc-button-persistent-ripple,.mat-mdc-raised-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button .mat-mdc-button-ripple,.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple,.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-mdc-button .mat-mdc-button-ripple,.mat-mdc-unelevated-button .mat-mdc-button-ripple,.mat-mdc-raised-button .mat-mdc-button-ripple,.mat-mdc-outlined-button .mat-mdc-button-ripple{overflow:hidden}.mat-mdc-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple::before{content:"";opacity:0}.mat-mdc-button .mdc-button__label,.mat-mdc-unelevated-button .mdc-button__label,.mat-mdc-raised-button .mdc-button__label,.mat-mdc-outlined-button .mdc-button__label{z-index:1}.mat-mdc-button .mat-mdc-focus-indicator,.mat-mdc-unelevated-button .mat-mdc-focus-indicator,.mat-mdc-raised-button .mat-mdc-focus-indicator,.mat-mdc-outlined-button .mat-mdc-focus-indicator{top:0;left:0;right:0;bottom:0;position:absolute}.mat-mdc-button:focus .mat-mdc-focus-indicator::before,.mat-mdc-unelevated-button:focus .mat-mdc-focus-indicator::before,.mat-mdc-raised-button:focus .mat-mdc-focus-indicator::before,.mat-mdc-outlined-button:focus .mat-mdc-focus-indicator::before{content:""}.mat-mdc-button._mat-animation-noopable,.mat-mdc-unelevated-button._mat-animation-noopable,.mat-mdc-raised-button._mat-animation-noopable,.mat-mdc-outlined-button._mat-animation-noopable{transition:none !important;animation:none !important}.mat-mdc-button>.mat-icon,.mat-mdc-unelevated-button>.mat-icon,.mat-mdc-raised-button>.mat-icon,.mat-mdc-outlined-button>.mat-icon{display:inline-block;position:relative;vertical-align:top;font-size:1.125rem;height:1.125rem;width:1.125rem}.mat-mdc-outlined-button .mat-mdc-button-ripple,.mat-mdc-outlined-button .mdc-button__ripple{top:-1px;left:-1px;bottom:-1px;right:-1px;border-width:-1px}.mat-mdc-unelevated-button .mat-mdc-focus-indicator::before,.mat-mdc-raised-button .mat-mdc-focus-indicator::before{margin:calc(calc(var(--mat-mdc-focus-indicator-border-width, 3px) + 2px)*-1)}.mat-mdc-outlined-button .mat-mdc-focus-indicator::before{margin:calc(calc(var(--mat-mdc-focus-indicator-border-width, 3px) + 3px)*-1)}', ".cdk-high-contrast-active .mat-mdc-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-unelevated-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-raised-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-outlined-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-icon-button{outline:solid 1px}"],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_MatButton.ɵfac = function MatButton_Factory(t) {
-  return new (t || _MatButton)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(Platform), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(ANIMATION_MODULE_TYPE, 8));
-};
-_MatButton.ɵcmp = ɵɵdefineComponent({
-  type: _MatButton,
-  selectors: [["button", "mat-button", ""], ["button", "mat-raised-button", ""], ["button", "mat-flat-button", ""], ["button", "mat-stroked-button", ""]],
-  hostVars: 14,
-  hostBindings: function MatButton_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵattribute("disabled", ctx._getDisabledAttribute())("aria-disabled", ctx._getAriaDisabled());
-      ɵɵclassMap(ctx.color ? "mat-" + ctx.color : "");
-      ɵɵclassProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true);
-    }
-  },
-  exportAs: ["matButton"],
-  standalone: true,
-  features: [ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
-  attrs: _c02,
-  ngContentSelectors: _c22,
-  decls: 7,
-  vars: 4,
-  consts: [[1, "mat-mdc-button-persistent-ripple"], [1, "mdc-button__label"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
-  template: function MatButton_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵprojectionDef(_c12);
-      ɵɵelement(0, "span", 0);
-      ɵɵprojection(1);
-      ɵɵelementStart(2, "span", 1);
-      ɵɵprojection(3, 1);
-      ɵɵelementEnd();
-      ɵɵprojection(4, 2);
-      ɵɵelement(5, "span", 2)(6, "span", 3);
-    }
-    if (rf & 2) {
-      ɵɵclassProp("mdc-button__ripple", !ctx._isFab)("mdc-fab__ripple", ctx._isFab);
-    }
-  },
-  styles: ['.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;pointer-events:none;opacity:var(--mdc-elevation-overlay-opacity, 0);transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-button{position:relative;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-width:64px;border:none;outline:none;line-height:inherit;user-select:none;-webkit-appearance:none;overflow:visible;vertical-align:middle;background:rgba(0,0,0,0)}.mdc-button .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-button::-moz-focus-inner{padding:0;border:0}.mdc-button:active{outline:none}.mdc-button:hover{cursor:pointer}.mdc-button:disabled{cursor:default;pointer-events:none}.mdc-button[hidden]{display:none}.mdc-button .mdc-button__icon{margin-left:0;margin-right:8px;display:inline-block;position:relative;vertical-align:top}[dir=rtl] .mdc-button .mdc-button__icon,.mdc-button .mdc-button__icon[dir=rtl]{margin-left:8px;margin-right:0}.mdc-button .mdc-button__progress-indicator{font-size:0;position:absolute;transform:translate(-50%, -50%);top:50%;left:50%;line-height:initial}.mdc-button .mdc-button__label{position:relative}.mdc-button .mdc-button__focus-ring{pointer-events:none;border:2px solid rgba(0,0,0,0);border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px);display:none}@media screen and (forced-colors: active){.mdc-button .mdc-button__focus-ring{border-color:CanvasText}}.mdc-button .mdc-button__focus-ring::after{content:"";border:2px solid rgba(0,0,0,0);border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-button .mdc-button__focus-ring::after{border-color:CanvasText}}@media screen and (forced-colors: active){.mdc-button.mdc-ripple-upgraded--background-focused .mdc-button__focus-ring,.mdc-button:not(.mdc-ripple-upgraded):focus .mdc-button__focus-ring{display:block}}.mdc-button .mdc-button__touch{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%)}.mdc-button__label+.mdc-button__icon{margin-left:8px;margin-right:0}[dir=rtl] .mdc-button__label+.mdc-button__icon,.mdc-button__label+.mdc-button__icon[dir=rtl]{margin-left:0;margin-right:8px}svg.mdc-button__icon{fill:currentColor}.mdc-button--touch{margin-top:6px;margin-bottom:6px}.mdc-button{padding:0 8px 0 8px}.mdc-button--unelevated{transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);padding:0 16px 0 16px}.mdc-button--unelevated.mdc-button--icon-trailing{padding:0 12px 0 16px}.mdc-button--unelevated.mdc-button--icon-leading{padding:0 16px 0 12px}.mdc-button--raised{transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);padding:0 16px 0 16px}.mdc-button--raised.mdc-button--icon-trailing{padding:0 12px 0 16px}.mdc-button--raised.mdc-button--icon-leading{padding:0 16px 0 12px}.mdc-button--outlined{border-style:solid;transition:border 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-button--outlined .mdc-button__ripple{border-style:solid;border-color:rgba(0,0,0,0)}.mat-mdc-button{font-family:var(--mdc-text-button-label-text-font);font-size:var(--mdc-text-button-label-text-size);letter-spacing:var(--mdc-text-button-label-text-tracking);font-weight:var(--mdc-text-button-label-text-weight);text-transform:var(--mdc-text-button-label-text-transform);height:var(--mdc-text-button-container-height);border-radius:var(--mdc-text-button-container-shape);padding:0 var(--mat-text-button-horizontal-padding, 8px)}.mat-mdc-button:not(:disabled){color:var(--mdc-text-button-label-text-color)}.mat-mdc-button:disabled{color:var(--mdc-text-button-disabled-label-text-color)}.mat-mdc-button .mdc-button__ripple{border-radius:var(--mdc-text-button-container-shape)}.mat-mdc-button:has(.material-icons,mat-icon,[matButtonIcon]){padding:0 var(--mat-text-button-with-icon-horizontal-padding, 8px)}.mat-mdc-button>.mat-icon{margin-right:var(--mat-text-button-icon-spacing, 8px);margin-left:var(--mat-text-button-icon-offset, 0)}[dir=rtl] .mat-mdc-button>.mat-icon{margin-right:var(--mat-text-button-icon-offset, 0);margin-left:var(--mat-text-button-icon-spacing, 8px)}.mat-mdc-button .mdc-button__label+.mat-icon{margin-right:var(--mat-text-button-icon-offset, 0);margin-left:var(--mat-text-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-button .mdc-button__label+.mat-icon{margin-right:var(--mat-text-button-icon-spacing, 8px);margin-left:var(--mat-text-button-icon-offset, 0)}.mat-mdc-button .mat-ripple-element{background-color:var(--mat-text-button-ripple-color)}.mat-mdc-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-text-button-state-layer-color)}.mat-mdc-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-text-button-disabled-state-layer-color)}.mat-mdc-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-text-button-hover-state-layer-opacity)}.mat-mdc-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-text-button-focus-state-layer-opacity)}.mat-mdc-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-text-button-pressed-state-layer-opacity)}.mat-mdc-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-text-button-touch-target-display)}.mat-mdc-button[disabled],.mat-mdc-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-text-button-disabled-label-text-color)}.mat-mdc-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-unelevated-button{font-family:var(--mdc-filled-button-label-text-font);font-size:var(--mdc-filled-button-label-text-size);letter-spacing:var(--mdc-filled-button-label-text-tracking);font-weight:var(--mdc-filled-button-label-text-weight);text-transform:var(--mdc-filled-button-label-text-transform);height:var(--mdc-filled-button-container-height);border-radius:var(--mdc-filled-button-container-shape);padding:0 var(--mat-filled-button-horizontal-padding, 16px)}.mat-mdc-unelevated-button:not(:disabled){background-color:var(--mdc-filled-button-container-color)}.mat-mdc-unelevated-button:disabled{background-color:var(--mdc-filled-button-disabled-container-color)}.mat-mdc-unelevated-button:not(:disabled){color:var(--mdc-filled-button-label-text-color)}.mat-mdc-unelevated-button:disabled{color:var(--mdc-filled-button-disabled-label-text-color)}.mat-mdc-unelevated-button .mdc-button__ripple{border-radius:var(--mdc-filled-button-container-shape)}.mat-mdc-unelevated-button>.mat-icon{margin-right:var(--mat-filled-button-icon-spacing, 8px);margin-left:var(--mat-filled-button-icon-offset, -4px)}[dir=rtl] .mat-mdc-unelevated-button>.mat-icon{margin-right:var(--mat-filled-button-icon-offset, -4px);margin-left:var(--mat-filled-button-icon-spacing, 8px)}.mat-mdc-unelevated-button .mdc-button__label+.mat-icon{margin-right:var(--mat-filled-button-icon-offset, -4px);margin-left:var(--mat-filled-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-unelevated-button .mdc-button__label+.mat-icon{margin-right:var(--mat-filled-button-icon-spacing, 8px);margin-left:var(--mat-filled-button-icon-offset, -4px)}.mat-mdc-unelevated-button .mat-ripple-element{background-color:var(--mat-filled-button-ripple-color)}.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-filled-button-state-layer-color)}.mat-mdc-unelevated-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-filled-button-disabled-state-layer-color)}.mat-mdc-unelevated-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-filled-button-hover-state-layer-opacity)}.mat-mdc-unelevated-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-filled-button-focus-state-layer-opacity)}.mat-mdc-unelevated-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-filled-button-pressed-state-layer-opacity)}.mat-mdc-unelevated-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-filled-button-touch-target-display)}.mat-mdc-unelevated-button[disabled],.mat-mdc-unelevated-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-filled-button-disabled-label-text-color);background-color:var(--mdc-filled-button-disabled-container-color)}.mat-mdc-unelevated-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-raised-button{font-family:var(--mdc-protected-button-label-text-font);font-size:var(--mdc-protected-button-label-text-size);letter-spacing:var(--mdc-protected-button-label-text-tracking);font-weight:var(--mdc-protected-button-label-text-weight);text-transform:var(--mdc-protected-button-label-text-transform);height:var(--mdc-protected-button-container-height);border-radius:var(--mdc-protected-button-container-shape);padding:0 var(--mat-protected-button-horizontal-padding, 16px);box-shadow:var(--mdc-protected-button-container-elevation-shadow)}.mat-mdc-raised-button:not(:disabled){background-color:var(--mdc-protected-button-container-color)}.mat-mdc-raised-button:disabled{background-color:var(--mdc-protected-button-disabled-container-color)}.mat-mdc-raised-button:not(:disabled){color:var(--mdc-protected-button-label-text-color)}.mat-mdc-raised-button:disabled{color:var(--mdc-protected-button-disabled-label-text-color)}.mat-mdc-raised-button .mdc-button__ripple{border-radius:var(--mdc-protected-button-container-shape)}.mat-mdc-raised-button>.mat-icon{margin-right:var(--mat-protected-button-icon-spacing, 8px);margin-left:var(--mat-protected-button-icon-offset, -4px)}[dir=rtl] .mat-mdc-raised-button>.mat-icon{margin-right:var(--mat-protected-button-icon-offset, -4px);margin-left:var(--mat-protected-button-icon-spacing, 8px)}.mat-mdc-raised-button .mdc-button__label+.mat-icon{margin-right:var(--mat-protected-button-icon-offset, -4px);margin-left:var(--mat-protected-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-raised-button .mdc-button__label+.mat-icon{margin-right:var(--mat-protected-button-icon-spacing, 8px);margin-left:var(--mat-protected-button-icon-offset, -4px)}.mat-mdc-raised-button .mat-ripple-element{background-color:var(--mat-protected-button-ripple-color)}.mat-mdc-raised-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-protected-button-state-layer-color)}.mat-mdc-raised-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-protected-button-disabled-state-layer-color)}.mat-mdc-raised-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-protected-button-hover-state-layer-opacity)}.mat-mdc-raised-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-protected-button-focus-state-layer-opacity)}.mat-mdc-raised-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-protected-button-pressed-state-layer-opacity)}.mat-mdc-raised-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-protected-button-touch-target-display)}.mat-mdc-raised-button:hover{box-shadow:var(--mdc-protected-button-hover-container-elevation-shadow)}.mat-mdc-raised-button:focus{box-shadow:var(--mdc-protected-button-focus-container-elevation-shadow)}.mat-mdc-raised-button:active,.mat-mdc-raised-button:focus:active{box-shadow:var(--mdc-protected-button-pressed-container-elevation-shadow)}.mat-mdc-raised-button[disabled],.mat-mdc-raised-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-protected-button-disabled-label-text-color);background-color:var(--mdc-protected-button-disabled-container-color)}.mat-mdc-raised-button[disabled].mat-mdc-button-disabled,.mat-mdc-raised-button.mat-mdc-button-disabled.mat-mdc-button-disabled{box-shadow:var(--mdc-protected-button-disabled-container-elevation-shadow)}.mat-mdc-raised-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-outlined-button{font-family:var(--mdc-outlined-button-label-text-font);font-size:var(--mdc-outlined-button-label-text-size);letter-spacing:var(--mdc-outlined-button-label-text-tracking);font-weight:var(--mdc-outlined-button-label-text-weight);text-transform:var(--mdc-outlined-button-label-text-transform);height:var(--mdc-outlined-button-container-height);border-radius:var(--mdc-outlined-button-container-shape);padding:0 15px 0 15px;border-width:var(--mdc-outlined-button-outline-width);padding:0 var(--mat-outlined-button-horizontal-padding, 15px)}.mat-mdc-outlined-button:not(:disabled){color:var(--mdc-outlined-button-label-text-color)}.mat-mdc-outlined-button:disabled{color:var(--mdc-outlined-button-disabled-label-text-color)}.mat-mdc-outlined-button .mdc-button__ripple{border-radius:var(--mdc-outlined-button-container-shape)}.mat-mdc-outlined-button:not(:disabled){border-color:var(--mdc-outlined-button-outline-color)}.mat-mdc-outlined-button:disabled{border-color:var(--mdc-outlined-button-disabled-outline-color)}.mat-mdc-outlined-button.mdc-button--icon-trailing{padding:0 11px 0 15px}.mat-mdc-outlined-button.mdc-button--icon-leading{padding:0 15px 0 11px}.mat-mdc-outlined-button .mdc-button__ripple{top:-1px;left:-1px;bottom:-1px;right:-1px;border-width:var(--mdc-outlined-button-outline-width)}.mat-mdc-outlined-button .mdc-button__touch{left:calc(-1 * var(--mdc-outlined-button-outline-width));width:calc(100% + 2 * var(--mdc-outlined-button-outline-width))}.mat-mdc-outlined-button>.mat-icon{margin-right:var(--mat-outlined-button-icon-spacing, 8px);margin-left:var(--mat-outlined-button-icon-offset, -4px)}[dir=rtl] .mat-mdc-outlined-button>.mat-icon{margin-right:var(--mat-outlined-button-icon-offset, -4px);margin-left:var(--mat-outlined-button-icon-spacing, 8px)}.mat-mdc-outlined-button .mdc-button__label+.mat-icon{margin-right:var(--mat-outlined-button-icon-offset, -4px);margin-left:var(--mat-outlined-button-icon-spacing, 8px)}[dir=rtl] .mat-mdc-outlined-button .mdc-button__label+.mat-icon{margin-right:var(--mat-outlined-button-icon-spacing, 8px);margin-left:var(--mat-outlined-button-icon-offset, -4px)}.mat-mdc-outlined-button .mat-ripple-element{background-color:var(--mat-outlined-button-ripple-color)}.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-outlined-button-state-layer-color)}.mat-mdc-outlined-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-outlined-button-disabled-state-layer-color)}.mat-mdc-outlined-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-outlined-button-hover-state-layer-opacity)}.mat-mdc-outlined-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-outlined-button-focus-state-layer-opacity)}.mat-mdc-outlined-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-outlined-button-pressed-state-layer-opacity)}.mat-mdc-outlined-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:0;right:0;transform:translateY(-50%);display:var(--mat-outlined-button-touch-target-display)}.mat-mdc-outlined-button[disabled],.mat-mdc-outlined-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-outlined-button-disabled-label-text-color);border-color:var(--mdc-outlined-button-disabled-outline-color)}.mat-mdc-outlined-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-button-base{text-decoration:none}.mat-mdc-button,.mat-mdc-unelevated-button,.mat-mdc-raised-button,.mat-mdc-outlined-button{-webkit-tap-highlight-color:rgba(0,0,0,0)}.mat-mdc-button .mat-mdc-button-ripple,.mat-mdc-button .mat-mdc-button-persistent-ripple,.mat-mdc-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button .mat-mdc-button-ripple,.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple,.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button .mat-mdc-button-ripple,.mat-mdc-raised-button .mat-mdc-button-persistent-ripple,.mat-mdc-raised-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button .mat-mdc-button-ripple,.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple,.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-mdc-button .mat-mdc-button-ripple,.mat-mdc-unelevated-button .mat-mdc-button-ripple,.mat-mdc-raised-button .mat-mdc-button-ripple,.mat-mdc-outlined-button .mat-mdc-button-ripple{overflow:hidden}.mat-mdc-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-raised-button .mat-mdc-button-persistent-ripple::before,.mat-mdc-outlined-button .mat-mdc-button-persistent-ripple::before{content:"";opacity:0}.mat-mdc-button .mdc-button__label,.mat-mdc-unelevated-button .mdc-button__label,.mat-mdc-raised-button .mdc-button__label,.mat-mdc-outlined-button .mdc-button__label{z-index:1}.mat-mdc-button .mat-mdc-focus-indicator,.mat-mdc-unelevated-button .mat-mdc-focus-indicator,.mat-mdc-raised-button .mat-mdc-focus-indicator,.mat-mdc-outlined-button .mat-mdc-focus-indicator{top:0;left:0;right:0;bottom:0;position:absolute}.mat-mdc-button:focus .mat-mdc-focus-indicator::before,.mat-mdc-unelevated-button:focus .mat-mdc-focus-indicator::before,.mat-mdc-raised-button:focus .mat-mdc-focus-indicator::before,.mat-mdc-outlined-button:focus .mat-mdc-focus-indicator::before{content:""}.mat-mdc-button._mat-animation-noopable,.mat-mdc-unelevated-button._mat-animation-noopable,.mat-mdc-raised-button._mat-animation-noopable,.mat-mdc-outlined-button._mat-animation-noopable{transition:none !important;animation:none !important}.mat-mdc-button>.mat-icon,.mat-mdc-unelevated-button>.mat-icon,.mat-mdc-raised-button>.mat-icon,.mat-mdc-outlined-button>.mat-icon{display:inline-block;position:relative;vertical-align:top;font-size:1.125rem;height:1.125rem;width:1.125rem}.mat-mdc-outlined-button .mat-mdc-button-ripple,.mat-mdc-outlined-button .mdc-button__ripple{top:-1px;left:-1px;bottom:-1px;right:-1px;border-width:-1px}.mat-mdc-unelevated-button .mat-mdc-focus-indicator::before,.mat-mdc-raised-button .mat-mdc-focus-indicator::before{margin:calc(calc(var(--mat-mdc-focus-indicator-border-width, 3px) + 2px)*-1)}.mat-mdc-outlined-button .mat-mdc-focus-indicator::before{margin:calc(calc(var(--mat-mdc-focus-indicator-border-width, 3px) + 3px)*-1)}', ".cdk-high-contrast-active .mat-mdc-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-unelevated-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-raised-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-outlined-button:not(.mdc-button--outlined),.cdk-high-contrast-active .mat-mdc-icon-button{outline:solid 1px}"],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var MatButton = _MatButton;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatButton, [{
     type: Component,
@@ -4955,53 +5127,56 @@ var MatButton = _MatButton;
     }]
   }], null);
 })();
-var _MatAnchor = class _MatAnchor extends MatAnchorBase {
+var MatAnchor = class _MatAnchor extends MatAnchorBase {
   constructor(elementRef, platform, ngZone, animationMode) {
     super(elementRef, platform, ngZone, animationMode);
   }
+  static {
+    this.ɵfac = function MatAnchor_Factory(t) {
+      return new (t || _MatAnchor)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(Platform), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(ANIMATION_MODULE_TYPE, 8));
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _MatAnchor,
+      selectors: [["a", "mat-button", ""], ["a", "mat-raised-button", ""], ["a", "mat-flat-button", ""], ["a", "mat-stroked-button", ""]],
+      hostVars: 15,
+      hostBindings: function MatAnchor_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵattribute("disabled", ctx._getDisabledAttribute())("tabindex", ctx.disabled && !ctx.disabledInteractive ? -1 : ctx.tabIndex)("aria-disabled", ctx._getDisabledAttribute());
+          ɵɵclassMap(ctx.color ? "mat-" + ctx.color : "");
+          ɵɵclassProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true);
+        }
+      },
+      exportAs: ["matButton", "matAnchor"],
+      standalone: true,
+      features: [ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
+      attrs: _c02,
+      ngContentSelectors: _c22,
+      decls: 7,
+      vars: 4,
+      consts: [[1, "mat-mdc-button-persistent-ripple"], [1, "mdc-button__label"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
+      template: function MatAnchor_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵprojectionDef(_c12);
+          ɵɵelement(0, "span", 0);
+          ɵɵprojection(1);
+          ɵɵelementStart(2, "span", 1);
+          ɵɵprojection(3, 1);
+          ɵɵelementEnd();
+          ɵɵprojection(4, 2);
+          ɵɵelement(5, "span", 2)(6, "span", 3);
+        }
+        if (rf & 2) {
+          ɵɵclassProp("mdc-button__ripple", !ctx._isFab)("mdc-fab__ripple", ctx._isFab);
+        }
+      },
+      styles: [_c32, _c42],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_MatAnchor.ɵfac = function MatAnchor_Factory(t) {
-  return new (t || _MatAnchor)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(Platform), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(ANIMATION_MODULE_TYPE, 8));
-};
-_MatAnchor.ɵcmp = ɵɵdefineComponent({
-  type: _MatAnchor,
-  selectors: [["a", "mat-button", ""], ["a", "mat-raised-button", ""], ["a", "mat-flat-button", ""], ["a", "mat-stroked-button", ""]],
-  hostVars: 15,
-  hostBindings: function MatAnchor_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵattribute("disabled", ctx._getDisabledAttribute())("tabindex", ctx.disabled && !ctx.disabledInteractive ? -1 : ctx.tabIndex)("aria-disabled", ctx._getDisabledAttribute());
-      ɵɵclassMap(ctx.color ? "mat-" + ctx.color : "");
-      ɵɵclassProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true);
-    }
-  },
-  exportAs: ["matButton", "matAnchor"],
-  standalone: true,
-  features: [ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
-  attrs: _c02,
-  ngContentSelectors: _c22,
-  decls: 7,
-  vars: 4,
-  consts: [[1, "mat-mdc-button-persistent-ripple"], [1, "mdc-button__label"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
-  template: function MatAnchor_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵprojectionDef(_c12);
-      ɵɵelement(0, "span", 0);
-      ɵɵprojection(1);
-      ɵɵelementStart(2, "span", 1);
-      ɵɵprojection(3, 1);
-      ɵɵelementEnd();
-      ɵɵprojection(4, 2);
-      ɵɵelement(5, "span", 2)(6, "span", 3);
-    }
-    if (rf & 2) {
-      ɵɵclassProp("mdc-button__ripple", !ctx._isFab)("mdc-fab__ripple", ctx._isFab);
-    }
-  },
-  styles: [_c32, _c42],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var MatAnchor = _MatAnchor;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatAnchor, [{
     type: Component,
@@ -5062,7 +5237,7 @@ function MAT_FAB_DEFAULT_OPTIONS_FACTORY() {
   };
 }
 var defaults = MAT_FAB_DEFAULT_OPTIONS_FACTORY();
-var _MatFabButton = class _MatFabButton extends MatButtonBase {
+var MatFabButton = class _MatFabButton extends MatButtonBase {
   constructor(elementRef, platform, ngZone, animationMode, _options) {
     super(elementRef, platform, ngZone, animationMode);
     this._options = _options;
@@ -5070,52 +5245,55 @@ var _MatFabButton = class _MatFabButton extends MatButtonBase {
     this._options = this._options || defaults;
     this.color = this._options.color || defaults.color;
   }
+  static {
+    this.ɵfac = function MatFabButton_Factory(t) {
+      return new (t || _MatFabButton)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(Platform), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(ANIMATION_MODULE_TYPE, 8), ɵɵdirectiveInject(MAT_FAB_DEFAULT_OPTIONS, 8));
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _MatFabButton,
+      selectors: [["button", "mat-fab", ""]],
+      hostVars: 18,
+      hostBindings: function MatFabButton_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵattribute("disabled", ctx._getDisabledAttribute())("aria-disabled", ctx._getAriaDisabled());
+          ɵɵclassMap(ctx.color ? "mat-" + ctx.color : "");
+          ɵɵclassProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true)("mdc-fab--extended", ctx.extended)("mat-mdc-extended-fab", ctx.extended);
+        }
+      },
+      inputs: {
+        extended: [InputFlags.HasDecoratorInputTransform, "extended", "extended", booleanAttribute]
+      },
+      exportAs: ["matButton"],
+      standalone: true,
+      features: [ɵɵInputTransformsFeature, ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
+      attrs: _c52,
+      ngContentSelectors: _c22,
+      decls: 7,
+      vars: 4,
+      consts: [[1, "mat-mdc-button-persistent-ripple"], [1, "mdc-button__label"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
+      template: function MatFabButton_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵprojectionDef(_c12);
+          ɵɵelement(0, "span", 0);
+          ɵɵprojection(1);
+          ɵɵelementStart(2, "span", 1);
+          ɵɵprojection(3, 1);
+          ɵɵelementEnd();
+          ɵɵprojection(4, 2);
+          ɵɵelement(5, "span", 2)(6, "span", 3);
+        }
+        if (rf & 2) {
+          ɵɵclassProp("mdc-button__ripple", !ctx._isFab)("mdc-fab__ripple", ctx._isFab);
+        }
+      },
+      styles: ['.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;pointer-events:none;opacity:var(--mdc-elevation-overlay-opacity);transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-fab{position:relative;display:inline-flex;position:relative;align-items:center;justify-content:center;box-sizing:border-box;width:56px;height:56px;padding:0;border:none;fill:currentColor;text-decoration:none;cursor:pointer;user-select:none;-moz-appearance:none;-webkit-appearance:none;overflow:visible;transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),opacity 15ms linear 30ms,transform 270ms 0ms cubic-bezier(0, 0, 0.2, 1)}.mdc-fab .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-fab[hidden]{display:none}.mdc-fab::-moz-focus-inner{padding:0;border:0}.mdc-fab .mdc-fab__focus-ring{position:absolute}.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring{pointer-events:none;border:2px solid rgba(0,0,0,0);border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring{border-color:CanvasText}}.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring::after,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring::after{content:"";border:2px solid rgba(0,0,0,0);border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring::after,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring::after{border-color:CanvasText}}.mdc-fab:active,.mdc-fab:focus{outline:none}.mdc-fab:hover{cursor:pointer}.mdc-fab>svg{width:100%}.mdc-fab--mini{width:40px;height:40px}.mdc-fab--extended{border-radius:24px;padding-left:20px;padding-right:20px;width:auto;max-width:100%;height:48px;line-height:normal}.mdc-fab--extended .mdc-fab__ripple{border-radius:24px}.mdc-fab--extended .mdc-fab__icon{margin-left:calc(12px - 20px);margin-right:12px}[dir=rtl] .mdc-fab--extended .mdc-fab__icon,.mdc-fab--extended .mdc-fab__icon[dir=rtl]{margin-left:12px;margin-right:calc(12px - 20px)}.mdc-fab--extended .mdc-fab__label+.mdc-fab__icon{margin-left:12px;margin-right:calc(12px - 20px)}[dir=rtl] .mdc-fab--extended .mdc-fab__label+.mdc-fab__icon,.mdc-fab--extended .mdc-fab__label+.mdc-fab__icon[dir=rtl]{margin-left:calc(12px - 20px);margin-right:12px}.mdc-fab--touch{margin-top:4px;margin-bottom:4px;margin-right:4px;margin-left:4px}.mdc-fab--touch .mdc-fab__touch{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%)}.mdc-fab::before{position:absolute;box-sizing:border-box;width:100%;height:100%;top:0;left:0;border:1px solid rgba(0,0,0,0);border-radius:inherit;content:"";pointer-events:none}@media screen and (forced-colors: active){.mdc-fab::before{border-color:CanvasText}}.mdc-fab__label{justify-content:flex-start;text-overflow:ellipsis;white-space:nowrap;overflow-x:hidden;overflow-y:visible}.mdc-fab__icon{transition:transform 180ms 90ms cubic-bezier(0, 0, 0.2, 1);fill:currentColor;will-change:transform}.mdc-fab .mdc-fab__icon{display:inline-flex;align-items:center;justify-content:center}.mdc-fab--exited{transform:scale(0);opacity:0;transition:opacity 15ms linear 150ms,transform 180ms 0ms cubic-bezier(0.4, 0, 1, 1)}.mdc-fab--exited .mdc-fab__icon{transform:scale(0);transition:transform 135ms 0ms cubic-bezier(0.4, 0, 1, 1)}.mat-mdc-fab{background-color:var(--mdc-fab-container-color)}.mat-mdc-fab .mdc-fab__icon{width:var(--mdc-fab-icon-size);height:var(--mdc-fab-icon-size);font-size:var(--mdc-fab-icon-size)}.mat-mdc-fab:not(.mdc-fab--extended){border-radius:var(--mdc-fab-container-shape)}.mat-mdc-fab:not(.mdc-fab--extended) .mdc-fab__ripple{border-radius:var(--mdc-fab-container-shape)}.mat-mdc-mini-fab{background-color:var(--mdc-fab-small-container-color)}.mat-mdc-mini-fab .mdc-fab__icon{width:var(--mdc-fab-small-icon-size);height:var(--mdc-fab-small-icon-size);font-size:var(--mdc-fab-small-icon-size)}.mat-mdc-mini-fab:not(.mdc-fab--extended){border-radius:var(--mdc-fab-small-container-shape)}.mat-mdc-mini-fab:not(.mdc-fab--extended) .mdc-fab__ripple{border-radius:var(--mdc-fab-small-container-shape)}.mat-mdc-extended-fab{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;height:var(--mdc-extended-fab-container-height);border-radius:var(--mdc-extended-fab-container-shape);font-family:var(--mdc-extended-fab-label-text-font);font-size:var(--mdc-extended-fab-label-text-size);font-weight:var(--mdc-extended-fab-label-text-weight);letter-spacing:var(--mdc-extended-fab-label-text-tracking)}.mat-mdc-extended-fab .mdc-fab__ripple{border-radius:var(--mdc-extended-fab-container-shape)}.mat-mdc-fab,.mat-mdc-mini-fab{-webkit-tap-highlight-color:rgba(0,0,0,0);flex-shrink:0}.mat-mdc-fab .mat-mdc-button-ripple,.mat-mdc-fab .mat-mdc-button-persistent-ripple,.mat-mdc-fab .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab .mat-mdc-button-ripple,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-mdc-fab .mat-mdc-button-ripple,.mat-mdc-mini-fab .mat-mdc-button-ripple{overflow:hidden}.mat-mdc-fab .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{content:"";opacity:0}.mat-mdc-fab .mdc-button__label,.mat-mdc-mini-fab .mdc-button__label{z-index:1}.mat-mdc-fab .mat-mdc-focus-indicator,.mat-mdc-mini-fab .mat-mdc-focus-indicator{top:0;left:0;right:0;bottom:0;position:absolute}.mat-mdc-fab:focus .mat-mdc-focus-indicator::before,.mat-mdc-mini-fab:focus .mat-mdc-focus-indicator::before{content:""}.mat-mdc-fab._mat-animation-noopable,.mat-mdc-mini-fab._mat-animation-noopable{transition:none !important;animation:none !important}.mat-mdc-fab:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-mini-fab:not(.mdc-ripple-upgraded):focus::before{background:rgba(0,0,0,0);opacity:1}.mat-mdc-fab .mat-icon,.mat-mdc-fab .material-icons,.mat-mdc-mini-fab .mat-icon,.mat-mdc-mini-fab .material-icons{transition:transform 180ms 90ms cubic-bezier(0, 0, 0.2, 1);fill:currentColor;will-change:transform}.mat-mdc-fab .mat-mdc-focus-indicator::before,.mat-mdc-mini-fab .mat-mdc-focus-indicator::before{margin:calc(calc(var(--mat-mdc-focus-indicator-border-width, 3px) + 2px)*-1)}.mat-mdc-fab[disabled],.mat-mdc-fab.mat-mdc-button-disabled,.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none}.mat-mdc-fab[disabled],.mat-mdc-fab[disabled]:focus,.mat-mdc-fab.mat-mdc-button-disabled,.mat-mdc-fab.mat-mdc-button-disabled:focus,.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab[disabled]:focus,.mat-mdc-mini-fab.mat-mdc-button-disabled,.mat-mdc-mini-fab.mat-mdc-button-disabled:focus{box-shadow:none}.mat-mdc-fab.mat-mdc-button-disabled-interactive,.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-fab{color:var(--mat-fab-foreground-color, inherit);box-shadow:var(--mdc-fab-container-elevation-shadow)}.mat-mdc-fab .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-fab-touch-target-display)}.mat-mdc-fab .mat-ripple-element{background-color:var(--mat-fab-ripple-color)}.mat-mdc-fab .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-state-layer-color)}.mat-mdc-fab.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-disabled-state-layer-color)}.mat-mdc-fab:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-hover-state-layer-opacity)}.mat-mdc-fab.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-fab.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-fab.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-focus-state-layer-opacity)}.mat-mdc-fab:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-pressed-state-layer-opacity)}.mat-mdc-fab:hover{box-shadow:var(--mdc-fab-hover-container-elevation-shadow)}.mat-mdc-fab:focus{box-shadow:var(--mdc-fab-focus-container-elevation-shadow)}.mat-mdc-fab:active,.mat-mdc-fab:focus:active{box-shadow:var(--mdc-fab-pressed-container-elevation-shadow)}.mat-mdc-fab[disabled],.mat-mdc-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mat-fab-disabled-state-foreground-color);background-color:var(--mat-fab-disabled-state-container-color)}.mat-mdc-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-mini-fab{color:var(--mat-fab-small-foreground-color, inherit);box-shadow:var(--mdc-fab-small-container-elevation-shadow)}.mat-mdc-mini-fab .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-fab-small-touch-target-display)}.mat-mdc-mini-fab .mat-ripple-element{background-color:var(--mat-fab-small-ripple-color)}.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-small-state-layer-color)}.mat-mdc-mini-fab.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-small-disabled-state-layer-color)}.mat-mdc-mini-fab:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-hover-state-layer-opacity)}.mat-mdc-mini-fab.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-focus-state-layer-opacity)}.mat-mdc-mini-fab:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-pressed-state-layer-opacity)}.mat-mdc-mini-fab:hover{box-shadow:var(--mdc-fab-small-hover-container-elevation-shadow)}.mat-mdc-mini-fab:focus{box-shadow:var(--mdc-fab-small-focus-container-elevation-shadow)}.mat-mdc-mini-fab:active,.mat-mdc-mini-fab:focus:active{box-shadow:var(--mdc-fab-small-pressed-container-elevation-shadow)}.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mat-fab-small-disabled-state-foreground-color);background-color:var(--mat-fab-small-disabled-state-container-color)}.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-extended-fab{box-shadow:var(--mdc-extended-fab-container-elevation-shadow)}.mat-mdc-extended-fab:hover{box-shadow:var(--mdc-extended-fab-hover-container-elevation-shadow)}.mat-mdc-extended-fab:focus{box-shadow:var(--mdc-extended-fab-focus-container-elevation-shadow)}.mat-mdc-extended-fab:active,.mat-mdc-extended-fab:focus:active{box-shadow:var(--mdc-extended-fab-pressed-container-elevation-shadow)}.mat-mdc-extended-fab[disabled],.mat-mdc-extended-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none}.mat-mdc-extended-fab[disabled],.mat-mdc-extended-fab[disabled]:focus,.mat-mdc-extended-fab.mat-mdc-button-disabled,.mat-mdc-extended-fab.mat-mdc-button-disabled:focus{box-shadow:none}.mat-mdc-extended-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-extended-fab>.mat-icon,.mat-mdc-extended-fab>.material-icons{margin-left:calc(12px - 20px);margin-right:12px}[dir=rtl] .mat-mdc-extended-fab>.mat-icon,[dir=rtl] .mat-mdc-extended-fab>.material-icons,.mat-mdc-extended-fab>.mat-icon[dir=rtl],.mat-mdc-extended-fab>.material-icons[dir=rtl]{margin-left:12px;margin-right:calc(12px - 20px)}.mat-mdc-extended-fab .mat-mdc-button-touch-target{width:100%}.mat-mdc-extended-fab .mdc-button__label+.mat-icon,.mat-mdc-extended-fab .mdc-button__label+.material-icons{margin-left:12px;margin-right:calc(12px - 20px)}[dir=rtl] .mat-mdc-extended-fab .mdc-button__label+.mat-icon,[dir=rtl] .mat-mdc-extended-fab .mdc-button__label+.material-icons,.mat-mdc-extended-fab .mdc-button__label+.mat-icon[dir=rtl],.mat-mdc-extended-fab .mdc-button__label+.material-icons[dir=rtl]{margin-left:calc(12px - 20px);margin-right:12px}'],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_MatFabButton.ɵfac = function MatFabButton_Factory(t) {
-  return new (t || _MatFabButton)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(Platform), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(ANIMATION_MODULE_TYPE, 8), ɵɵdirectiveInject(MAT_FAB_DEFAULT_OPTIONS, 8));
-};
-_MatFabButton.ɵcmp = ɵɵdefineComponent({
-  type: _MatFabButton,
-  selectors: [["button", "mat-fab", ""]],
-  hostVars: 18,
-  hostBindings: function MatFabButton_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵattribute("disabled", ctx._getDisabledAttribute())("aria-disabled", ctx._getAriaDisabled());
-      ɵɵclassMap(ctx.color ? "mat-" + ctx.color : "");
-      ɵɵclassProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true)("mdc-fab--extended", ctx.extended)("mat-mdc-extended-fab", ctx.extended);
-    }
-  },
-  inputs: {
-    extended: [InputFlags.HasDecoratorInputTransform, "extended", "extended", booleanAttribute]
-  },
-  exportAs: ["matButton"],
-  standalone: true,
-  features: [ɵɵInputTransformsFeature, ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
-  attrs: _c52,
-  ngContentSelectors: _c22,
-  decls: 7,
-  vars: 4,
-  consts: [[1, "mat-mdc-button-persistent-ripple"], [1, "mdc-button__label"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
-  template: function MatFabButton_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵprojectionDef(_c12);
-      ɵɵelement(0, "span", 0);
-      ɵɵprojection(1);
-      ɵɵelementStart(2, "span", 1);
-      ɵɵprojection(3, 1);
-      ɵɵelementEnd();
-      ɵɵprojection(4, 2);
-      ɵɵelement(5, "span", 2)(6, "span", 3);
-    }
-    if (rf & 2) {
-      ɵɵclassProp("mdc-button__ripple", !ctx._isFab)("mdc-fab__ripple", ctx._isFab);
-    }
-  },
-  styles: ['.mdc-touch-target-wrapper{display:inline}.mdc-elevation-overlay{position:absolute;border-radius:inherit;pointer-events:none;opacity:var(--mdc-elevation-overlay-opacity);transition:opacity 280ms cubic-bezier(0.4, 0, 0.2, 1)}.mdc-fab{position:relative;display:inline-flex;position:relative;align-items:center;justify-content:center;box-sizing:border-box;width:56px;height:56px;padding:0;border:none;fill:currentColor;text-decoration:none;cursor:pointer;user-select:none;-moz-appearance:none;-webkit-appearance:none;overflow:visible;transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),opacity 15ms linear 30ms,transform 270ms 0ms cubic-bezier(0, 0, 0.2, 1)}.mdc-fab .mdc-elevation-overlay{width:100%;height:100%;top:0;left:0}.mdc-fab[hidden]{display:none}.mdc-fab::-moz-focus-inner{padding:0;border:0}.mdc-fab .mdc-fab__focus-ring{position:absolute}.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring{pointer-events:none;border:2px solid rgba(0,0,0,0);border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring{border-color:CanvasText}}.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring::after,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring::after{content:"";border:2px solid rgba(0,0,0,0);border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-fab.mdc-ripple-upgraded--background-focused .mdc-fab__focus-ring::after,.mdc-fab:not(.mdc-ripple-upgraded):focus .mdc-fab__focus-ring::after{border-color:CanvasText}}.mdc-fab:active,.mdc-fab:focus{outline:none}.mdc-fab:hover{cursor:pointer}.mdc-fab>svg{width:100%}.mdc-fab--mini{width:40px;height:40px}.mdc-fab--extended{border-radius:24px;padding-left:20px;padding-right:20px;width:auto;max-width:100%;height:48px;line-height:normal}.mdc-fab--extended .mdc-fab__ripple{border-radius:24px}.mdc-fab--extended .mdc-fab__icon{margin-left:calc(12px - 20px);margin-right:12px}[dir=rtl] .mdc-fab--extended .mdc-fab__icon,.mdc-fab--extended .mdc-fab__icon[dir=rtl]{margin-left:12px;margin-right:calc(12px - 20px)}.mdc-fab--extended .mdc-fab__label+.mdc-fab__icon{margin-left:12px;margin-right:calc(12px - 20px)}[dir=rtl] .mdc-fab--extended .mdc-fab__label+.mdc-fab__icon,.mdc-fab--extended .mdc-fab__label+.mdc-fab__icon[dir=rtl]{margin-left:calc(12px - 20px);margin-right:12px}.mdc-fab--touch{margin-top:4px;margin-bottom:4px;margin-right:4px;margin-left:4px}.mdc-fab--touch .mdc-fab__touch{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%)}.mdc-fab::before{position:absolute;box-sizing:border-box;width:100%;height:100%;top:0;left:0;border:1px solid rgba(0,0,0,0);border-radius:inherit;content:"";pointer-events:none}@media screen and (forced-colors: active){.mdc-fab::before{border-color:CanvasText}}.mdc-fab__label{justify-content:flex-start;text-overflow:ellipsis;white-space:nowrap;overflow-x:hidden;overflow-y:visible}.mdc-fab__icon{transition:transform 180ms 90ms cubic-bezier(0, 0, 0.2, 1);fill:currentColor;will-change:transform}.mdc-fab .mdc-fab__icon{display:inline-flex;align-items:center;justify-content:center}.mdc-fab--exited{transform:scale(0);opacity:0;transition:opacity 15ms linear 150ms,transform 180ms 0ms cubic-bezier(0.4, 0, 1, 1)}.mdc-fab--exited .mdc-fab__icon{transform:scale(0);transition:transform 135ms 0ms cubic-bezier(0.4, 0, 1, 1)}.mat-mdc-fab{background-color:var(--mdc-fab-container-color)}.mat-mdc-fab .mdc-fab__icon{width:var(--mdc-fab-icon-size);height:var(--mdc-fab-icon-size);font-size:var(--mdc-fab-icon-size)}.mat-mdc-fab:not(.mdc-fab--extended){border-radius:var(--mdc-fab-container-shape)}.mat-mdc-fab:not(.mdc-fab--extended) .mdc-fab__ripple{border-radius:var(--mdc-fab-container-shape)}.mat-mdc-mini-fab{background-color:var(--mdc-fab-small-container-color)}.mat-mdc-mini-fab .mdc-fab__icon{width:var(--mdc-fab-small-icon-size);height:var(--mdc-fab-small-icon-size);font-size:var(--mdc-fab-small-icon-size)}.mat-mdc-mini-fab:not(.mdc-fab--extended){border-radius:var(--mdc-fab-small-container-shape)}.mat-mdc-mini-fab:not(.mdc-fab--extended) .mdc-fab__ripple{border-radius:var(--mdc-fab-small-container-shape)}.mat-mdc-extended-fab{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;height:var(--mdc-extended-fab-container-height);border-radius:var(--mdc-extended-fab-container-shape);font-family:var(--mdc-extended-fab-label-text-font);font-size:var(--mdc-extended-fab-label-text-size);font-weight:var(--mdc-extended-fab-label-text-weight);letter-spacing:var(--mdc-extended-fab-label-text-tracking)}.mat-mdc-extended-fab .mdc-fab__ripple{border-radius:var(--mdc-extended-fab-container-shape)}.mat-mdc-fab,.mat-mdc-mini-fab{-webkit-tap-highlight-color:rgba(0,0,0,0);flex-shrink:0}.mat-mdc-fab .mat-mdc-button-ripple,.mat-mdc-fab .mat-mdc-button-persistent-ripple,.mat-mdc-fab .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab .mat-mdc-button-ripple,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-mdc-fab .mat-mdc-button-ripple,.mat-mdc-mini-fab .mat-mdc-button-ripple{overflow:hidden}.mat-mdc-fab .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{content:"";opacity:0}.mat-mdc-fab .mdc-button__label,.mat-mdc-mini-fab .mdc-button__label{z-index:1}.mat-mdc-fab .mat-mdc-focus-indicator,.mat-mdc-mini-fab .mat-mdc-focus-indicator{top:0;left:0;right:0;bottom:0;position:absolute}.mat-mdc-fab:focus .mat-mdc-focus-indicator::before,.mat-mdc-mini-fab:focus .mat-mdc-focus-indicator::before{content:""}.mat-mdc-fab._mat-animation-noopable,.mat-mdc-mini-fab._mat-animation-noopable{transition:none !important;animation:none !important}.mat-mdc-fab:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-mini-fab:not(.mdc-ripple-upgraded):focus::before{background:rgba(0,0,0,0);opacity:1}.mat-mdc-fab .mat-icon,.mat-mdc-fab .material-icons,.mat-mdc-mini-fab .mat-icon,.mat-mdc-mini-fab .material-icons{transition:transform 180ms 90ms cubic-bezier(0, 0, 0.2, 1);fill:currentColor;will-change:transform}.mat-mdc-fab .mat-mdc-focus-indicator::before,.mat-mdc-mini-fab .mat-mdc-focus-indicator::before{margin:calc(calc(var(--mat-mdc-focus-indicator-border-width, 3px) + 2px)*-1)}.mat-mdc-fab[disabled],.mat-mdc-fab.mat-mdc-button-disabled,.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none}.mat-mdc-fab[disabled],.mat-mdc-fab[disabled]:focus,.mat-mdc-fab.mat-mdc-button-disabled,.mat-mdc-fab.mat-mdc-button-disabled:focus,.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab[disabled]:focus,.mat-mdc-mini-fab.mat-mdc-button-disabled,.mat-mdc-mini-fab.mat-mdc-button-disabled:focus{box-shadow:none}.mat-mdc-fab.mat-mdc-button-disabled-interactive,.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-fab{color:var(--mat-fab-foreground-color, inherit);box-shadow:var(--mdc-fab-container-elevation-shadow)}.mat-mdc-fab .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-fab-touch-target-display)}.mat-mdc-fab .mat-ripple-element{background-color:var(--mat-fab-ripple-color)}.mat-mdc-fab .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-state-layer-color)}.mat-mdc-fab.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-disabled-state-layer-color)}.mat-mdc-fab:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-hover-state-layer-opacity)}.mat-mdc-fab.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-fab.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-fab.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-focus-state-layer-opacity)}.mat-mdc-fab:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-pressed-state-layer-opacity)}.mat-mdc-fab:hover{box-shadow:var(--mdc-fab-hover-container-elevation-shadow)}.mat-mdc-fab:focus{box-shadow:var(--mdc-fab-focus-container-elevation-shadow)}.mat-mdc-fab:active,.mat-mdc-fab:focus:active{box-shadow:var(--mdc-fab-pressed-container-elevation-shadow)}.mat-mdc-fab[disabled],.mat-mdc-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mat-fab-disabled-state-foreground-color);background-color:var(--mat-fab-disabled-state-container-color)}.mat-mdc-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-mini-fab{color:var(--mat-fab-small-foreground-color, inherit);box-shadow:var(--mdc-fab-small-container-elevation-shadow)}.mat-mdc-mini-fab .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-fab-small-touch-target-display)}.mat-mdc-mini-fab .mat-ripple-element{background-color:var(--mat-fab-small-ripple-color)}.mat-mdc-mini-fab .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-small-state-layer-color)}.mat-mdc-mini-fab.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-fab-small-disabled-state-layer-color)}.mat-mdc-mini-fab:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-hover-state-layer-opacity)}.mat-mdc-mini-fab.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-focus-state-layer-opacity)}.mat-mdc-mini-fab:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-fab-small-pressed-state-layer-opacity)}.mat-mdc-mini-fab:hover{box-shadow:var(--mdc-fab-small-hover-container-elevation-shadow)}.mat-mdc-mini-fab:focus{box-shadow:var(--mdc-fab-small-focus-container-elevation-shadow)}.mat-mdc-mini-fab:active,.mat-mdc-mini-fab:focus:active{box-shadow:var(--mdc-fab-small-pressed-container-elevation-shadow)}.mat-mdc-mini-fab[disabled],.mat-mdc-mini-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mat-fab-small-disabled-state-foreground-color);background-color:var(--mat-fab-small-disabled-state-container-color)}.mat-mdc-mini-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-extended-fab{box-shadow:var(--mdc-extended-fab-container-elevation-shadow)}.mat-mdc-extended-fab:hover{box-shadow:var(--mdc-extended-fab-hover-container-elevation-shadow)}.mat-mdc-extended-fab:focus{box-shadow:var(--mdc-extended-fab-focus-container-elevation-shadow)}.mat-mdc-extended-fab:active,.mat-mdc-extended-fab:focus:active{box-shadow:var(--mdc-extended-fab-pressed-container-elevation-shadow)}.mat-mdc-extended-fab[disabled],.mat-mdc-extended-fab.mat-mdc-button-disabled{cursor:default;pointer-events:none}.mat-mdc-extended-fab[disabled],.mat-mdc-extended-fab[disabled]:focus,.mat-mdc-extended-fab.mat-mdc-button-disabled,.mat-mdc-extended-fab.mat-mdc-button-disabled:focus{box-shadow:none}.mat-mdc-extended-fab.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-extended-fab>.mat-icon,.mat-mdc-extended-fab>.material-icons{margin-left:calc(12px - 20px);margin-right:12px}[dir=rtl] .mat-mdc-extended-fab>.mat-icon,[dir=rtl] .mat-mdc-extended-fab>.material-icons,.mat-mdc-extended-fab>.mat-icon[dir=rtl],.mat-mdc-extended-fab>.material-icons[dir=rtl]{margin-left:12px;margin-right:calc(12px - 20px)}.mat-mdc-extended-fab .mat-mdc-button-touch-target{width:100%}.mat-mdc-extended-fab .mdc-button__label+.mat-icon,.mat-mdc-extended-fab .mdc-button__label+.material-icons{margin-left:12px;margin-right:calc(12px - 20px)}[dir=rtl] .mat-mdc-extended-fab .mdc-button__label+.mat-icon,[dir=rtl] .mat-mdc-extended-fab .mdc-button__label+.material-icons,.mat-mdc-extended-fab .mdc-button__label+.mat-icon[dir=rtl],.mat-mdc-extended-fab .mdc-button__label+.material-icons[dir=rtl]{margin-left:calc(12px - 20px);margin-right:12px}'],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var MatFabButton = _MatFabButton;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatFabButton, [{
     type: Component,
@@ -5183,7 +5361,7 @@ var MatFabButton = _MatFabButton;
     }]
   });
 })();
-var _MatMiniFabButton = class _MatMiniFabButton extends MatButtonBase {
+var MatMiniFabButton = class _MatMiniFabButton extends MatButtonBase {
   constructor(elementRef, platform, ngZone, animationMode, _options) {
     super(elementRef, platform, ngZone, animationMode);
     this._options = _options;
@@ -5191,49 +5369,52 @@ var _MatMiniFabButton = class _MatMiniFabButton extends MatButtonBase {
     this._options = this._options || defaults;
     this.color = this._options.color || defaults.color;
   }
+  static {
+    this.ɵfac = function MatMiniFabButton_Factory(t) {
+      return new (t || _MatMiniFabButton)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(Platform), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(ANIMATION_MODULE_TYPE, 8), ɵɵdirectiveInject(MAT_FAB_DEFAULT_OPTIONS, 8));
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _MatMiniFabButton,
+      selectors: [["button", "mat-mini-fab", ""]],
+      hostVars: 14,
+      hostBindings: function MatMiniFabButton_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵattribute("disabled", ctx._getDisabledAttribute())("aria-disabled", ctx._getAriaDisabled());
+          ɵɵclassMap(ctx.color ? "mat-" + ctx.color : "");
+          ɵɵclassProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true);
+        }
+      },
+      exportAs: ["matButton"],
+      standalone: true,
+      features: [ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
+      attrs: _c62,
+      ngContentSelectors: _c22,
+      decls: 7,
+      vars: 4,
+      consts: [[1, "mat-mdc-button-persistent-ripple"], [1, "mdc-button__label"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
+      template: function MatMiniFabButton_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵprojectionDef(_c12);
+          ɵɵelement(0, "span", 0);
+          ɵɵprojection(1);
+          ɵɵelementStart(2, "span", 1);
+          ɵɵprojection(3, 1);
+          ɵɵelementEnd();
+          ɵɵprojection(4, 2);
+          ɵɵelement(5, "span", 2)(6, "span", 3);
+        }
+        if (rf & 2) {
+          ɵɵclassProp("mdc-button__ripple", !ctx._isFab)("mdc-fab__ripple", ctx._isFab);
+        }
+      },
+      styles: [_c7],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_MatMiniFabButton.ɵfac = function MatMiniFabButton_Factory(t) {
-  return new (t || _MatMiniFabButton)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(Platform), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(ANIMATION_MODULE_TYPE, 8), ɵɵdirectiveInject(MAT_FAB_DEFAULT_OPTIONS, 8));
-};
-_MatMiniFabButton.ɵcmp = ɵɵdefineComponent({
-  type: _MatMiniFabButton,
-  selectors: [["button", "mat-mini-fab", ""]],
-  hostVars: 14,
-  hostBindings: function MatMiniFabButton_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵattribute("disabled", ctx._getDisabledAttribute())("aria-disabled", ctx._getAriaDisabled());
-      ɵɵclassMap(ctx.color ? "mat-" + ctx.color : "");
-      ɵɵclassProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true);
-    }
-  },
-  exportAs: ["matButton"],
-  standalone: true,
-  features: [ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
-  attrs: _c62,
-  ngContentSelectors: _c22,
-  decls: 7,
-  vars: 4,
-  consts: [[1, "mat-mdc-button-persistent-ripple"], [1, "mdc-button__label"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
-  template: function MatMiniFabButton_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵprojectionDef(_c12);
-      ɵɵelement(0, "span", 0);
-      ɵɵprojection(1);
-      ɵɵelementStart(2, "span", 1);
-      ɵɵprojection(3, 1);
-      ɵɵelementEnd();
-      ɵɵprojection(4, 2);
-      ɵɵelement(5, "span", 2)(6, "span", 3);
-    }
-    if (rf & 2) {
-      ɵɵclassProp("mdc-button__ripple", !ctx._isFab)("mdc-fab__ripple", ctx._isFab);
-    }
-  },
-  styles: [_c7],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var MatMiniFabButton = _MatMiniFabButton;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatMiniFabButton, [{
     type: Component,
@@ -5291,7 +5472,7 @@ var MatMiniFabButton = _MatMiniFabButton;
     }]
   }], null);
 })();
-var _MatFabAnchor = class _MatFabAnchor extends MatAnchor {
+var MatFabAnchor = class _MatFabAnchor extends MatAnchor {
   constructor(elementRef, platform, ngZone, animationMode, _options) {
     super(elementRef, platform, ngZone, animationMode);
     this._options = _options;
@@ -5299,52 +5480,55 @@ var _MatFabAnchor = class _MatFabAnchor extends MatAnchor {
     this._options = this._options || defaults;
     this.color = this._options.color || defaults.color;
   }
+  static {
+    this.ɵfac = function MatFabAnchor_Factory(t) {
+      return new (t || _MatFabAnchor)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(Platform), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(ANIMATION_MODULE_TYPE, 8), ɵɵdirectiveInject(MAT_FAB_DEFAULT_OPTIONS, 8));
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _MatFabAnchor,
+      selectors: [["a", "mat-fab", ""]],
+      hostVars: 19,
+      hostBindings: function MatFabAnchor_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵattribute("disabled", ctx._getDisabledAttribute())("tabindex", ctx.disabled && !ctx.disabledInteractive ? -1 : ctx.tabIndex)("aria-disabled", ctx._getDisabledAttribute());
+          ɵɵclassMap(ctx.color ? "mat-" + ctx.color : "");
+          ɵɵclassProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true)("mdc-fab--extended", ctx.extended)("mat-mdc-extended-fab", ctx.extended);
+        }
+      },
+      inputs: {
+        extended: [InputFlags.HasDecoratorInputTransform, "extended", "extended", booleanAttribute]
+      },
+      exportAs: ["matButton", "matAnchor"],
+      standalone: true,
+      features: [ɵɵInputTransformsFeature, ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
+      attrs: _c52,
+      ngContentSelectors: _c22,
+      decls: 7,
+      vars: 4,
+      consts: [[1, "mat-mdc-button-persistent-ripple"], [1, "mdc-button__label"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
+      template: function MatFabAnchor_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵprojectionDef(_c12);
+          ɵɵelement(0, "span", 0);
+          ɵɵprojection(1);
+          ɵɵelementStart(2, "span", 1);
+          ɵɵprojection(3, 1);
+          ɵɵelementEnd();
+          ɵɵprojection(4, 2);
+          ɵɵelement(5, "span", 2)(6, "span", 3);
+        }
+        if (rf & 2) {
+          ɵɵclassProp("mdc-button__ripple", !ctx._isFab)("mdc-fab__ripple", ctx._isFab);
+        }
+      },
+      styles: [_c7],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_MatFabAnchor.ɵfac = function MatFabAnchor_Factory(t) {
-  return new (t || _MatFabAnchor)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(Platform), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(ANIMATION_MODULE_TYPE, 8), ɵɵdirectiveInject(MAT_FAB_DEFAULT_OPTIONS, 8));
-};
-_MatFabAnchor.ɵcmp = ɵɵdefineComponent({
-  type: _MatFabAnchor,
-  selectors: [["a", "mat-fab", ""]],
-  hostVars: 19,
-  hostBindings: function MatFabAnchor_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵattribute("disabled", ctx._getDisabledAttribute())("tabindex", ctx.disabled && !ctx.disabledInteractive ? -1 : ctx.tabIndex)("aria-disabled", ctx._getDisabledAttribute());
-      ɵɵclassMap(ctx.color ? "mat-" + ctx.color : "");
-      ɵɵclassProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true)("mdc-fab--extended", ctx.extended)("mat-mdc-extended-fab", ctx.extended);
-    }
-  },
-  inputs: {
-    extended: [InputFlags.HasDecoratorInputTransform, "extended", "extended", booleanAttribute]
-  },
-  exportAs: ["matButton", "matAnchor"],
-  standalone: true,
-  features: [ɵɵInputTransformsFeature, ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
-  attrs: _c52,
-  ngContentSelectors: _c22,
-  decls: 7,
-  vars: 4,
-  consts: [[1, "mat-mdc-button-persistent-ripple"], [1, "mdc-button__label"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
-  template: function MatFabAnchor_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵprojectionDef(_c12);
-      ɵɵelement(0, "span", 0);
-      ɵɵprojection(1);
-      ɵɵelementStart(2, "span", 1);
-      ɵɵprojection(3, 1);
-      ɵɵelementEnd();
-      ɵɵprojection(4, 2);
-      ɵɵelement(5, "span", 2)(6, "span", 3);
-    }
-    if (rf & 2) {
-      ɵɵclassProp("mdc-button__ripple", !ctx._isFab)("mdc-fab__ripple", ctx._isFab);
-    }
-  },
-  styles: [_c7],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var MatFabAnchor = _MatFabAnchor;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatFabAnchor, [{
     type: Component,
@@ -5412,7 +5596,7 @@ var MatFabAnchor = _MatFabAnchor;
     }]
   });
 })();
-var _MatMiniFabAnchor = class _MatMiniFabAnchor extends MatAnchor {
+var MatMiniFabAnchor = class _MatMiniFabAnchor extends MatAnchor {
   constructor(elementRef, platform, ngZone, animationMode, _options) {
     super(elementRef, platform, ngZone, animationMode);
     this._options = _options;
@@ -5420,49 +5604,52 @@ var _MatMiniFabAnchor = class _MatMiniFabAnchor extends MatAnchor {
     this._options = this._options || defaults;
     this.color = this._options.color || defaults.color;
   }
+  static {
+    this.ɵfac = function MatMiniFabAnchor_Factory(t) {
+      return new (t || _MatMiniFabAnchor)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(Platform), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(ANIMATION_MODULE_TYPE, 8), ɵɵdirectiveInject(MAT_FAB_DEFAULT_OPTIONS, 8));
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _MatMiniFabAnchor,
+      selectors: [["a", "mat-mini-fab", ""]],
+      hostVars: 15,
+      hostBindings: function MatMiniFabAnchor_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵattribute("disabled", ctx._getDisabledAttribute())("tabindex", ctx.disabled && !ctx.disabledInteractive ? -1 : ctx.tabIndex)("aria-disabled", ctx._getDisabledAttribute());
+          ɵɵclassMap(ctx.color ? "mat-" + ctx.color : "");
+          ɵɵclassProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true);
+        }
+      },
+      exportAs: ["matButton", "matAnchor"],
+      standalone: true,
+      features: [ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
+      attrs: _c62,
+      ngContentSelectors: _c22,
+      decls: 7,
+      vars: 4,
+      consts: [[1, "mat-mdc-button-persistent-ripple"], [1, "mdc-button__label"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
+      template: function MatMiniFabAnchor_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵprojectionDef(_c12);
+          ɵɵelement(0, "span", 0);
+          ɵɵprojection(1);
+          ɵɵelementStart(2, "span", 1);
+          ɵɵprojection(3, 1);
+          ɵɵelementEnd();
+          ɵɵprojection(4, 2);
+          ɵɵelement(5, "span", 2)(6, "span", 3);
+        }
+        if (rf & 2) {
+          ɵɵclassProp("mdc-button__ripple", !ctx._isFab)("mdc-fab__ripple", ctx._isFab);
+        }
+      },
+      styles: [_c7],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_MatMiniFabAnchor.ɵfac = function MatMiniFabAnchor_Factory(t) {
-  return new (t || _MatMiniFabAnchor)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(Platform), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(ANIMATION_MODULE_TYPE, 8), ɵɵdirectiveInject(MAT_FAB_DEFAULT_OPTIONS, 8));
-};
-_MatMiniFabAnchor.ɵcmp = ɵɵdefineComponent({
-  type: _MatMiniFabAnchor,
-  selectors: [["a", "mat-mini-fab", ""]],
-  hostVars: 15,
-  hostBindings: function MatMiniFabAnchor_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵattribute("disabled", ctx._getDisabledAttribute())("tabindex", ctx.disabled && !ctx.disabledInteractive ? -1 : ctx.tabIndex)("aria-disabled", ctx._getDisabledAttribute());
-      ɵɵclassMap(ctx.color ? "mat-" + ctx.color : "");
-      ɵɵclassProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true);
-    }
-  },
-  exportAs: ["matButton", "matAnchor"],
-  standalone: true,
-  features: [ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
-  attrs: _c62,
-  ngContentSelectors: _c22,
-  decls: 7,
-  vars: 4,
-  consts: [[1, "mat-mdc-button-persistent-ripple"], [1, "mdc-button__label"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
-  template: function MatMiniFabAnchor_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵprojectionDef(_c12);
-      ɵɵelement(0, "span", 0);
-      ɵɵprojection(1);
-      ɵɵelementStart(2, "span", 1);
-      ɵɵprojection(3, 1);
-      ɵɵelementEnd();
-      ɵɵprojection(4, 2);
-      ɵɵelement(5, "span", 2)(6, "span", 3);
-    }
-    if (rf & 2) {
-      ɵɵclassProp("mdc-button__ripple", !ctx._isFab)("mdc-fab__ripple", ctx._isFab);
-    }
-  },
-  styles: [_c7],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var MatMiniFabAnchor = _MatMiniFabAnchor;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatMiniFabAnchor, [{
     type: Component,
@@ -5520,49 +5707,52 @@ var MatMiniFabAnchor = _MatMiniFabAnchor;
     }]
   }], null);
 })();
-var _MatIconButton = class _MatIconButton extends MatButtonBase {
+var MatIconButton = class _MatIconButton extends MatButtonBase {
   constructor(elementRef, platform, ngZone, animationMode) {
     super(elementRef, platform, ngZone, animationMode);
     this._rippleLoader.configureRipple(this._elementRef.nativeElement, {
       centered: true
     });
   }
+  static {
+    this.ɵfac = function MatIconButton_Factory(t) {
+      return new (t || _MatIconButton)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(Platform), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(ANIMATION_MODULE_TYPE, 8));
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _MatIconButton,
+      selectors: [["button", "mat-icon-button", ""]],
+      hostVars: 14,
+      hostBindings: function MatIconButton_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵattribute("disabled", ctx._getDisabledAttribute())("aria-disabled", ctx._getAriaDisabled());
+          ɵɵclassMap(ctx.color ? "mat-" + ctx.color : "");
+          ɵɵclassProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true);
+        }
+      },
+      exportAs: ["matButton"],
+      standalone: true,
+      features: [ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
+      attrs: _c8,
+      ngContentSelectors: _c9,
+      decls: 4,
+      vars: 0,
+      consts: [[1, "mat-mdc-button-persistent-ripple", "mdc-icon-button__ripple"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
+      template: function MatIconButton_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵprojectionDef();
+          ɵɵelement(0, "span", 0);
+          ɵɵprojection(1);
+          ɵɵelement(2, "span", 1)(3, "span", 2);
+        }
+      },
+      styles: ['.mdc-icon-button{display:inline-block;position:relative;box-sizing:border-box;border:none;outline:none;background-color:rgba(0,0,0,0);fill:currentColor;color:inherit;text-decoration:none;cursor:pointer;user-select:none;z-index:0;overflow:visible}.mdc-icon-button .mdc-icon-button__touch{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%)}@media screen and (forced-colors: active){.mdc-icon-button.mdc-ripple-upgraded--background-focused .mdc-icon-button__focus-ring,.mdc-icon-button:not(.mdc-ripple-upgraded):focus .mdc-icon-button__focus-ring{display:block}}.mdc-icon-button:disabled{cursor:default;pointer-events:none}.mdc-icon-button[hidden]{display:none}.mdc-icon-button--display-flex{align-items:center;display:inline-flex;justify-content:center}.mdc-icon-button__focus-ring{pointer-events:none;border:2px solid rgba(0,0,0,0);border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:100%;width:100%;display:none}@media screen and (forced-colors: active){.mdc-icon-button__focus-ring{border-color:CanvasText}}.mdc-icon-button__focus-ring::after{content:"";border:2px solid rgba(0,0,0,0);border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-icon-button__focus-ring::after{border-color:CanvasText}}.mdc-icon-button__icon{display:inline-block}.mdc-icon-button__icon.mdc-icon-button__icon--on{display:none}.mdc-icon-button--on .mdc-icon-button__icon{display:none}.mdc-icon-button--on .mdc-icon-button__icon.mdc-icon-button__icon--on{display:inline-block}.mdc-icon-button__link{height:100%;left:0;outline:none;position:absolute;top:0;width:100%}.mat-mdc-icon-button{color:var(--mdc-icon-button-icon-color)}.mat-mdc-icon-button .mdc-button__icon{font-size:var(--mdc-icon-button-icon-size)}.mat-mdc-icon-button svg,.mat-mdc-icon-button img{width:var(--mdc-icon-button-icon-size);height:var(--mdc-icon-button-icon-size)}.mat-mdc-icon-button:disabled{color:var(--mdc-icon-button-disabled-icon-color)}.mat-mdc-icon-button{border-radius:50%;flex-shrink:0;text-align:center;width:var(--mdc-icon-button-state-layer-size, 48px);height:var(--mdc-icon-button-state-layer-size, 48px);padding:calc(calc(var(--mdc-icon-button-state-layer-size, 48px) - var(--mdc-icon-button-icon-size, 24px)) / 2);font-size:var(--mdc-icon-button-icon-size);-webkit-tap-highlight-color:rgba(0,0,0,0)}.mat-mdc-icon-button svg{vertical-align:baseline}.mat-mdc-icon-button[disabled],.mat-mdc-icon-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-icon-button-disabled-icon-color)}.mat-mdc-icon-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-icon-button .mat-mdc-button-ripple,.mat-mdc-icon-button .mat-mdc-button-persistent-ripple,.mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-mdc-icon-button .mat-mdc-button-ripple{overflow:hidden}.mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before{content:"";opacity:0}.mat-mdc-icon-button .mdc-button__label{z-index:1}.mat-mdc-icon-button .mat-mdc-focus-indicator{top:0;left:0;right:0;bottom:0;position:absolute}.mat-mdc-icon-button:focus .mat-mdc-focus-indicator::before{content:""}.mat-mdc-icon-button .mat-ripple-element{background-color:var(--mat-icon-button-ripple-color)}.mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-icon-button-state-layer-color)}.mat-mdc-icon-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-icon-button-disabled-state-layer-color)}.mat-mdc-icon-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-icon-button-hover-state-layer-opacity)}.mat-mdc-icon-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-icon-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-icon-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-icon-button-focus-state-layer-opacity)}.mat-mdc-icon-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-icon-button-pressed-state-layer-opacity)}.mat-mdc-icon-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-icon-button-touch-target-display)}.mat-mdc-icon-button._mat-animation-noopable{transition:none !important;animation:none !important}.mat-mdc-icon-button .mat-mdc-button-persistent-ripple{border-radius:50%}.mat-mdc-icon-button.mat-unthemed:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-icon-button.mat-primary:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-icon-button.mat-accent:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-icon-button.mat-warn:not(.mdc-ripple-upgraded):focus::before{background:rgba(0,0,0,0);opacity:1}', _c42],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_MatIconButton.ɵfac = function MatIconButton_Factory(t) {
-  return new (t || _MatIconButton)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(Platform), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(ANIMATION_MODULE_TYPE, 8));
-};
-_MatIconButton.ɵcmp = ɵɵdefineComponent({
-  type: _MatIconButton,
-  selectors: [["button", "mat-icon-button", ""]],
-  hostVars: 14,
-  hostBindings: function MatIconButton_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵattribute("disabled", ctx._getDisabledAttribute())("aria-disabled", ctx._getAriaDisabled());
-      ɵɵclassMap(ctx.color ? "mat-" + ctx.color : "");
-      ɵɵclassProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true);
-    }
-  },
-  exportAs: ["matButton"],
-  standalone: true,
-  features: [ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
-  attrs: _c8,
-  ngContentSelectors: _c9,
-  decls: 4,
-  vars: 0,
-  consts: [[1, "mat-mdc-button-persistent-ripple", "mdc-icon-button__ripple"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
-  template: function MatIconButton_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵprojectionDef();
-      ɵɵelement(0, "span", 0);
-      ɵɵprojection(1);
-      ɵɵelement(2, "span", 1)(3, "span", 2);
-    }
-  },
-  styles: ['.mdc-icon-button{display:inline-block;position:relative;box-sizing:border-box;border:none;outline:none;background-color:rgba(0,0,0,0);fill:currentColor;color:inherit;text-decoration:none;cursor:pointer;user-select:none;z-index:0;overflow:visible}.mdc-icon-button .mdc-icon-button__touch{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%)}@media screen and (forced-colors: active){.mdc-icon-button.mdc-ripple-upgraded--background-focused .mdc-icon-button__focus-ring,.mdc-icon-button:not(.mdc-ripple-upgraded):focus .mdc-icon-button__focus-ring{display:block}}.mdc-icon-button:disabled{cursor:default;pointer-events:none}.mdc-icon-button[hidden]{display:none}.mdc-icon-button--display-flex{align-items:center;display:inline-flex;justify-content:center}.mdc-icon-button__focus-ring{pointer-events:none;border:2px solid rgba(0,0,0,0);border-radius:6px;box-sizing:content-box;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:100%;width:100%;display:none}@media screen and (forced-colors: active){.mdc-icon-button__focus-ring{border-color:CanvasText}}.mdc-icon-button__focus-ring::after{content:"";border:2px solid rgba(0,0,0,0);border-radius:8px;display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);height:calc(100% + 4px);width:calc(100% + 4px)}@media screen and (forced-colors: active){.mdc-icon-button__focus-ring::after{border-color:CanvasText}}.mdc-icon-button__icon{display:inline-block}.mdc-icon-button__icon.mdc-icon-button__icon--on{display:none}.mdc-icon-button--on .mdc-icon-button__icon{display:none}.mdc-icon-button--on .mdc-icon-button__icon.mdc-icon-button__icon--on{display:inline-block}.mdc-icon-button__link{height:100%;left:0;outline:none;position:absolute;top:0;width:100%}.mat-mdc-icon-button{color:var(--mdc-icon-button-icon-color)}.mat-mdc-icon-button .mdc-button__icon{font-size:var(--mdc-icon-button-icon-size)}.mat-mdc-icon-button svg,.mat-mdc-icon-button img{width:var(--mdc-icon-button-icon-size);height:var(--mdc-icon-button-icon-size)}.mat-mdc-icon-button:disabled{color:var(--mdc-icon-button-disabled-icon-color)}.mat-mdc-icon-button{border-radius:50%;flex-shrink:0;text-align:center;width:var(--mdc-icon-button-state-layer-size, 48px);height:var(--mdc-icon-button-state-layer-size, 48px);padding:calc(calc(var(--mdc-icon-button-state-layer-size, 48px) - var(--mdc-icon-button-icon-size, 24px)) / 2);font-size:var(--mdc-icon-button-icon-size);-webkit-tap-highlight-color:rgba(0,0,0,0)}.mat-mdc-icon-button svg{vertical-align:baseline}.mat-mdc-icon-button[disabled],.mat-mdc-icon-button.mat-mdc-button-disabled{cursor:default;pointer-events:none;color:var(--mdc-icon-button-disabled-icon-color)}.mat-mdc-icon-button.mat-mdc-button-disabled-interactive{pointer-events:auto}.mat-mdc-icon-button .mat-mdc-button-ripple,.mat-mdc-icon-button .mat-mdc-button-persistent-ripple,.mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit}.mat-mdc-icon-button .mat-mdc-button-ripple{overflow:hidden}.mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before{content:"";opacity:0}.mat-mdc-icon-button .mdc-button__label{z-index:1}.mat-mdc-icon-button .mat-mdc-focus-indicator{top:0;left:0;right:0;bottom:0;position:absolute}.mat-mdc-icon-button:focus .mat-mdc-focus-indicator::before{content:""}.mat-mdc-icon-button .mat-ripple-element{background-color:var(--mat-icon-button-ripple-color)}.mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-icon-button-state-layer-color)}.mat-mdc-icon-button.mat-mdc-button-disabled .mat-mdc-button-persistent-ripple::before{background-color:var(--mat-icon-button-disabled-state-layer-color)}.mat-mdc-icon-button:hover .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-icon-button-hover-state-layer-opacity)}.mat-mdc-icon-button.cdk-program-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-icon-button.cdk-keyboard-focused .mat-mdc-button-persistent-ripple::before,.mat-mdc-icon-button.mat-mdc-button-disabled-interactive:focus .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-icon-button-focus-state-layer-opacity)}.mat-mdc-icon-button:active .mat-mdc-button-persistent-ripple::before{opacity:var(--mat-icon-button-pressed-state-layer-opacity)}.mat-mdc-icon-button .mat-mdc-button-touch-target{position:absolute;top:50%;height:48px;left:50%;width:48px;transform:translate(-50%, -50%);display:var(--mat-icon-button-touch-target-display)}.mat-mdc-icon-button._mat-animation-noopable{transition:none !important;animation:none !important}.mat-mdc-icon-button .mat-mdc-button-persistent-ripple{border-radius:50%}.mat-mdc-icon-button.mat-unthemed:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-icon-button.mat-primary:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-icon-button.mat-accent:not(.mdc-ripple-upgraded):focus::before,.mat-mdc-icon-button.mat-warn:not(.mdc-ripple-upgraded):focus::before{background:rgba(0,0,0,0);opacity:1}', _c42],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var MatIconButton = _MatIconButton;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatIconButton, [{
     type: Component,
@@ -5603,46 +5793,49 @@ var MatIconButton = _MatIconButton;
     }]
   }], null);
 })();
-var _MatIconAnchor = class _MatIconAnchor extends MatAnchorBase {
+var MatIconAnchor = class _MatIconAnchor extends MatAnchorBase {
   constructor(elementRef, platform, ngZone, animationMode) {
     super(elementRef, platform, ngZone, animationMode);
   }
+  static {
+    this.ɵfac = function MatIconAnchor_Factory(t) {
+      return new (t || _MatIconAnchor)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(Platform), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(ANIMATION_MODULE_TYPE, 8));
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _MatIconAnchor,
+      selectors: [["a", "mat-icon-button", ""]],
+      hostVars: 15,
+      hostBindings: function MatIconAnchor_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵattribute("disabled", ctx._getDisabledAttribute())("tabindex", ctx.disabled && !ctx.disabledInteractive ? -1 : ctx.tabIndex)("aria-disabled", ctx._getDisabledAttribute());
+          ɵɵclassMap(ctx.color ? "mat-" + ctx.color : "");
+          ɵɵclassProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true);
+        }
+      },
+      exportAs: ["matButton", "matAnchor"],
+      standalone: true,
+      features: [ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
+      attrs: _c8,
+      ngContentSelectors: _c9,
+      decls: 4,
+      vars: 0,
+      consts: [[1, "mat-mdc-button-persistent-ripple", "mdc-icon-button__ripple"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
+      template: function MatIconAnchor_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵprojectionDef();
+          ɵɵelement(0, "span", 0);
+          ɵɵprojection(1);
+          ɵɵelement(2, "span", 1)(3, "span", 2);
+        }
+      },
+      styles: [_c10, _c42],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_MatIconAnchor.ɵfac = function MatIconAnchor_Factory(t) {
-  return new (t || _MatIconAnchor)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(Platform), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(ANIMATION_MODULE_TYPE, 8));
-};
-_MatIconAnchor.ɵcmp = ɵɵdefineComponent({
-  type: _MatIconAnchor,
-  selectors: [["a", "mat-icon-button", ""]],
-  hostVars: 15,
-  hostBindings: function MatIconAnchor_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵattribute("disabled", ctx._getDisabledAttribute())("tabindex", ctx.disabled && !ctx.disabledInteractive ? -1 : ctx.tabIndex)("aria-disabled", ctx._getDisabledAttribute());
-      ɵɵclassMap(ctx.color ? "mat-" + ctx.color : "");
-      ɵɵclassProp("mat-mdc-button-disabled", ctx.disabled)("mat-mdc-button-disabled-interactive", ctx.disabledInteractive)("_mat-animation-noopable", ctx._animationMode === "NoopAnimations")("mat-unthemed", !ctx.color)("mat-mdc-button-base", true);
-    }
-  },
-  exportAs: ["matButton", "matAnchor"],
-  standalone: true,
-  features: [ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
-  attrs: _c8,
-  ngContentSelectors: _c9,
-  decls: 4,
-  vars: 0,
-  consts: [[1, "mat-mdc-button-persistent-ripple", "mdc-icon-button__ripple"], [1, "mat-mdc-focus-indicator"], [1, "mat-mdc-button-touch-target"]],
-  template: function MatIconAnchor_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵprojectionDef();
-      ɵɵelement(0, "span", 0);
-      ɵɵprojection(1);
-      ɵɵelement(2, "span", 1)(3, "span", 2);
-    }
-  },
-  styles: [_c10, _c42],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var MatIconAnchor = _MatIconAnchor;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatIconAnchor, [{
     type: Component,
@@ -5683,20 +5876,25 @@ var MatIconAnchor = _MatIconAnchor;
     }]
   }], null);
 })();
-var _MatButtonModule = class _MatButtonModule {
+var MatButtonModule = class _MatButtonModule {
+  static {
+    this.ɵfac = function MatButtonModule_Factory(t) {
+      return new (t || _MatButtonModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _MatButtonModule,
+      imports: [MatCommonModule, MatRippleModule, MatAnchor, MatButton, MatIconAnchor, MatMiniFabAnchor, MatMiniFabButton, MatIconButton, MatFabAnchor, MatFabButton],
+      exports: [MatAnchor, MatButton, MatIconAnchor, MatIconButton, MatMiniFabAnchor, MatMiniFabButton, MatFabAnchor, MatFabButton, MatCommonModule]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({
+      imports: [MatCommonModule, MatRippleModule, MatCommonModule]
+    });
+  }
 };
-_MatButtonModule.ɵfac = function MatButtonModule_Factory(t) {
-  return new (t || _MatButtonModule)();
-};
-_MatButtonModule.ɵmod = ɵɵdefineNgModule({
-  type: _MatButtonModule,
-  imports: [MatCommonModule, MatRippleModule, MatAnchor, MatButton, MatIconAnchor, MatMiniFabAnchor, MatMiniFabButton, MatIconButton, MatFabAnchor, MatFabButton],
-  exports: [MatAnchor, MatButton, MatIconAnchor, MatIconButton, MatMiniFabAnchor, MatMiniFabButton, MatFabAnchor, MatFabButton, MatCommonModule]
-});
-_MatButtonModule.ɵinj = ɵɵdefineInjector({
-  imports: [MatCommonModule, MatRippleModule, MatCommonModule]
-});
-var MatButtonModule = _MatButtonModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatButtonModule, [{
     type: NgModule,
@@ -5969,22 +6167,25 @@ var DomPortalOutlet = class extends BasePortalOutlet {
     return componentRef.hostView.rootNodes[0];
   }
 };
-var _CdkPortal = class _CdkPortal extends TemplatePortal {
+var CdkPortal = class _CdkPortal extends TemplatePortal {
   constructor(templateRef, viewContainerRef) {
     super(templateRef, viewContainerRef);
   }
+  static {
+    this.ɵfac = function CdkPortal_Factory(t) {
+      return new (t || _CdkPortal)(ɵɵdirectiveInject(TemplateRef), ɵɵdirectiveInject(ViewContainerRef));
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _CdkPortal,
+      selectors: [["", "cdkPortal", ""]],
+      exportAs: ["cdkPortal"],
+      standalone: true,
+      features: [ɵɵInheritDefinitionFeature]
+    });
+  }
 };
-_CdkPortal.ɵfac = function CdkPortal_Factory(t) {
-  return new (t || _CdkPortal)(ɵɵdirectiveInject(TemplateRef), ɵɵdirectiveInject(ViewContainerRef));
-};
-_CdkPortal.ɵdir = ɵɵdefineDirective({
-  type: _CdkPortal,
-  selectors: [["", "cdkPortal", ""]],
-  exportAs: ["cdkPortal"],
-  standalone: true,
-  features: [ɵɵInheritDefinitionFeature]
-});
-var CdkPortal = _CdkPortal;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(CdkPortal, [{
     type: Directive,
@@ -5999,25 +6200,28 @@ var CdkPortal = _CdkPortal;
     type: ViewContainerRef
   }], null);
 })();
-var _TemplatePortalDirective = class _TemplatePortalDirective extends CdkPortal {
+var TemplatePortalDirective = class _TemplatePortalDirective extends CdkPortal {
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵTemplatePortalDirective_BaseFactory;
+      return function TemplatePortalDirective_Factory(t) {
+        return (ɵTemplatePortalDirective_BaseFactory || (ɵTemplatePortalDirective_BaseFactory = ɵɵgetInheritedFactory(_TemplatePortalDirective)))(t || _TemplatePortalDirective);
+      };
+    })();
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _TemplatePortalDirective,
+      selectors: [["", "cdk-portal", ""], ["", "portal", ""]],
+      exportAs: ["cdkPortal"],
+      standalone: true,
+      features: [ɵɵProvidersFeature([{
+        provide: CdkPortal,
+        useExisting: _TemplatePortalDirective
+      }]), ɵɵInheritDefinitionFeature]
+    });
+  }
 };
-_TemplatePortalDirective.ɵfac = /* @__PURE__ */ (() => {
-  let ɵTemplatePortalDirective_BaseFactory;
-  return function TemplatePortalDirective_Factory(t) {
-    return (ɵTemplatePortalDirective_BaseFactory || (ɵTemplatePortalDirective_BaseFactory = ɵɵgetInheritedFactory(_TemplatePortalDirective)))(t || _TemplatePortalDirective);
-  };
-})();
-_TemplatePortalDirective.ɵdir = ɵɵdefineDirective({
-  type: _TemplatePortalDirective,
-  selectors: [["", "cdk-portal", ""], ["", "portal", ""]],
-  exportAs: ["cdkPortal"],
-  standalone: true,
-  features: [ɵɵProvidersFeature([{
-    provide: CdkPortal,
-    useExisting: _TemplatePortalDirective
-  }]), ɵɵInheritDefinitionFeature]
-});
-var TemplatePortalDirective = _TemplatePortalDirective;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(TemplatePortalDirective, [{
     type: Directive,
@@ -6032,7 +6236,7 @@ var TemplatePortalDirective = _TemplatePortalDirective;
     }]
   }], null, null);
 })();
-var _CdkPortalOutlet = class _CdkPortalOutlet extends BasePortalOutlet {
+var CdkPortalOutlet = class _CdkPortalOutlet extends BasePortalOutlet {
   constructor(_componentFactoryResolver, _viewContainerRef, _document) {
     super();
     this._componentFactoryResolver = _componentFactoryResolver;
@@ -6129,24 +6333,27 @@ var _CdkPortalOutlet = class _CdkPortalOutlet extends BasePortalOutlet {
     const nativeElement = this._viewContainerRef.element.nativeElement;
     return nativeElement.nodeType === nativeElement.ELEMENT_NODE ? nativeElement : nativeElement.parentNode;
   }
+  static {
+    this.ɵfac = function CdkPortalOutlet_Factory(t) {
+      return new (t || _CdkPortalOutlet)(ɵɵdirectiveInject(ComponentFactoryResolver$1), ɵɵdirectiveInject(ViewContainerRef), ɵɵdirectiveInject(DOCUMENT));
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _CdkPortalOutlet,
+      selectors: [["", "cdkPortalOutlet", ""]],
+      inputs: {
+        portal: [InputFlags.None, "cdkPortalOutlet", "portal"]
+      },
+      outputs: {
+        attached: "attached"
+      },
+      exportAs: ["cdkPortalOutlet"],
+      standalone: true,
+      features: [ɵɵInheritDefinitionFeature]
+    });
+  }
 };
-_CdkPortalOutlet.ɵfac = function CdkPortalOutlet_Factory(t) {
-  return new (t || _CdkPortalOutlet)(ɵɵdirectiveInject(ComponentFactoryResolver$1), ɵɵdirectiveInject(ViewContainerRef), ɵɵdirectiveInject(DOCUMENT));
-};
-_CdkPortalOutlet.ɵdir = ɵɵdefineDirective({
-  type: _CdkPortalOutlet,
-  selectors: [["", "cdkPortalOutlet", ""]],
-  inputs: {
-    portal: [InputFlags.None, "cdkPortalOutlet", "portal"]
-  },
-  outputs: {
-    attached: "attached"
-  },
-  exportAs: ["cdkPortalOutlet"],
-  standalone: true,
-  features: [ɵɵInheritDefinitionFeature]
-});
-var CdkPortalOutlet = _CdkPortalOutlet;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(CdkPortalOutlet, [{
     type: Directive,
@@ -6175,28 +6382,31 @@ var CdkPortalOutlet = _CdkPortalOutlet;
     }]
   });
 })();
-var _PortalHostDirective = class _PortalHostDirective extends CdkPortalOutlet {
+var PortalHostDirective = class _PortalHostDirective extends CdkPortalOutlet {
+  static {
+    this.ɵfac = /* @__PURE__ */ (() => {
+      let ɵPortalHostDirective_BaseFactory;
+      return function PortalHostDirective_Factory(t) {
+        return (ɵPortalHostDirective_BaseFactory || (ɵPortalHostDirective_BaseFactory = ɵɵgetInheritedFactory(_PortalHostDirective)))(t || _PortalHostDirective);
+      };
+    })();
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _PortalHostDirective,
+      selectors: [["", "cdkPortalHost", ""], ["", "portalHost", ""]],
+      inputs: {
+        portal: [InputFlags.None, "cdkPortalHost", "portal"]
+      },
+      exportAs: ["cdkPortalHost"],
+      standalone: true,
+      features: [ɵɵProvidersFeature([{
+        provide: CdkPortalOutlet,
+        useExisting: _PortalHostDirective
+      }]), ɵɵInheritDefinitionFeature]
+    });
+  }
 };
-_PortalHostDirective.ɵfac = /* @__PURE__ */ (() => {
-  let ɵPortalHostDirective_BaseFactory;
-  return function PortalHostDirective_Factory(t) {
-    return (ɵPortalHostDirective_BaseFactory || (ɵPortalHostDirective_BaseFactory = ɵɵgetInheritedFactory(_PortalHostDirective)))(t || _PortalHostDirective);
-  };
-})();
-_PortalHostDirective.ɵdir = ɵɵdefineDirective({
-  type: _PortalHostDirective,
-  selectors: [["", "cdkPortalHost", ""], ["", "portalHost", ""]],
-  inputs: {
-    portal: [InputFlags.None, "cdkPortalHost", "portal"]
-  },
-  exportAs: ["cdkPortalHost"],
-  standalone: true,
-  features: [ɵɵProvidersFeature([{
-    provide: CdkPortalOutlet,
-    useExisting: _PortalHostDirective
-  }]), ɵɵInheritDefinitionFeature]
-});
-var PortalHostDirective = _PortalHostDirective;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(PortalHostDirective, [{
     type: Directive,
@@ -6215,18 +6425,23 @@ var PortalHostDirective = _PortalHostDirective;
     }]
   }], null, null);
 })();
-var _PortalModule = class _PortalModule {
+var PortalModule = class _PortalModule {
+  static {
+    this.ɵfac = function PortalModule_Factory(t) {
+      return new (t || _PortalModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _PortalModule,
+      imports: [CdkPortal, CdkPortalOutlet, TemplatePortalDirective, PortalHostDirective],
+      exports: [CdkPortal, CdkPortalOutlet, TemplatePortalDirective, PortalHostDirective]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_PortalModule.ɵfac = function PortalModule_Factory(t) {
-  return new (t || _PortalModule)();
-};
-_PortalModule.ɵmod = ɵɵdefineNgModule({
-  type: _PortalModule,
-  imports: [CdkPortal, CdkPortalOutlet, TemplatePortalDirective, PortalHostDirective],
-  exports: [CdkPortal, CdkPortalOutlet, TemplatePortalDirective, PortalHostDirective]
-});
-_PortalModule.ɵinj = ɵɵdefineInjector({});
-var PortalModule = _PortalModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(PortalModule, [{
     type: NgModule,
@@ -6348,7 +6563,7 @@ var _RecycleViewRepeaterStrategy = class {
     return cachedView || null;
   }
 };
-var _UniqueSelectionDispatcher = class _UniqueSelectionDispatcher {
+var UniqueSelectionDispatcher = class _UniqueSelectionDispatcher {
   constructor() {
     this._listeners = [];
   }
@@ -6377,16 +6592,19 @@ var _UniqueSelectionDispatcher = class _UniqueSelectionDispatcher {
   ngOnDestroy() {
     this._listeners = [];
   }
+  static {
+    this.ɵfac = function UniqueSelectionDispatcher_Factory(t) {
+      return new (t || _UniqueSelectionDispatcher)();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _UniqueSelectionDispatcher,
+      factory: _UniqueSelectionDispatcher.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_UniqueSelectionDispatcher.ɵfac = function UniqueSelectionDispatcher_Factory(t) {
-  return new (t || _UniqueSelectionDispatcher)();
-};
-_UniqueSelectionDispatcher.ɵprov = ɵɵdefineInjectable({
-  token: _UniqueSelectionDispatcher,
-  factory: _UniqueSelectionDispatcher.ɵfac,
-  providedIn: "root"
-});
-var UniqueSelectionDispatcher = _UniqueSelectionDispatcher;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(UniqueSelectionDispatcher, [{
     type: Injectable,
@@ -6523,7 +6741,7 @@ var FixedSizeVirtualScrollStrategy = class {
 function _fixedSizeVirtualScrollStrategyFactory(fixedSizeDir) {
   return fixedSizeDir._scrollStrategy;
 }
-var _CdkFixedSizeVirtualScroll = class _CdkFixedSizeVirtualScroll {
+var CdkFixedSizeVirtualScroll = class _CdkFixedSizeVirtualScroll {
   constructor() {
     this._itemSize = 20;
     this._minBufferPx = 100;
@@ -6559,26 +6777,29 @@ var _CdkFixedSizeVirtualScroll = class _CdkFixedSizeVirtualScroll {
   ngOnChanges() {
     this._scrollStrategy.updateItemAndBufferSize(this.itemSize, this.minBufferPx, this.maxBufferPx);
   }
+  static {
+    this.ɵfac = function CdkFixedSizeVirtualScroll_Factory(t) {
+      return new (t || _CdkFixedSizeVirtualScroll)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _CdkFixedSizeVirtualScroll,
+      selectors: [["cdk-virtual-scroll-viewport", "itemSize", ""]],
+      inputs: {
+        itemSize: "itemSize",
+        minBufferPx: "minBufferPx",
+        maxBufferPx: "maxBufferPx"
+      },
+      standalone: true,
+      features: [ɵɵProvidersFeature([{
+        provide: VIRTUAL_SCROLL_STRATEGY,
+        useFactory: _fixedSizeVirtualScrollStrategyFactory,
+        deps: [forwardRef(() => _CdkFixedSizeVirtualScroll)]
+      }]), ɵɵNgOnChangesFeature]
+    });
+  }
 };
-_CdkFixedSizeVirtualScroll.ɵfac = function CdkFixedSizeVirtualScroll_Factory(t) {
-  return new (t || _CdkFixedSizeVirtualScroll)();
-};
-_CdkFixedSizeVirtualScroll.ɵdir = ɵɵdefineDirective({
-  type: _CdkFixedSizeVirtualScroll,
-  selectors: [["cdk-virtual-scroll-viewport", "itemSize", ""]],
-  inputs: {
-    itemSize: "itemSize",
-    minBufferPx: "minBufferPx",
-    maxBufferPx: "maxBufferPx"
-  },
-  standalone: true,
-  features: [ɵɵProvidersFeature([{
-    provide: VIRTUAL_SCROLL_STRATEGY,
-    useFactory: _fixedSizeVirtualScrollStrategyFactory,
-    deps: [forwardRef(() => _CdkFixedSizeVirtualScroll)]
-  }]), ɵɵNgOnChangesFeature]
-});
-var CdkFixedSizeVirtualScroll = _CdkFixedSizeVirtualScroll;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(CdkFixedSizeVirtualScroll, [{
     type: Directive,
@@ -6604,7 +6825,7 @@ var CdkFixedSizeVirtualScroll = _CdkFixedSizeVirtualScroll;
   });
 })();
 var DEFAULT_SCROLL_TIME = 20;
-var _ScrollDispatcher = class _ScrollDispatcher {
+var ScrollDispatcher = class _ScrollDispatcher {
   constructor(_ngZone, _platform, document2) {
     this._ngZone = _ngZone;
     this._platform = _platform;
@@ -6720,16 +6941,19 @@ var _ScrollDispatcher = class _ScrollDispatcher {
       this._globalSubscription = null;
     }
   }
+  static {
+    this.ɵfac = function ScrollDispatcher_Factory(t) {
+      return new (t || _ScrollDispatcher)(ɵɵinject(NgZone), ɵɵinject(Platform), ɵɵinject(DOCUMENT, 8));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _ScrollDispatcher,
+      factory: _ScrollDispatcher.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_ScrollDispatcher.ɵfac = function ScrollDispatcher_Factory(t) {
-  return new (t || _ScrollDispatcher)(ɵɵinject(NgZone), ɵɵinject(Platform), ɵɵinject(DOCUMENT, 8));
-};
-_ScrollDispatcher.ɵprov = ɵɵdefineInjectable({
-  token: _ScrollDispatcher,
-  factory: _ScrollDispatcher.ɵfac,
-  providedIn: "root"
-});
-var ScrollDispatcher = _ScrollDispatcher;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(ScrollDispatcher, [{
     type: Injectable,
@@ -6750,7 +6974,7 @@ var ScrollDispatcher = _ScrollDispatcher;
     }]
   }], null);
 })();
-var _CdkScrollable = class _CdkScrollable {
+var CdkScrollable = class _CdkScrollable {
   constructor(elementRef, scrollDispatcher, ngZone, dir) {
     this.elementRef = elementRef;
     this.scrollDispatcher = scrollDispatcher;
@@ -6869,16 +7093,19 @@ var _CdkScrollable = class _CdkScrollable {
       }
     }
   }
+  static {
+    this.ɵfac = function CdkScrollable_Factory(t) {
+      return new (t || _CdkScrollable)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(ScrollDispatcher), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(Directionality, 8));
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _CdkScrollable,
+      selectors: [["", "cdk-scrollable", ""], ["", "cdkScrollable", ""]],
+      standalone: true
+    });
+  }
 };
-_CdkScrollable.ɵfac = function CdkScrollable_Factory(t) {
-  return new (t || _CdkScrollable)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(ScrollDispatcher), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(Directionality, 8));
-};
-_CdkScrollable.ɵdir = ɵɵdefineDirective({
-  type: _CdkScrollable,
-  selectors: [["", "cdk-scrollable", ""], ["", "cdkScrollable", ""]],
-  standalone: true
-});
-var CdkScrollable = _CdkScrollable;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(CdkScrollable, [{
     type: Directive,
@@ -6900,7 +7127,7 @@ var CdkScrollable = _CdkScrollable;
   }], null);
 })();
 var DEFAULT_RESIZE_TIME = 20;
-var _ViewportRuler = class _ViewportRuler {
+var ViewportRuler = class _ViewportRuler {
   constructor(_platform, ngZone, document2) {
     this._platform = _platform;
     this._change = new Subject();
@@ -6997,16 +7224,19 @@ var _ViewportRuler = class _ViewportRuler {
       height: 0
     };
   }
+  static {
+    this.ɵfac = function ViewportRuler_Factory(t) {
+      return new (t || _ViewportRuler)(ɵɵinject(Platform), ɵɵinject(NgZone), ɵɵinject(DOCUMENT, 8));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _ViewportRuler,
+      factory: _ViewportRuler.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_ViewportRuler.ɵfac = function ViewportRuler_Factory(t) {
-  return new (t || _ViewportRuler)(ɵɵinject(Platform), ɵɵinject(NgZone), ɵɵinject(DOCUMENT, 8));
-};
-_ViewportRuler.ɵprov = ɵɵdefineInjectable({
-  token: _ViewportRuler,
-  factory: _ViewportRuler.ɵfac,
-  providedIn: "root"
-});
-var ViewportRuler = _ViewportRuler;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(ViewportRuler, [{
     type: Injectable,
@@ -7028,7 +7258,7 @@ var ViewportRuler = _ViewportRuler;
   }], null);
 })();
 var VIRTUAL_SCROLLABLE = new InjectionToken("VIRTUAL_SCROLLABLE");
-var _CdkVirtualScrollable = class _CdkVirtualScrollable extends CdkScrollable {
+var CdkVirtualScrollable = class _CdkVirtualScrollable extends CdkScrollable {
   constructor(elementRef, scrollDispatcher, ngZone, dir) {
     super(elementRef, scrollDispatcher, ngZone, dir);
   }
@@ -7041,15 +7271,18 @@ var _CdkVirtualScrollable = class _CdkVirtualScrollable extends CdkScrollable {
     const viewportEl = this.elementRef.nativeElement;
     return orientation === "horizontal" ? viewportEl.clientWidth : viewportEl.clientHeight;
   }
+  static {
+    this.ɵfac = function CdkVirtualScrollable_Factory(t) {
+      return new (t || _CdkVirtualScrollable)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(ScrollDispatcher), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(Directionality, 8));
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _CdkVirtualScrollable,
+      features: [ɵɵInheritDefinitionFeature]
+    });
+  }
 };
-_CdkVirtualScrollable.ɵfac = function CdkVirtualScrollable_Factory(t) {
-  return new (t || _CdkVirtualScrollable)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(ScrollDispatcher), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(Directionality, 8));
-};
-_CdkVirtualScrollable.ɵdir = ɵɵdefineDirective({
-  type: _CdkVirtualScrollable,
-  features: [ɵɵInheritDefinitionFeature]
-});
-var CdkVirtualScrollable = _CdkVirtualScrollable;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(CdkVirtualScrollable, [{
     type: Directive
@@ -7070,7 +7303,7 @@ function rangesEqual(r1, r2) {
   return r1.start == r2.start && r1.end == r2.end;
 }
 var SCROLL_SCHEDULER = typeof requestAnimationFrame !== "undefined" ? animationFrameScheduler : asapScheduler;
-var _CdkVirtualScrollViewport = class _CdkVirtualScrollViewport extends CdkVirtualScrollable {
+var CdkVirtualScrollViewport = class _CdkVirtualScrollViewport extends CdkVirtualScrollable {
   /** The direction the viewport scrolls. */
   get orientation() {
     return this._orientation;
@@ -7366,64 +7599,67 @@ var _CdkVirtualScrollViewport = class _CdkVirtualScrollViewport extends CdkVirtu
     this._totalContentHeight = this.orientation === "horizontal" ? "" : `${this._totalContentSize}px`;
     this._totalContentWidth = this.orientation === "horizontal" ? `${this._totalContentSize}px` : "";
   }
+  static {
+    this.ɵfac = function CdkVirtualScrollViewport_Factory(t) {
+      return new (t || _CdkVirtualScrollViewport)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(ChangeDetectorRef), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(VIRTUAL_SCROLL_STRATEGY, 8), ɵɵdirectiveInject(Directionality, 8), ɵɵdirectiveInject(ScrollDispatcher), ɵɵdirectiveInject(ViewportRuler), ɵɵdirectiveInject(VIRTUAL_SCROLLABLE, 8));
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _CdkVirtualScrollViewport,
+      selectors: [["cdk-virtual-scroll-viewport"]],
+      viewQuery: function CdkVirtualScrollViewport_Query(rf, ctx) {
+        if (rf & 1) {
+          ɵɵviewQuery(_c03, 7);
+        }
+        if (rf & 2) {
+          let _t;
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._contentWrapper = _t.first);
+        }
+      },
+      hostAttrs: [1, "cdk-virtual-scroll-viewport"],
+      hostVars: 4,
+      hostBindings: function CdkVirtualScrollViewport_HostBindings(rf, ctx) {
+        if (rf & 2) {
+          ɵɵclassProp("cdk-virtual-scroll-orientation-horizontal", ctx.orientation === "horizontal")("cdk-virtual-scroll-orientation-vertical", ctx.orientation !== "horizontal");
+        }
+      },
+      inputs: {
+        orientation: "orientation",
+        appendOnly: [InputFlags.HasDecoratorInputTransform, "appendOnly", "appendOnly", booleanAttribute]
+      },
+      outputs: {
+        scrolledIndexChange: "scrolledIndexChange"
+      },
+      standalone: true,
+      features: [ɵɵProvidersFeature([{
+        provide: CdkScrollable,
+        useFactory: (virtualScrollable, viewport) => virtualScrollable || viewport,
+        deps: [[new Optional(), new Inject(VIRTUAL_SCROLLABLE)], _CdkVirtualScrollViewport]
+      }]), ɵɵInputTransformsFeature, ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
+      ngContentSelectors: _c13,
+      decls: 4,
+      vars: 4,
+      consts: [["contentWrapper", ""], [1, "cdk-virtual-scroll-content-wrapper"], [1, "cdk-virtual-scroll-spacer"]],
+      template: function CdkVirtualScrollViewport_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵprojectionDef();
+          ɵɵelementStart(0, "div", 1, 0);
+          ɵɵprojection(2);
+          ɵɵelementEnd();
+          ɵɵelement(3, "div", 2);
+        }
+        if (rf & 2) {
+          ɵɵadvance(3);
+          ɵɵstyleProp("width", ctx._totalContentWidth)("height", ctx._totalContentHeight);
+        }
+      },
+      styles: ["cdk-virtual-scroll-viewport{display:block;position:relative;transform:translateZ(0)}.cdk-virtual-scrollable{overflow:auto;will-change:scroll-position;contain:strict;-webkit-overflow-scrolling:touch}.cdk-virtual-scroll-content-wrapper{position:absolute;top:0;left:0;contain:content}[dir=rtl] .cdk-virtual-scroll-content-wrapper{right:0;left:auto}.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper{min-height:100%}.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>dl:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>ol:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>table:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>ul:not([cdkVirtualFor]){padding-left:0;padding-right:0;margin-left:0;margin-right:0;border-left-width:0;border-right-width:0;outline:none}.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper{min-width:100%}.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>dl:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>ol:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>table:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>ul:not([cdkVirtualFor]){padding-top:0;padding-bottom:0;margin-top:0;margin-bottom:0;border-top-width:0;border-bottom-width:0;outline:none}.cdk-virtual-scroll-spacer{height:1px;transform-origin:0 0;flex:0 0 auto}[dir=rtl] .cdk-virtual-scroll-spacer{transform-origin:100% 0}"],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_CdkVirtualScrollViewport.ɵfac = function CdkVirtualScrollViewport_Factory(t) {
-  return new (t || _CdkVirtualScrollViewport)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(ChangeDetectorRef), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(VIRTUAL_SCROLL_STRATEGY, 8), ɵɵdirectiveInject(Directionality, 8), ɵɵdirectiveInject(ScrollDispatcher), ɵɵdirectiveInject(ViewportRuler), ɵɵdirectiveInject(VIRTUAL_SCROLLABLE, 8));
-};
-_CdkVirtualScrollViewport.ɵcmp = ɵɵdefineComponent({
-  type: _CdkVirtualScrollViewport,
-  selectors: [["cdk-virtual-scroll-viewport"]],
-  viewQuery: function CdkVirtualScrollViewport_Query(rf, ctx) {
-    if (rf & 1) {
-      ɵɵviewQuery(_c03, 7);
-    }
-    if (rf & 2) {
-      let _t;
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._contentWrapper = _t.first);
-    }
-  },
-  hostAttrs: [1, "cdk-virtual-scroll-viewport"],
-  hostVars: 4,
-  hostBindings: function CdkVirtualScrollViewport_HostBindings(rf, ctx) {
-    if (rf & 2) {
-      ɵɵclassProp("cdk-virtual-scroll-orientation-horizontal", ctx.orientation === "horizontal")("cdk-virtual-scroll-orientation-vertical", ctx.orientation !== "horizontal");
-    }
-  },
-  inputs: {
-    orientation: "orientation",
-    appendOnly: [InputFlags.HasDecoratorInputTransform, "appendOnly", "appendOnly", booleanAttribute]
-  },
-  outputs: {
-    scrolledIndexChange: "scrolledIndexChange"
-  },
-  standalone: true,
-  features: [ɵɵProvidersFeature([{
-    provide: CdkScrollable,
-    useFactory: (virtualScrollable, viewport) => virtualScrollable || viewport,
-    deps: [[new Optional(), new Inject(VIRTUAL_SCROLLABLE)], _CdkVirtualScrollViewport]
-  }]), ɵɵInputTransformsFeature, ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
-  ngContentSelectors: _c13,
-  decls: 4,
-  vars: 4,
-  consts: [["contentWrapper", ""], [1, "cdk-virtual-scroll-content-wrapper"], [1, "cdk-virtual-scroll-spacer"]],
-  template: function CdkVirtualScrollViewport_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵprojectionDef();
-      ɵɵelementStart(0, "div", 1, 0);
-      ɵɵprojection(2);
-      ɵɵelementEnd();
-      ɵɵelement(3, "div", 2);
-    }
-    if (rf & 2) {
-      ɵɵadvance(3);
-      ɵɵstyleProp("width", ctx._totalContentWidth)("height", ctx._totalContentHeight);
-    }
-  },
-  styles: ["cdk-virtual-scroll-viewport{display:block;position:relative;transform:translateZ(0)}.cdk-virtual-scrollable{overflow:auto;will-change:scroll-position;contain:strict;-webkit-overflow-scrolling:touch}.cdk-virtual-scroll-content-wrapper{position:absolute;top:0;left:0;contain:content}[dir=rtl] .cdk-virtual-scroll-content-wrapper{right:0;left:auto}.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper{min-height:100%}.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>dl:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>ol:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>table:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-horizontal .cdk-virtual-scroll-content-wrapper>ul:not([cdkVirtualFor]){padding-left:0;padding-right:0;margin-left:0;margin-right:0;border-left-width:0;border-right-width:0;outline:none}.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper{min-width:100%}.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>dl:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>ol:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>table:not([cdkVirtualFor]),.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper>ul:not([cdkVirtualFor]){padding-top:0;padding-bottom:0;margin-top:0;margin-bottom:0;border-top-width:0;border-bottom-width:0;outline:none}.cdk-virtual-scroll-spacer{height:1px;transform-origin:0 0;flex:0 0 auto}[dir=rtl] .cdk-virtual-scroll-spacer{transform-origin:100% 0}"],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var CdkVirtualScrollViewport = _CdkVirtualScrollViewport;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(CdkVirtualScrollViewport, [{
     type: Component,
@@ -7508,7 +7744,7 @@ function getOffset(orientation, direction, node) {
   }
   return direction === "start" ? rect.top : rect.bottom;
 }
-var _CdkVirtualForOf = class _CdkVirtualForOf {
+var CdkVirtualForOf = class _CdkVirtualForOf {
   /** The DataSource to display. */
   get cdkVirtualForOf() {
     return this._cdkVirtualForOf;
@@ -7711,26 +7947,29 @@ var _CdkVirtualForOf = class _CdkVirtualForOf {
       index
     };
   }
+  static {
+    this.ɵfac = function CdkVirtualForOf_Factory(t) {
+      return new (t || _CdkVirtualForOf)(ɵɵdirectiveInject(ViewContainerRef), ɵɵdirectiveInject(TemplateRef), ɵɵdirectiveInject(IterableDiffers), ɵɵdirectiveInject(_VIEW_REPEATER_STRATEGY), ɵɵdirectiveInject(CdkVirtualScrollViewport, 4), ɵɵdirectiveInject(NgZone));
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _CdkVirtualForOf,
+      selectors: [["", "cdkVirtualFor", "", "cdkVirtualForOf", ""]],
+      inputs: {
+        cdkVirtualForOf: "cdkVirtualForOf",
+        cdkVirtualForTrackBy: "cdkVirtualForTrackBy",
+        cdkVirtualForTemplate: "cdkVirtualForTemplate",
+        cdkVirtualForTemplateCacheSize: "cdkVirtualForTemplateCacheSize"
+      },
+      standalone: true,
+      features: [ɵɵProvidersFeature([{
+        provide: _VIEW_REPEATER_STRATEGY,
+        useClass: _RecycleViewRepeaterStrategy
+      }])]
+    });
+  }
 };
-_CdkVirtualForOf.ɵfac = function CdkVirtualForOf_Factory(t) {
-  return new (t || _CdkVirtualForOf)(ɵɵdirectiveInject(ViewContainerRef), ɵɵdirectiveInject(TemplateRef), ɵɵdirectiveInject(IterableDiffers), ɵɵdirectiveInject(_VIEW_REPEATER_STRATEGY), ɵɵdirectiveInject(CdkVirtualScrollViewport, 4), ɵɵdirectiveInject(NgZone));
-};
-_CdkVirtualForOf.ɵdir = ɵɵdefineDirective({
-  type: _CdkVirtualForOf,
-  selectors: [["", "cdkVirtualFor", "", "cdkVirtualForOf", ""]],
-  inputs: {
-    cdkVirtualForOf: "cdkVirtualForOf",
-    cdkVirtualForTrackBy: "cdkVirtualForTrackBy",
-    cdkVirtualForTemplate: "cdkVirtualForTemplate",
-    cdkVirtualForTemplateCacheSize: "cdkVirtualForTemplateCacheSize"
-  },
-  standalone: true,
-  features: [ɵɵProvidersFeature([{
-    provide: _VIEW_REPEATER_STRATEGY,
-    useClass: _RecycleViewRepeaterStrategy
-  }])]
-});
-var CdkVirtualForOf = _CdkVirtualForOf;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(CdkVirtualForOf, [{
     type: Directive,
@@ -7776,28 +8015,31 @@ var CdkVirtualForOf = _CdkVirtualForOf;
     }]
   });
 })();
-var _CdkVirtualScrollableElement = class _CdkVirtualScrollableElement extends CdkVirtualScrollable {
+var CdkVirtualScrollableElement = class _CdkVirtualScrollableElement extends CdkVirtualScrollable {
   constructor(elementRef, scrollDispatcher, ngZone, dir) {
     super(elementRef, scrollDispatcher, ngZone, dir);
   }
   measureBoundingClientRectWithScrollOffset(from) {
     return this.getElementRef().nativeElement.getBoundingClientRect()[from] - this.measureScrollOffset(from);
   }
+  static {
+    this.ɵfac = function CdkVirtualScrollableElement_Factory(t) {
+      return new (t || _CdkVirtualScrollableElement)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(ScrollDispatcher), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(Directionality, 8));
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _CdkVirtualScrollableElement,
+      selectors: [["", "cdkVirtualScrollingElement", ""]],
+      hostAttrs: [1, "cdk-virtual-scrollable"],
+      standalone: true,
+      features: [ɵɵProvidersFeature([{
+        provide: VIRTUAL_SCROLLABLE,
+        useExisting: _CdkVirtualScrollableElement
+      }]), ɵɵInheritDefinitionFeature]
+    });
+  }
 };
-_CdkVirtualScrollableElement.ɵfac = function CdkVirtualScrollableElement_Factory(t) {
-  return new (t || _CdkVirtualScrollableElement)(ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(ScrollDispatcher), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(Directionality, 8));
-};
-_CdkVirtualScrollableElement.ɵdir = ɵɵdefineDirective({
-  type: _CdkVirtualScrollableElement,
-  selectors: [["", "cdkVirtualScrollingElement", ""]],
-  hostAttrs: [1, "cdk-virtual-scrollable"],
-  standalone: true,
-  features: [ɵɵProvidersFeature([{
-    provide: VIRTUAL_SCROLLABLE,
-    useExisting: _CdkVirtualScrollableElement
-  }]), ɵɵInheritDefinitionFeature]
-});
-var CdkVirtualScrollableElement = _CdkVirtualScrollableElement;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(CdkVirtualScrollableElement, [{
     type: Directive,
@@ -7825,7 +8067,7 @@ var CdkVirtualScrollableElement = _CdkVirtualScrollableElement;
     }]
   }], null);
 })();
-var _CdkVirtualScrollableWindow = class _CdkVirtualScrollableWindow extends CdkVirtualScrollable {
+var CdkVirtualScrollableWindow = class _CdkVirtualScrollableWindow extends CdkVirtualScrollable {
   constructor(scrollDispatcher, ngZone, dir) {
     super(new ElementRef(document.documentElement), scrollDispatcher, ngZone, dir);
     this._elementScrolled = new Observable((observer) => this.ngZone.runOutsideAngular(() => fromEvent(document, "scroll").pipe(takeUntil(this._destroyed)).subscribe(observer)));
@@ -7833,20 +8075,23 @@ var _CdkVirtualScrollableWindow = class _CdkVirtualScrollableWindow extends CdkV
   measureBoundingClientRectWithScrollOffset(from) {
     return this.getElementRef().nativeElement.getBoundingClientRect()[from];
   }
+  static {
+    this.ɵfac = function CdkVirtualScrollableWindow_Factory(t) {
+      return new (t || _CdkVirtualScrollableWindow)(ɵɵdirectiveInject(ScrollDispatcher), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(Directionality, 8));
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _CdkVirtualScrollableWindow,
+      selectors: [["cdk-virtual-scroll-viewport", "scrollWindow", ""]],
+      standalone: true,
+      features: [ɵɵProvidersFeature([{
+        provide: VIRTUAL_SCROLLABLE,
+        useExisting: _CdkVirtualScrollableWindow
+      }]), ɵɵInheritDefinitionFeature]
+    });
+  }
 };
-_CdkVirtualScrollableWindow.ɵfac = function CdkVirtualScrollableWindow_Factory(t) {
-  return new (t || _CdkVirtualScrollableWindow)(ɵɵdirectiveInject(ScrollDispatcher), ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(Directionality, 8));
-};
-_CdkVirtualScrollableWindow.ɵdir = ɵɵdefineDirective({
-  type: _CdkVirtualScrollableWindow,
-  selectors: [["cdk-virtual-scroll-viewport", "scrollWindow", ""]],
-  standalone: true,
-  features: [ɵɵProvidersFeature([{
-    provide: VIRTUAL_SCROLLABLE,
-    useExisting: _CdkVirtualScrollableWindow
-  }]), ɵɵInheritDefinitionFeature]
-});
-var CdkVirtualScrollableWindow = _CdkVirtualScrollableWindow;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(CdkVirtualScrollableWindow, [{
     type: Directive,
@@ -7869,18 +8114,23 @@ var CdkVirtualScrollableWindow = _CdkVirtualScrollableWindow;
     }]
   }], null);
 })();
-var _CdkScrollableModule = class _CdkScrollableModule {
+var CdkScrollableModule = class _CdkScrollableModule {
+  static {
+    this.ɵfac = function CdkScrollableModule_Factory(t) {
+      return new (t || _CdkScrollableModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _CdkScrollableModule,
+      imports: [CdkScrollable],
+      exports: [CdkScrollable]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({});
+  }
 };
-_CdkScrollableModule.ɵfac = function CdkScrollableModule_Factory(t) {
-  return new (t || _CdkScrollableModule)();
-};
-_CdkScrollableModule.ɵmod = ɵɵdefineNgModule({
-  type: _CdkScrollableModule,
-  imports: [CdkScrollable],
-  exports: [CdkScrollable]
-});
-_CdkScrollableModule.ɵinj = ɵɵdefineInjector({});
-var CdkScrollableModule = _CdkScrollableModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(CdkScrollableModule, [{
     type: NgModule,
@@ -7890,20 +8140,25 @@ var CdkScrollableModule = _CdkScrollableModule;
     }]
   }], null, null);
 })();
-var _ScrollingModule = class _ScrollingModule {
+var ScrollingModule = class _ScrollingModule {
+  static {
+    this.ɵfac = function ScrollingModule_Factory(t) {
+      return new (t || _ScrollingModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _ScrollingModule,
+      imports: [BidiModule, CdkScrollableModule, CdkVirtualScrollViewport, CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollableWindow, CdkVirtualScrollableElement],
+      exports: [BidiModule, CdkScrollableModule, CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport, CdkVirtualScrollableWindow, CdkVirtualScrollableElement]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({
+      imports: [BidiModule, CdkScrollableModule, BidiModule, CdkScrollableModule]
+    });
+  }
 };
-_ScrollingModule.ɵfac = function ScrollingModule_Factory(t) {
-  return new (t || _ScrollingModule)();
-};
-_ScrollingModule.ɵmod = ɵɵdefineNgModule({
-  type: _ScrollingModule,
-  imports: [BidiModule, CdkScrollableModule, CdkVirtualScrollViewport, CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollableWindow, CdkVirtualScrollableElement],
-  exports: [BidiModule, CdkScrollableModule, CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport, CdkVirtualScrollableWindow, CdkVirtualScrollableElement]
-});
-_ScrollingModule.ɵinj = ɵɵdefineInjector({
-  imports: [BidiModule, CdkScrollableModule, BidiModule, CdkScrollableModule]
-});
-var ScrollingModule = _ScrollingModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(ScrollingModule, [{
     type: NgModule,
@@ -8117,7 +8372,7 @@ var RepositionScrollStrategy = class {
     this._overlayRef = null;
   }
 };
-var _ScrollStrategyOptions = class _ScrollStrategyOptions {
+var ScrollStrategyOptions = class _ScrollStrategyOptions {
   constructor(_scrollDispatcher, _viewportRuler, _ngZone, document2) {
     this._scrollDispatcher = _scrollDispatcher;
     this._viewportRuler = _viewportRuler;
@@ -8128,16 +8383,19 @@ var _ScrollStrategyOptions = class _ScrollStrategyOptions {
     this.reposition = (config) => new RepositionScrollStrategy(this._scrollDispatcher, this._viewportRuler, this._ngZone, config);
     this._document = document2;
   }
+  static {
+    this.ɵfac = function ScrollStrategyOptions_Factory(t) {
+      return new (t || _ScrollStrategyOptions)(ɵɵinject(ScrollDispatcher), ɵɵinject(ViewportRuler), ɵɵinject(NgZone), ɵɵinject(DOCUMENT));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _ScrollStrategyOptions,
+      factory: _ScrollStrategyOptions.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_ScrollStrategyOptions.ɵfac = function ScrollStrategyOptions_Factory(t) {
-  return new (t || _ScrollStrategyOptions)(ɵɵinject(ScrollDispatcher), ɵɵinject(ViewportRuler), ɵɵinject(NgZone), ɵɵinject(DOCUMENT));
-};
-_ScrollStrategyOptions.ɵprov = ɵɵdefineInjectable({
-  token: _ScrollStrategyOptions,
-  factory: _ScrollStrategyOptions.ɵfac,
-  providedIn: "root"
-});
-var ScrollStrategyOptions = _ScrollStrategyOptions;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(ScrollStrategyOptions, [{
     type: Injectable,
@@ -8191,7 +8449,7 @@ function validateHorizontalPosition(property, value) {
     throw Error(`ConnectedPosition: Invalid ${property} "${value}". Expected "start", "end" or "center".`);
   }
 }
-var _BaseOverlayDispatcher = class _BaseOverlayDispatcher {
+var BaseOverlayDispatcher = class _BaseOverlayDispatcher {
   constructor(document2) {
     this._attachedOverlays = [];
     this._document = document2;
@@ -8214,16 +8472,19 @@ var _BaseOverlayDispatcher = class _BaseOverlayDispatcher {
       this.detach();
     }
   }
+  static {
+    this.ɵfac = function BaseOverlayDispatcher_Factory(t) {
+      return new (t || _BaseOverlayDispatcher)(ɵɵinject(DOCUMENT));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _BaseOverlayDispatcher,
+      factory: _BaseOverlayDispatcher.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_BaseOverlayDispatcher.ɵfac = function BaseOverlayDispatcher_Factory(t) {
-  return new (t || _BaseOverlayDispatcher)(ɵɵinject(DOCUMENT));
-};
-_BaseOverlayDispatcher.ɵprov = ɵɵdefineInjectable({
-  token: _BaseOverlayDispatcher,
-  factory: _BaseOverlayDispatcher.ɵfac,
-  providedIn: "root"
-});
-var BaseOverlayDispatcher = _BaseOverlayDispatcher;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(BaseOverlayDispatcher, [{
     type: Injectable,
@@ -8238,7 +8499,7 @@ var BaseOverlayDispatcher = _BaseOverlayDispatcher;
     }]
   }], null);
 })();
-var _OverlayKeyboardDispatcher = class _OverlayKeyboardDispatcher extends BaseOverlayDispatcher {
+var OverlayKeyboardDispatcher = class _OverlayKeyboardDispatcher extends BaseOverlayDispatcher {
   constructor(document2, _ngZone) {
     super(document2);
     this._ngZone = _ngZone;
@@ -8276,16 +8537,19 @@ var _OverlayKeyboardDispatcher = class _OverlayKeyboardDispatcher extends BaseOv
       this._isAttached = false;
     }
   }
+  static {
+    this.ɵfac = function OverlayKeyboardDispatcher_Factory(t) {
+      return new (t || _OverlayKeyboardDispatcher)(ɵɵinject(DOCUMENT), ɵɵinject(NgZone, 8));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _OverlayKeyboardDispatcher,
+      factory: _OverlayKeyboardDispatcher.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_OverlayKeyboardDispatcher.ɵfac = function OverlayKeyboardDispatcher_Factory(t) {
-  return new (t || _OverlayKeyboardDispatcher)(ɵɵinject(DOCUMENT), ɵɵinject(NgZone, 8));
-};
-_OverlayKeyboardDispatcher.ɵprov = ɵɵdefineInjectable({
-  token: _OverlayKeyboardDispatcher,
-  factory: _OverlayKeyboardDispatcher.ɵfac,
-  providedIn: "root"
-});
-var OverlayKeyboardDispatcher = _OverlayKeyboardDispatcher;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(OverlayKeyboardDispatcher, [{
     type: Injectable,
@@ -8305,7 +8569,7 @@ var OverlayKeyboardDispatcher = _OverlayKeyboardDispatcher;
     }]
   }], null);
 })();
-var _OverlayOutsideClickDispatcher = class _OverlayOutsideClickDispatcher extends BaseOverlayDispatcher {
+var OverlayOutsideClickDispatcher = class _OverlayOutsideClickDispatcher extends BaseOverlayDispatcher {
   constructor(document2, _platform, _ngZone) {
     super(document2);
     this._platform = _platform;
@@ -8375,16 +8639,19 @@ var _OverlayOutsideClickDispatcher = class _OverlayOutsideClickDispatcher extend
     body.addEventListener("auxclick", this._clickListener, true);
     body.addEventListener("contextmenu", this._clickListener, true);
   }
+  static {
+    this.ɵfac = function OverlayOutsideClickDispatcher_Factory(t) {
+      return new (t || _OverlayOutsideClickDispatcher)(ɵɵinject(DOCUMENT), ɵɵinject(Platform), ɵɵinject(NgZone, 8));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _OverlayOutsideClickDispatcher,
+      factory: _OverlayOutsideClickDispatcher.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_OverlayOutsideClickDispatcher.ɵfac = function OverlayOutsideClickDispatcher_Factory(t) {
-  return new (t || _OverlayOutsideClickDispatcher)(ɵɵinject(DOCUMENT), ɵɵinject(Platform), ɵɵinject(NgZone, 8));
-};
-_OverlayOutsideClickDispatcher.ɵprov = ɵɵdefineInjectable({
-  token: _OverlayOutsideClickDispatcher,
-  factory: _OverlayOutsideClickDispatcher.ɵfac,
-  providedIn: "root"
-});
-var OverlayOutsideClickDispatcher = _OverlayOutsideClickDispatcher;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(OverlayOutsideClickDispatcher, [{
     type: Injectable,
@@ -8406,7 +8673,7 @@ var OverlayOutsideClickDispatcher = _OverlayOutsideClickDispatcher;
     }]
   }], null);
 })();
-var _OverlayContainer = class _OverlayContainer {
+var OverlayContainer = class _OverlayContainer {
   constructor(document2, _platform) {
     this._platform = _platform;
     this._document = document2;
@@ -8448,16 +8715,19 @@ var _OverlayContainer = class _OverlayContainer {
     this._document.body.appendChild(container);
     this._containerElement = container;
   }
+  static {
+    this.ɵfac = function OverlayContainer_Factory(t) {
+      return new (t || _OverlayContainer)(ɵɵinject(DOCUMENT), ɵɵinject(Platform));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _OverlayContainer,
+      factory: _OverlayContainer.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_OverlayContainer.ɵfac = function OverlayContainer_Factory(t) {
-  return new (t || _OverlayContainer)(ɵɵinject(DOCUMENT), ɵɵinject(Platform));
-};
-_OverlayContainer.ɵprov = ɵɵdefineInjectable({
-  token: _OverlayContainer,
-  factory: _OverlayContainer.ɵfac,
-  providedIn: "root"
-});
-var OverlayContainer = _OverlayContainer;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(OverlayContainer, [{
     type: Injectable,
@@ -9862,7 +10132,7 @@ var GlobalPositionStrategy = class {
     this._isDisposed = true;
   }
 };
-var _OverlayPositionBuilder = class _OverlayPositionBuilder {
+var OverlayPositionBuilder = class _OverlayPositionBuilder {
   constructor(_viewportRuler, _document, _platform, _overlayContainer) {
     this._viewportRuler = _viewportRuler;
     this._document = _document;
@@ -9882,16 +10152,19 @@ var _OverlayPositionBuilder = class _OverlayPositionBuilder {
   flexibleConnectedTo(origin) {
     return new FlexibleConnectedPositionStrategy(origin, this._viewportRuler, this._document, this._platform, this._overlayContainer);
   }
+  static {
+    this.ɵfac = function OverlayPositionBuilder_Factory(t) {
+      return new (t || _OverlayPositionBuilder)(ɵɵinject(ViewportRuler), ɵɵinject(DOCUMENT), ɵɵinject(Platform), ɵɵinject(OverlayContainer));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _OverlayPositionBuilder,
+      factory: _OverlayPositionBuilder.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_OverlayPositionBuilder.ɵfac = function OverlayPositionBuilder_Factory(t) {
-  return new (t || _OverlayPositionBuilder)(ɵɵinject(ViewportRuler), ɵɵinject(DOCUMENT), ɵɵinject(Platform), ɵɵinject(OverlayContainer));
-};
-_OverlayPositionBuilder.ɵprov = ɵɵdefineInjectable({
-  token: _OverlayPositionBuilder,
-  factory: _OverlayPositionBuilder.ɵfac,
-  providedIn: "root"
-});
-var OverlayPositionBuilder = _OverlayPositionBuilder;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(OverlayPositionBuilder, [{
     type: Injectable,
@@ -9913,7 +10186,7 @@ var OverlayPositionBuilder = _OverlayPositionBuilder;
   }], null);
 })();
 var nextUniqueId = 0;
-var _Overlay = class _Overlay {
+var Overlay = class _Overlay {
   constructor(scrollStrategies, _overlayContainer, _componentFactoryResolver, _positionBuilder, _keyboardDispatcher, _injector, _ngZone, _document, _directionality, _location, _outsideClickDispatcher, _animationsModuleType) {
     this.scrollStrategies = scrollStrategies;
     this._overlayContainer = _overlayContainer;
@@ -9981,16 +10254,19 @@ var _Overlay = class _Overlay {
     }
     return new DomPortalOutlet(pane, this._componentFactoryResolver, this._appRef, this._injector, this._document);
   }
+  static {
+    this.ɵfac = function Overlay_Factory(t) {
+      return new (t || _Overlay)(ɵɵinject(ScrollStrategyOptions), ɵɵinject(OverlayContainer), ɵɵinject(ComponentFactoryResolver$1), ɵɵinject(OverlayPositionBuilder), ɵɵinject(OverlayKeyboardDispatcher), ɵɵinject(Injector), ɵɵinject(NgZone), ɵɵinject(DOCUMENT), ɵɵinject(Directionality), ɵɵinject(Location), ɵɵinject(OverlayOutsideClickDispatcher), ɵɵinject(ANIMATION_MODULE_TYPE, 8));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _Overlay,
+      factory: _Overlay.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_Overlay.ɵfac = function Overlay_Factory(t) {
-  return new (t || _Overlay)(ɵɵinject(ScrollStrategyOptions), ɵɵinject(OverlayContainer), ɵɵinject(ComponentFactoryResolver$1), ɵɵinject(OverlayPositionBuilder), ɵɵinject(OverlayKeyboardDispatcher), ɵɵinject(Injector), ɵɵinject(NgZone), ɵɵinject(DOCUMENT), ɵɵinject(Directionality), ɵɵinject(Location), ɵɵinject(OverlayOutsideClickDispatcher), ɵɵinject(ANIMATION_MODULE_TYPE, 8));
-};
-_Overlay.ɵprov = ɵɵdefineInjectable({
-  token: _Overlay,
-  factory: _Overlay.ɵfac,
-  providedIn: "root"
-});
-var Overlay = _Overlay;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(Overlay, [{
     type: Injectable,
@@ -10061,21 +10337,24 @@ var CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY = new InjectionToken("cdk-connected-ov
     return () => overlay.scrollStrategies.reposition();
   }
 });
-var _CdkOverlayOrigin = class _CdkOverlayOrigin {
+var CdkOverlayOrigin = class _CdkOverlayOrigin {
   constructor(elementRef) {
     this.elementRef = elementRef;
   }
+  static {
+    this.ɵfac = function CdkOverlayOrigin_Factory(t) {
+      return new (t || _CdkOverlayOrigin)(ɵɵdirectiveInject(ElementRef));
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _CdkOverlayOrigin,
+      selectors: [["", "cdk-overlay-origin", ""], ["", "overlay-origin", ""], ["", "cdkOverlayOrigin", ""]],
+      exportAs: ["cdkOverlayOrigin"],
+      standalone: true
+    });
+  }
 };
-_CdkOverlayOrigin.ɵfac = function CdkOverlayOrigin_Factory(t) {
-  return new (t || _CdkOverlayOrigin)(ɵɵdirectiveInject(ElementRef));
-};
-_CdkOverlayOrigin.ɵdir = ɵɵdefineDirective({
-  type: _CdkOverlayOrigin,
-  selectors: [["", "cdk-overlay-origin", ""], ["", "overlay-origin", ""], ["", "cdkOverlayOrigin", ""]],
-  exportAs: ["cdkOverlayOrigin"],
-  standalone: true
-});
-var CdkOverlayOrigin = _CdkOverlayOrigin;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(CdkOverlayOrigin, [{
     type: Directive,
@@ -10088,7 +10367,7 @@ var CdkOverlayOrigin = _CdkOverlayOrigin;
     type: ElementRef
   }], null);
 })();
-var _CdkConnectedOverlay = class _CdkConnectedOverlay {
+var CdkConnectedOverlay = class _CdkConnectedOverlay {
   /** The offset in pixels for the overlay connection point on the x-axis */
   get offsetX() {
     return this._offsetX;
@@ -10304,50 +10583,53 @@ var _CdkConnectedOverlay = class _CdkConnectedOverlay {
     this._backdropSubscription.unsubscribe();
     this._positionSubscription.unsubscribe();
   }
+  static {
+    this.ɵfac = function CdkConnectedOverlay_Factory(t) {
+      return new (t || _CdkConnectedOverlay)(ɵɵdirectiveInject(Overlay), ɵɵdirectiveInject(TemplateRef), ɵɵdirectiveInject(ViewContainerRef), ɵɵdirectiveInject(CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY), ɵɵdirectiveInject(Directionality, 8));
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _CdkConnectedOverlay,
+      selectors: [["", "cdk-connected-overlay", ""], ["", "connected-overlay", ""], ["", "cdkConnectedOverlay", ""]],
+      inputs: {
+        origin: [InputFlags.None, "cdkConnectedOverlayOrigin", "origin"],
+        positions: [InputFlags.None, "cdkConnectedOverlayPositions", "positions"],
+        positionStrategy: [InputFlags.None, "cdkConnectedOverlayPositionStrategy", "positionStrategy"],
+        offsetX: [InputFlags.None, "cdkConnectedOverlayOffsetX", "offsetX"],
+        offsetY: [InputFlags.None, "cdkConnectedOverlayOffsetY", "offsetY"],
+        width: [InputFlags.None, "cdkConnectedOverlayWidth", "width"],
+        height: [InputFlags.None, "cdkConnectedOverlayHeight", "height"],
+        minWidth: [InputFlags.None, "cdkConnectedOverlayMinWidth", "minWidth"],
+        minHeight: [InputFlags.None, "cdkConnectedOverlayMinHeight", "minHeight"],
+        backdropClass: [InputFlags.None, "cdkConnectedOverlayBackdropClass", "backdropClass"],
+        panelClass: [InputFlags.None, "cdkConnectedOverlayPanelClass", "panelClass"],
+        viewportMargin: [InputFlags.None, "cdkConnectedOverlayViewportMargin", "viewportMargin"],
+        scrollStrategy: [InputFlags.None, "cdkConnectedOverlayScrollStrategy", "scrollStrategy"],
+        open: [InputFlags.None, "cdkConnectedOverlayOpen", "open"],
+        disableClose: [InputFlags.None, "cdkConnectedOverlayDisableClose", "disableClose"],
+        transformOriginSelector: [InputFlags.None, "cdkConnectedOverlayTransformOriginOn", "transformOriginSelector"],
+        hasBackdrop: [InputFlags.HasDecoratorInputTransform, "cdkConnectedOverlayHasBackdrop", "hasBackdrop", booleanAttribute],
+        lockPosition: [InputFlags.HasDecoratorInputTransform, "cdkConnectedOverlayLockPosition", "lockPosition", booleanAttribute],
+        flexibleDimensions: [InputFlags.HasDecoratorInputTransform, "cdkConnectedOverlayFlexibleDimensions", "flexibleDimensions", booleanAttribute],
+        growAfterOpen: [InputFlags.HasDecoratorInputTransform, "cdkConnectedOverlayGrowAfterOpen", "growAfterOpen", booleanAttribute],
+        push: [InputFlags.HasDecoratorInputTransform, "cdkConnectedOverlayPush", "push", booleanAttribute],
+        disposeOnNavigation: [InputFlags.HasDecoratorInputTransform, "cdkConnectedOverlayDisposeOnNavigation", "disposeOnNavigation", booleanAttribute]
+      },
+      outputs: {
+        backdropClick: "backdropClick",
+        positionChange: "positionChange",
+        attach: "attach",
+        detach: "detach",
+        overlayKeydown: "overlayKeydown",
+        overlayOutsideClick: "overlayOutsideClick"
+      },
+      exportAs: ["cdkConnectedOverlay"],
+      standalone: true,
+      features: [ɵɵInputTransformsFeature, ɵɵNgOnChangesFeature]
+    });
+  }
 };
-_CdkConnectedOverlay.ɵfac = function CdkConnectedOverlay_Factory(t) {
-  return new (t || _CdkConnectedOverlay)(ɵɵdirectiveInject(Overlay), ɵɵdirectiveInject(TemplateRef), ɵɵdirectiveInject(ViewContainerRef), ɵɵdirectiveInject(CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY), ɵɵdirectiveInject(Directionality, 8));
-};
-_CdkConnectedOverlay.ɵdir = ɵɵdefineDirective({
-  type: _CdkConnectedOverlay,
-  selectors: [["", "cdk-connected-overlay", ""], ["", "connected-overlay", ""], ["", "cdkConnectedOverlay", ""]],
-  inputs: {
-    origin: [InputFlags.None, "cdkConnectedOverlayOrigin", "origin"],
-    positions: [InputFlags.None, "cdkConnectedOverlayPositions", "positions"],
-    positionStrategy: [InputFlags.None, "cdkConnectedOverlayPositionStrategy", "positionStrategy"],
-    offsetX: [InputFlags.None, "cdkConnectedOverlayOffsetX", "offsetX"],
-    offsetY: [InputFlags.None, "cdkConnectedOverlayOffsetY", "offsetY"],
-    width: [InputFlags.None, "cdkConnectedOverlayWidth", "width"],
-    height: [InputFlags.None, "cdkConnectedOverlayHeight", "height"],
-    minWidth: [InputFlags.None, "cdkConnectedOverlayMinWidth", "minWidth"],
-    minHeight: [InputFlags.None, "cdkConnectedOverlayMinHeight", "minHeight"],
-    backdropClass: [InputFlags.None, "cdkConnectedOverlayBackdropClass", "backdropClass"],
-    panelClass: [InputFlags.None, "cdkConnectedOverlayPanelClass", "panelClass"],
-    viewportMargin: [InputFlags.None, "cdkConnectedOverlayViewportMargin", "viewportMargin"],
-    scrollStrategy: [InputFlags.None, "cdkConnectedOverlayScrollStrategy", "scrollStrategy"],
-    open: [InputFlags.None, "cdkConnectedOverlayOpen", "open"],
-    disableClose: [InputFlags.None, "cdkConnectedOverlayDisableClose", "disableClose"],
-    transformOriginSelector: [InputFlags.None, "cdkConnectedOverlayTransformOriginOn", "transformOriginSelector"],
-    hasBackdrop: [InputFlags.HasDecoratorInputTransform, "cdkConnectedOverlayHasBackdrop", "hasBackdrop", booleanAttribute],
-    lockPosition: [InputFlags.HasDecoratorInputTransform, "cdkConnectedOverlayLockPosition", "lockPosition", booleanAttribute],
-    flexibleDimensions: [InputFlags.HasDecoratorInputTransform, "cdkConnectedOverlayFlexibleDimensions", "flexibleDimensions", booleanAttribute],
-    growAfterOpen: [InputFlags.HasDecoratorInputTransform, "cdkConnectedOverlayGrowAfterOpen", "growAfterOpen", booleanAttribute],
-    push: [InputFlags.HasDecoratorInputTransform, "cdkConnectedOverlayPush", "push", booleanAttribute],
-    disposeOnNavigation: [InputFlags.HasDecoratorInputTransform, "cdkConnectedOverlayDisposeOnNavigation", "disposeOnNavigation", booleanAttribute]
-  },
-  outputs: {
-    backdropClick: "backdropClick",
-    positionChange: "positionChange",
-    attach: "attach",
-    detach: "detach",
-    overlayKeydown: "overlayKeydown",
-    overlayOutsideClick: "overlayOutsideClick"
-  },
-  exportAs: ["cdkConnectedOverlay"],
-  standalone: true,
-  features: [ɵɵInputTransformsFeature, ɵɵNgOnChangesFeature]
-});
-var CdkConnectedOverlay = _CdkConnectedOverlay;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(CdkConnectedOverlay, [{
     type: Directive,
@@ -10508,21 +10790,26 @@ var CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER = {
   deps: [Overlay],
   useFactory: CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER_FACTORY
 };
-var _OverlayModule = class _OverlayModule {
+var OverlayModule = class _OverlayModule {
+  static {
+    this.ɵfac = function OverlayModule_Factory(t) {
+      return new (t || _OverlayModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _OverlayModule,
+      imports: [BidiModule, PortalModule, ScrollingModule, CdkConnectedOverlay, CdkOverlayOrigin],
+      exports: [CdkConnectedOverlay, CdkOverlayOrigin, ScrollingModule]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({
+      providers: [Overlay, CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER],
+      imports: [BidiModule, PortalModule, ScrollingModule, ScrollingModule]
+    });
+  }
 };
-_OverlayModule.ɵfac = function OverlayModule_Factory(t) {
-  return new (t || _OverlayModule)();
-};
-_OverlayModule.ɵmod = ɵɵdefineNgModule({
-  type: _OverlayModule,
-  imports: [BidiModule, PortalModule, ScrollingModule, CdkConnectedOverlay, CdkOverlayOrigin],
-  exports: [CdkConnectedOverlay, CdkOverlayOrigin, ScrollingModule]
-});
-_OverlayModule.ɵinj = ɵɵdefineInjector({
-  providers: [Overlay, CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER],
-  imports: [BidiModule, PortalModule, ScrollingModule, ScrollingModule]
-});
-var OverlayModule = _OverlayModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(OverlayModule, [{
     type: NgModule,
@@ -10533,7 +10820,7 @@ var OverlayModule = _OverlayModule;
     }]
   }], null, null);
 })();
-var _FullscreenOverlayContainer = class _FullscreenOverlayContainer extends OverlayContainer {
+var FullscreenOverlayContainer = class _FullscreenOverlayContainer extends OverlayContainer {
   constructor(_document, platform) {
     super(_document, platform);
   }
@@ -10589,16 +10876,19 @@ var _FullscreenOverlayContainer = class _FullscreenOverlayContainer extends Over
     const _document = this._document;
     return _document.fullscreenElement || _document.webkitFullscreenElement || _document.mozFullScreenElement || _document.msFullscreenElement || null;
   }
+  static {
+    this.ɵfac = function FullscreenOverlayContainer_Factory(t) {
+      return new (t || _FullscreenOverlayContainer)(ɵɵinject(DOCUMENT), ɵɵinject(Platform));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _FullscreenOverlayContainer,
+      factory: _FullscreenOverlayContainer.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_FullscreenOverlayContainer.ɵfac = function FullscreenOverlayContainer_Factory(t) {
-  return new (t || _FullscreenOverlayContainer)(ɵɵinject(DOCUMENT), ɵɵinject(Platform));
-};
-_FullscreenOverlayContainer.ɵprov = ɵɵdefineInjectable({
-  token: _FullscreenOverlayContainer,
-  factory: _FullscreenOverlayContainer.ɵfac,
-  providedIn: "root"
-});
-var FullscreenOverlayContainer = _FullscreenOverlayContainer;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(FullscreenOverlayContainer, [{
     type: Injectable,
@@ -10721,18 +11011,21 @@ var MatSnackBarConfig = class {
     this.verticalPosition = "bottom";
   }
 };
-var _MatSnackBarLabel = class _MatSnackBarLabel {
+var MatSnackBarLabel = class _MatSnackBarLabel {
+  static {
+    this.ɵfac = function MatSnackBarLabel_Factory(t) {
+      return new (t || _MatSnackBarLabel)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _MatSnackBarLabel,
+      selectors: [["", "matSnackBarLabel", ""]],
+      hostAttrs: [1, "mat-mdc-snack-bar-label", "mdc-snackbar__label"],
+      standalone: true
+    });
+  }
 };
-_MatSnackBarLabel.ɵfac = function MatSnackBarLabel_Factory(t) {
-  return new (t || _MatSnackBarLabel)();
-};
-_MatSnackBarLabel.ɵdir = ɵɵdefineDirective({
-  type: _MatSnackBarLabel,
-  selectors: [["", "matSnackBarLabel", ""]],
-  hostAttrs: [1, "mat-mdc-snack-bar-label", "mdc-snackbar__label"],
-  standalone: true
-});
-var MatSnackBarLabel = _MatSnackBarLabel;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatSnackBarLabel, [{
     type: Directive,
@@ -10745,18 +11038,21 @@ var MatSnackBarLabel = _MatSnackBarLabel;
     }]
   }], null, null);
 })();
-var _MatSnackBarActions = class _MatSnackBarActions {
+var MatSnackBarActions = class _MatSnackBarActions {
+  static {
+    this.ɵfac = function MatSnackBarActions_Factory(t) {
+      return new (t || _MatSnackBarActions)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _MatSnackBarActions,
+      selectors: [["", "matSnackBarActions", ""]],
+      hostAttrs: [1, "mat-mdc-snack-bar-actions", "mdc-snackbar__actions"],
+      standalone: true
+    });
+  }
 };
-_MatSnackBarActions.ɵfac = function MatSnackBarActions_Factory(t) {
-  return new (t || _MatSnackBarActions)();
-};
-_MatSnackBarActions.ɵdir = ɵɵdefineDirective({
-  type: _MatSnackBarActions,
-  selectors: [["", "matSnackBarActions", ""]],
-  hostAttrs: [1, "mat-mdc-snack-bar-actions", "mdc-snackbar__actions"],
-  standalone: true
-});
-var MatSnackBarActions = _MatSnackBarActions;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatSnackBarActions, [{
     type: Directive,
@@ -10769,18 +11065,21 @@ var MatSnackBarActions = _MatSnackBarActions;
     }]
   }], null, null);
 })();
-var _MatSnackBarAction = class _MatSnackBarAction {
+var MatSnackBarAction = class _MatSnackBarAction {
+  static {
+    this.ɵfac = function MatSnackBarAction_Factory(t) {
+      return new (t || _MatSnackBarAction)();
+    };
+  }
+  static {
+    this.ɵdir = ɵɵdefineDirective({
+      type: _MatSnackBarAction,
+      selectors: [["", "matSnackBarAction", ""]],
+      hostAttrs: [1, "mat-mdc-snack-bar-action", "mdc-snackbar__action"],
+      standalone: true
+    });
+  }
 };
-_MatSnackBarAction.ɵfac = function MatSnackBarAction_Factory(t) {
-  return new (t || _MatSnackBarAction)();
-};
-_MatSnackBarAction.ɵdir = ɵɵdefineDirective({
-  type: _MatSnackBarAction,
-  selectors: [["", "matSnackBarAction", ""]],
-  hostAttrs: [1, "mat-mdc-snack-bar-action", "mdc-snackbar__action"],
-  standalone: true
-});
-var MatSnackBarAction = _MatSnackBarAction;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatSnackBarAction, [{
     type: Directive,
@@ -10793,7 +11092,7 @@ var MatSnackBarAction = _MatSnackBarAction;
     }]
   }], null, null);
 })();
-var _SimpleSnackBar = class _SimpleSnackBar {
+var SimpleSnackBar = class _SimpleSnackBar {
   constructor(snackBarRef, data) {
     this.snackBarRef = snackBarRef;
     this.data = data;
@@ -10806,40 +11105,43 @@ var _SimpleSnackBar = class _SimpleSnackBar {
   get hasAction() {
     return !!this.data.action;
   }
+  static {
+    this.ɵfac = function SimpleSnackBar_Factory(t) {
+      return new (t || _SimpleSnackBar)(ɵɵdirectiveInject(MatSnackBarRef), ɵɵdirectiveInject(MAT_SNACK_BAR_DATA));
+    };
+  }
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _SimpleSnackBar,
+      selectors: [["simple-snack-bar"]],
+      hostAttrs: [1, "mat-mdc-simple-snack-bar"],
+      exportAs: ["matSnackBar"],
+      standalone: true,
+      features: [ɵɵStandaloneFeature],
+      decls: 3,
+      vars: 2,
+      consts: [["matSnackBarLabel", ""], ["matSnackBarActions", ""], ["mat-button", "", "matSnackBarAction", "", 3, "click"]],
+      template: function SimpleSnackBar_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵelementStart(0, "div", 0);
+          ɵɵtext(1);
+          ɵɵelementEnd();
+          ɵɵtemplate(2, SimpleSnackBar_Conditional_2_Template, 3, 1, "div", 1);
+        }
+        if (rf & 2) {
+          ɵɵadvance();
+          ɵɵtextInterpolate1(" ", ctx.data.message, "\n");
+          ɵɵadvance();
+          ɵɵconditional(2, ctx.hasAction ? 2 : -1);
+        }
+      },
+      dependencies: [MatButton, MatSnackBarLabel, MatSnackBarActions, MatSnackBarAction],
+      styles: [".mat-mdc-simple-snack-bar{display:flex}"],
+      encapsulation: 2,
+      changeDetection: 0
+    });
+  }
 };
-_SimpleSnackBar.ɵfac = function SimpleSnackBar_Factory(t) {
-  return new (t || _SimpleSnackBar)(ɵɵdirectiveInject(MatSnackBarRef), ɵɵdirectiveInject(MAT_SNACK_BAR_DATA));
-};
-_SimpleSnackBar.ɵcmp = ɵɵdefineComponent({
-  type: _SimpleSnackBar,
-  selectors: [["simple-snack-bar"]],
-  hostAttrs: [1, "mat-mdc-simple-snack-bar"],
-  exportAs: ["matSnackBar"],
-  standalone: true,
-  features: [ɵɵStandaloneFeature],
-  decls: 3,
-  vars: 2,
-  consts: [["matSnackBarLabel", ""], ["matSnackBarActions", ""], ["mat-button", "", "matSnackBarAction", "", 3, "click"]],
-  template: function SimpleSnackBar_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵelementStart(0, "div", 0);
-      ɵɵtext(1);
-      ɵɵelementEnd();
-      ɵɵtemplate(2, SimpleSnackBar_Conditional_2_Template, 3, 1, "div", 1);
-    }
-    if (rf & 2) {
-      ɵɵadvance();
-      ɵɵtextInterpolate1(" ", ctx.data.message, "\n");
-      ɵɵadvance();
-      ɵɵconditional(2, ctx.hasAction ? 2 : -1);
-    }
-  },
-  dependencies: [MatButton, MatSnackBarLabel, MatSnackBarActions, MatSnackBarAction],
-  styles: [".mat-mdc-simple-snack-bar{display:flex}"],
-  encapsulation: 2,
-  changeDetection: 0
-});
-var SimpleSnackBar = _SimpleSnackBar;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(SimpleSnackBar, [{
     type: Component,
@@ -10879,7 +11181,7 @@ var matSnackBarAnimations = {
   })))])
 };
 var uniqueId = 0;
-var _MatSnackBarContainer = class _MatSnackBarContainer extends BasePortalOutlet {
+var MatSnackBarContainer = class _MatSnackBarContainer extends BasePortalOutlet {
   constructor(_ngZone, _elementRef, _changeDetectorRef, _platform, snackBarConfig) {
     super();
     this._ngZone = _ngZone;
@@ -11068,62 +11370,65 @@ var _MatSnackBarContainer = class _MatSnackBarContainer extends BasePortalOutlet
       });
     }
   }
-};
-_MatSnackBarContainer.ɵfac = function MatSnackBarContainer_Factory(t) {
-  return new (t || _MatSnackBarContainer)(ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(ChangeDetectorRef), ɵɵdirectiveInject(Platform), ɵɵdirectiveInject(MatSnackBarConfig));
-};
-_MatSnackBarContainer.ɵcmp = ɵɵdefineComponent({
-  type: _MatSnackBarContainer,
-  selectors: [["mat-snack-bar-container"]],
-  viewQuery: function MatSnackBarContainer_Query(rf, ctx) {
-    if (rf & 1) {
-      ɵɵviewQuery(CdkPortalOutlet, 7);
-      ɵɵviewQuery(_c04, 7);
-    }
-    if (rf & 2) {
-      let _t;
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._portalOutlet = _t.first);
-      ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._label = _t.first);
-    }
-  },
-  hostAttrs: [1, "mdc-snackbar", "mat-mdc-snack-bar-container", "mdc-snackbar--open"],
-  hostVars: 1,
-  hostBindings: function MatSnackBarContainer_HostBindings(rf, ctx) {
-    if (rf & 1) {
-      ɵɵsyntheticHostListener("@state.done", function MatSnackBarContainer_animation_state_done_HostBindingHandler($event) {
-        return ctx.onAnimationEnd($event);
-      });
-    }
-    if (rf & 2) {
-      ɵɵsyntheticHostProperty("@state", ctx._animationState);
-    }
-  },
-  standalone: true,
-  features: [ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
-  decls: 6,
-  vars: 3,
-  consts: [["label", ""], [1, "mdc-snackbar__surface"], [1, "mat-mdc-snack-bar-label"], ["aria-hidden", "true"], ["cdkPortalOutlet", ""]],
-  template: function MatSnackBarContainer_Template(rf, ctx) {
-    if (rf & 1) {
-      ɵɵelementStart(0, "div", 1)(1, "div", 2, 0)(3, "div", 3);
-      ɵɵtemplate(4, MatSnackBarContainer_ng_template_4_Template, 0, 0, "ng-template", 4);
-      ɵɵelementEnd();
-      ɵɵelement(5, "div");
-      ɵɵelementEnd()();
-    }
-    if (rf & 2) {
-      ɵɵadvance(5);
-      ɵɵattribute("aria-live", ctx._live)("role", ctx._role)("id", ctx._liveElementId);
-    }
-  },
-  dependencies: [CdkPortalOutlet],
-  styles: ['.mdc-snackbar{display:none;position:fixed;right:0;bottom:0;left:0;align-items:center;justify-content:center;box-sizing:border-box;pointer-events:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}.mdc-snackbar--opening,.mdc-snackbar--open,.mdc-snackbar--closing{display:flex}.mdc-snackbar--open .mdc-snackbar__label,.mdc-snackbar--open .mdc-snackbar__actions{visibility:visible}.mdc-snackbar__surface{padding-left:0;padding-right:8px;display:flex;align-items:center;justify-content:flex-start;box-sizing:border-box;transform:scale(0.8);opacity:0}.mdc-snackbar__surface::before{position:absolute;box-sizing:border-box;width:100%;height:100%;top:0;left:0;border:1px solid rgba(0,0,0,0);border-radius:inherit;content:"";pointer-events:none}@media screen and (forced-colors: active){.mdc-snackbar__surface::before{border-color:CanvasText}}[dir=rtl] .mdc-snackbar__surface,.mdc-snackbar__surface[dir=rtl]{padding-left:8px;padding-right:0}.mdc-snackbar--open .mdc-snackbar__surface{transform:scale(1);opacity:1;pointer-events:auto}.mdc-snackbar--closing .mdc-snackbar__surface{transform:scale(1)}.mdc-snackbar__label{padding-left:16px;padding-right:8px;width:100%;flex-grow:1;box-sizing:border-box;margin:0;visibility:hidden;padding-top:14px;padding-bottom:14px}[dir=rtl] .mdc-snackbar__label,.mdc-snackbar__label[dir=rtl]{padding-left:8px;padding-right:16px}.mdc-snackbar__label::before{display:inline;content:attr(data-mdc-snackbar-label-text)}.mdc-snackbar__actions{display:flex;flex-shrink:0;align-items:center;box-sizing:border-box;visibility:hidden}.mdc-snackbar__action+.mdc-snackbar__dismiss{margin-left:8px;margin-right:0}[dir=rtl] .mdc-snackbar__action+.mdc-snackbar__dismiss,.mdc-snackbar__action+.mdc-snackbar__dismiss[dir=rtl]{margin-left:0;margin-right:8px}.mat-mdc-snack-bar-container{margin:8px;position:static}.mat-mdc-snack-bar-container .mdc-snackbar__surface{min-width:344px}@media(max-width: 480px),(max-width: 344px){.mat-mdc-snack-bar-container .mdc-snackbar__surface{min-width:100%}}@media(max-width: 480px),(max-width: 344px){.mat-mdc-snack-bar-container{width:100vw}}.mat-mdc-snack-bar-container .mdc-snackbar__surface{max-width:672px}.mat-mdc-snack-bar-container .mdc-snackbar__surface{box-shadow:0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)}.mat-mdc-snack-bar-container .mdc-snackbar__surface{background-color:var(--mdc-snackbar-container-color)}.mat-mdc-snack-bar-container .mdc-snackbar__surface{border-radius:var(--mdc-snackbar-container-shape)}.mat-mdc-snack-bar-container .mdc-snackbar__label{color:var(--mdc-snackbar-supporting-text-color)}.mat-mdc-snack-bar-container .mdc-snackbar__label{font-size:var(--mdc-snackbar-supporting-text-size);font-family:var(--mdc-snackbar-supporting-text-font);font-weight:var(--mdc-snackbar-supporting-text-weight);line-height:var(--mdc-snackbar-supporting-text-line-height)}.mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled){color:var(--mat-snack-bar-button-color);--mat-text-button-state-layer-color:currentColor;--mat-text-button-ripple-color:currentColor}.mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled) .mat-ripple-element{opacity:.1}.mat-mdc-snack-bar-container .mdc-snackbar__label::before{display:none}.mat-mdc-snack-bar-handset,.mat-mdc-snack-bar-container,.mat-mdc-snack-bar-label{flex:1 1 auto}.mat-mdc-snack-bar-handset .mdc-snackbar__surface{width:100%}'],
-  encapsulation: 2,
-  data: {
-    animation: [matSnackBarAnimations.snackBarState]
+  static {
+    this.ɵfac = function MatSnackBarContainer_Factory(t) {
+      return new (t || _MatSnackBarContainer)(ɵɵdirectiveInject(NgZone), ɵɵdirectiveInject(ElementRef), ɵɵdirectiveInject(ChangeDetectorRef), ɵɵdirectiveInject(Platform), ɵɵdirectiveInject(MatSnackBarConfig));
+    };
   }
-});
-var MatSnackBarContainer = _MatSnackBarContainer;
+  static {
+    this.ɵcmp = ɵɵdefineComponent({
+      type: _MatSnackBarContainer,
+      selectors: [["mat-snack-bar-container"]],
+      viewQuery: function MatSnackBarContainer_Query(rf, ctx) {
+        if (rf & 1) {
+          ɵɵviewQuery(CdkPortalOutlet, 7);
+          ɵɵviewQuery(_c04, 7);
+        }
+        if (rf & 2) {
+          let _t;
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._portalOutlet = _t.first);
+          ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx._label = _t.first);
+        }
+      },
+      hostAttrs: [1, "mdc-snackbar", "mat-mdc-snack-bar-container", "mdc-snackbar--open"],
+      hostVars: 1,
+      hostBindings: function MatSnackBarContainer_HostBindings(rf, ctx) {
+        if (rf & 1) {
+          ɵɵsyntheticHostListener("@state.done", function MatSnackBarContainer_animation_state_done_HostBindingHandler($event) {
+            return ctx.onAnimationEnd($event);
+          });
+        }
+        if (rf & 2) {
+          ɵɵsyntheticHostProperty("@state", ctx._animationState);
+        }
+      },
+      standalone: true,
+      features: [ɵɵInheritDefinitionFeature, ɵɵStandaloneFeature],
+      decls: 6,
+      vars: 3,
+      consts: [["label", ""], [1, "mdc-snackbar__surface"], [1, "mat-mdc-snack-bar-label"], ["aria-hidden", "true"], ["cdkPortalOutlet", ""]],
+      template: function MatSnackBarContainer_Template(rf, ctx) {
+        if (rf & 1) {
+          ɵɵelementStart(0, "div", 1)(1, "div", 2, 0)(3, "div", 3);
+          ɵɵtemplate(4, MatSnackBarContainer_ng_template_4_Template, 0, 0, "ng-template", 4);
+          ɵɵelementEnd();
+          ɵɵelement(5, "div");
+          ɵɵelementEnd()();
+        }
+        if (rf & 2) {
+          ɵɵadvance(5);
+          ɵɵattribute("aria-live", ctx._live)("role", ctx._role)("id", ctx._liveElementId);
+        }
+      },
+      dependencies: [CdkPortalOutlet],
+      styles: ['.mdc-snackbar{display:none;position:fixed;right:0;bottom:0;left:0;align-items:center;justify-content:center;box-sizing:border-box;pointer-events:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}.mdc-snackbar--opening,.mdc-snackbar--open,.mdc-snackbar--closing{display:flex}.mdc-snackbar--open .mdc-snackbar__label,.mdc-snackbar--open .mdc-snackbar__actions{visibility:visible}.mdc-snackbar__surface{padding-left:0;padding-right:8px;display:flex;align-items:center;justify-content:flex-start;box-sizing:border-box;transform:scale(0.8);opacity:0}.mdc-snackbar__surface::before{position:absolute;box-sizing:border-box;width:100%;height:100%;top:0;left:0;border:1px solid rgba(0,0,0,0);border-radius:inherit;content:"";pointer-events:none}@media screen and (forced-colors: active){.mdc-snackbar__surface::before{border-color:CanvasText}}[dir=rtl] .mdc-snackbar__surface,.mdc-snackbar__surface[dir=rtl]{padding-left:8px;padding-right:0}.mdc-snackbar--open .mdc-snackbar__surface{transform:scale(1);opacity:1;pointer-events:auto}.mdc-snackbar--closing .mdc-snackbar__surface{transform:scale(1)}.mdc-snackbar__label{padding-left:16px;padding-right:8px;width:100%;flex-grow:1;box-sizing:border-box;margin:0;visibility:hidden;padding-top:14px;padding-bottom:14px}[dir=rtl] .mdc-snackbar__label,.mdc-snackbar__label[dir=rtl]{padding-left:8px;padding-right:16px}.mdc-snackbar__label::before{display:inline;content:attr(data-mdc-snackbar-label-text)}.mdc-snackbar__actions{display:flex;flex-shrink:0;align-items:center;box-sizing:border-box;visibility:hidden}.mdc-snackbar__action+.mdc-snackbar__dismiss{margin-left:8px;margin-right:0}[dir=rtl] .mdc-snackbar__action+.mdc-snackbar__dismiss,.mdc-snackbar__action+.mdc-snackbar__dismiss[dir=rtl]{margin-left:0;margin-right:8px}.mat-mdc-snack-bar-container{margin:8px;position:static}.mat-mdc-snack-bar-container .mdc-snackbar__surface{min-width:344px}@media(max-width: 480px),(max-width: 344px){.mat-mdc-snack-bar-container .mdc-snackbar__surface{min-width:100%}}@media(max-width: 480px),(max-width: 344px){.mat-mdc-snack-bar-container{width:100vw}}.mat-mdc-snack-bar-container .mdc-snackbar__surface{max-width:672px}.mat-mdc-snack-bar-container .mdc-snackbar__surface{box-shadow:0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)}.mat-mdc-snack-bar-container .mdc-snackbar__surface{background-color:var(--mdc-snackbar-container-color)}.mat-mdc-snack-bar-container .mdc-snackbar__surface{border-radius:var(--mdc-snackbar-container-shape)}.mat-mdc-snack-bar-container .mdc-snackbar__label{color:var(--mdc-snackbar-supporting-text-color)}.mat-mdc-snack-bar-container .mdc-snackbar__label{font-size:var(--mdc-snackbar-supporting-text-size);font-family:var(--mdc-snackbar-supporting-text-font);font-weight:var(--mdc-snackbar-supporting-text-weight);line-height:var(--mdc-snackbar-supporting-text-line-height)}.mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled){color:var(--mat-snack-bar-button-color);--mat-text-button-state-layer-color:currentColor;--mat-text-button-ripple-color:currentColor}.mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled) .mat-ripple-element{opacity:.1}.mat-mdc-snack-bar-container .mdc-snackbar__label::before{display:none}.mat-mdc-snack-bar-handset,.mat-mdc-snack-bar-container,.mat-mdc-snack-bar-label{flex:1 1 auto}.mat-mdc-snack-bar-handset .mdc-snackbar__surface{width:100%}'],
+      encapsulation: 2,
+      data: {
+        animation: [matSnackBarAnimations.snackBarState]
+      }
+    });
+  }
+};
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatSnackBarContainer, [{
     type: Component,
@@ -11174,7 +11479,7 @@ var MAT_SNACK_BAR_DEFAULT_OPTIONS = new InjectionToken("mat-snack-bar-default-op
   providedIn: "root",
   factory: MAT_SNACK_BAR_DEFAULT_OPTIONS_FACTORY
 });
-var _MatSnackBar = class _MatSnackBar {
+var MatSnackBar = class _MatSnackBar {
   /** Reference to the currently opened snackbar at *any* level. */
   get _openedSnackBarRef() {
     const parent = this._parentSnackBar;
@@ -11364,16 +11669,19 @@ var _MatSnackBar = class _MatSnackBar {
       }]
     });
   }
+  static {
+    this.ɵfac = function MatSnackBar_Factory(t) {
+      return new (t || _MatSnackBar)(ɵɵinject(Overlay), ɵɵinject(LiveAnnouncer), ɵɵinject(Injector), ɵɵinject(BreakpointObserver), ɵɵinject(_MatSnackBar, 12), ɵɵinject(MAT_SNACK_BAR_DEFAULT_OPTIONS));
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _MatSnackBar,
+      factory: _MatSnackBar.ɵfac,
+      providedIn: "root"
+    });
+  }
 };
-_MatSnackBar.ɵfac = function MatSnackBar_Factory(t) {
-  return new (t || _MatSnackBar)(ɵɵinject(Overlay), ɵɵinject(LiveAnnouncer), ɵɵinject(Injector), ɵɵinject(BreakpointObserver), ɵɵinject(_MatSnackBar, 12), ɵɵinject(MAT_SNACK_BAR_DEFAULT_OPTIONS));
-};
-_MatSnackBar.ɵprov = ɵɵdefineInjectable({
-  token: _MatSnackBar,
-  factory: _MatSnackBar.ɵfac,
-  providedIn: "root"
-});
-var MatSnackBar = _MatSnackBar;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatSnackBar, [{
     type: Injectable,
@@ -11404,21 +11712,26 @@ var MatSnackBar = _MatSnackBar;
   }], null);
 })();
 var DIRECTIVES = [MatSnackBarContainer, MatSnackBarLabel, MatSnackBarActions, MatSnackBarAction];
-var _MatSnackBarModule = class _MatSnackBarModule {
+var MatSnackBarModule = class _MatSnackBarModule {
+  static {
+    this.ɵfac = function MatSnackBarModule_Factory(t) {
+      return new (t || _MatSnackBarModule)();
+    };
+  }
+  static {
+    this.ɵmod = ɵɵdefineNgModule({
+      type: _MatSnackBarModule,
+      imports: [OverlayModule, PortalModule, MatButtonModule, MatCommonModule, SimpleSnackBar, MatSnackBarContainer, MatSnackBarLabel, MatSnackBarActions, MatSnackBarAction],
+      exports: [MatCommonModule, MatSnackBarContainer, MatSnackBarLabel, MatSnackBarActions, MatSnackBarAction]
+    });
+  }
+  static {
+    this.ɵinj = ɵɵdefineInjector({
+      providers: [MatSnackBar],
+      imports: [OverlayModule, PortalModule, MatButtonModule, MatCommonModule, SimpleSnackBar, MatCommonModule]
+    });
+  }
 };
-_MatSnackBarModule.ɵfac = function MatSnackBarModule_Factory(t) {
-  return new (t || _MatSnackBarModule)();
-};
-_MatSnackBarModule.ɵmod = ɵɵdefineNgModule({
-  type: _MatSnackBarModule,
-  imports: [OverlayModule, PortalModule, MatButtonModule, MatCommonModule, SimpleSnackBar, MatSnackBarContainer, MatSnackBarLabel, MatSnackBarActions, MatSnackBarAction],
-  exports: [MatCommonModule, MatSnackBarContainer, MatSnackBarLabel, MatSnackBarActions, MatSnackBarAction]
-});
-_MatSnackBarModule.ɵinj = ɵɵdefineInjector({
-  providers: [MatSnackBar],
-  imports: [OverlayModule, PortalModule, MatButtonModule, MatCommonModule, SimpleSnackBar, MatCommonModule]
-});
-var MatSnackBarModule = _MatSnackBarModule;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(MatSnackBarModule, [{
     type: NgModule,

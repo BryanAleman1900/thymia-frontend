@@ -1,10 +1,10 @@
 import {
   DomRendererFactory2
-} from "./chunk-CBGFN5BE.js";
-import "./chunk-IAEZFEER.js";
+} from "./chunk-BUTNIQTE.js";
+import "./chunk-2CCMBYA3.js";
 import {
   DOCUMENT
-} from "./chunk-VWGNI36Q.js";
+} from "./chunk-AWS5CNEC.js";
 import {
   ANIMATION_MODULE_TYPE,
   ChangeDetectionScheduler,
@@ -18,12 +18,12 @@ import {
   setClassMetadata,
   ɵɵdefineInjectable,
   ɵɵinvalidFactory
-} from "./chunk-KRPM2RXB.js";
+} from "./chunk-FRQGASU3.js";
 import "./chunk-SXIXOCJ4.js";
 
 // node_modules/@angular/platform-browser/fesm2022/animations/async.mjs
 var ANIMATION_PREFIX = "@";
-var _AsyncAnimationRendererFactory = class _AsyncAnimationRendererFactory {
+var AsyncAnimationRendererFactory = class _AsyncAnimationRendererFactory {
   /**
    *
    * @param moduleImpl allows to provide a mock implmentation (or will load the animation module)
@@ -47,7 +47,7 @@ var _AsyncAnimationRendererFactory = class _AsyncAnimationRendererFactory {
    * @internal
    */
   loadImpl() {
-    const moduleImpl = this.moduleImpl ?? import("./browser-NJQS2XSX.js");
+    const moduleImpl = this.moduleImpl ?? import("./browser-P3WYAOVA.js");
     return moduleImpl.catch((e) => {
       throw new RuntimeError(5300, (typeof ngDevMode === "undefined" || ngDevMode) && "Async loading for animations package was enabled, but loading failed. Angular falls back to using regular rendering. No animations will be displayed and their styles won't be applied.");
     }).then(({
@@ -97,15 +97,18 @@ var _AsyncAnimationRendererFactory = class _AsyncAnimationRendererFactory {
   whenRenderingDone() {
     return this.delegate.whenRenderingDone?.() ?? Promise.resolve();
   }
+  static {
+    this.ɵfac = function AsyncAnimationRendererFactory_Factory(t) {
+      ɵɵinvalidFactory();
+    };
+  }
+  static {
+    this.ɵprov = ɵɵdefineInjectable({
+      token: _AsyncAnimationRendererFactory,
+      factory: _AsyncAnimationRendererFactory.ɵfac
+    });
+  }
 };
-_AsyncAnimationRendererFactory.ɵfac = function AsyncAnimationRendererFactory_Factory(t) {
-  ɵɵinvalidFactory();
-};
-_AsyncAnimationRendererFactory.ɵprov = ɵɵdefineInjectable({
-  token: _AsyncAnimationRendererFactory,
-  factory: _AsyncAnimationRendererFactory.ɵfac
-});
-var AsyncAnimationRendererFactory = _AsyncAnimationRendererFactory;
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(AsyncAnimationRendererFactory, [{
     type: Injectable
