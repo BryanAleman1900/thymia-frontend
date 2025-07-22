@@ -1,7 +1,6 @@
-
 import { inject, Injectable } from '@angular/core';
 import { IAuthority, ILoginResponse, IResponse, IRoleType, IUser } from '../interfaces';
-import { Observable, of, tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -12,6 +11,7 @@ export class AuthService {
   private expiresIn!: number;
   private user: IUser = { email: '', authorities: [] };
   private http: HttpClient = inject(HttpClient);
+  private apiURL: string = 'http://localhost:8080';
 
   constructor() {
     this.load();
@@ -25,9 +25,11 @@ export class AuthService {
 
   private load(): void {
     let token = localStorage.getItem('access_token');
-    if (token) this.accessToken = JSON.parse(token); 
+    if (token) this.accessToken = JSON.parse(token); // ✅ corrección de Bryan
+
     let exp = localStorage.getItem('expiresIn');
     if (exp) this.expiresIn = JSON.parse(exp);
+
     const user = localStorage.getItem('auth_user');
     if (user) this.user = JSON.parse(user);
   }
@@ -59,6 +61,7 @@ export class AuthService {
     return this.http.post<ILoginResponse>('auth/signup', user);
   }
 
+  // ✅ Google login
   public loginWithGoogle(idToken: string): Observable<ILoginResponse> {
     return this.http.post<any>('auth/google', { idToken }).pipe(
       tap((response: any) => {
@@ -70,7 +73,7 @@ export class AuthService {
     );
   }
 
-  //Login con FaceIO
+  // ✅ Face ID login
   public loginWithFacialId(facialId: string): Observable<ILoginResponse> {
     return this.http.post<ILoginResponse>('auth/face-id/login', { facialId }).pipe(
       tap((response: any) => {
@@ -82,7 +85,7 @@ export class AuthService {
     );
   }
 
-  //Registro Face Id usando FaceIO
+  // ✅ Face ID register
   public registerFacialId(facialId: string): Observable<IResponse<IUser>> {
     return this.http.post<IResponse<IUser>>('users/me/face-id/register', { facialId });
   }
@@ -118,12 +121,20 @@ export class AuthService {
 
   public areActionsAvailable(routeAuthorities: string[]): boolean {
     let userAuthorities = this.getUserAuthorities();
+
     let allowedUser = routeAuthorities.some(role =>
       userAuthorities?.some(auth => auth.authority === role)
     );
+
     let isAdmin = userAuthorities?.some(
       a => a.authority === IRoleType.admin || a.authority === IRoleType.superAdmin
     );
+
     return allowedUser && !!isAdmin;
+  }
+
+  // ✅ Lógica de bloqueo por email (de Carlos)
+  public verificarBloqueo(email: string): Observable<any> {
+    return this.http.get<any>(`${this.apiURL}/auth/status?email=${email}`);
   }
 }

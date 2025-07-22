@@ -5,42 +5,66 @@
 
         <!-- 🔵 Sección visible SOLO si NO está activo Face ID -->
         <div *ngIf="!faceIDActive">
-
           <!-- Logo centrado -->
           <div class="text-center mb-4 logo">
             <a routerLink="/">
-              <img
-                width="150"
-                src="../../../../assets/icons/logo@2x.png"
-                alt="Logo"
-              />
+              <img width="150" src="../../../../assets/icons/logo@2x.png" alt="Logo" />
             </a>
           </div>
 
           <!-- Contenido principal -->
           <div class="login-main">
             <h2>Welcome back</h2>
+            <small class="d-block mb-3 text-muted">Enter your email & password to login</small>
 
-            <!-- Botones adicionales -->
+            <!-- 🔷 Google & Face ID -->
             <div class="extra-buttons text-center mb-3">
-              <!-- Google Sign-In Renderizado -->
               <div id="googleBtn"></div>
 
-              <!-- Botón biométrico -->
               <div class="text-center mt-2">
-                <button
-                  type="button"
-                  class="biometric"
-                  (click)="activateBiometric()">
+                <button type="button" class="biometric" (click)="activateBiometric()">
                   Iniciar sesión con Face ID
                 </button>
               </div>
             </div>
 
-            <!-- Formulario de login clásico -->
+            <!-- 🟥 Error general -->
+            <div *ngIf="loginError" class="alert alert-danger text-center mt-3">
+              {{ loginError }}
+            </div>
+
+            <!-- 🟨 Intentos restantes o cuenta regresiva -->
+            <div
+              *ngIf="intentosRestantes !== null || tiempoRestante"
+              class="alert text-center mt-2"
+              [ngClass]="{
+                'alert-warning': intentosRestantes !== null,
+                'alert-info': tiempoRestante
+              }"
+            >
+              <ng-container *ngIf="tiempoRestante; else intentos">
+                <p>Tiempo restante: {{ tiempoRestante }}</p>
+              </ng-container>
+              <ng-template #intentos>
+                Intentos restantes: {{ intentosRestantes }}
+              </ng-template>
+            </div>
+
+            <!-- Progreso visual -->
+            <div *ngIf="porcentajeProgreso !== null" class="progress mx-auto mt-2" style="height: 10px; width: 80%;">
+              <div
+                class="progress-bar bg-success"
+                role="progressbar"
+                [style.width.%]="porcentajeProgreso"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+
+            <!-- 🔐 Formulario -->
             <form (ngSubmit)="handleLogin($event)" autocomplete="off" #frm="ngForm">
               <!-- Email -->
-              <div class="form-group">
+              <div class="form-group mb-3">
                 <label for="email">Email Address</label>
                 <input
                   #email="ngModel"
@@ -48,6 +72,7 @@
                   id="email"
                   name="email"
                   placeholder="agent@gmail.com"
+                  class="form-control"
                   [(ngModel)]="loginForm.email"
                   [ngClass]="{
                     'is-invalid': email.invalid && email.touched,
@@ -61,7 +86,7 @@
               </div>
 
               <!-- Password -->
-              <div class="form-group">
+              <div class="form-group mb-4">
                 <label for="password">Password</label>
                 <input
                   #password="ngModel"
@@ -69,6 +94,7 @@
                   id="password"
                   name="password"
                   placeholder="*****"
+                  class="form-control"
                   [(ngModel)]="loginForm.password"
                   [ngClass]="{
                     'is-invalid': password.invalid && password.touched,
@@ -81,16 +107,21 @@
                 </div>
               </div>
 
-              <!-- Submit -->
+              <!-- Botón de envío -->
               <div class="form-group mb-0">
-                <button type="submit">Sign in</button>
-                <div *ngIf="loginError" class="text-danger">
-                  {{ loginError }}
-                </div>
+                <button
+                  class="btn btn-primary btn-block w-100"
+                  type="submit"
+                  [disabled]="bloqueadoHasta != null"
+                >
+                  Sign in
+                </button>
               </div>
 
-              <!-- Enlace a registro -->
-              <a routerLink="/signup">Sign up</a>
+              <!-- Link a registro -->
+              <div class="text-center mt-3">
+                <a routerLink="/signup">¿No tienes cuenta? Regístrate</a>
+              </div>
             </form>
           </div>
         </div>
