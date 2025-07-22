@@ -11,7 +11,6 @@ import { GuestGuard } from './guards/guest.guard';
 import { IRoleType } from './interfaces';
 import { ProfileComponent } from './pages/profile/profile.component';
 
-
 export const routes: Routes = [
   {
     path: 'login',
@@ -38,19 +37,16 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
-        path: 'app',
+        path: '',
         redirectTo: 'users',
         pathMatch: 'full',
       },
       {
         path: 'users',
         component: UsersComponent,
-        canActivate:[AdminRoleGuard],
-        data: { 
-          authorities: [
-            IRoleType.admin, 
-            IRoleType.superAdmin
-          ],
+        canActivate: [AdminRoleGuard],
+        data: {
+          authorities: [IRoleType.admin, IRoleType.superAdmin],
           name: 'Users',
           showInSidebar: true
         }
@@ -58,12 +54,8 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent,
-        data: { 
-          authorities: [
-            IRoleType.admin, 
-            IRoleType.superAdmin,
-            IRoleType.user
-          ],
+        data: {
+          authorities: [IRoleType.admin, IRoleType.superAdmin, IRoleType.user],
           name: 'Dashboard',
           showInSidebar: true
         }
@@ -71,14 +63,30 @@ export const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent,
-        data: { 
-          authorities: [
-            IRoleType.admin, 
-            IRoleType.superAdmin,
-            IRoleType.user
-          ],
-          name: 'profile',
+        data: {
+          authorities: [IRoleType.admin, IRoleType.superAdmin, IRoleType.user],
+          name: 'Profile',
           showInSidebar: false
+        }
+      },
+      {
+        path: 'appointment-form',
+        loadComponent: () => import('./components/appointment-form/appointment-form.component')
+          .then(m => m.AppointmentFormComponent),
+        data: {
+          authorities: [IRoleType.user],
+          name: 'Agendar Cita',
+          showInSidebar: true
+        }
+      },
+      {
+        path: 'calendar',
+        loadComponent: () => import('./components/calendar/calendar.component')
+          .then(m => m.CalendarComponent),
+        data: {
+          authorities: [IRoleType.user],
+          name: 'Calendario',
+          showInSidebar: true
         }
       }
     ],
