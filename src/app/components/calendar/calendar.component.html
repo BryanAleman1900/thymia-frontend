@@ -1,0 +1,14 @@
+<div class="calendar-wrapper">
+  <div class="calendar-header">
+    <h2 class="title">Agenda de Citas</h2>
+    <button class="btn-refresh" (click)="loadCalendar()">Refrescar</button>
+  </div>
+
+ 
+  <iframe
+    [src]="googleCalendarUrl"
+    frameborder="0"
+    class="calendar-frame"
+    allowfullscreen>
+  </iframe>
+</div>
