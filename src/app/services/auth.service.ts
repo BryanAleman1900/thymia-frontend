@@ -25,7 +25,7 @@ export class AuthService {
 
   private load(): void {
     let token = localStorage.getItem('access_token');
-    if (token) this.accessToken = JSON.parse(token); // ✅ corrección de Bryan
+    if (token) this.accessToken = JSON.parse(token); 
 
     let exp = localStorage.getItem('expiresIn');
     if (exp) this.expiresIn = JSON.parse(exp);
@@ -61,7 +61,7 @@ export class AuthService {
     return this.http.post<ILoginResponse>('auth/signup', user);
   }
 
-  // ✅ Google login
+  //Google login
   public loginWithGoogle(idToken: string): Observable<ILoginResponse> {
     return this.http.post<any>('auth/google', { idToken }).pipe(
       tap((response: any) => {
@@ -73,7 +73,6 @@ export class AuthService {
     );
   }
 
-  // ✅ Face ID login
   public loginWithFacialId(facialId: string): Observable<ILoginResponse> {
     return this.http.post<ILoginResponse>('auth/face-id/login', { facialId }).pipe(
       tap((response: any) => {
@@ -85,7 +84,6 @@ export class AuthService {
     );
   }
 
-  // ✅ Face ID register
   public registerFacialId(facialId: string): Observable<IResponse<IUser>> {
     return this.http.post<IResponse<IUser>>('users/me/face-id/register', { facialId });
   }
@@ -133,7 +131,7 @@ export class AuthService {
     return allowedUser && !!isAdmin;
   }
 
-  // ✅ Lógica de bloqueo por email (de Carlos)
+  // Bloqueo por email
   public verificarBloqueo(email: string): Observable<any> {
     return this.http.get<any>(`${this.apiURL}/auth/status?email=${email}`);
   }

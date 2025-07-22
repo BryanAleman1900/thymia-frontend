@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { AuthService } from '../../../../services/auth.service';
 import { IUser } from '../../../../interfaces';
 import { LayoutService } from '../../../../services/layout.service';
 import { MyAccountComponent } from '../../../my-account/my-account.component';
+import { FaceioService } from '../../../../services/faceio.service';
 
 @Component({
   selector: 'app-topbar',
@@ -16,9 +17,9 @@ export class TopbarComponent implements OnInit {
   public user?: IUser;
 
   constructor(
-    public router: Router,
     public layoutService: LayoutService,
-    public authService: AuthService
+    public authService: AuthService,
+    private faceioService: FaceioService
   ) {}
 
   ngOnInit(): void {
@@ -27,6 +28,7 @@ export class TopbarComponent implements OnInit {
 
   public logout(): void {
     this.authService.logout();
-    this.router.navigateByUrl('/login');
+    this.faceioService.reset();
+    window.location.href = '/login';
   }
 }
