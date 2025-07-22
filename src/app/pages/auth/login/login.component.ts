@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
      this.faceio.reset();
-    // Esperar a que el SDK de Google esté disponible
     const waitForGoogle = () => {
       if (typeof google !== 'undefined' && google.accounts?.id) {
         google.accounts.id.initialize({
@@ -147,7 +146,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // Google login
   public handleGoogleCallback(response: any) {
     const idToken = response.credential;
     this.authService.loginWithGoogle(idToken).subscribe({
@@ -156,7 +154,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // Face ID login
   public activateBiometric(): void {
     this.faceIDActive = true;
     this.showFaceIDMessage = true;

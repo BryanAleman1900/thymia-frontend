@@ -20,7 +20,6 @@ export class ProfileComponent {
     this.profileService.getUserInfoSignal();
   }
 
-  // Activar Face ID con manejo de error y opción de reintentar
   public enableFaceID(): void {
     this.faceio.enroll().then((facialId: string) => {
       this.profileService.registerFaceID(facialId);
@@ -36,7 +35,7 @@ export class ProfileComponent {
       );
 
       snackBarRef.onAction().subscribe(() => {
-        this.enableFaceID(); // Reintenta el registro
+        this.enableFaceID();
       });
     });
   }

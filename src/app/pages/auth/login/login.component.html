@@ -3,21 +3,17 @@
     <div class="login-card">
       <div class="w-100">
 
-        <!-- 🔵 Sección visible SOLO si NO está activo Face ID -->
         <div *ngIf="!faceIDActive">
-          <!-- Logo centrado -->
           <div class="text-center mb-4 logo">
             <a routerLink="/">
               <img width="150" src="../../../../assets/icons/logo@2x.png" alt="Logo" />
             </a>
           </div>
 
-          <!-- Contenido principal -->
           <div class="login-main">
             <h2>Welcome back</h2>
             <small class="d-block mb-3 text-muted">Enter your email & password to login</small>
 
-            <!-- 🔷 Google & Face ID -->
             <div class="extra-buttons text-center mb-3">
               <div id="googleBtn"></div>
 
@@ -28,12 +24,10 @@
               </div>
             </div>
 
-            <!-- 🟥 Error general -->
             <div *ngIf="loginError" class="alert alert-danger text-center mt-3">
               {{ loginError }}
             </div>
 
-            <!-- 🟨 Intentos restantes o cuenta regresiva -->
             <div
               *ngIf="intentosRestantes !== null || tiempoRestante"
               class="alert text-center mt-2"
@@ -50,7 +44,6 @@
               </ng-template>
             </div>
 
-            <!-- Progreso visual -->
             <div *ngIf="porcentajeProgreso !== null" class="progress mx-auto mt-2 espacioBarra" style="height: 10px; width: 80%;">
               <div
                 class="progress-bar bg-success"
@@ -61,9 +54,8 @@
               ></div>
             </div>
 
-            <!-- 🔐 Formulario -->
             <form (ngSubmit)="handleLogin($event)" autocomplete="off" #frm="ngForm">
-              <!-- Email -->
+
               <div class="form-group mb-3">
                 <label for="email">Email Address</label>
                 <input
@@ -85,7 +77,6 @@
                 </div>
               </div>
 
-              <!-- Password -->
               <div class="form-group mb-4">
                 <label for="password">Password</label>
                 <input
@@ -107,7 +98,6 @@
                 </div>
               </div>
 
-              <!-- Botón de envío -->
               <div class="form-group mb-0">
                 <button
                   class="btn btn-primary btn-block w-100"
@@ -118,22 +108,18 @@
                 </button>
               </div>
 
-              <!-- Link a registro -->
               <div class="text-center mt-3">
                 <a routerLink="/signup">¿No tienes cuenta? Regístrate</a>
               </div>
             </form>
           </div>
         </div>
-
-        <!-- 🟡 Sección visible SOLO durante Face ID -->
         <div *ngIf="faceIDActive" class="face-id-status text-center mt-4">
           <ng-container *ngIf="showFaceIDMessage">
             <h3>Iniciando reconocimiento facial...</h3>
             <p class="text-white">Por favor mire a la cámara</p>
           </ng-container>
         </div>
-
       </div>
     </div>
   </div>

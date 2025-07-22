@@ -46,16 +46,16 @@ export class FaceioService {
 
   async enroll(): Promise<string> {
     try {
-      this.reset(); // limpieza 
+      this.reset();
       this.elevateFaceIOModal();
       const response = await this.faceioInstance.enroll({
         locale: 'auto',
         payload: { userId: 'frontend-thymia-app' }
       });
-      this.reset(); // Limpieza 
+      this.reset();
       return response.facialId;
     } catch (err) {
-      this.reset(); // Limpieza
+      this.reset();
       console.error('Enrollment failed:', err);
       throw err;
     }

@@ -131,7 +131,6 @@ export class AuthService {
     return allowedUser && !!isAdmin;
   }
 
-  // Bloqueo por email
   public verificarBloqueo(email: string): Observable<any> {
     return this.http.get<any>(`${this.apiURL}/auth/status?email=${email}`);
   }
