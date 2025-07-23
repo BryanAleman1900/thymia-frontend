@@ -12,6 +12,7 @@ import { IRoleType } from './interfaces';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { EmotionDetectorComponent } from './pages/emotion-detector/emotion-detector.component';
 import { AppointmentComponent } from './pages/appointment/appointment.component';
+import { MyAccountComponent } from './components/my-account/my-account.component';
 
 
 export const routes: Routes = [
@@ -99,6 +100,10 @@ export const routes: Routes = [
       {
         path: 'emotion-detector',
         component: EmotionDetectorComponent
+      },
+      {
+        path: 'my-account',
+        component: MyAccountComponent
       }
     ],
   },
