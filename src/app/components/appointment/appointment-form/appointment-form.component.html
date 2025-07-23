@@ -1,55 +1,116 @@
-<!-- src/app/components/appointment/appointment-form/appointment-form.component.html -->
-<form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
-  <mat-form-field appearance="outline">
-    <mat-label>Paciente</mat-label>
-    <mat-select formControlName="patientId" required>
-      <mat-option *ngFor="let patient of patients" [value]="patient.id">
-        {{ patient.name }} {{ patient.lastname }} - {{ patient.email }}
-      </mat-option>
-    </mat-select>
-    <mat-error *ngIf="appointmentForm.get('patientId')?.hasError('required')">
-      Selecciona un paciente
-    </mat-error>
-  </mat-form-field>
+<div class="appointment-form-container">
+  <h2 mat-dialog-title>{{ isEditMode ? 'Editar Cita' : 'Nueva Cita' }}</h2>
+  
+  <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+    <div class="form-grid">
+      <!-- Título -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Título de la cita</mat-label>
+        <input matInput formControlName="title" placeholder="Ej: Consulta de seguimiento">
+        <mat-error *ngIf="appointmentForm.get('title')?.hasError('required')">
+          El título es obligatorio
+        </mat-error>
+      </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Título</mat-label>
-    <input matInput formControlName="title" required>
-    <mat-error *ngIf="appointmentForm.get('title')?.hasError('required')">
-      El título es requerido
-    </mat-error>
-  </mat-form-field>
+      <!-- Fecha y hora de inicio -->
+      <div class="datetime-group">
+        <h4>Fecha y hora de inicio</h4>
+        <div class="datetime-controls">
+          <mat-form-field appearance="outline">
+            <mat-label>Fecha inicio</mat-label>
+            <input matInput [matDatepicker]="startPicker" formControlName="startDate" 
+                   (dateChange)="onStartDateChange($event)">
+            <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+            <mat-datepicker #startPicker></mat-datepicker>
+          </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Descripción</mat-label>
-    <textarea matInput formControlName="description" rows="3"></textarea>
-  </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Hora inicio</mat-label>
+            <mat-select formControlName="startTime">
+              <mat-option *ngFor="let time of timeOptions" [value]="time">
+                {{ time }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
 
-  <div class="datetime-fields">
-    <mat-form-field appearance="outline">
-      <mat-label>Fecha y hora de inicio</mat-label>
-      <input matInput [min]="minDate" [matDatepicker]="startPicker" formControlName="startTime" required>
-      <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
-      <mat-datepicker #startPicker></mat-datepicker>
-      <mat-error *ngIf="appointmentForm.get('startTime')?.hasError('required')">
-        Fecha de inicio requerida
-      </mat-error>
-    </mat-form-field>
+      <!-- Fecha y hora de fin -->
+      <div class="datetime-group">
+        <h4>Fecha y hora de fin</h4>
+        <div class="datetime-controls">
+          <mat-form-field appearance="outline">
+            <mat-label>Fecha fin</mat-label>
+            <input matInput [matDatepicker]="endPicker" formControlName="endDate">
+            <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+            <mat-datepicker #endPicker></mat-datepicker>
+          </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Fecha y hora de fin</mat-label>
-      <input matInput [min]="minDate" [matDatepicker]="endPicker" formControlName="endTime" required>
-      <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
-      <mat-datepicker #endPicker></mat-datepicker>
-      <mat-error *ngIf="appointmentForm.get('endTime')?.hasError('required')">
-        Fecha de fin requerida
-      </mat-error>
-    </mat-form-field>
-  </div>
+          <mat-form-field appearance="outline">
+            <mat-label>Hora fin</mat-label>
+            <mat-select formControlName="endTime">
+              <mat-option *ngFor="let time of timeOptions" [value]="time">
+                {{ time }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
 
-  <div class="form-actions">
-    <button mat-raised-button color="primary" type="submit" [disabled]="appointmentForm.invalid">
-      Crear Cita
-    </button>
-  </div>
-</form>
+      <!-- Paciente -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Paciente</mat-label>
+        <mat-select formControlName="patientId" [compareWith]="compareUsers">
+          <mat-option *ngFor="let patient of patients" [value]="patient.id">
+            {{ patient.firstName }} {{ patient.lastName }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="appointmentForm.get('patientId')?.hasError('required')">
+          Seleccione un paciente
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Médico -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Médico</mat-label>
+        <mat-select formControlName="doctorId" [compareWith]="compareUsers">
+          <mat-option *ngFor="let doctor of doctors" [value]="doctor.id">
+            {{ doctor.firstName }} {{ doctor.lastName }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="appointmentForm.get('doctorId')?.hasError('required')">
+          Seleccione un médico
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Descripción -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput formControlName="description" rows="3"
+                  placeholder="Detalles adicionales de la cita"></textarea>
+      </mat-form-field>
+
+      <!-- Invitados -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Invitados (opcional)</mat-label>
+        <mat-select formControlName="guestIds" multiple [compareWith]="compareUsers">
+          <mat-option *ngFor="let user of allUsers" [value]="user.id">
+            {{ user.firstName }} {{ user.lastName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-actions">
+      <button mat-button type="button" (click)="dialogRef.close()">Cancelar</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="isLoading">
+        <span *ngIf="!isLoading">{{ isEditMode ? 'Actualizar' : 'Crear' }}</span>
+        <mat-spinner *ngIf="isLoading" diameter="24" strokeWidth="2"></mat-spinner>
+      </button>
+      <button *ngIf="isEditMode" mat-raised-button color="warn" type="button" 
+              (click)="onDelete()" [disabled]="isLoading">
+        Eliminar
+      </button>
+    </div>
+  </form>
+</div>

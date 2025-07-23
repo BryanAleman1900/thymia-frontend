@@ -1,42 +1,33 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IAppointment, IResponse } from '../interfaces';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppointmentService {
-  private apiUrl = 'api/appointments'; 
+  private apiUrl = '/api/appointments';
 
   constructor(private http: HttpClient) {}
 
- 
-  getAppointmentsByPatient(patientId: number): Observable<IResponse<IAppointment[]>> {
-    return this.http.get<IResponse<IAppointment[]>>(`${this.apiUrl}/patient/${patientId}`);
+  getAppointments(start: Date, end: Date): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl, {
+      params: {
+        start: start.toISOString(),
+        end: end.toISOString()
+      }
+    });
   }
 
-  getAppointmentsByDoctor(doctorId: number): Observable<IResponse<IAppointment[]>> {
-    return this.http.get<IResponse<IAppointment[]>>(`${this.apiUrl}/doctor/${doctorId}`);
+  createAppointment(appointment: any): Observable<any> {
+    return this.http.post(this.apiUrl, appointment);
   }
 
-  deleteAppointment(id: number): Observable<IResponse<void>> {
-    return this.http.delete<IResponse<void>>(`${this.apiUrl}/${id}`);
+  updateAppointment(id: string, changes: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, changes);
   }
 
-  getCalendarAppointments(start: Date, end: Date): Observable<IAppointment[]> {
-    return this.http.get<IAppointment[]>(
-      `${this.apiUrl}?start=${start.toISOString()}&end=${end.toISOString()}`
-    );
-  }
-
-  createAppointment(appointment: Partial<IAppointment>): Observable<IResponse<IAppointment>> {
-    return this.http.post<IResponse<IAppointment>>(this.apiUrl, appointment);
-  }
-
-  updateAppointment(id: number, changes: Partial<IAppointment>): Observable<IResponse<IAppointment>> {
-    return this.http.patch<IResponse<IAppointment>>(`${this.apiUrl}/${id}`, changes);
+  deleteAppointment(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }
