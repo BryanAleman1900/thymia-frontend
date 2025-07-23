@@ -206,3 +206,8 @@
 .espacioBarra {
   margin-bottom: 20px;
 }
+
+.progress-bar-orange {
+  background-color: #ff8000 !important;
+  transition: width 0.5s ease-in-out;
+}
