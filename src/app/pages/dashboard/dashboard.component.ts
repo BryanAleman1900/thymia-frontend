@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [
-  ],
+  imports: [],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
+  constructor(private router: Router) {}
+
+  goToVideoCall(): void {
+    this.router.navigate(['/app/emotion-detector']);
+  }
 }

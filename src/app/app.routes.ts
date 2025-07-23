@@ -10,7 +10,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { GuestGuard } from './guards/guest.guard';
 import { IRoleType } from './interfaces';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { AppointmentComponent } from './pages/appointment/appointment.component';
+import { EmotionDetectorComponent } from './pages/emotion-detector/emotion-detector.component';
 
 
 export const routes: Routes = [
@@ -83,18 +83,9 @@ export const routes: Routes = [
         }
       },
       {
-        path: 'appointment',
-        component: AppointmentComponent,
-        data: { 
-          authorities: [
-            IRoleType.admin, 
-            IRoleType.superAdmin,
-            IRoleType.user
-          ],
-          name: 'Appointment',
-          showInSidebar: true
-        }
-      },
+    path: 'emotion-detector',
+    component: EmotionDetectorComponent
+  }
     ],
   },
 ];
