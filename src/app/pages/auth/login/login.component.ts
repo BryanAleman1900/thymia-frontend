@@ -111,7 +111,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
     if (this.emailModel.valid && this.passwordModel.valid) {
       this.authService.login(this.loginForm).subscribe({
         next: () => {
-          this.ngZone.run(() => this.router.navigateByUrl('/app/dashboard'));
+          setTimeout(() => {
+            this.ngZone.run(() => this.router.navigateByUrl('/app/dashboard'));
+          }, 0);
           this.inactivityService.initListener();
         },
         error: (err: any) => {

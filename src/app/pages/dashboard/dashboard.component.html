@@ -1,53 +1,70 @@
 <div class="px-6 py-5">
-  <p class="text-white tracking-light text-[32px] font-bold leading-tight">Welcome back</p>
+  <p class="text-white tracking-light text-[32px] font-bold leading-tight">
+    Bienvenido de nuevo
+  </p>
 
-  <h2 class="text-white text-[22px] font-bold tracking-[-0.015em] pt-5 pb-3">Quick Actions</h2>
-  <div class="flex gap-3 flex-wrap">
+  <h2 class="text-white text-[22px] font-bold tracking-[-0.015em] pt-5 pb-3">
+    Acciones rápidas
+  </h2>
+  <div class="flex flex-wrap gap-3">
     <button
       class="h-10 px-4 rounded-full bg-[#f2730c] text-white text-sm font-bold"
       (click)="goToVideoCall()"
     >
-      Start Video Call
+      Iniciar videollamada
     </button>
-
     <button class="h-10 px-4 rounded-full bg-[#393028] text-white text-sm font-bold">
-      Write in Journal
+      Escribir en el diario
     </button>
   </div>
 
-  <h2 class="text-white text-[22px] font-bold tracking-[-0.015em] pt-5 pb-3">Upcoming</h2>
-  <div class="rounded-xl flex gap-4 items-stretch bg-transparent">
-    <div class="flex flex-col gap-1 flex-[2_2_0px]">
-      <p class="text-[#baa99c] text-sm">Today, 3:00 PM</p>
-      <p class="text-white text-base font-bold">Therapy Session with Dr. Evelyn Reed</p>
-      <p class="text-[#baa99c] text-sm">Video call</p>
+  <h2 class="text-white text-[22px] font-bold tracking-[-0.015em] pt-5 pb-3">
+    Próximos eventos
+  </h2>
+  <div
+    class="rounded-xl bg-transparent flex flex-col lg:flex-row gap-4 items-stretch"
+  >
+    <div class="flex flex-col gap-1 flex-1">
+      <p class="text-[#baa99c] text-sm">Hoy, 3:00 PM</p>
+      <p class="text-white text-base font-bold">
+        Sesión de terapia con la Dra. Evelyn Reed
+      </p>
+      <p class="text-[#baa99c] text-sm">Videollamada</p>
     </div>
     <div
-      class="aspect-video flex-1 rounded-xl bg-cover bg-center"
+      class="aspect-video w-full lg:w-1/2 rounded-xl bg-cover bg-center"
       style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA8FdUQQAGKAp7DCkrVLvrRzSVs2_zFa4vQ3yVaRpJFL6HmYb-HMCQPbeQ7Z2_rFjid1dE92q9D1K6SWCgzFULMyVh8XKAE5W0Kx2nMtY2PImMp4SeMyqYIrhZrBtn-0i_DXFtrsRQ7t3XXYYa-d9fGPoJqlaiHaUYYW0JcN8fYwOSvO2N-_eTWlJUE2QqVRWhdjkP19-doUR7OGssvAovrQ-AADRo8yZ-qvzcZNWiCz9LzNBAQ_QC9OIwXzmy748pjZVbMuoJbCO0E');"
     ></div>
   </div>
 
-  <h2 class="text-white text-[22px] font-bold tracking-[-0.015em] pt-5 pb-3">Chat</h2>
+  <h2 class="text-white text-[22px] font-bold tracking-[-0.015em] pt-5 pb-3">
+    Chat
+  </h2>
   <div class="flex flex-col gap-6">
-    <div class="flex gap-4 rounded-xl items-stretch">
-      <div class="flex flex-col gap-1 flex-[2_2_0px]">
-        <p class="text-white text-base font-bold">AI Chatbot</p>
-        <p class="text-[#baa99c] text-sm">Get immediate support and guidance</p>
+    <div
+      class="flex flex-col lg:flex-row gap-4 rounded-xl items-stretch"
+    >
+      <div class="flex flex-col gap-1 flex-1">
+        <p class="text-white text-base font-bold">Chatbot IA</p>
+        <p class="text-[#baa99c] text-sm">
+          Recibe apoyo y orientación inmediata
+        </p>
       </div>
       <div
-        class="aspect-video flex-1 rounded-xl bg-cover bg-center"
+        class="aspect-video w-full lg:w-1/2 rounded-xl bg-cover bg-center"
         style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCV-8ZOxZnls9swfLlOys4U1XVhNiNUeg8BS4DVQiDs6MZHjIoWKx6YFAFZrsVkpKKZs2Vad6KtGpliPBH5C3iMnj66oPnNeyb5NXGMqKR4XkyB_qc5LnuGfGQ5azAk1YcExFKO99aqvfxFwHIrx-E4UPhIy7ql7J3Q17Az91vqA1P9cvP--6XDGUWVyQvJ45NzmcV0tpAyquGSKIK6_k4M81HFLP2kXhaM8Vz0Lp3aPRlVCDFlF_IGyjaKjb-GPXWK_7iYn1WZ9KeY');"
       ></div>
     </div>
 
-    <div class="flex gap-4 rounded-xl items-stretch">
-      <div class="flex flex-col gap-1 flex-[2_2_0px]">
-        <p class="text-white text-base font-bold">Therapist Chat</p>
-        <p class="text-[#baa99c] text-sm">Communicate with your therapist</p>
+    <div
+      class="flex flex-col lg:flex-row gap-4 rounded-xl items-stretch"
+    >
+      <div class="flex flex-col gap-1 flex-1">
+        <p class="text-white text-base font-bold">Chat con terapeuta</p>
+        <p class="text-[#baa99c] text-sm">Comunícate con tu terapeuta</p>
       </div>
       <div
-        class="aspect-video flex-1 rounded-xl bg-cover bg-center"
+        class="aspect-video w-full lg:w-1/2 rounded-xl bg-cover bg-center"
         style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD9Zkem-gSm8Femh5xMcFKFn56WBYT6ceO1tieK3MDx1OsJ6MhHBZUsY4P6nub2XYRdLgMArWU0RO6bhlofJ4Jz_duIU6jJaQB45fcSug5DJSMRlPQgB2dnb0D3w8zhpCsws3FfMpRN_iWzkIhqUjn6VUFpRVO8sakRQJMRpJ5Q2wGiJWUDi9yNNTINuR-Ng7KC6xvpECEIoz8cU3ZkwIr2--FeJMFENWY2GE_FhJj_rzofQ0OI-Q5JBJsLSBQGHQ7-wZHEmmhyiqQd');"
       ></div>
     </div>

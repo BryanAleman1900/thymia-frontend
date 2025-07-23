@@ -48,8 +48,8 @@ export class EmotionDetectorComponent implements OnInit, AfterViewInit {
 
   sendEmotion(emotion: string) {
     this.emotionService.sendEmotion(emotion).subscribe({
-      next: () => console.log('✅ Emoción enviada:', emotion),
-      error: (err) => console.error('❌ Error al enviar emoción:', err),
+      next: () => console.log('Emoción enviada:', emotion),
+      error: (err) => console.error('Error al enviar emoción:', err),
     });
   }
 }
