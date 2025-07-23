@@ -66,3 +66,16 @@ export interface ICategory {
   name: string;
   description: string;
 }
+
+export interface IAppointment {
+  id?: number;
+  title: string;
+  description: string;
+  startTime: string;
+  endTime: string;
+  googleEventId?: string;
+  patientId: number;  
+  doctorId: number;  
+  patient?: IUser;    
+  doctor?: IUser;
+}

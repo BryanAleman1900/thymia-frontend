@@ -20,24 +20,6 @@ export class UserService extends BaseService<IUser> {
   public totalItems: any = [];
   private alertService: AlertService = inject(AlertService);
 
-  /*getAll() {
-    this.findAllWithParams({ page: this.search.page, size: this.search.size}).subscribe({
-      next: (response: any) => {
-        this.search = {...this.search, ...response.meta};
-        this.totalItems = Array.from({length: this.search.totalPages ? this.search.totalPages: 0}, (_, i) => i+1);
-        this.userListSignal.set(response.data);
-      },
-      error: (err: any) => {
-        console.error('error', err);
-      }
-    });
-  }*/
-
-
-
-
-
-  // Cambio de Mauro
   getAll(): Observable<{ data: IUser[] }> {
   return this.http.get<{ data: IUser[] }>(`${this.source}`).pipe(
     tap(response => {
@@ -50,7 +32,6 @@ export class UserService extends BaseService<IUser> {
   );
 }
 
-//Cambio de Mauro
 getPatients(): Observable<{ data: IUser[] }> {
   return this.http.get<{ data: IUser[] }>(`${this.search.page}/${this.source}/patients`).pipe(
     catchError(err => {
