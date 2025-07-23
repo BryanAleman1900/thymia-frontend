@@ -1,0 +1,37 @@
+
+<div class="appointment-list">
+  <mat-card *ngFor="let appointment of appointments" class="appointment-card">
+    <mat-card-header>
+      <mat-card-title>{{ appointment.title }}</mat-card-title>
+      <mat-card-subtitle>
+        {{ isDoctor ? 'Paciente: ' + (appointment.patient?.name + ' ' + appointment.patient?.lastname) : 
+                     'Doctor: ' + (appointment.doctor?.name + ' ' + appointment.doctor?.lastname) }}
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p>{{ appointment.description }}</p>
+      <div class="appointment-times">
+        <div>
+          <mat-icon>access_time</mat-icon>
+          <span>Inicio: {{ formatDate(appointment.startTime) }}</span>
+        </div>
+        <div>
+          <mat-icon>access_time</mat-icon>
+          <span>Fin: {{ formatDate(appointment.endTime) }}</span>
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions align="end" *ngIf="isDoctor">
+      <button mat-button color="warn" (click)="onDelete(appointment.id!)">
+        <mat-icon>delete</mat-icon> Eliminar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+  <div *ngIf="appointments.length === 0" class="no-appointments">
+    <mat-icon>event_busy</mat-icon>
+    <p>No hay citas programadas</p>
+  </div>
+</div>

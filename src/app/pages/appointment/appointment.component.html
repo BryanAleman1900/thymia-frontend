@@ -1,0 +1,8 @@
+<div class="calendar-container">
+  <full-calendar #calendar [options]="calendarOptions"></full-calendar>
+</div>
+
+<button mat-fab class="add-button" color="primary" (click)="openAppointmentForm()" 
+        matTooltip="Nueva cita" aria-label="Agregar cita">
+  <mat-icon>add</mat-icon>
+</button>

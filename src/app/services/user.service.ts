@@ -20,7 +20,7 @@ export class UserService extends BaseService<IUser> {
   public totalItems: any = [];
   private alertService: AlertService = inject(AlertService);
 
-  getAll() {
+  /*getAll() {
     this.findAllWithParams({ page: this.search.page, size: this.search.size}).subscribe({
       next: (response: any) => {
         this.search = {...this.search, ...response.meta};
@@ -31,7 +31,34 @@ export class UserService extends BaseService<IUser> {
         console.error('error', err);
       }
     });
-  }
+  }*/
+
+
+
+
+
+  // Cambio de Mauro
+  getAll(): Observable<{ data: IUser[] }> {
+  return this.http.get<{ data: IUser[] }>(`${this.source}`).pipe(
+    tap(response => {
+      this.userListSignal.set(response.data);
+    }),
+    catchError(err => {
+      this.alertService.displayAlert('error', 'Error al cargar usuarios', 'center', 'top', ['error-snackbar']);
+      return throwError(() => err);
+    })
+  );
+}
+
+//Cambio de Mauro
+getPatients(): Observable<{ data: IUser[] }> {
+  return this.http.get<{ data: IUser[] }>(`${this.search.page}/${this.source}/patients`).pipe(
+    catchError(err => {
+      this.alertService.displayAlert('error', 'Error al cargar pacientes', 'center', 'top', ['error-snackbar']);
+      return throwError(() => err);
+    })
+  );
+}
 
 
   save(user: IUser) {
