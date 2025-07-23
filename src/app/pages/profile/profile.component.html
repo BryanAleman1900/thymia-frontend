@@ -8,26 +8,25 @@
         </div>
 
         <div class="border-b border-[#393028] my-4">
-          <label class="text-[#baa99c] block">Name:</label>
+          <label class="text-[#baa99c] block">Nombre:</label>
           <p>{{ profileService.user$().name }}</p>
         </div>
 
         <div class="border-b border-[#393028] my-4">
-          <label class="text-[#baa99c] block">Lastname:</label>
+          <label class="text-[#baa99c] block">Apellido:</label>
           <p>{{ profileService.user$().lastname }}</p>
         </div>
 
         <div class="border-b border-[#393028] my-4">
-          <label class="text-[#baa99c] block">Email:</label>
+          <label class="text-[#baa99c] block">Correo electrónico:</label>
           <p>{{ profileService.user$().email }}</p>
         </div>
 
         <div class="my-4">
-          <label class="text-[#baa99c] block">Last update:</label>
+          <label class="text-[#baa99c] block">Última actualización:</label>
           <p>{{ profileService.user$().updatedAt | date: 'dd/MM/yyyy' }}</p>
         </div>
 
-        <!-- Face ID -->
         <div class="text-center mt-6">
           <button
             class="border border-white text-white rounded-full px-4 py-2 hover:bg-white hover:text-[#181411] transition"
@@ -46,17 +45,17 @@
             <label class="text-[#baa99c]">Rol:</label>
 
             <div class="border-b border-[#393028] my-4">
-              <label class="text-[#baa99c] block">Name:</label>
+              <label class="text-[#baa99c] block">Nombre:</label>
               <p>{{ profileService.user$().role?.name }}</p>
             </div>
 
             <div class="border-b border-[#393028] my-4">
-              <label class="text-[#baa99c] block">Description:</label>
+              <label class="text-[#baa99c] block">Descripción:</label>
               <p>{{ profileService.user$().role?.description }}</p>
             </div>
 
             <div class="my-4">
-              <label class="text-[#baa99c] block">Last update:</label>
+              <label class="text-[#baa99c] block">Última actualización:</label>
               <p>{{ profileService.user$().role?.updatedAt | date: 'dd/MM/yyyy' }}</p>
             </div>
           </div>
@@ -64,31 +63,31 @@
 
         <div class="col-12">
           <div class="bg-[#2b2420] rounded-xl px-6 py-6">
-            <label class="text-[#baa99c] block mb-2">Last actions:</label>
+            <label class="text-[#baa99c] block mb-2">Últimas acciones:</label>
             <div class="overflow-x-auto">
               <table class="table-auto w-full text-sm">
                 <thead class="text-[#baa99c] border-b border-[#393028]">
                   <tr>
                     <th class="text-left py-2">#</th>
-                    <th class="text-left py-2">Date</th>
-                    <th class="text-left py-2">Description</th>
+                    <th class="text-left py-2">Fecha</th>
+                    <th class="text-left py-2">Descripción</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr class="border-b border-[#393028]">
                     <td class="py-2">1</td>
                     <td>10/06/2024</td>
-                    <td>Deleted user</td>
+                    <td>Usuario eliminado</td>
                   </tr>
                   <tr class="border-b border-[#393028]">
                     <td class="py-2">2</td>
                     <td>10/06/2024</td>
-                    <td>Deleted user</td>
+                    <td>Usuario eliminado</td>
                   </tr>
                   <tr>
                     <td class="py-2">3</td>
                     <td>10/06/2024</td>
-                    <td>Deleted user</td>
+                    <td>Usuario eliminado</td>
                   </tr>
                 </tbody>
               </table>
