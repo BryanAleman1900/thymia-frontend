@@ -36,16 +36,14 @@ import { CommonModule } from '@angular/common';
 })
 export class AppointmentFormComponent implements OnInit {
   appointmentForm: FormGroup;
-  isEditMode = false;
-  patients: IUser[] = [];
-  doctors: IUser[] = [];
+
   allUsers: IUser[] = [];
   selectedGuests: IUser[] = [];
   isLoading = true;
+  isEditMode = false;
   timeOptions: string[] = this.generateTimeOptions();
   minDate: Date = new Date();
 
-  
   private fb = inject(FormBuilder);
 
   constructor(
@@ -56,16 +54,14 @@ export class AppointmentFormComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.appointmentForm = this.fb.group({
-      title: ['', [Validators.required, Validators.maxLength(100)]],
-      startDate: [null, Validators.required],
-      startTime: ['', Validators.required],
-      endDate: [null, Validators.required],
-      endTime: ['', Validators.required],
-      description: ['', Validators.maxLength(500)],
-      patientId: [null, Validators.required],
-      doctorId: [null, Validators.required],
-      guestIds: [[]]
-    });
+    title: ['', [Validators.required, Validators.maxLength(100)]],
+    startDate: [null, Validators.required],
+    startTime: ['', Validators.required],
+    endDate: [null, Validators.required],
+    endTime: ['', Validators.required],
+    description: ['', Validators.maxLength(500)],
+    guestIds: [[]]
+  }, { validators: this.endAfterStartValidator });
 
     if (data.id) {
       this.isEditMode = true;
@@ -91,24 +87,12 @@ export class AppointmentFormComponent implements OnInit {
 
   loadUsers(): void {
     this.isLoading = true;
-    
-    forkJoin({
-      patients: this.userService.getPatients().pipe(
-        catchError(() => of({ data: [] }))
-      ),
-      users: this.userService.getAll().pipe(
-        catchError(() => of({ data: [] }))
-      )
-    }).subscribe({
-      next: ({patients, users}) => {
-        this.patients = patients.data;
+    this.userService.getAll().pipe(
+      catchError(() => of({ data: [] }))
+    ).subscribe({
+      next: (users) => {
         this.allUsers = users.data;
-        this.doctors = this.allUsers.filter(user => 
-          user.role?.name === 'ROLE_DOCTOR' || 
-          user.authorities?.some(auth => auth.authority === 'ROLE_DOCTOR')
-        );
         this.isLoading = false;
-        
         if (this.isEditMode) {
           this.loadGuestSelection();
         }
@@ -119,6 +103,28 @@ export class AppointmentFormComponent implements OnInit {
         this.isLoading = false;
       }
     });
+  }
+
+  endAfterStartValidator(form: FormGroup) {
+    const startDate = form.get('startDate')?.value;
+    const startTime = form.get('startTime')?.value;
+    const endDate = form.get('endDate')?.value;
+    const endTime = form.get('endTime')?.value;
+
+    if (startDate && startTime && endDate && endTime) {
+      const start = new Date(startDate);
+      const [startHour, startMinute] = startTime.split(':').map(Number);
+      start.setHours(startHour, startMinute, 0, 0);
+
+      const end = new Date(endDate);
+      const [endHour, endMinute] = endTime.split(':').map(Number);
+      end.setHours(endHour, endMinute, 0, 0);
+
+      if (end <= start) {
+        return { endBeforeStart: true };
+      }
+    }
+    return null;
   }
 
   loadGuestSelection(): void {
@@ -133,8 +139,6 @@ export class AppointmentFormComponent implements OnInit {
       ...data,
       startTime: this.formatDateTime(data.startTime),
       endTime: this.formatDateTime(data.endTime),
-      patientId: data.patient?.id,
-      doctorId: data.doctor?.id,
       guestIds: data.guests?.map((g: IUser) => g.id) || []
     };
 
@@ -159,8 +163,6 @@ export class AppointmentFormComponent implements OnInit {
     const formValue = this.appointmentForm.value;
     const appointmentData = {
       ...formValue,
-      patient: { id: formValue.patientId },
-      doctor: { id: formValue.doctorId },
       guests: formValue.guestIds.map((id: number) => ({ id }))
     };
 
@@ -237,13 +239,32 @@ export class AppointmentFormComponent implements OnInit {
   }
 
   formatDateTimeForSubmission(): void {
-    const formValue = this.appointmentForm.value;
-    const startDateTime = this.combineDateAndTime(formValue.startDate, formValue.startTime);
-    const endDateTime = this.combineDateAndTime(formValue.endDate, formValue.endTime);
-    
-    this.appointmentForm.patchValue({
-      startTime: startDateTime.toISOString(),
-      endTime: endDateTime.toISOString()
-    });
+  const formValue = this.appointmentForm.value;
+
+  if (!formValue.startDate || !formValue.startTime || !formValue.endDate || !formValue.endTime) {
+    this.showError('Debes seleccionar fecha y hora de inicio y fin');
+    return;
   }
+
+  const startDate = new Date(formValue.startDate);
+  const endDate = new Date(formValue.endDate);
+
+  if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+    this.showError('Fecha inválida');
+    return;
+  }
+
+  const startDateTime = this.combineDateAndTime(startDate, formValue.startTime);
+  const endDateTime = this.combineDateAndTime(endDate, formValue.endTime);
+
+  if (isNaN(startDateTime.getTime()) || isNaN(endDateTime.getTime())) {
+    this.showError('Fecha y hora inválidas');
+    return;
+  }
+
+  this.appointmentForm.patchValue({
+    startTime: startDateTime.toISOString(),
+    endTime: endDateTime.toISOString()
+  });
+}
 }
