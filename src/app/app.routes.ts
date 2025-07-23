@@ -10,6 +10,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { GuestGuard } from './guards/guest.guard';
 import { IRoleType } from './interfaces';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { EmotionDetectorComponent } from './pages/emotion-detector/emotion-detector.component';
 
 
 export const routes: Routes = [
@@ -80,7 +81,11 @@ export const routes: Routes = [
           name: 'profile',
           showInSidebar: false
         }
-      }
+      },
+      {
+    path: 'emotion-detector',
+    component: EmotionDetectorComponent
+  }
     ],
   },
 ];

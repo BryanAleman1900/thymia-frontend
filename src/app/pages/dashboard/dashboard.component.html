@@ -1,12 +1,22 @@
 <div class="px-6 py-5">
   <p class="text-white tracking-light text-[32px] font-bold leading-tight">Welcome back</p>
 
+  <!-- 🔹 QUICK ACTIONS -->
   <h2 class="text-white text-[22px] font-bold tracking-[-0.015em] pt-5 pb-3">Quick Actions</h2>
   <div class="flex gap-3 flex-wrap">
-    <button class="h-10 px-4 rounded-full bg-[#f2730c] text-white text-sm font-bold">Start Video Call</button>
-    <button class="h-10 px-4 rounded-full bg-[#393028] text-white text-sm font-bold">Write in Journal</button>
+    <button
+      class="h-10 px-4 rounded-full bg-[#f2730c] text-white text-sm font-bold"
+      (click)="goToVideoCall()"
+    >
+      Start Video Call
+    </button>
+
+    <button class="h-10 px-4 rounded-full bg-[#393028] text-white text-sm font-bold">
+      Write in Journal
+    </button>
   </div>
 
+  <!-- 🔹 UPCOMING -->
   <h2 class="text-white text-[22px] font-bold tracking-[-0.015em] pt-5 pb-3">Upcoming</h2>
   <div class="rounded-xl flex gap-4 items-stretch bg-transparent">
     <div class="flex flex-col gap-1 flex-[2_2_0px]">
@@ -20,8 +30,8 @@
     ></div>
   </div>
 
+  <!-- 🔹 CHAT -->
   <h2 class="text-white text-[22px] font-bold tracking-[-0.015em] pt-5 pb-3">Chat</h2>
-
   <div class="flex flex-col gap-6">
     <div class="flex gap-4 rounded-xl items-stretch">
       <div class="flex flex-col gap-1 flex-[2_2_0px]">
