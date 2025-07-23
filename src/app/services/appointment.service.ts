@@ -20,19 +20,20 @@ export class AppointmentService {
   }
 
   createAppointment(data: any) {
-  
   const body =
     `title=${encodeURIComponent(data.title)}&` +
     `startTime=${encodeURIComponent(data.startTime)}&` +
     `endTime=${encodeURIComponent(data.endTime)}&` +
     `description=${encodeURIComponent(data.description || '')}&` +
     `patientId=${encodeURIComponent(data.patientId)}&` +
+    `doctorId=${encodeURIComponent(data.doctorId)}&` +
     data.guestIds.map((id: number) => `guestIds=${encodeURIComponent(id)}`).join('&');
 
-  return this.http.post('/api/appointments', body, {
+  return this.http.post('api/appointments', body, {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
   });
 }
+
 
   updateAppointment(id: string, changes: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/${id}`, changes);

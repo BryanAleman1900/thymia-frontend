@@ -3,11 +3,13 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AppointmentService } from '../../../services/appointment.service';
 import { UserService } from '../../../services/user.service';
+import { AuthService } from '../../../services/auth.service';
 import { IUser } from '../../../interfaces';
-import { Observable, forkJoin, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, of } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+
+import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -15,7 +17,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-appointment-form',
@@ -36,7 +37,6 @@ import { CommonModule } from '@angular/common';
 })
 export class AppointmentFormComponent implements OnInit {
   appointmentForm: FormGroup;
-
   allUsers: IUser[] = [];
   selectedGuests: IUser[] = [];
   isLoading = true;
@@ -45,6 +45,7 @@ export class AppointmentFormComponent implements OnInit {
   minDate: Date = new Date();
 
   private fb = inject(FormBuilder);
+  private authService = inject(AuthService);
 
   constructor(
     private appointmentService: AppointmentService,
@@ -54,14 +55,14 @@ export class AppointmentFormComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.appointmentForm = this.fb.group({
-    title: ['', [Validators.required, Validators.maxLength(100)]],
-    startDate: [null, Validators.required],
-    startTime: ['', Validators.required],
-    endDate: [null, Validators.required],
-    endTime: ['', Validators.required],
-    description: ['', Validators.maxLength(500)],
-    guestIds: [[]]
-  }, { validators: this.endAfterStartValidator });
+      title: ['', [Validators.required, Validators.maxLength(100)]],
+      startDate: [null, Validators.required],
+      startTime: ['', Validators.required],
+      endDate: [null, Validators.required],
+      endTime: ['', Validators.required],
+      description: ['', Validators.maxLength(500)],
+      guestIds: [[]]
+    }, { validators: this.endAfterStartValidator });
 
     if (data.id) {
       this.isEditMode = true;
@@ -69,20 +70,18 @@ export class AppointmentFormComponent implements OnInit {
     }
   }
 
+  ngOnInit(): void {
+    this.loadUsers();
+  }
+
   private generateTimeOptions(): string[] {
     const options = [];
     for (let hour = 8; hour <= 20; hour++) {
       for (let minute = 0; minute < 60; minute += 30) {
-        options.push(
-          `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`
-        );
+        options.push(`${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`);
       }
     }
     return options;
-  }
-
-  ngOnInit(): void {
-    this.loadUsers();
   }
 
   loadUsers(): void {
@@ -129,9 +128,7 @@ export class AppointmentFormComponent implements OnInit {
 
   loadGuestSelection(): void {
     const guestIds = this.appointmentForm.get('guestIds')?.value || [];
-    this.selectedGuests = this.allUsers.filter(user => 
-      user.id && guestIds.includes(user.id)
-    );
+    this.selectedGuests = this.allUsers.filter(user => user.id && guestIds.includes(user.id));
   }
 
   patchForm(data: any): void {
@@ -141,7 +138,6 @@ export class AppointmentFormComponent implements OnInit {
       endTime: this.formatDateTime(data.endTime),
       guestIds: data.guests?.map((g: IUser) => g.id) || []
     };
-
     this.appointmentForm.patchValue(formattedData);
     this.selectedGuests = data.guests || [];
   }
@@ -163,7 +159,9 @@ export class AppointmentFormComponent implements OnInit {
     const formValue = this.appointmentForm.value;
     const appointmentData = {
       ...formValue,
-      guests: formValue.guestIds.map((id: number) => ({ id }))
+      patientId: this.authService.getUser()?.id,
+      doctorId: this.authService.getUser()?.id,
+      guestIds: formValue.guestIds
     };
 
     this.isLoading = true;
@@ -174,7 +172,7 @@ export class AppointmentFormComponent implements OnInit {
     operation.subscribe({
       next: () => {
         this.showSuccess(this.isEditMode ? 'Cita actualizada' : 'Cita creada');
-        this.dialogRef.close(true);
+        this.dialogRef.close({ message: this.isEditMode ? 'Cita actualizada' : 'Cita creada' });
       },
       error: (err) => {
         console.error('Error saving appointment:', err);
@@ -194,7 +192,7 @@ export class AppointmentFormComponent implements OnInit {
     this.appointmentService.deleteAppointment(this.data.id).subscribe({
       next: () => {
         this.showSuccess('Cita eliminada');
-        this.dialogRef.close(true);
+        this.dialogRef.close({ message: 'Cita eliminada' });
       },
       error: (err) => {
         console.error('Error deleting appointment:', err);
@@ -209,17 +207,11 @@ export class AppointmentFormComponent implements OnInit {
   }
 
   private showSuccess(message: string): void {
-    this.snackBar.open(message, 'Cerrar', { 
-      duration: 3000,
-      panelClass: ['success-snackbar']
-    });
+    this.snackBar.open(message, 'Cerrar', { duration: 3000, panelClass: ['success-snackbar'] });
   }
 
   private showError(message: string): void {
-    this.snackBar.open(message, 'Cerrar', { 
-      duration: 3000,
-      panelClass: ['error-snackbar']
-    });
+    this.snackBar.open(message, 'Cerrar', { duration: 3000, panelClass: ['error-snackbar'] });
   }
 
   onStartDateChange(event: MatDatepickerInputEvent<Date>): void {
@@ -239,32 +231,32 @@ export class AppointmentFormComponent implements OnInit {
   }
 
   formatDateTimeForSubmission(): void {
-  const formValue = this.appointmentForm.value;
+    const formValue = this.appointmentForm.value;
 
-  if (!formValue.startDate || !formValue.startTime || !formValue.endDate || !formValue.endTime) {
-    this.showError('Debes seleccionar fecha y hora de inicio y fin');
-    return;
+    if (!formValue.startDate || !formValue.startTime || !formValue.endDate || !formValue.endTime) {
+      this.showError('Debes seleccionar fecha y hora de inicio y fin');
+      return;
+    }
+
+    const startDate = new Date(formValue.startDate);
+    const endDate = new Date(formValue.endDate);
+
+    if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+      this.showError('Fecha inválida');
+      return;
+    }
+
+    const startDateTime = this.combineDateAndTime(startDate, formValue.startTime);
+    const endDateTime = this.combineDateAndTime(endDate, formValue.endTime);
+
+    if (isNaN(startDateTime.getTime()) || isNaN(endDateTime.getTime())) {
+      this.showError('Fecha y hora inválidas');
+      return;
+    }
+
+    this.appointmentForm.patchValue({
+      startTime: startDateTime.toISOString(),
+      endTime: endDateTime.toISOString()
+    });
   }
-
-  const startDate = new Date(formValue.startDate);
-  const endDate = new Date(formValue.endDate);
-
-  if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
-    this.showError('Fecha inválida');
-    return;
-  }
-
-  const startDateTime = this.combineDateAndTime(startDate, formValue.startTime);
-  const endDateTime = this.combineDateAndTime(endDate, formValue.endTime);
-
-  if (isNaN(startDateTime.getTime()) || isNaN(endDateTime.getTime())) {
-    this.showError('Fecha y hora inválidas');
-    return;
-  }
-
-  this.appointmentForm.patchValue({
-    startTime: startDateTime.toISOString(),
-    endTime: endDateTime.toISOString()
-  });
-}
 }
