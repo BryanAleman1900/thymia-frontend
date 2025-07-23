@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { CalendarOptions, EventClickArg, EventDropArg } from '@fullcalendar/core';
-import { DateClickArg } from '@fullcalendar/interaction';
+import { DateClickArg, EventResizeDoneArg } from '@fullcalendar/interaction';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -42,7 +42,8 @@ interface AppointmentData {
   imports: [
     CommonModule,
     FullCalendarModule, 
-    MatIconModule
+    MatIconModule,
+    CommonModule
   ],
   templateUrl: './appointment.component.html',
   styleUrls: ['./appointment.component.scss']
@@ -134,9 +135,20 @@ export class AppointmentComponent implements OnInit {
     });
   }
 
-  handleEventResize(resizeInfo: EventDropArg) {
-    this.handleEventDrop(resizeInfo);
-  }
+ handleEventResize(resizeInfo: EventResizeDoneArg) {
+  const event = resizeInfo.event as unknown as CalendarEvent;
+
+  this.appointmentService.updateAppointment(event.id, {
+    startTime: event.start,
+    endTime: event.end
+  }).subscribe({
+    next: () => this.showSuccess('Cita redimensionada'),
+    error: () => {
+      this.refreshCalendar();
+      this.showError('Error al actualizar cita redimensionada');
+    }
+  });
+}
 
   openAppointmentForm(data?: AppointmentData) {
     const dialogRef = this.dialog.open(AppointmentFormComponent, {

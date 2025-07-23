@@ -3,7 +3,7 @@
   
   <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
     <div class="form-grid">
-      <!-- Título -->
+
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Título de la cita</mat-label>
         <input matInput formControlName="title" placeholder="Ej: Consulta de seguimiento">
@@ -12,7 +12,6 @@
         </mat-error>
       </mat-form-field>
 
-      <!-- Fecha y hora de inicio -->
       <div class="datetime-group">
         <h4>Fecha y hora de inicio</h4>
         <div class="datetime-controls">
@@ -35,7 +34,6 @@
         </div>
       </div>
 
-      <!-- Fecha y hora de fin -->
       <div class="datetime-group">
         <h4>Fecha y hora de fin</h4>
         <div class="datetime-controls">
@@ -57,12 +55,11 @@
         </div>
       </div>
 
-      <!-- Paciente -->
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Paciente</mat-label>
         <mat-select formControlName="patientId" [compareWith]="compareUsers">
           <mat-option *ngFor="let patient of patients" [value]="patient.id">
-            {{ patient.firstName }} {{ patient.lastName }}
+            {{ patient.name }} {{ patient.lastname }}
           </mat-option>
         </mat-select>
         <mat-error *ngIf="appointmentForm.get('patientId')?.hasError('required')">
@@ -70,12 +67,11 @@
         </mat-error>
       </mat-form-field>
 
-      <!-- Médico -->
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Médico</mat-label>
         <mat-select formControlName="doctorId" [compareWith]="compareUsers">
           <mat-option *ngFor="let doctor of doctors" [value]="doctor.id">
-            {{ doctor.firstName }} {{ doctor.lastName }}
+            {{ doctor.name }} {{ doctor.lastname }}
           </mat-option>
         </mat-select>
         <mat-error *ngIf="appointmentForm.get('doctorId')?.hasError('required')">
@@ -83,19 +79,17 @@
         </mat-error>
       </mat-form-field>
 
-      <!-- Descripción -->
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Descripción</mat-label>
         <textarea matInput formControlName="description" rows="3"
                   placeholder="Detalles adicionales de la cita"></textarea>
       </mat-form-field>
 
-      <!-- Invitados -->
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Invitados (opcional)</mat-label>
         <mat-select formControlName="guestIds" multiple [compareWith]="compareUsers">
           <mat-option *ngFor="let user of allUsers" [value]="user.id">
-            {{ user.firstName }} {{ user.lastName }}
+            {{ user.name }} {{ user.lastname }}
           </mat-option>
         </mat-select>
       </mat-form-field>
