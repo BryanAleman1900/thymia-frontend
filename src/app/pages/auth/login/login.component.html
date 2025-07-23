@@ -1,140 +1,112 @@
-<div class="login-container" [ngClass]="{ 'face-id-mode': faceIDActive }">
-  <div class="d-flex align-items-center justify-content-center h-100">
-    <div class="login-card">
-      <div class="w-100">
+<div class="px-6 py-5 min-h-screen bg-[#181411] flex items-center justify-center" [ngClass]="{ 'face-id-mode': faceIDActive }">
+  <div class="bg-[#1f1b17] p-8 rounded-2xl w-full max-w-xl shadow-lg">
 
-        <!-- 🔵 Sección visible SOLO si NO está activo Face ID -->
-        <div *ngIf="!faceIDActive">
-          <!-- Logo centrado -->
-          <div class="text-center mb-4 logo">
-            <a routerLink="/">
-              <img width="150" src="../../../../assets/icons/logo@2x.png" alt="Logo" />
-            </a>
-          </div>
-
-          <!-- Contenido principal -->
-          <div class="login-main">
-            <h2>Welcome back</h2>
-            <small class="d-block mb-3 text-muted">Enter your email & password to login</small>
-
-            <!-- 🔷 Google & Face ID -->
-            <div class="extra-buttons text-center mb-3">
-              <div id="googleBtn"></div>
-
-              <div class="text-center mt-2">
-                <button type="button" class="biometric" (click)="activateBiometric()">
-                  Iniciar sesión con Face ID
-                </button>
-              </div>
-            </div>
-
-            <!-- 🟥 Error general -->
-            <div *ngIf="loginError" class="alert alert-danger text-center mt-3">
-              {{ loginError }}
-            </div>
-
-            <!-- 🟨 Intentos restantes o cuenta regresiva -->
-            <div
-              *ngIf="intentosRestantes !== null || tiempoRestante"
-              class="alert text-center mt-2"
-              [ngClass]="{
-                'alert-warning': intentosRestantes !== null,
-                'alert-info': tiempoRestante
-              }"
-            >
-              <ng-container *ngIf="tiempoRestante; else intentos">
-                <p>Tiempo restante: {{ tiempoRestante }}</p>
-              </ng-container>
-              <ng-template #intentos>
-                Intentos restantes: {{ intentosRestantes }}
-              </ng-template>
-            </div>
-
-            <!-- Progreso visual -->
-            <div *ngIf="porcentajeProgreso !== null" class="progress mx-auto mt-2" style="height: 10px; width: 80%;">
-              <div
-                class="progress-bar bg-success"
-                role="progressbar"
-                [style.width.%]="porcentajeProgreso"
-                aria-valuemin="0"
-                aria-valuemax="100"
-              ></div>
-            </div>
-
-            <!-- 🔐 Formulario -->
-            <form (ngSubmit)="handleLogin($event)" autocomplete="off" #frm="ngForm">
-              <!-- Email -->
-              <div class="form-group mb-3">
-                <label for="email">Email Address</label>
-                <input
-                  #email="ngModel"
-                  type="text"
-                  id="email"
-                  name="email"
-                  placeholder="agent@gmail.com"
-                  class="form-control"
-                  [(ngModel)]="loginForm.email"
-                  [ngClass]="{
-                    'is-invalid': email.invalid && email.touched,
-                    'is-valid': email.valid && email.touched
-                  }"
-                  required
-                />
-                <div *ngIf="email.invalid && email.touched" class="invalid-feedback">
-                  Please add a valid email
-                </div>
-              </div>
-
-              <!-- Password -->
-              <div class="form-group mb-4">
-                <label for="password">Password</label>
-                <input
-                  #password="ngModel"
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="*****"
-                  class="form-control"
-                  [(ngModel)]="loginForm.password"
-                  [ngClass]="{
-                    'is-invalid': password.invalid && password.touched,
-                    'is-valid': password.valid && password.touched
-                  }"
-                  required
-                />
-                <div *ngIf="password.invalid && password.touched" class="invalid-feedback">
-                  Please add a valid password
-                </div>
-              </div>
-
-              <!-- Botón de envío -->
-              <div class="form-group mb-0">
-                <button
-                  class="btn btn-primary btn-block w-100"
-                  type="submit"
-                  [disabled]="bloqueadoHasta != null"
-                >
-                  Sign in
-                </button>
-              </div>
-
-              <!-- Link a registro -->
-              <div class="text-center mt-3">
-                <a routerLink="/signup">¿No tienes cuenta? Regístrate</a>
-              </div>
-            </form>
-          </div>
-        </div>
-
-        <!-- 🟡 Sección visible SOLO durante Face ID -->
-        <div *ngIf="faceIDActive" class="face-id-status text-center mt-4">
-          <ng-container *ngIf="showFaceIDMessage">
-            <h3>Iniciando reconocimiento facial...</h3>
-            <p class="text-white">Por favor mire a la cámara</p>
-          </ng-container>
-        </div>
-
+    <div [hidden]="faceIDActive">
+      <div class="text-center mb-6">
+        <p class="text-white text-[28px] font-bold">Bienvenido de nuevo</p>
+        <small class="text-[#baa99c]">Ingresa tus datos para iniciar sesión</small>
       </div>
+
+      <div class="text-center mb-5">
+        <div id="googleBtn" class="mb-3"></div>
+        <button
+          type="button"
+          (click)="activateBiometric()"
+          class="w-full py-2 rounded-full bg-[#393028] text-white font-bold hover:bg-[#4a3e34]"
+        >
+          Iniciar sesión con Face ID
+        </button>
+      </div>
+
+      <div *ngIf="loginError" class="bg-red-500 text-white text-center rounded-md py-2 mb-3">
+        {{ loginError }}
+      </div>
+
+      <div
+        *ngIf="intentosRestantes !== null || tiempoRestante"
+        class="text-center text-sm mb-3 rounded-md px-4 py-2"
+        [ngClass]="{
+          'bg-yellow-600 text-white': intentosRestantes !== null,
+          'bg-blue-600 text-white': tiempoRestante
+        }"
+      >
+        <ng-container *ngIf="tiempoRestante; else intentos">
+          <p>Tiempo restante: {{ tiempoRestante }}</p>
+        </ng-container>
+        <ng-template #intentos>
+          Intentos restantes: {{ intentosRestantes }}
+        </ng-template>
+      </div>
+
+      <div *ngIf="porcentajeProgreso !== null" class="h-2 w-full bg-[#3b342b] rounded-full overflow-hidden mb-4">
+        <div
+          class="bg-green-500 h-full transition-all duration-500"
+          [style.width.%]="porcentajeProgreso"
+        ></div>
+      </div>
+
+      <form (ngSubmit)="handleLogin($event)" autocomplete="off" #frm="ngForm" class="space-y-4">
+        <div>
+          <label for="email" class="text-[#baa99c] block mb-1">Correo electrónico</label>
+          <input
+            #email="ngModel"
+            type="text"
+            id="email"
+            name="email"
+            class="w-full px-3 py-2 rounded-lg bg-[#2a2520] text-white border border-[#3b342b] focus:outline-none"
+            placeholder="agent@gmail.com"
+            [(ngModel)]="loginForm.email"
+            [ngClass]="{
+              'border-red-500': email.invalid && email.touched,
+              'border-green-500': email.valid && email.touched
+            }"
+            required
+          />
+          <div *ngIf="email.invalid && email.touched" class="text-red-400 text-sm mt-1">
+            Correo inválido
+          </div>
+        </div>
+
+        <div>
+          <label for="password" class="text-[#baa99c] block mb-1">Contraseña</label>
+          <input
+            #password="ngModel"
+            type="password"
+            id="password"
+            name="password"
+            class="w-full px-3 py-2 rounded-lg bg-[#2a2520] text-white border border-[#3b342b] focus:outline-none"
+            placeholder="******"
+            [(ngModel)]="loginForm.password"
+            [ngClass]="{
+              'border-red-500': password.invalid && password.touched,
+              'border-green-500': password.valid && password.touched
+            }"
+            required
+          />
+          <div *ngIf="password.invalid && password.touched" class="text-red-400 text-sm mt-1">
+            Contraseña inválida
+          </div>
+        </div>
+
+        <div>
+          <button
+            class="w-full py-2 rounded-full bg-[#f2730c] text-white font-bold hover:bg-[#d96108]"
+            type="submit"
+            [disabled]="bloqueadoHasta != null"
+          >
+            Iniciar sesión
+          </button>
+        </div>
+
+        <div class="text-center mt-4">
+          <a routerLink="/signup" class="text-sm text-[#baa99c] hover:underline">¿No tienes cuenta? Regístrate</a>
+        </div>
+      </form>
+    </div>
+
+    <div [hidden]="!faceIDActive" class="text-center">
+      <h3 class="text-white text-xl mb-2">Iniciando reconocimiento facial...</h3>
+      <p class="text-[#baa99c]">Por favor, mire a la cámara</p>
     </div>
   </div>
 </div>
