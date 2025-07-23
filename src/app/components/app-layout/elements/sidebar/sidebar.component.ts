@@ -25,11 +25,6 @@ export class SidebarComponent {
   public authService = inject(AuthService);
   public permittedRoutes: Route[] = [];
   appRoutes: any;
-  public sidebarOpen: boolean = false;
-
-  public toggleSidebar(): void {
-    this.sidebarOpen = !this.sidebarOpen;
-  }
 
   constructor(
   ) {
