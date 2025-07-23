@@ -100,12 +100,11 @@ export class AppointmentComponent implements OnInit {
   }
 
   handleDateClick(arg: DateClickArg) {
-    const clickedDate = arg.date;  // Usamos date en lugar de dateStr
-    this.openAppointmentForm({
-      startTime: new Date(clickedDate),
-      endTime: new Date(clickedDate.getTime() + 60 * 60 * 1000) // +1 hora
-    });
-  }
+  this.openAppointmentForm({
+    startTime: new Date(arg.dateStr), 
+    endTime: new Date(new Date(arg.dateStr).getTime() + 60 * 60 * 1000) 
+  });
+}
 
   handleEventClick(info: EventClickArg) {
     const event = info.event as unknown as CalendarEvent;
