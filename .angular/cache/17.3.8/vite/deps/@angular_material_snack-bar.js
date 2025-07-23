@@ -1,7 +1,11 @@
 import {
   MatButton,
   MatButtonModule
+<<<<<<< Updated upstream:.angular/cache/17.3.8/vite/deps/@angular_material_snack-bar.js
 } from "./chunk-M3EEHNKP.js";
+=======
+} from "./chunk-FLEWF5YC.js";
+>>>>>>> Stashed changes:.angular/cache/17.3.7/vite/deps/@angular_material_snack-bar.js
 import {
   BasePortalOutlet,
   CdkPortalOutlet,
@@ -11,7 +15,11 @@ import {
   OverlayModule,
   PortalModule,
   TemplatePortal
+<<<<<<< Updated upstream:.angular/cache/17.3.8/vite/deps/@angular_material_snack-bar.js
 } from "./chunk-LKJERMTB.js";
+=======
+} from "./chunk-I2B6H3NN.js";
+>>>>>>> Stashed changes:.angular/cache/17.3.7/vite/deps/@angular_material_snack-bar.js
 import {
   animate,
   state,
@@ -25,7 +33,11 @@ import {
   LiveAnnouncer,
   MatCommonModule,
   Platform
+<<<<<<< Updated upstream:.angular/cache/17.3.8/vite/deps/@angular_material_snack-bar.js
 } from "./chunk-M6BQAR3Y.js";
+=======
+} from "./chunk-HTJOPLSX.js";
+>>>>>>> Stashed changes:.angular/cache/17.3.7/vite/deps/@angular_material_snack-bar.js
 import {
   DOCUMENT
 } from "./chunk-M7C7QZCC.js";
