@@ -20,18 +20,18 @@ export class UserService extends BaseService<IUser> {
   public totalItems: any = [];
   private alertService: AlertService = inject(AlertService);
 
-  getAll() {
-    this.findAllWithParams({ page: this.search.page, size: this.search.size}).subscribe({
-      next: (response: any) => {
-        this.search = {...this.search, ...response.meta};
-        this.totalItems = Array.from({length: this.search.totalPages ? this.search.totalPages: 0}, (_, i) => i+1);
-        this.userListSignal.set(response.data);
-      },
-      error: (err: any) => {
-        console.error('error', err);
-      }
-    });
-  }
+
+  getAll(): Observable<{ data: IUser[] }> {
+  return this.http.get<{ data: IUser[] }>(`${this.source}`).pipe(
+    tap(response => {
+      this.userListSignal.set(response.data);
+    }),
+    catchError(err => {
+      this.alertService.displayAlert('error', 'Error al cargar usuarios', 'center', 'top', ['error-snackbar']);
+      return throwError(() => err);
+    })
+  );
+}
 
 
   save(user: IUser) {

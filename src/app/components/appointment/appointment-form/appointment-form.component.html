@@ -1,0 +1,113 @@
+<div class="px-6 py-5 min-h-screen bg-[#181411] flex items-center justify-center">
+  <div class="bg-[#1f1b17] p-8 rounded-2xl w-full max-w-3xl shadow-lg">
+    <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()" autocomplete="off" class="space-y-6">
+
+      <div class="text-center mb-6">
+        <p class="text-white text-[28px] font-bold">{{ isEditMode ? 'Editar Cita' : 'Nueva Cita' }}</p>
+        <small class="text-[#baa99c]">
+          Completa los campos para {{ isEditMode ? 'actualizar' : 'crear' }} la cita
+        </small>
+      </div>
+
+      <div>
+        <label for="title" class="text-[#baa99c] block mb-1">Título de la cita</label>
+        <input type="text" id="title"
+               class="w-full px-3 py-2 rounded-lg bg-[#2a2520] text-white border border-[#3b342b] focus:outline-none"
+               formControlName="title"
+               placeholder="Ej: Consulta de seguimiento" />
+        <div *ngIf="appointmentForm.get('title')?.invalid && appointmentForm.get('title')?.touched"
+             class="text-red-400 text-sm mt-1">
+          El título es obligatorio
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-[#baa99c] mb-2">Fecha y hora de inicio</h4>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="text-[#baa99c] block mb-1">Fecha inicio</label>
+            <input matInput [matDatepicker]="startPicker"
+                   class="w-full px-3 py-2 rounded-lg bg-[#2a2520] text-white border border-[#3b342b]"
+                   formControlName="startDate"
+                   (dateChange)="onStartDateChange($event)" readonly>
+            <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+            <mat-datepicker #startPicker></mat-datepicker>
+          </div>
+
+          <div>
+            <label class="text-[#baa99c] block mb-1">Hora inicio</label>
+            <mat-select formControlName="startTime"
+                        class="w-full bg-[#2a2520] text-white border border-[#3b342b] rounded-lg">
+              <mat-option *ngFor="let time of timeOptions" [value]="time">{{ time }}</mat-option>
+            </mat-select>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-[#baa99c] mb-2">Fecha y hora de fin</h4>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="text-[#baa99c] block mb-1">Fecha fin</label>
+            <input matInput [matDatepicker]="endPicker"
+                   class="w-full px-3 py-2 rounded-lg bg-[#2a2520] text-white border border-[#3b342b]"
+                   formControlName="endDate" readonly>
+            <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+            <mat-datepicker #endPicker></mat-datepicker>
+          </div>
+
+          <div>
+            <label class="text-[#baa99c] block mb-1">Hora fin</label>
+            <mat-select formControlName="endTime"
+                        class="w-full bg-[#2a2520] text-white border border-[#3b342b] rounded-lg">
+              <mat-option *ngFor="let time of timeOptions" [value]="time">{{ time }}</mat-option>
+            </mat-select>
+          </div>
+        </div>
+        <div *ngIf="appointmentForm.hasError('endBeforeStart')"
+             class="text-red-400 text-sm mt-1">
+          La fecha y hora de fin debe ser posterior a la de inicio.
+        </div>
+      </div>
+
+      <div>
+        <label class="text-[#baa99c] block mb-1">Invitados (opcional)</label>
+        <mat-select formControlName="guestIds" multiple
+                    class="w-full bg-[#2a2520] text-white border border-[#3b342b] rounded-lg"
+                    [compareWith]="compareUsers">
+          <mat-option *ngFor="let user of allUsers" [value]="user.id">
+            {{ user.name }} {{ user.lastname }}
+          </mat-option>
+        </mat-select>
+      </div>
+
+      <div>
+        <label class="text-[#baa99c] block mb-1">Descripción</label>
+        <textarea formControlName="description" rows="3"
+                  class="w-full px-3 py-2 rounded-lg bg-[#2a2520] text-white border border-[#3b342b]"
+                  placeholder="Detalles adicionales de la cita"></textarea>
+      </div>
+
+      <div class="flex justify-end gap-3 pt-4">
+        <button type="button"
+                class="px-4 py-2 rounded-lg bg-gray-600 text-white hover:bg-gray-500"
+                (click)="dialogRef.close()">
+          Cancelar
+        </button>
+
+        <button type="submit"
+                class="px-4 py-2 rounded-lg bg-[#f2730c] text-white font-bold hover:bg-[#d96108]"
+                [disabled]="isLoading">
+          <span *ngIf="!isLoading">{{ isEditMode ? 'Actualizar' : 'Crear' }}</span>
+          <mat-spinner *ngIf="isLoading" diameter="24" strokeWidth="2"></mat-spinner>
+        </button>
+
+        <button *ngIf="isEditMode" type="button"
+                class="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-500"
+                (click)="onDelete()" [disabled]="isLoading">
+          Eliminar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -175,7 +175,6 @@
     }
   }
 
-  // 👉 Aplica cuando Face ID está activo
   &.face-id-mode {
     pointer-events: none;
 
@@ -197,7 +196,6 @@
   }
 }
 
-// 🔁 Animación suave
 @keyframes fadeIn {
   0% {
     opacity: 0;

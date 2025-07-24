@@ -61,8 +61,15 @@ export interface ISearch {
   totalPages?:number;
 }
 
-export interface ICategory {
+export interface IAppointment {
   id?: number;
-  name: string;
+  title: string;
   description: string;
+  startTime: string;
+  endTime: string;
+  googleEventId?: string;
+  patientId: number;  
+  doctorId: number;  
+  patient?: IUser;    
+  doctor?: IUser;
 }
