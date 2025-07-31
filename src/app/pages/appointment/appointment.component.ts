@@ -49,7 +49,7 @@ interface AppointmentData {
   styleUrls: ['./appointment.component.scss']
 })
 export class AppointmentComponent implements OnInit {
-  @ViewChild('calendar') calendarComponent!: any;
+  @ViewChild('calendar') calendarComponent!: any;  // Tipo any temporal para evitar errores
 
   private appointmentService = inject(AppointmentService);
   private dialog = inject(MatDialog);
@@ -150,24 +150,19 @@ export class AppointmentComponent implements OnInit {
   });
 }
 
-openAppointmentForm(data?: AppointmentData) {
-  const dialogRef = this.dialog.open(AppointmentFormComponent, {
-    width: '600px',
-    panelClass: 'custom-dialog',
-    data: data || {
-      startTime: new Date(),
-      endTime: new Date(new Date().getTime() + 60 * 60 * 1000)
-    }
-  });
+  openAppointmentForm(data?: AppointmentData) {
+    const dialogRef = this.dialog.open(AppointmentFormComponent, {
+      width: '600px',
+      data: data || { startTime: new Date(), endTime: new Date(new Date().getTime() + 60 * 60 * 1000) }
+    });
 
-  dialogRef.afterClosed().subscribe(result => {
-    if (result) {
-      this.refreshCalendar();
-      this.showSuccess(result.message);
-    }
-  });
-}
-
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.refreshCalendar();
+        this.showSuccess(result.message);
+      }
+    });
+  }
 
   refreshCalendar() {
     this.calendarComponent?.getApi()?.refetchEvents();

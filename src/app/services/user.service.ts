@@ -20,6 +20,7 @@ export class UserService extends BaseService<IUser> {
   public totalItems: any = [];
   private alertService: AlertService = inject(AlertService);
 
+
   getAll(): Observable<{ data: IUser[] }> {
   return this.http.get<{ data: IUser[] }>(`${this.source}`).pipe(
     tap(response => {
@@ -27,15 +28,6 @@ export class UserService extends BaseService<IUser> {
     }),
     catchError(err => {
       this.alertService.displayAlert('error', 'Error al cargar usuarios', 'center', 'top', ['error-snackbar']);
-      return throwError(() => err);
-    })
-  );
-}
-
-getPatients(): Observable<{ data: IUser[] }> {
-  return this.http.get<{ data: IUser[] }>(`${this.search.page}/${this.source}/patients`).pipe(
-    catchError(err => {
-      this.alertService.displayAlert('error', 'Error al cargar pacientes', 'center', 'top', ['error-snackbar']);
       return throwError(() => err);
     })
   );

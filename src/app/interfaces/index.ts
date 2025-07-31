@@ -61,12 +61,6 @@ export interface ISearch {
   totalPages?:number;
 }
 
-export interface ICategory {
-  id?: number;
-  name: string;
-  description: string;
-}
-
 export interface IAppointment {
   id?: number;
   title: string;
