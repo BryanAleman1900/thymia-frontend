@@ -1,6 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
+import { environment } from '../../environments/environment';
+import { NavigationService } from './navigation.service';
 
 @Injectable({
   providedIn: 'root',
@@ -8,20 +9,17 @@ import { AuthService } from './auth.service';
 export class InactivityService {
   private timeoutId: any;
   private boundReset!: () => void;
-
-  private readonly timeoutMs = 120000; // 2 minutos
+  private readonly timeoutMs: number = environment.inactivityTimeoutMs;
 
   constructor(
     private authService: AuthService,
-    private router: Router,
+    private navigationService: NavigationService,
     private ngZone: NgZone
   ) {}
 
   initListener(): void {
-    console.log('[InactivityService] Listener iniciado');
     this.boundReset = this.resetTimeout.bind(this);
     this.resetTimeout();
-
     const events = ['mousemove', 'mousedown', 'keypress', 'scroll', 'touchstart'];
     events.forEach(event => {
       window.addEventListener(event, this.boundReset);
@@ -30,13 +28,12 @@ export class InactivityService {
 
   private resetTimeout(): void {
     if (this.timeoutId) clearTimeout(this.timeoutId);
-
     this.ngZone.runOutsideAngular(() => {
       this.timeoutId = setTimeout(() => {
         this.ngZone.run(() => {
           this.stopListener();
           this.authService.logout();
-          this.router.navigate(['/login']);
+          this.navigationService.goToLogin();
           alert('Sesión cerrada por inactividad.');
         });
       }, this.timeoutMs);
@@ -48,15 +45,11 @@ export class InactivityService {
       clearTimeout(this.timeoutId);
       this.timeoutId = null;
     }
-
     if (this.boundReset) {
       const events = ['mousemove', 'mousedown', 'keypress', 'scroll', 'touchstart'];
       events.forEach(event => {
         window.removeEventListener(event, this.boundReset);
       });
-      console.log('[InactivityService] Listener detenido');
-    } else {
-      console.warn('[InactivityService] No hay listener activo para detener');
     }
   }
 }
