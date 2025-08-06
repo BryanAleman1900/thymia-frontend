@@ -11,6 +11,14 @@ import { Router } from '@angular/router';
 export class DashboardComponent {
   constructor(private router: Router) {}
 
+   // goToNexxuz() {
+   // this.router.navigate(['/app/landingpage']);
+  //}
+
+  goToJournal() {
+  this.router.navigate(['/app/journal']);
+}
+
   goToVideoCall(): void {
     this.router.navigate(['/app/emotion-detector']);
   }

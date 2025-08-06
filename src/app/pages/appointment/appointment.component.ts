@@ -12,6 +12,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from "@angular/material/icon";
 
+import { RouterModule } from '@angular/router';
+
+
 interface CalendarEvent {
   id: string;
   title: string;
@@ -43,7 +46,8 @@ interface AppointmentData {
     CommonModule,
     FullCalendarModule, 
     MatIconModule,
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   templateUrl: './appointment.component.html',
   styleUrls: ['./appointment.component.scss']

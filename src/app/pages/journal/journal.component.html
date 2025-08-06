@@ -1,0 +1,31 @@
+<h1>Mi diario emocional</h1>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <textarea
+  formControlName="content"
+  placeholder="¿Cómo te sientes hoy?"
+  class="w-full p-4 bg-gray-800 text-white border border-gray-600 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-orange-500"
+  rows="6"
+></textarea>
+
+
+  <div *ngIf="form.get('content')?.invalid && form.get('content')?.touched" class="error">
+    {{ errorMessage }}
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Guardar entrada</button>
+</form>
+
+<hr />
+
+<h2>Entradas anteriores</h2>
+
+<div *ngIf="entries.length === 0">No hay entradas aún.</div>
+
+<ul *ngIf="entries.length > 0">
+  <li *ngFor="let entry of entries">
+    <p>{{ entry.content }}</p>
+    <small>{{ entry.createdAt | date: 'medium' }}</small>
+  </li>
+</ul>
+

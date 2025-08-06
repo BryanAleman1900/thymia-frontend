@@ -1,0 +1,40 @@
+<h2>Agendar Cita</h2>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div>
+    <label>Título</label>
+    <input type="text" formControlName="title" />
+  </div>
+
+  <div>
+    <label>Descripción</label>
+    <textarea formControlName="description"></textarea>
+  </div>
+
+  <div>
+    <label>Inicio</label>
+    <input type="datetime-local" formControlName="startTime" />
+  </div>
+
+  <div>
+    <label>Fin</label>
+    <input type="datetime-local" formControlName="endTime" />
+  </div>
+
+  <div>
+    <label>ID del Paciente</label>
+    <input type="number" formControlName="patientId" />
+  </div>
+
+  <div>
+    <label>Invitados (IDs)</label>
+    <div *ngFor="let ctrl of guestIds.controls; let i = index">
+      <input [formControl]="getGuestControl(i)" />
+      <button type="button" (click)="removeGuestId(i)">Eliminar</button>
+    </div>
+    <button type="button" (click)="addGuestId(0)">Agregar invitado</button>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Agendar</button>
+</form>
+

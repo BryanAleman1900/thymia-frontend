@@ -73,3 +73,9 @@ export interface IAppointment {
   patient?: IUser;    
   doctor?: IUser;
 }
+
+export interface JournalEntry {
+  id: number;
+  content: string;
+  createdAt: string; 
+}
