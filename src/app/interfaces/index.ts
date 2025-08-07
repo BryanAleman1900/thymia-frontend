@@ -75,3 +75,13 @@ export interface IAppointment {
   patient?: IUser;    
   doctor?: IUser;
 }
+
+
+export interface IFeedback {
+    id?: number;
+    appointmentId: number;
+    patientId: number;
+    comments: string;
+    rating: number;
+    createdAt?: string;
+}
