@@ -12,8 +12,8 @@ import { IRoleType } from './interfaces';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { EmotionDetectorComponent } from './pages/emotion-detector/emotion-detector.component';
 import { AppointmentComponent } from './pages/appointment/appointment.component';
-import { ScheduleAppointmentComponent } from './pages/appointment/schedule-appointment/schedule-appointment.component';
 import { JournalComponent } from './pages/journal/journal.component';
+
 
 
 export const routes: Routes = [
@@ -75,14 +75,6 @@ export const routes: Routes = [
       //{
       //  path: 'landingpage',
       //  loadComponent: () => import('./pages/landingpage/landing.component').then(m => m.LandingComponent)
-      //},
-
-      //{
-      //    path: 'appointment/schedule-appointment',
-      //    loadComponent: () =>
-      //    import('./pages/appointment/schedule-appointment/schedule-appointment.component').then(
-      //    (m) => m.ScheduleAppointmentComponent
-      //  ),
       //},
 
       {
