@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 })
 export class EmotionService {
   private http = inject(HttpClient);
-  private emotionURL = `${environment.apiUrl}/emotions`;
+  private emotionURL = `emotions`;
 
   sendEmotion(emotion: string) {
     return this.http.post(this.emotionURL, { emotion });
