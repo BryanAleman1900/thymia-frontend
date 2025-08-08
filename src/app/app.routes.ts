@@ -11,6 +11,7 @@ import { GuestGuard } from './guards/guest.guard';
 import { IRoleType } from './interfaces';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { EmotionDetectorComponent } from './pages/emotion-detector/emotion-detector.component';
+import { AppointmentComponent } from './pages/appointment/appointment.component';
 import { CallComponent } from './pages/call/call.component';
 
 export const routes: Routes = [
@@ -83,8 +84,21 @@ export const routes: Routes = [
         }
       },
       {
-        path: 'emotion-detector',
-        component: EmotionDetectorComponent
+      path: 'emotion-detector',
+      component: EmotionDetectorComponent
+      },
+      {
+        path: 'appointment',
+        component: AppointmentComponent,
+        data: { 
+          authorities: [
+            IRoleType.admin, 
+            IRoleType.superAdmin,
+            IRoleType.user
+          ],
+          name: 'Appointment',
+          showInSidebar: true
+        }
       },
       {
         path: 'call',
