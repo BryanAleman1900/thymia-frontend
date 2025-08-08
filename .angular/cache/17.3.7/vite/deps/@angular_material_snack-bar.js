@@ -1,4 +1,8 @@
 import {
+  MatButton,
+  MatButtonModule
+} from "./chunk-XTVGYYEI.js";
+import {
   BasePortalOutlet,
   CdkPortalOutlet,
   ComponentPortal,
@@ -8,10 +12,6 @@ import {
   PortalModule,
   TemplatePortal
 } from "./chunk-AQ2NSGRK.js";
-import {
-  MatButton,
-  MatButtonModule
-} from "./chunk-XTVGYYEI.js";
 import {
   animate,
   state,
