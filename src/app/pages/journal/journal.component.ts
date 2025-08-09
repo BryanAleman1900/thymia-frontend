@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormsModule, FormGroup, Validators } from '@angular/forms';
 import { JournalService } from '../../services/journal.service';
-import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { JournalEntry } from '../../interfaces/index';
@@ -62,6 +61,26 @@ export class JournalComponent implements OnInit {
       }
     });
   }
+
+ toggleShare(entry: JournalEntry, shared: boolean): void {
+  this.journalService.setShared(entry.id, shared).subscribe({
+    next: () => {
+      entry.sharedWithProfessional = shared;
+    },
+    error: err => {
+      console.error('Error al cambiar visibilidad:', err);
+    }
+  });
+}
+
+
+onCheckboxChange(event: Event, entry: JournalEntry): void {
+  const input = event.target as HTMLInputElement;
+  const shared = input.checked;
+  this.toggleShare(entry, shared);
+}
+
+
 }
 
 

@@ -13,6 +13,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { EmotionDetectorComponent } from './pages/emotion-detector/emotion-detector.component';
 import { AppointmentComponent } from './pages/appointment/appointment.component';
 import { JournalComponent } from './pages/journal/journal.component';
+import { WellnessHistoryComponent } from './pages/wellness/wellness-history.component';
+//import { AdminDashboardComponent } from './pages/admin-dashboard/admin.service';
 
 
 
@@ -76,6 +78,19 @@ export const routes: Routes = [
       //  path: 'landingpage',
       //  loadComponent: () => import('./pages/landingpage/landing.component').then(m => m.LandingComponent)
       //},
+
+      { path: 'wellness', 
+        component: WellnessHistoryComponent, 
+        data: {
+            authorities: [
+            IRoleType.admin,
+            IRoleType.superAdmin,
+            IRoleType.user
+          ],
+          name: 'Historial de Consejos Wellness',
+          showInSidebar: true
+        }
+      },
 
       {
           path: 'journal',

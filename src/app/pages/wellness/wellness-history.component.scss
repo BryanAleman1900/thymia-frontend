@@ -1,0 +1,100 @@
+.wellness-container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+
+  h1 {
+    margin-bottom: 0.75rem;
+  }
+}
+
+.loading { opacity: 0.8; }
+.error { color: #ff6b6b; margin: 0.5rem 0; }
+.no-entries { opacity: 0.7; margin-top: 1rem; }
+
+.tips-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.tip-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+
+  .tip-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    .tip-title { margin: 0; font-size: 1.05rem; }
+  }
+
+  .pill {
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 999px;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.75rem;
+    &.muted { opacity: 0.7; }
+  }
+
+  .tip-date, .tip-meta {
+    opacity: 0.8;
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+  }
+
+  .tip-actions {
+    margin-top: 0.5rem;
+  }
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 0.75rem;
+  opacity: 0.95;
+}
+
+.primary-btn, .secondary-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 0.55rem 0.9rem;
+  cursor: pointer;
+}
+.primary-btn {
+  background: #ff7a00; /* naranja app */
+  color: #fff;
+}
+.primary-btn:disabled { opacity: 0.6; cursor: default; }
+.secondary-btn {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+/* Modal */
+.backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(2px);
+}
+.modal {
+  position: fixed; left: 50%; top: 10%;
+  transform: translateX(-50%);
+  width: min(760px, 92vw);
+  background: #121212;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+
+  .modal-content {
+    margin: 0.5rem 0 0.75rem;
+    line-height: 1.5;
+  }
+  .modal-footer {
+    display: flex; justify-content: space-between; align-items: center;
+  }
+}

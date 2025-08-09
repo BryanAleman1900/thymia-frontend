@@ -89,3 +89,26 @@ h2 {
   color: #999;
   text-align: right;
 }
+
+.share-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #444;
+  font-size: 0.9rem;
+  color: #ccc;
+
+  input[type="checkbox"] {
+    accent-color: #ff7a00;
+    margin-right: 0.5rem;
+    transform: scale(1.2);
+  }
+}
+
+.shared-label {
+  color: #00d084;
+  font-weight: bold;
+  font-size: 0.85rem;
+}

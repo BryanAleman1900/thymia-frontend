@@ -18,4 +18,16 @@ export class JournalService {
   getMyEntries(): Observable<JournalEntry[]> {
   return this.http.get<JournalEntry[]>(this.apiUrl);
 }
+  
+  updateVisibility(entryId: number, shared: boolean): Observable<any> {
+  return this.http.patch(`${this.apiUrl}/${entryId}/share`, null, {
+    params: { shared: shared.toString() }
+  });
+}
+
+setShared(entryId: number, shared: boolean): Observable<any> {
+  return this.http.put(`api/journal/${entryId}/share`, { shared });
+}
+
+
 }

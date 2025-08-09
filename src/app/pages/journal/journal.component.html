@@ -12,25 +12,51 @@
       {{ form.get('content')?.value?.length || 0 }}/1500
     </div>
 
-    <div *ngIf="form.get('content')?.invalid && form.get('content')?.touched" class="error">
+    <div
+      *ngIf="form.get('content')?.invalid && form.get('content')?.touched"
+      class="error"
+    >
       {{ errorMessage }}
     </div>
 
-    <button type="submit" [disabled]="form.invalid" class="primary-btn">Guardar entrada</button>
+    <button type="submit" [disabled]="form.invalid" class="primary-btn">
+      Guardar entrada
+    </button>
   </form>
 
   <hr />
 
   <h2>Entradas anteriores</h2>
 
-  <div *ngIf="entries.length === 0" class="no-entries">No hay entradas aún.</div>
+  <div *ngIf="entries.length === 0" class="no-entries">
+    No hay entradas aún.
+  </div>
 
   <div class="entry-list" *ngIf="entries.length > 0">
     <div class="entry-card" *ngFor="let entry of entries">
       <p class="entry-content">"{{ entry.content }}"</p>
       <p class="entry-date">{{ entry.createdAt | date: 'medium' }}</p>
+
+      <div class="share-toggle">
+        <label>
+          <input
+            type="checkbox"
+            [checked]="entry.sharedWithProfessional"
+            (change)="onCheckboxChange($event, entry)"
+          />
+          Compartir con mi profesional
+        </label>
+
+        <span
+          *ngIf="entry.sharedWithProfessional"
+          class="shared-label"
+        >
+          (Compartido)
+        </span>
+      </div>
     </div>
   </div>
 </div>
+
 
 

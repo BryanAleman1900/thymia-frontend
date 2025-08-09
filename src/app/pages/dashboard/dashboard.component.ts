@@ -15,6 +15,10 @@ export class DashboardComponent {
    // this.router.navigate(['/app/landingpage']);
   //}
 
+    goToWellnessHistory() {
+    this.router.navigate(['/app/wellness']);
+  }
+
   goToJournal() {
   this.router.navigate(['/app/journal']);
 }
