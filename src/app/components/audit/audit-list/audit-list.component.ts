@@ -2,14 +2,29 @@ import { Component, OnInit } from '@angular/core';
 import { AuditService, AuditLog } from '../../../services/audit.service';
 import { PageEvent } from '@angular/material/paginator';
 import { DatePipe } from '@angular/common';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatCard, MatCardContent } from "@angular/material/card";
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatIcon } from "@angular/material/icon";
 
 @Component({
   selector: 'app-audit-list',
+  standalone: true,
   templateUrl: './audit-list.component.html',
   styleUrls: ['./audit-list.component.scss'],
-  providers: [DatePipe]
+  providers: [DatePipe],
+  imports: [MatFormFieldModule, ReactiveFormsModule, MatDatepickerModule,
+    MatInputModule, MatNativeDateModule, BrowserModule, MatCard, MatCardContent,
+    MatTableModule, MatPaginatorModule, MatSortModule, MatIcon]
 })
 export class AuditListComponent implements OnInit {
   logs: AuditLog[] = [];

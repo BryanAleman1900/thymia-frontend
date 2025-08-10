@@ -45,8 +45,7 @@
 <mat-card>
   <mat-card-content>
     <div class="table-responsive">
-      <table mat-table [dataSource]="logs" class="w-100">
-        <!-- Usuario Column -->
+      <mat-table [dataSource]="logs" class="w-100">
         <ng-container matColumnDef="user">
           <th mat-header-cell *matHeaderCellDef>Usuario</th>
           <td mat-cell *matCellDef="let log">
@@ -79,7 +78,7 @@
 
         <tr mat-header-row *matHeaderRowDef="['user', 'action', 'date']"></tr>
         <tr mat-row *matRowDef="let row; columns: ['user', 'action', 'date'];"></tr>
-      </table>
+      </mat-table>
     </div>
 
     <mat-paginator [length]="totalElements"

@@ -11,6 +11,7 @@ import { GuestGuard } from './guards/guest.guard';
 import { IRoleType } from './interfaces';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AppointmentComponent } from './pages/appointment/appointment.component';
+import { AuditComponent } from './pages/audit/audit.component';
 
 
 export const routes: Routes = [
@@ -97,13 +98,13 @@ export const routes: Routes = [
       },
         {
         path: 'admin/audit',
-        loadComponent: () => import('./pages/audit/audit.component').then(m => m.AuditComponent),
-        canActivate: [AdminRoleGuard],
+        component: AuditComponent,
         data: { 
-          authorities: [IRoleType.superAdmin], 
-          name: 'Auditoría', 
+          authorities: [
+            IRoleType.superAdmin
+          ], 
+          name: 'Audit', 
           showInSidebar: true,
-          icon: 'fa-solid fa-clipboard-list' 
         }
       }
     ],
