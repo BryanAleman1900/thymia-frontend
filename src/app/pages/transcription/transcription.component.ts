@@ -1,62 +1,104 @@
-import { Component, OnInit, signal } from '@angular/core';
-import { environment } from '../../../environments/environment';
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+
+declare const webkitSpeechRecognition: any;
 
 @Component({
   selector: 'app-transcription',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './transcription.component.html',
 })
-export class TranscriptionComponent implements OnInit {
-  public transcript = signal<string>('');
+export class TranscriptionComponent implements OnInit, OnDestroy {
+  finalTranscript = signal<string>('');
+  interim = signal<string>('');
+  recognizing = signal(false);
 
-  private socket: WebSocket | null = null;
-  private audioContext: AudioContext | null = null;
+  private recognition: any = null;
+  private roomId: string = '';
+  private lastFinalChunk = '';
+
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.startDeepgramTranscription();
+    this.roomId = (window as any).currentRoomId || '';
+    const SpeechRec: any =
+      (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    if (!SpeechRec) return;
+
+    this.recognition = new SpeechRec();
+    this.recognition.lang = 'es-ES';
+    this.recognition.interimResults = true;
+    this.recognition.continuous = true;
+    this.recognition.maxAlternatives = 1;
+
+    this.recognition.onresult = (event: any) => {
+      let interimBuild = '';
+      let finalBuild = '';
+
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        const t = (event.results[i][0].transcript || '').trim();
+        if (!t) continue;
+        if (event.results[i].isFinal) finalBuild += t + ' ';
+        else interimBuild += t + ' ';
+      }
+
+      this.interim.set(interimBuild.trim());
+      if (finalBuild) {
+        const text = finalBuild.trim();
+        this.interim.set('');
+        this.appendFinal(text);
+      }
+    };
+
+    this.recognition.onerror = () => {};
+    this.recognition.onend = () => {
+      if (this.recognizing()) {
+        setTimeout(() => { try { this.recognition.start(); } catch {} }, 150);
+      }
+    };
+
+    try {
+      this.recognition.start();
+      this.recognizing.set(true);
+    } catch {}
   }
 
-  async startDeepgramTranscription() {
-    const apiKey = environment.deepgramApiKey;
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+  private normalize(s: string) {
+    return (s || '').toLowerCase().replace(/\s+/g, ' ').trim();
+  }
 
-      this.audioContext = new AudioContext();
-      const source = this.audioContext.createMediaStreamSource(stream);
-      const processor = this.audioContext.createScriptProcessor(4096, 1, 1);
+  private appendFinal(text: string) {
+    const current = this.finalTranscript();
+    const normCurrent = this.normalize(current);
+    const normText = this.normalize(text);
 
-      this.socket = new WebSocket(`wss://api.deepgram.com/v1/listen`, [
-        'token',
-        apiKey,
-      ]);
+    if (normText === this.normalize(this.lastFinalChunk)) return;
+    if (normCurrent.endsWith(normText)) return;
 
-      this.socket.onopen = () => {
-        processor.onaudioprocess = (e) => {
-          if (this.socket?.readyState === WebSocket.OPEN) {
-            const inputData = e.inputBuffer.getChannelData(0);
-            const int16Array = new Int16Array(inputData.length);
-            for (let i = 0; i < inputData.length; i++) {
-              int16Array[i] = inputData[i] * 32767;
-            }
-            this.socket?.send(int16Array.buffer);
-          }
-        };
-        source.connect(processor);
-        processor.connect(this.audioContext!.destination);
-      };
+    const updated = (current + (current ? ' ' : '') + text).trim();
+    this.finalTranscript.set(updated);
+    this.lastFinalChunk = text;
 
-      this.socket.onmessage = (msg) => {
-        const data = JSON.parse(msg.data);
-        const transcriptText = data.channel?.alternatives?.[0]?.transcript;
-        if (transcriptText) {
-          this.transcript.update((prev) => prev + ' ' + transcriptText);
-        }
-      };
-
-      this.socket.onerror = (err) => console.error('Deepgram error', err);
-      this.socket.onclose = () => console.log('Deepgram closed');
-    } catch (err) {
-      console.error('Error al capturar audio:', err);
+    if (this.roomId) {
+      this.http.post(`calls/${this.roomId}/transcripts`, { text, ts: Date.now() }).subscribe();
     }
+  }
+
+  pause() {
+    this.recognizing.set(false);
+    try { this.recognition?.stop(); } catch {}
+  }
+
+  resume() {
+    if (!this.recognizing()) {
+      this.recognizing.set(true);
+      try { this.recognition?.start(); } catch {}
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.pause();
   }
 }
