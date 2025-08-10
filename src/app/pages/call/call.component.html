@@ -1,0 +1,50 @@
+<div class="p-4">
+  <h2 class="text-white text-2xl font-bold mb-4">Videollamada</h2>
+
+  <div class="mb-4 flex items-center gap-2">
+    <button
+      class="px-4 py-2 bg-[#393028] text-white rounded-full hover:bg-[#4a3e34]"
+      (click)="startCall()"
+      [disabled]="started()"
+    >
+      Iniciar llamada
+    </button>
+
+    <button
+      class="px-4 py-2 bg-[#2b2b2b] text-white rounded-full"
+      (click)="endCall()"
+      [disabled]="!started()"
+    >
+      Finalizar
+    </button>
+
+    <span class="text-gray-300 text-sm">Sala: {{ roomId }}</span>
+  </div>
+
+  <div id="jitsi-container" class="rounded shadow mb-4" style="height: 600px;"></div>
+
+  <ng-container *ngIf="started()">
+    <app-emotion-detector></app-emotion-detector>
+    <app-transcription></app-transcription>
+  </ng-container>
+
+  <div *ngIf="!started() && summary" class="mt-4 bg-[#1e1e1e] p-4 rounded">
+    <h3 class="text-white text-lg font-semibold mb-3">Resumen disponible</h3>
+
+    <div class="flex gap-2">
+      <button
+        class="px-4 py-2 bg-[#393028] text-white rounded hover:bg-[#4a3e34]"
+        (click)="downloadEmotionPdf()"
+      >
+        Descargar PDF de emociones
+      </button>
+
+      <button
+        class="px-4 py-2 bg-[#2b2b2b] text-white rounded hover:bg-[#3a3a3a]"
+        (click)="downloadTranscriptPdf()"
+      >
+        Descargar PDF de transcripción
+      </button>
+    </div>
+  </div>
+</div>

@@ -24,6 +24,6 @@ export class DashboardComponent {
 }
 
   goToVideoCall(): void {
-    this.router.navigate(['/app/emotion-detector']);
+    this.router.navigate(['/app/call']);
   }
 }
