@@ -118,4 +118,35 @@
       </button>
     </div>
   </form>
+
+
+  <!--Mauro-->
+  <div *ngIf="isEditMode && !showFeedbackSection" class="feedback-section">
+    <button mat-button color="primary" (click)="showFeedbackSection = true">
+      Enviar Feedback de la Sesión
+    </button>
+  </div>
+
+  <div *ngIf="showFeedbackSection" class="feedback-form">
+    <h3>Feedback de la Sesión</h3>
+    <form [formGroup]="feedbackForm" (ngSubmit)="submitFeedback()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Comentarios</mat-label>
+        <textarea matInput formControlName="comments" rows="4"></textarea>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Calificación (1-5)</mat-label>
+        <mat-select formControlName="rating">
+          <mat-option *ngFor="let num of [1,2,3,4,5]" [value]="num">{{num}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <div class="form-actions">
+        <button mat-button type="button" (click)="showFeedbackSection = false">Cancelar</button>
+        <button mat-raised-button color="primary" type="submit">Enviar</button>
+      </div>
+    </form>
+  </div>
+
 </div>

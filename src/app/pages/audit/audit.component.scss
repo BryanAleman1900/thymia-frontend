@@ -1,0 +1,14 @@
+.audit-container {
+  padding: 20px;
+
+  .card {
+    border-radius: 8px;
+    border: none;
+
+    .card-header {
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 8px 8px 0 0 !important;
+    }
+  }
+}

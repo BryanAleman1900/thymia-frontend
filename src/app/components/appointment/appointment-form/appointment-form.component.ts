@@ -18,6 +18,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
+
 @Component({
   selector: 'app-appointment-form',
   standalone: true,
@@ -46,6 +47,10 @@ export class AppointmentFormComponent implements OnInit {
 
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
+  //Mauro
+  feedbackForm: FormGroup;
+  showFeedbackSection = false;
+  feedbackService: any;
 
   constructor(
     private appointmentService: AppointmentService,
@@ -62,7 +67,12 @@ export class AppointmentFormComponent implements OnInit {
       endTime: ['', Validators.required],
       description: ['', Validators.maxLength(500)],
       guestIds: [[]]
-    }, { validators: this.endAfterStartValidator });
+    }, { validators: this.endAfterStartValidator }),
+    //Mauro
+    this.feedbackForm = this.fb.group({
+  comments: ['', [Validators.required, Validators.maxLength(1000)]],
+  rating: [null, [Validators.required, Validators.min(1), Validators.max(5)]]
+      });
 
     if (data.id) {
       this.isEditMode = true;
@@ -259,4 +269,21 @@ export class AppointmentFormComponent implements OnInit {
       endTime: endDateTime.toISOString()
     });
   }
+
+  //Mauro 
+  submitFeedback(): void {
+    if (this.feedbackForm.invalid) return;
+    
+    this.feedbackService.createFeedback(
+      this.data.id,
+      this.feedbackForm.value.comments,
+      this.feedbackForm.value.rating
+    ).subscribe({
+      next: () => {
+        this.showSuccess('Feedback enviado');
+        this.showFeedbackSection = false;
+      },
+      error: () => this.showError('Error al enviar feedback')
+    });
+}
 }

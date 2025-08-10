@@ -76,7 +76,7 @@ export interface IAppointment {
   doctor?: IUser;
 }
 
-
+//Mauro
 export interface IFeedback {
     id?: number;
     appointmentId: number;
@@ -84,4 +84,46 @@ export interface IFeedback {
     comments: string;
     rating: number;
     createdAt?: string;
+}
+
+//Mauro
+
+export interface IAuditLog {
+  id: number;
+  actionType: AuditActionType;
+  user?: IUser;
+  ipAddress: string;
+  details: string;
+  timestamp: string;
+  endpoint: string;
+}
+
+export enum AuditActionType {
+  LOGIN = 'LOGIN',
+  LOGOUT = 'LOGOUT',
+  LOGIN_FAILED = 'LOGIN_FAILED',
+  CREATE = 'CREATE',
+  UPDATE = 'UPDATE',
+  DELETE = 'DELETE',
+  SYSTEM_EVENT = 'SYSTEM_EVENT',
+  SECURITY_EVENT = 'SECURITY_EVENT'
+}
+
+export interface IAuditFilter {
+  actionType?: AuditActionType;
+  userId?: number;
+  startDate?: string;
+  endDate?: string;
+  page?: number;
+}
+
+export interface Page<T> {
+  content: T[];
+  totalElements: number;
+  totalPages: number;
+  size: number;
+  number: number;
+  first: boolean;
+  last: boolean;
+  empty: boolean;
 }

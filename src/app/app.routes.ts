@@ -95,6 +95,17 @@ export const routes: Routes = [
           showInSidebar: true
         }
       },
+        {
+        path: 'admin/audit',
+        loadComponent: () => import('./pages/audit/audit.component').then(m => m.AuditComponent),
+        canActivate: [AdminRoleGuard],
+        data: { 
+          authorities: [IRoleType.superAdmin], 
+          name: 'Auditoría', 
+          showInSidebar: true,
+          icon: 'fa-solid fa-clipboard-list' 
+        }
+      }
     ],
   },
 ];
