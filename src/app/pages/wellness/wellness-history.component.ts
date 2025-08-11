@@ -1,70 +1,79 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule, DatePipe } from '@angular/common';
-import { WellnessTipsService, WellnessTip, Page } from '../../services/wellness-tips.service';
+import { WellnessTipsService } from '../../services/wellness-tips.service';
+import { Component, OnInit} from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { WellnessTipReceipt } from '../../interfaces';
 
 
 @Component({
   selector: 'app-wellness',
-  standalone: true,
-  imports: [CommonModule, DatePipe],
   templateUrl: './wellness-history.component.html',
   styleUrls: ['./wellness-history.component.scss'],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
+  standalone: true
 })
-export class WellnessHistoryComponent {
-  private svc = inject(WellnessTipsService);
-
-  tips: WellnessTip[] = [];
+export class WellnessHistoryComponent implements OnInit {
+  tips: any[] = [];     
   loading = false;
-  error: string | null = null;
+  error = '';
 
   page = 0;
-  size = 10;
+  size = 6;
   totalPages = 0;
-  totalElements = 0;
 
-  // Modal state
-  showing: WellnessTip | null = null;
+
+  showing: any = null;
   viewing = false;
 
-  ngOnInit() {
-    this.load();
+  constructor(private tipsSvc: WellnessTipsService) {}
+
+  ngOnInit(): void {
+    this.fetchTips();
   }
 
-  load(p = this.page) {
+  fetchTips(): void {
     this.loading = true;
-    this.error = null;
-    this.svc.getMyTips(p, this.size).subscribe({
-      next: (res: Page<WellnessTip>) => {
-        this.tips = res.content;
-        this.page = res.number;
-        this.size = res.size;
-        this.totalPages = res.totalPages;
-        this.totalElements = res.totalElements;
+    this.error = '';
+    this.tipsSvc.getMyTips(this.page, this.size).subscribe({
+      next: (res: any) => {
+        
+        if (res && res.content) {
+          this.tips = res.content;
+          this.totalPages = res.totalPages ?? 0;
+        } else {
+
+          this.tips = Array.isArray(res) ? res : [];
+        }
         this.loading = false;
       },
-      error: () => {
-        this.error = 'No se pudo cargar el historial.';
+      error: (e) => {
+        this.error = e?.error?.message || 'No se pudo cargar el historial.';
         this.loading = false;
       },
     });
   }
 
-  prev() {
-    if (this.page > 0) this.load(this.page - 1);
+  prev(): void {
+    if (this.page === 0) return;
+    this.page--; this.fetchTips();
   }
 
-  next() {
-    if (this.page + 1 < this.totalPages) this.load(this.page + 1);
+  next(): void {
+    if (this.page + 1 >= this.totalPages) return;
+    this.page++; this.fetchTips();
   }
 
-  openTip(tip: WellnessTip) {
+  openTip(tip: any): void {
+
     this.viewing = true;
-    this.svc.viewTip(tip.id).subscribe({
-      next: (updated) => {
-        // actualiza el item en la lista
-        const idx = this.tips.findIndex(x => x.id === updated.id);
-        if (idx >= 0) this.tips[idx] = updated;
-        this.showing = updated;
+    this.tipsSvc.viewTip(tip.id).subscribe({
+      next: (updated: any) => {
+
+        tip.viewCount = updated?.viewCount ?? tip.viewCount;
+        tip.firstViewedAt = updated?.firstViewedAt ?? tip.firstViewedAt;
+        tip.lastViewedAt = updated?.lastViewedAt ?? tip.lastViewedAt;
+        this.showing = updated || tip;
         this.viewing = false;
       },
       error: () => {
@@ -74,7 +83,8 @@ export class WellnessHistoryComponent {
     });
   }
 
-  closeModal() {
+  closeModal(): void {
     this.showing = null;
   }
 }
+

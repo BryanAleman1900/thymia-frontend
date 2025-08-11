@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class JournalService {
+
   private apiUrl = 'api/journal';
 
   constructor(private http: HttpClient) {}
@@ -18,16 +19,16 @@ export class JournalService {
   getMyEntries(): Observable<JournalEntry[]> {
   return this.http.get<JournalEntry[]>(this.apiUrl);
 }
-  
-  updateVisibility(entryId: number, shared: boolean): Observable<any> {
+
+updateVisibility(entryId: number, shared: boolean): Observable<any> {
   return this.http.patch(`${this.apiUrl}/${entryId}/share`, null, {
     params: { shared: shared.toString() }
   });
-}
 
+}
 setShared(entryId: number, shared: boolean): Observable<any> {
   return this.http.put(`api/journal/${entryId}/share`, { shared });
+  
 }
-
 
 }

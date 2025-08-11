@@ -11,10 +11,6 @@ import { Router } from '@angular/router';
 export class DashboardComponent {
   constructor(private router: Router) {}
 
-   // goToNexxuz() {
-   // this.router.navigate(['/app/landingpage']);
-  //}
-
     goToWellnessHistory() {
     this.router.navigate(['/app/wellness']);
   }

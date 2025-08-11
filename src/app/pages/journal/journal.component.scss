@@ -112,3 +112,22 @@ h2 {
   font-weight: bold;
   font-size: 0.85rem;
 }
+
+.entry-insight { 
+  margin-top:.5rem; 
+  display:flex; 
+  gap:.4rem; 
+  align-items:center; 
+}
+
+.badge { 
+  background:#3b3b4a; 
+  padding:.15rem .5rem; 
+  border-radius:.5rem; 
+  font-size:.8rem; 
+}
+
+.entry-insight .badge,
+.entry-insight small {
+  display: none !important;
+}

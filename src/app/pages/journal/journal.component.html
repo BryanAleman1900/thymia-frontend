@@ -37,6 +37,13 @@
       <p class="entry-content">"{{ entry.content }}"</p>
       <p class="entry-date">{{ entry.createdAt | date: 'medium' }}</p>
 
+      <div class="entry-insight" *ngIf="entry.sentimentLabel || entry.sentimentScore != null">
+        <span class="badge">{{ entry.sentimentLabel || '—' }}</span>
+        <small *ngIf="entry.sentimentScore != null">
+          ({{ entry.sentimentScore | number:'1.0-3' }})
+        </small>
+      </div>
+
       <div class="share-toggle">
         <label>
           <input
@@ -57,6 +64,7 @@
     </div>
   </div>
 </div>
+
 
 
 

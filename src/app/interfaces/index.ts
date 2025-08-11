@@ -79,4 +79,18 @@ export interface JournalEntry {
   content: string;
   createdAt: string; 
   sharedWithProfessional: boolean;
+  sentimentLabel?: string;
+  sentimentScore?: number;
+}
+
+export interface WellnessTipReceipt {
+  id: number;
+  title: string;
+  content: string;
+  category: string;
+  source?: string;
+  createdAt: string;
+  viewCount: number;
+  firstViewedAt?: string;
+  lastViewedAt?: string;
 }

@@ -13,6 +13,11 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { EmotionDetectorComponent } from './pages/emotion-detector/emotion-detector.component';
 import { AppointmentComponent } from './pages/appointment/appointment.component';
 import { CallComponent } from './pages/call/call.component';
+import { JournalComponent } from './pages/journal/journal.component';
+import { WellnessHistoryComponent } from './pages/wellness/wellness-history.component';
+import { ThymiaLandingComponent } from './pages/thymia-landing/thymia-landing.component';
+import { LandingComponent } from './pages/landingpage/landing.component';
+
 
 export const routes: Routes = [
   {
@@ -31,9 +36,20 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'thymia',
     pathMatch: 'full',
   },
+
+  {
+          path: 'thymia',
+          component: ThymiaLandingComponent,
+      },
+
+            {
+          path: 'landing',
+          component: LandingComponent,
+      },
+
   {
     path: 'app',
     component: AppLayoutComponent,
@@ -70,6 +86,34 @@ export const routes: Routes = [
           showInSidebar: true
         }
       },
+
+      { path: 'wellness', 
+        component: WellnessHistoryComponent, 
+        data: {
+            authorities: [
+            IRoleType.admin,
+            IRoleType.superAdmin,
+            IRoleType.user
+          ],
+          name: 'Historial de Consejos Wellness',
+          showInSidebar: true
+        }
+      },
+
+      {
+          path: 'journal',
+          component: JournalComponent,
+          data: {
+            authorities: [
+            IRoleType.admin,
+            IRoleType.superAdmin,
+            IRoleType.user
+          ],
+          name: 'Diario emocional',
+          showInSidebar: true
+        }
+      },
+
       {
         path: 'profile',
         component: ProfileComponent,
