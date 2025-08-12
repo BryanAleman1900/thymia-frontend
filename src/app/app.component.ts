@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { InactivityService } from './services/inactivity.service';
+import { initFirebaseAuth } from './firebase';
 
 interface Operator {
   name?: string
@@ -22,7 +24,10 @@ interface Calculator {
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+
+export class AppComponent implements OnInit {
+  constructor(private inactivityService: InactivityService) {}
+
   title: string = 'demo-angular-front';
   cant: number = 0;
   operators: Operator[] = [
@@ -49,4 +54,7 @@ export class AppComponent {
     }
   }
 
+  async ngOnInit() {
+    await initFirebaseAuth();
+  }
 }

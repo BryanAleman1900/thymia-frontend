@@ -35,7 +35,6 @@ export class ProfileService extends BaseService<IUser> {
     });
   }
 
-  //registrar rostro
   registerFaceID(facialId: string) {
     const customPath = 'face-id/register'; 
     const body = { facialId: facialId };
