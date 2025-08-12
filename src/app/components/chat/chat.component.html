@@ -12,10 +12,24 @@
           (click)="openChat(p)"
           class="c-item"
           [class.is-active]="activePartner?.id === p.id">
-        <div class="c-item__name">
-          {{ p.fullName || ((p.name ?? '') + ' ' + (p.lastname ?? '')) }}
+
+        <div style="display:flex;align-items:center;gap:10px;">
+          <!-- Puntito de estado: verde si es el seleccionado y está online, gris si no -->
+          <span [ngStyle]="{
+                  display: 'inline-block',
+                  width: '10px',
+                  height: '10px',
+                  borderRadius: '50%',
+                  backgroundColor: (activePartner?.id === p.id && partnerOnline) ? '#4CAF50' : '#777'
+                }"></span>
+
+          <div>
+            <div class="c-item__name">
+              {{ p.fullName || ((p.name ?? '') + ' ' + (p.lastname ?? '')) }}
+            </div>
+            <div class="c-item__email" *ngIf="p.email">{{ p.email }}</div>
+          </div>
         </div>
-        <div class="c-item__email" *ngIf="p.email">{{ p.email }}</div>
       </li>
     </ul>
   </aside>
@@ -26,9 +40,16 @@
         <div class="c-peer">
           <div class="c-peer__title">
             Conversación con:
-            <b>{{ activePartner.fullName || ((activePartner.name ?? '') + ' ' + (activePartner.lastname ?? '')) }}</b>
+            <b>
+              {{ activePartner.fullName || ((activePartner.name ?? '') + ' ' + (activePartner.lastname ?? '')) }}
+            </b>
           </div>
-          <div class="c-peer__sub">En línea</div>
+          <div class="c-peer__sub">
+            <span *ngIf="partnerOnline" style="color:#4CAF50;">● En línea</span>
+            <span *ngIf="!partnerOnline">
+              Últ. vez: {{ partnerLastActive ? (partnerLastActive | date:'shortTime') : '—' }}
+            </span>
+          </div>
         </div>
       </ng-container>
       <ng-template #empty>
@@ -46,8 +67,17 @@
     </section>
 
     <footer class="c-compose">
-      <input [formControl]="text" placeholder="Escribe un mensaje…" (keyup.enter)="send()" [disabled]="!activeConversationId" />
-      <button (click)="send()" [disabled]="!activeConversationId || !text.value.trim()">Enviar</button>
+      <input
+        [formControl]="text"
+        placeholder="Escribe un mensaje…"
+        (keyup.enter)="send()"
+        [disabled]="!activeConversationId" />
+
+      <button
+        (click)="send()"
+        [disabled]="!activeConversationId || !text.value.trim()">
+        Enviar
+      </button>
     </footer>
   </main>
 </div>
