@@ -10,9 +10,10 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { GuestGuard } from './guards/guest.guard';
 import { IRoleType } from './interfaces';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { EmotionDetectorComponent } from './pages/emotion-detector/emotion-detector.component';
 import { AppointmentComponent } from './pages/appointment/appointment.component';
-import { AuditComponent } from './pages/audit/audit.component';
-
+import { CallComponent } from './pages/call/call.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 export const routes: Routes = [
   {
@@ -41,16 +42,16 @@ export const routes: Routes = [
     children: [
       {
         path: 'app',
-        redirectTo: 'users',
+        redirectTo: 'dashboard',
         pathMatch: 'full',
       },
       {
         path: 'users',
         component: UsersComponent,
-        canActivate:[AdminRoleGuard],
-        data: { 
+        canActivate: [AdminRoleGuard],
+        data: {
           authorities: [
-            IRoleType.admin, 
+            IRoleType.admin,
             IRoleType.superAdmin
           ],
           name: 'Users',
@@ -60,11 +61,12 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent,
-        data: { 
+        data: {
           authorities: [
-            IRoleType.admin, 
+            IRoleType.admin,
             IRoleType.superAdmin,
-            IRoleType.user
+            IRoleType.user,
+            IRoleType.therapist
           ],
           name: 'Dashboard',
           showInSidebar: true
@@ -73,38 +75,71 @@ export const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent,
-        data: { 
+        data: {
           authorities: [
-            IRoleType.admin, 
+            IRoleType.admin,
             IRoleType.superAdmin,
-            IRoleType.user
+            IRoleType.user,
+            IRoleType.therapist
           ],
-          name: 'profile',
+          name: 'Profile',
           showInSidebar: false
         }
       },
-       {
+      {
+        path: 'emotion-detector',
+        component: EmotionDetectorComponent,
+        data: {
+          authorities: [
+            IRoleType.admin,
+            IRoleType.superAdmin,
+            IRoleType.user,
+            IRoleType.therapist
+          ],
+          name: 'Emotion Detector',
+          showInSidebar: false 
+        }
+      },
+      {
         path: 'appointment',
         component: AppointmentComponent,
-        data: { 
+        data: {
           authorities: [
-            IRoleType.admin, 
+            IRoleType.admin,
             IRoleType.superAdmin,
-            IRoleType.user
+            IRoleType.user,
+            IRoleType.therapist
           ],
           name: 'Appointment',
           showInSidebar: true
         }
       },
-        {
-        path: 'audit',
-        component: AuditComponent,
-        data: { 
+      {
+        path: 'call',
+        component: CallComponent,
+        data: {
           authorities: [
-            IRoleType.superAdmin
-          ], 
-          name: 'Audit', 
-          showInSidebar: true,
+            IRoleType.admin,
+            IRoleType.superAdmin,
+            IRoleType.user,
+            IRoleType.therapist
+          ],
+          name: 'Llamada',
+          showInSidebar: false
+        }
+      },
+      {
+        path: 'chat',
+        component: ChatComponent,
+        data: {
+          authorities: [
+            IRoleType.admin,
+            IRoleType.superAdmin,
+            IRoleType.user,
+            IRoleType.therapist
+          ],
+          name: 'Chat',
+          showInSidebar: true
         }
       }
     ],

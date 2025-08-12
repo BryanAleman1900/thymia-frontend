@@ -1,14 +1,22 @@
-<div class="page-header" [ngClass]="{ close_icon: !layoutService.sidebarOpen }">
+<div
+  class="page-header"
+  style="background-color: #181411 !important;"
+  [ngClass]="{ close_icon: !layoutService.sidebarOpen }"
+>
   <div class="header-wrapper row m-0">
     <div class="header-logo-wrapper col-auto p-0">
       <div class="logo-wrapper">
         <a routerLink="/">
-          <img class="img-fluid" src="../../../../../assets/icons/logo@2x.png" alt="Logo" />
+          <img
+            class="img-fluid"
+            src="../../../../../assets/icons/logo@2x.png"
+            alt="Logo"
+          />
         </a>
       </div>
 
       <div class="toggle-sidebar" (click)="layoutService.toggleSidebar()">
-        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-bars text-white"></i>
       </div>
     </div>
 

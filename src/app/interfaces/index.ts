@@ -1,12 +1,14 @@
 export interface ILoginResponse {
-  accessToken: string;
-  expiresIn: number
+  token?: string;
+  accessToken?: string;
+  expiresIn: number;
+  authUser?: IUser;
 }
 
 export interface IResponse<T> {
   data: T;
-  message: string,
-  meta: T;
+  message: string;
+  meta: T; 
 }
 
 export interface IUser {
@@ -19,7 +21,9 @@ export interface IUser {
   createdAt?: string;
   updatedAt?: string;
   authorities?: IAuthority[];
-  role?: IRole
+  faceIdValue?: string | null;
+  role?: IRole;
+  fullName?: string;
 }
 
 export interface IAuthority {
@@ -32,26 +36,25 @@ export interface IFeedBackMessage {
 }
 
 export enum IFeedbackStatus {
-  success = "SUCCESS",
-  error = "ERROR",
-  default = ''
+  success = 'SUCCESS',
+  error = 'ERROR',
+  default = '',
 }
 
 export enum IRoleType {
-  admin = "ROLE_ADMIN",
-  user = "ROLE_USER",
-  superAdmin = 'ROLE_SUPER_ADMIN'
+  admin = 'ROLE_ADMIN',
+  user = 'ROLE_USER',
+  superAdmin = 'ROLE_SUPER_ADMIN',
+  therapist = 'ROLE_THERAPIST', 
 }
 
 export interface IRole {
   createdAt: string;
   description: string;
   id: number;
-  name : string;
+  name: string; 
   updatedAt: string;
 }
-
-
 
 export interface ISearch {
   page?: number;
@@ -59,9 +62,8 @@ export interface ISearch {
   pageNumber?: number;
   pageSize?: number;
   totalElements?: number;
-  totalPages?:number;
+  totalPages?: number;
 }
-
 
 export interface IAppointment {
   id?: number;
@@ -70,60 +72,8 @@ export interface IAppointment {
   startTime: string;
   endTime: string;
   googleEventId?: string;
-  patientId: number;  
-  doctorId: number;  
-  patient?: IUser;    
+  patientId: number;
+  doctorId: number;
+  patient?: IUser;
   doctor?: IUser;
-}
-
-//Mauro
-export interface IFeedback {
-    id?: number;
-    appointmentId: number;
-    patientId: number;
-    comments: string;
-    rating: number;
-    createdAt?: string;
-}
-
-//Mauro
-
-export interface IAuditLog {
-  id: number;
-  actionType: AuditActionType;
-  user?: IUser;
-  ipAddress: string;
-  details: string;
-  timestamp: string;
-  endpoint: string;
-}
-
-export enum AuditActionType {
-  LOGIN = 'LOGIN',
-  LOGOUT = 'LOGOUT',
-  LOGIN_FAILED = 'LOGIN_FAILED',
-  CREATE = 'CREATE',
-  UPDATE = 'UPDATE',
-  DELETE = 'DELETE',
-  SYSTEM_EVENT = 'SYSTEM_EVENT',
-  SECURITY_EVENT = 'SECURITY_EVENT'
-}
-
-export interface IAuditFilter {
-  actionType?: AuditActionType;
-  userId?: number;
-  startDate?: string;
-  endDate?: string;
-  page?: number;
-}
-
-export interface Page<T> {
-  content: T[];
-  totalElements: number;
-  totalPages: number;
-  size: number;
-  number: number;
-  first: boolean;
-  last: boolean;
-  empty: boolean;
 }

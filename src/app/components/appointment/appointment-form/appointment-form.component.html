@@ -1,152 +1,113 @@
-<div class="appointment-form-container">
-  <h2 mat-dialog-title>{{ isEditMode ? 'Editar Cita' : 'Nueva Cita' }}</h2>
-  
-  <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
-    <div class="form-grid">
+<div class="px-6 py-5 min-h-screen bg-[#181411] flex items-center justify-center">
+  <div class="bg-[#1f1b17] p-8 rounded-2xl w-full max-w-3xl shadow-lg">
+    <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()" autocomplete="off" class="space-y-6">
 
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Título de la cita</mat-label>
-        <input matInput formControlName="title" placeholder="Ej: Consulta de seguimiento">
-        <mat-error *ngIf="appointmentForm.get('title')?.hasError('required')">
+      <div class="text-center mb-6">
+        <p class="text-white text-[28px] font-bold">{{ isEditMode ? 'Editar Cita' : 'Nueva Cita' }}</p>
+        <small class="text-[#baa99c]">
+          Completa los campos para {{ isEditMode ? 'actualizar' : 'crear' }} la cita
+        </small>
+      </div>
+
+      <div>
+        <label for="title" class="text-[#baa99c] block mb-1">Título de la cita</label>
+        <input type="text" id="title"
+               class="w-full px-3 py-2 rounded-lg bg-[#2a2520] text-white border border-[#3b342b] focus:outline-none"
+               formControlName="title"
+               placeholder="Ej: Consulta de seguimiento" />
+        <div *ngIf="appointmentForm.get('title')?.invalid && appointmentForm.get('title')?.touched"
+             class="text-red-400 text-sm mt-1">
           El título es obligatorio
-        </mat-error>
-      </mat-form-field>
-
-      <div class="datetime-group">
-        <h4>Fecha y hora de inicio</h4>
-        <div class="datetime-controls">
-          <mat-form-field appearance="outline">
-            <mat-label>Fecha inicio</mat-label>
-                <input matInput [matDatepicker]="startPicker" formControlName="startDate" 
-                      (dateChange)="onStartDateChange($event)" readonly>
-                <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
-                <mat-datepicker #startPicker></mat-datepicker>
-            </mat-form-field>
-
-          <mat-form-field appearance="outline">
-            <mat-label>Hora inicio</mat-label>
-            <mat-select formControlName="startTime">
-              <mat-option *ngFor="let time of timeOptions" [value]="time">
-                {{ time }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
         </div>
       </div>
 
-      <div class="datetime-group">
-        <h4>Fecha y hora de fin</h4>
-        <div class="datetime-controls">
-          <mat-form-field appearance="outline">
-            <mat-label>Fecha fin</mat-label>
-            <input matInput [matDatepicker]="endPicker" formControlName="endDate" readonly>
+      <div>
+        <h4 class="text-[#baa99c] mb-2">Fecha y hora de inicio</h4>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="text-[#baa99c] block mb-1">Fecha inicio</label>
+            <input matInput [matDatepicker]="startPicker"
+                   class="w-full px-3 py-2 rounded-lg bg-[#2a2520] text-white border border-[#3b342b]"
+                   formControlName="startDate"
+                   (dateChange)="onStartDateChange($event)" readonly>
+            <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+            <mat-datepicker #startPicker></mat-datepicker>
+          </div>
+
+          <div>
+            <label class="text-[#baa99c] block mb-1">Hora inicio</label>
+            <mat-select formControlName="startTime"
+                        class="w-full bg-[#2a2520] text-white border border-[#3b342b] rounded-lg">
+              <mat-option *ngFor="let time of timeOptions" [value]="time">{{ time }}</mat-option>
+            </mat-select>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-[#baa99c] mb-2">Fecha y hora de fin</h4>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="text-[#baa99c] block mb-1">Fecha fin</label>
+            <input matInput [matDatepicker]="endPicker"
+                   class="w-full px-3 py-2 rounded-lg bg-[#2a2520] text-white border border-[#3b342b]"
+                   formControlName="endDate" readonly>
             <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
             <mat-datepicker #endPicker></mat-datepicker>
-          </mat-form-field>
+          </div>
 
-          <mat-form-field appearance="outline">
-            <mat-label>Hora fin</mat-label>
-            <mat-select formControlName="endTime">
-              <mat-option *ngFor="let time of timeOptions" [value]="time">
-                {{ time }}
-              </mat-option>
+          <div>
+            <label class="text-[#baa99c] block mb-1">Hora fin</label>
+            <mat-select formControlName="endTime"
+                        class="w-full bg-[#2a2520] text-white border border-[#3b342b] rounded-lg">
+              <mat-option *ngFor="let time of timeOptions" [value]="time">{{ time }}</mat-option>
             </mat-select>
-          </mat-form-field>
-          <mat-error *ngIf="appointmentForm.hasError('endBeforeStart')">
-            La fecha y hora de fin debe ser posterior a la de inicio.
-          </mat-error>
+          </div>
+        </div>
+        <div *ngIf="appointmentForm.hasError('endBeforeStart')"
+             class="text-red-400 text-sm mt-1">
+          La fecha y hora de fin debe ser posterior a la de inicio.
         </div>
       </div>
 
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Invitados (opcional)</mat-label>
-        <mat-select formControlName="guestIds" multiple [compareWith]="compareUsers">
+      <div>
+        <label class="text-[#baa99c] block mb-1">Invitados (opcional)</label>
+        <mat-select formControlName="guestIds" multiple
+                    class="w-full bg-[#2a2520] text-white border border-[#3b342b] rounded-lg"
+                    [compareWith]="compareUsers">
           <mat-option *ngFor="let user of allUsers" [value]="user.id">
             {{ user.name }} {{ user.lastname }}
           </mat-option>
         </mat-select>
-      </mat-form-field>
-      <!-- <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Paciente</mat-label>
-        <mat-select formControlName="patientId" [compareWith]="compareUsers">
-          <mat-option *ngFor="let patient of patients" [value]="patient.id">
-            {{ patient.name }} {{ patient.lastname }}
-          </mat-option>
-        </mat-select>
-        <mat-error *ngIf="appointmentForm.get('patientId')?.hasError('required')">
-          Seleccione un paciente
-        </mat-error>
-      </mat-form-field>
+      </div>
 
-      <mat-form-field appearance="outline" class="full-width">
-      To update your appointment form so users can only select "Invitados" (guests), you should:
-      
-      Remove the Paciente and Médico fields from the HTML.
-      Update the TypeScript form group to remove patientId and doctorId.
-      Update the submission logic to remove references to patient and doctor.
-      Here are the changes:
-      
-      
-        <mat-label>Médico</mat-label>
-        <mat-select formControlName="doctorId" [compareWith]="compareUsers">
-          <mat-option *ngFor="let doctor of doctors" [value]="doctor.id">
-            {{ doctor.name }} {{ doctor.lastname }}
-          </mat-option>
-        </mat-select>
-        <mat-error *ngIf="appointmentForm.get('doctorId')?.hasError('required')">
-          Seleccione un médico
-        </mat-error>
-      </mat-form-field> -->
-
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Descripción</mat-label>
-        <textarea matInput formControlName="description" rows="3"
+      <div>
+        <label class="text-[#baa99c] block mb-1">Descripción</label>
+        <textarea formControlName="description" rows="3"
+                  class="w-full px-3 py-2 rounded-lg bg-[#2a2520] text-white border border-[#3b342b]"
                   placeholder="Detalles adicionales de la cita"></textarea>
-      </mat-form-field>
+      </div>
 
-    </div>
+      <div class="flex justify-end gap-3 pt-4">
+        <button type="button"
+                class="px-4 py-2 rounded-lg bg-gray-600 text-white hover:bg-gray-500"
+                (click)="dialogRef.close()">
+          Cancelar
+        </button>
 
-    <div class="form-actions">
-      <button mat-button type="button" (click)="dialogRef.close()">Cancelar</button>
-      <button mat-raised-button color="primary" type="submit" [disabled]="isLoading">
-        <span *ngIf="!isLoading">{{ isEditMode ? 'Actualizar' : 'Crear' }}</span>
-        <mat-spinner *ngIf="isLoading" diameter="24" strokeWidth="2"></mat-spinner>
-      </button>
-      <button *ngIf="isEditMode" mat-raised-button color="warn" type="button" 
-              (click)="onDelete()" [disabled]="isLoading">
-        Eliminar
-      </button>
-    </div>
-  </form>
+        <button type="submit"
+                class="px-4 py-2 rounded-lg bg-[#f2730c] text-white font-bold hover:bg-[#d96108]"
+                [disabled]="isLoading">
+          <span *ngIf="!isLoading">{{ isEditMode ? 'Actualizar' : 'Crear' }}</span>
+          <mat-spinner *ngIf="isLoading" diameter="24" strokeWidth="2"></mat-spinner>
+        </button>
 
-
-  <!--Mauro-->
-  <div *ngIf="isEditMode && !showFeedbackSection" class="feedback-section">
-    <button mat-button color="primary" (click)="showFeedbackSection = true">
-      Enviar Feedback de la Sesión
-    </button>
-  </div>
-
-  <div *ngIf="showFeedbackSection" class="feedback-form">
-    <h3>Feedback de la Sesión</h3>
-    <form [formGroup]="feedbackForm" (ngSubmit)="submitFeedback()">
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Comentarios</mat-label>
-        <textarea matInput formControlName="comments" rows="4"></textarea>
-      </mat-form-field>
-      
-      <mat-form-field appearance="outline">
-        <mat-label>Calificación (1-5)</mat-label>
-        <mat-select formControlName="rating">
-          <mat-option *ngFor="let num of [1,2,3,4,5]" [value]="num">{{num}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      
-      <div class="form-actions">
-        <button mat-button type="button" (click)="showFeedbackSection = false">Cancelar</button>
-        <button mat-raised-button color="primary" type="submit">Enviar</button>
+        <button *ngIf="isEditMode" type="button"
+                class="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-500"
+                (click)="onDelete()" [disabled]="isLoading">
+          Eliminar
+        </button>
       </div>
     </form>
   </div>
-
 </div>
