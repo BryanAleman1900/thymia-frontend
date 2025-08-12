@@ -66,7 +66,7 @@
   cursor: pointer;
 }
 .primary-btn {
-  background: #ff7a00; /* naranja app */
+  background: #ff7a00; 
   color: #fff;
 }
 .primary-btn:disabled { opacity: 0.6; cursor: default; }
@@ -75,20 +75,27 @@
   color: #fff;
 }
 
-/* Modal */
 .backdrop {
   position: fixed; inset: 0;
   background: rgba(0,0,0,0.6);
   backdrop-filter: blur(2px);
+  z-index: 1000;
 }
+
 .modal {
-  position: fixed; left: 50%; top: 10%;
-  transform: translateX(-50%);
+  position: fixed;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
   width: min(760px, 92vw);
-  background: #121212;
+  max-height: 82vh;
+  overflow: auto;
+  background: #121212;      
+  color: #fff;             
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 16px;
   padding: 1rem 1.1rem;
+  z-index: 1001;            
+}
 
   .modal-content {
     margin: 0.5rem 0 0.75rem;
@@ -97,4 +104,4 @@
   .modal-footer {
     display: flex; justify-content: space-between; align-items: center;
   }
-}
+

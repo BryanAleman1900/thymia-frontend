@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JournalEntry } from '../interfaces'
 import { Observable } from 'rxjs';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -20,15 +21,17 @@ export class JournalService {
   return this.http.get<JournalEntry[]>(this.apiUrl);
 }
 
-updateVisibility(entryId: number, shared: boolean): Observable<any> {
-  return this.http.patch(`${this.apiUrl}/${entryId}/share`, null, {
-    params: { shared: shared.toString() }
-  });
+  share(id: number, emails: string[]) {
+    return this.http.post(`/api/journal/${id}/share`, { therapistEmails: emails });
+  }
 
-}
-setShared(entryId: number, shared: boolean): Observable<any> {
-  return this.http.put(`api/journal/${entryId}/share`, { shared });
-  
+  revoke(id: number, email: string) {
+    const params = new HttpParams().set('therapistEmail', email);
+    return this.http.delete(`/api/journal/${id}/share`, { params });
+  }
+
+  getSharedWithMe() {
+    return this.http.get<any[]>('/api/journal/shared-with-me');
+  }
 }
 
-}

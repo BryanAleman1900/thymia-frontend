@@ -12,23 +12,9 @@
     <div class="tip-card" *ngFor="let tip of tips">
       <div class="tip-header">
         <h3 class="tip-title">{{ tip.title }}</h3>
-        <span class="pill" *ngIf="tip.category">{{ tip.category }}</span>
-        <span class="pill muted" *ngIf="tip.source">{{ tip.source }}</span>
       </div>
 
       <p class="tip-date">Entregado: {{ tip.createdAt | date:'medium' }}</p>
-      <p class="tip-meta">
-        Visto {{ tip.viewCount }} veces
-        <ng-container *ngIf="tip.lastViewedAt">
-          · Última: {{ tip.lastViewedAt | date:'short' }}
-        </ng-container>
-      </p>
-
-      <div class="tip-actions">
-        <button class="primary-btn" (click)="openTip(tip)" [disabled]="viewing">
-          {{ viewing ? 'Abriendo…' : 'Ver' }}
-        </button>
-      </div>
     </div>
 
     <div class="pager">
@@ -37,22 +23,5 @@
       <button class="secondary-btn" (click)="next()" [disabled]="page + 1 >= totalPages">Siguiente</button>
     </div>
   </div>
-
-
-<div class="backdrop" *ngIf="showing" (click)="closeModal()"></div>
-<div class="modal" *ngIf="showing">
-  <h2>{{ showing.title }}</h2>
-  <div class="modal-content">
-    <p>{{ showing.content }}</p>
-  </div>
-  <div class="modal-footer">
-    <span class="tip-meta">
-      Visto {{ showing.viewCount }} veces
-      <ng-container *ngIf="showing.lastViewedAt">
-        · Última: {{ showing.lastViewedAt | date:'short' }}
-      </ng-container>
-    </span>
-    <button class="primary-btn" (click)="closeModal()">Cerrar</button>
-  </div>
 </div>
-</div>
+

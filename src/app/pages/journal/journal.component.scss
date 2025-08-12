@@ -127,6 +127,7 @@ h2 {
   font-size:.8rem; 
 }
 
+
 .entry-insight .badge,
 .entry-insight small {
   display: none !important;
@@ -140,5 +141,74 @@ h2 {
   justify-content: flex-end;
   padding: .5rem 0;
    background: rgba(0,0,0,0.2); 
+}
+
+.share-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shared-label {
+  color: #9fe6a0;
+  font-size: 12px;
+}
+
+
+.secondary-btn, .ghost-btn, .primary-btn {
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 700;
+}
+.secondary-btn { background: #2f2a24; color: #fff; }
+.ghost-btn { background: transparent; color: #ccc; }
+.primary-btn { background: #393028; color: #fff; }
+
+
+/* Backdrop del modal (sin chocar con Bootstrap) */
+.share-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .5);
+  z-index: 2000; // por encima de toolbars/navbars
+}
+
+/* Contenedor del modal */
+.share-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(560px, 92vw);
+  background: #1b1b1b;
+  color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.6);
+  z-index: 2001; // por encima del backdrop
+}
+
+.share-modal h3 { margin: 0 0 12px 0; }
+
+.modal h3 { margin: 0 0 12px 0; }
+.loading, .empty { color: #aaa; font-size: 14px; }
+
+.therapist-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin: 12px 0 18px;
+}
+.therapist-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; border-radius: 12px; background: #222;
+  .name { font-weight: 600; }
+  .email { color: #bbb; font-size: 12px; }
+}
+.modal-actions {
+  display: flex; justify-content: flex-end; gap: 10px;
 }
 

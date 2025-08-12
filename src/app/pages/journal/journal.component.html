@@ -53,26 +53,41 @@
         </small>
       </div>
 
-      <div class="share-toggle">
-        <label>
-          <input
-            type="checkbox"
-            [checked]="entry.sharedWithProfessional"
-            (change)="onCheckboxChange($event, entry)"
-          />
-          Compartir con mi profesional
-        </label>
+      <div class="share-actions">
+  <button class="secondary-btn" (click)="openShare(entry)">
+    Compartir
+  </button>
 
-        <span
-          *ngIf="entry.sharedWithProfessional"
-          class="shared-label"
-        >
-          (Compartido)
-        </span>
+  <span *ngIf="entry.sharedWithProfessional" class="shared-label">
+    (Compartido)
+  </span>
+</div>
+    </div>
+  </div>
+<div class="share-modal-backdrop" *ngIf="shareOpen" (click)="cancelShare()"></div>
+<div class="share-modal" *ngIf="shareOpen" role="dialog" aria-modal="true">
+    <h3>Compartir entrada</h3>
+
+    <div *ngIf="shareLoading" class="loading">Cargando terapeutas...</div>
+
+    <div class="therapist-list" *ngIf="!shareLoading">
+      <label *ngFor="let t of therapists" class="therapist-item">
+        <input type="checkbox" #cb (change)="toggleEmail(t.email, cb.checked)" />
+        <span class="name">{{ t.name }}</span>
+        <span class="email">{{ t.email }}</span>
+      </label>
+      <div *ngIf="therapists.length === 0" class="empty">
+        No hay terapeutas disponibles.
       </div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="ghost-btn" (click)="cancelShare()">Cancelar</button>
+      <button class="primary-btn" (click)="confirmShare()">Compartir</button>
     </div>
   </div>
 </div>
+
 
 
 

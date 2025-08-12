@@ -97,3 +97,9 @@ export interface WellnessTipReceipt {
   firstViewedAt?: string;
   lastViewedAt?: string;
 }
+
+
+export interface Therapist {
+  name: string;
+  email: string;
+}
