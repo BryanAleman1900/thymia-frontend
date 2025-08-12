@@ -1,0 +1,137 @@
+<div class="bg-[#2b2420] rounded-xl px-6 py-6">
+  <div class="flex flex-wrap items-center gap-3 mb-4">
+    <h3 class="text-lg font-semibold mr-auto">Administración de usuarios</h3>
+
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      (keyup.enter)="refresh()"
+      placeholder="Buscar por nombre, apellido o correo"
+      class="w-[340px] max-w-full px-3 py-2 rounded-lg bg-[#1f1a17] border border-[#3b342b] focus:outline-none text-sm"
+    />
+
+    <button
+      class="px-3 py-2 rounded-lg bg-[#3a312a] hover:bg-[#4a3e34] text-sm"
+      (click)="refresh()"
+      title="Refrescar lista"
+    >
+      Refrescar
+    </button>
+
+    <div class="flex items-center gap-2">
+      <span class="text-[#baa99c] text-sm">Ítems por página</span>
+      <select
+        class="px-2 py-2 rounded-lg bg-[#1f1a17] border border-[#3b342b] text-sm"
+        [(ngModel)]="pageSize"
+        (change)="changePageSize(pageSize)"
+      >
+        <option *ngFor="let opt of pageSizeOptions" [value]="opt">{{ opt }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full table-fixed text-sm">
+      <thead class="text-[#baa99c] border-b border-[#393028]">
+        <tr>
+          <th class="text-left py-2 w-10">#</th>
+          <th class="text-left py-2 w-44">Nombre</th>
+          <th class="text-left py-2 w-44">Apellido</th>
+          <th class="text-left py-2 w-72">Correo</th>
+          <th class="text-left py-2 w-32">Rol</th>
+          <th class="text-left py-2 w-[180px]">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="border-b border-[#393028]"
+          *ngFor="let u of users; let i = index"
+        >
+          <td class="py-3 align-middle">{{ (page - 1) * pageSize + i + 1 }}</td>
+          <td class="py-3 align-middle break-words">{{ u.name || '-' }}</td>
+          <td class="py-3 align-middle break-words">{{ u.lastname || '-' }}</td>
+          <td class="py-3 align-middle break-words">{{ u.email }}</td>
+          <td class="py-3 align-middle">
+            <span
+              class="px-2 py-1 rounded-full text-xs bg-[#3a312a] inline-block"
+            >
+              {{ u.role?.name || 'USER' }}
+            </span>
+          </td>
+
+          <!-- Acciones compactas -->
+          <td class="py-3 align-middle">
+            <div class="flex items-center gap-2 flex-wrap">
+              <!-- Editar -->
+              <button
+                class="btn-icon bg-[#2563eb]/80 hover:bg-[#2563eb]"
+                (click)="openEdit(u)"
+                title="Actualizar usuario"
+                aria-label="Actualizar"
+              >
+                <i class="fa-solid fa-pen text-sm"></i>
+              </button>
+
+              <!-- Eliminar -->
+              <button
+                class="btn-icon bg-[#dc2626]/80 hover:bg-[#dc2626]"
+                (click)="deleteUser(u)"
+                title="Eliminar usuario"
+                aria-label="Eliminar"
+              >
+                <i class="fa-solid fa-trash text-sm"></i>
+              </button>
+
+              <!-- Cambiar rol (USER <-> THERAPIST) -->
+              <button
+                class="btn-icon"
+                [ngClass]="isTherapist(u)
+                  ? 'bg-amber-600/80 hover:bg-amber-600'
+                  : 'bg-violet-600/80 hover:bg-violet-600'"
+                (click)="toggleTherapist(u)"
+                [title]="isTherapist(u) ? 'Cambiar a Usuario' : 'Cambiar a Terapeuta'"
+                aria-label="Cambiar rol"
+              >
+                <i
+                  class="fa-solid text-sm"
+                  [ngClass]="isTherapist(u) ? 'fa-user' : 'fa-user-doctor'"
+                ></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+
+        <tr *ngIf="users?.length === 0">
+          <td class="py-6 text-center text-[#baa99c]" colspan="6">
+            Sin resultados
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Paginación -->
+  <div class="flex items-center justify-between mt-4">
+    <div class="text-[#baa99c] text-sm">
+      Página {{ page }} de {{ totalPages || 1 }}
+      <span *ngIf="totalElements">&nbsp;• {{ totalElements }} usuarios</span>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <button
+        class="px-3 py-2 rounded-lg bg-[#3a312a] hover:bg-[#4a3e34] text-sm disabled:opacity-40"
+        [disabled]="page <= 1"
+        (click)="changePage(page - 1)"
+      >
+        Anterior
+      </button>
+      <button
+        class="px-3 py-2 rounded-lg bg-[#3a312a] hover:bg-[#4a3e34] text-sm disabled:opacity-40"
+        [disabled]="page >= totalPages"
+        (click)="changePage(page + 1)"
+      >
+        Siguiente
+      </button>
+    </div>
+  </div>
+</div>

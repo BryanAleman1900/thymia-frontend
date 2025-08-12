@@ -1,8 +1,7 @@
 <div class="profile-main-container px-[10%] py-6 text-white">
   <div class="row info-container">
-
     <div class="col-6">
-      <div class="bg-[#2b2420] rounded-xl px-6 py-6 h-100">
+      <div class="bg-[#2b2420] rounded-xl px-6 py-6 self-start">
         <div class="text-4xl mb-4 text-center">
           <i class="fa-solid fa-user-tie"></i>
         </div>
@@ -22,7 +21,7 @@
           <p>{{ profileService.user$().updatedAt | date: 'dd/MM/yyyy' }}</p>
         </div>
 
-        <div class="text-center mt-6">
+        <div class="text-center mt-6" *ngIf="!profileService.user$().faceIdValue">
           <button
             class="border border-white text-white rounded-full px-4 py-2 hover:bg-white hover:text-[#181411] transition"
             (click)="enableFaceID()"
@@ -56,40 +55,15 @@
           </div>
         </div>
 
-        <div class="col-12">
-          <div class="bg-[#2b2420] rounded-xl px-6 py-6">
-            <label class="text-[#baa99c] block mb-2">Últimas acciones:</label>
-            <div class="overflow-x-auto">
-              <table class="table-auto w-full text-sm">
-                <thead class="text-[#baa99c] border-b border-[#393028]">
-                  <tr>
-                    <th class="text-left py-2">#</th>
-                    <th class="text-left py-2">Fecha</th>
-                    <th class="text-left py-2">Descripción</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="border-b border-[#393028]">
-                    <td class="py-2">1</td>
-                    <td>10/06/2024</td>
-                    <td>Usuario eliminado</td>
-                  </tr>
-                  <tr class="border-b border-[#393028]">
-                    <td class="py-2">2</td>
-                    <td>10/06/2024</td>
-                    <td>Usuario eliminado</td>
-                  </tr>
-                  <tr>
-                    <td class="py-2">3</td>
-                    <td>10/06/2024</td>
-                    <td>Usuario eliminado</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
+       <div
+  class="col-12"
+  *ngIf="
+    profileService.user$()?.role?.name === 'ADMIN' ||
+    profileService.user$()?.role?.name === 'SUPER_ADMIN'
+  "
+>
+  <app-admin-user-panel></app-admin-user-panel>
+</div>
       </div>
     </div>
   </div>

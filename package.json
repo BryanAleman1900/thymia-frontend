@@ -30,6 +30,7 @@
     "@ng-bootstrap/ng-bootstrap": "^16.0.0",
     "face-api.js": "^0.20.0",
     "ngx-webcam": "^0.4.1",
+    "pdfmake": "^0.2.12",
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.6.13",
     "tslib": "^2.3.0",

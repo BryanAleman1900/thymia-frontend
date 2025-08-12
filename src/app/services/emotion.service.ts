@@ -1,15 +1,12 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class EmotionService {
   private http = inject(HttpClient);
-  private emotionURL = `${environment.apiUrl}/emotions`;
+  private resource = 'emotions';
 
-  sendEmotion(emotion: string) {
-    return this.http.post(this.emotionURL, { emotion });
+  sendEmotion(emotion: string, roomId: string) {
+    return this.http.post(this.resource, { emotion, roomId });
   }
 }

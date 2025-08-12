@@ -11,7 +11,6 @@ export class AuthService {
   private expiresIn!: number;
   private user: IUser = { email: '', authorities: [] };
   private http: HttpClient = inject(HttpClient);
-  private apiURL: string = 'http://localhost:8080';
 
   constructor() {
     this.load();
@@ -24,10 +23,10 @@ export class AuthService {
   }
 
   private load(): void {
-    let token = localStorage.getItem('access_token');
-    if (token) this.accessToken = JSON.parse(token); 
+    const token = localStorage.getItem('access_token');
+    if (token) this.accessToken = JSON.parse(token);
 
-    let exp = localStorage.getItem('expiresIn');
+    const exp = localStorage.getItem('expiresIn');
     if (exp) this.expiresIn = JSON.parse(exp);
 
     const user = localStorage.getItem('auth_user');
@@ -49,9 +48,9 @@ export class AuthService {
   public login(credentials: { email: string; password: string }): Observable<ILoginResponse> {
     return this.http.post<ILoginResponse>('auth/login', credentials).pipe(
       tap((response: any) => {
-        this.accessToken = response.token;
-        this.expiresIn = response.expiresIn;
-        this.user = response.authUser;
+        this.accessToken = (response?.token ?? response?.accessToken) || '';
+        this.expiresIn = response?.expiresIn;
+        this.user = response?.authUser;
         this.save();
       })
     );
@@ -61,24 +60,25 @@ export class AuthService {
     return this.http.post<ILoginResponse>('auth/signup', user);
   }
 
-  //Google login
+  // Google login
   public loginWithGoogle(idToken: string): Observable<ILoginResponse> {
     return this.http.post<any>('auth/google', { idToken }).pipe(
       tap((response: any) => {
-        this.accessToken = response.token;
-        this.expiresIn = response.expiresIn;
-        this.user = response.authUser;
+        this.accessToken = (response?.token ?? response?.accessToken) || '';
+        this.expiresIn = response?.expiresIn;
+        this.user = response?.authUser;
         this.save();
       })
     );
   }
 
+  // Face ID login
   public loginWithFacialId(facialId: string): Observable<ILoginResponse> {
     return this.http.post<ILoginResponse>('auth/face-id/login', { facialId }).pipe(
       tap((response: any) => {
-        this.accessToken = response.token;
-        this.expiresIn = response.expiresIn;
-        this.user = response.authUser;
+        this.accessToken = (response?.token ?? response?.accessToken) || '';
+        this.expiresIn = response?.expiresIn;
+        this.user = response?.authUser;
         this.save();
       })
     );
@@ -96,11 +96,17 @@ export class AuthService {
   }
 
   public hasRole(role: string): boolean {
-    return this.user.authorities ? this.user.authorities.some(a => a.authority === role) : false;
+    return this.user?.authorities
+      ? this.user.authorities.some(a => a.authority === role)
+      : false;
   }
 
   public isSuperAdmin(): boolean {
     return this.hasRole(IRoleType.superAdmin);
+  }
+
+  public isTherapist(): boolean {
+    return this.hasRole(IRoleType.therapist);
   }
 
   public hasAnyRole(roles: string[]): boolean {
@@ -118,20 +124,21 @@ export class AuthService {
   }
 
   public areActionsAvailable(routeAuthorities: string[]): boolean {
-    let userAuthorities = this.getUserAuthorities();
+    const userAuthorities = this.getUserAuthorities();
 
-    let allowedUser = routeAuthorities.some(role =>
+    const allowedUser = routeAuthorities.some(role =>
       userAuthorities?.some(auth => auth.authority === role)
     );
 
-    let isAdmin = userAuthorities?.some(
+    const isAdmin = userAuthorities?.some(
       a => a.authority === IRoleType.admin || a.authority === IRoleType.superAdmin
     );
 
     return allowedUser && !!isAdmin;
   }
 
+
   public verificarBloqueo(email: string): Observable<any> {
-    return this.http.get<any>(`${this.apiURL}/auth/status?email=${email}`);
+    return this.http.get<any>(`auth/status?email=${encodeURIComponent(email)}`);
   }
 }
