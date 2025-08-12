@@ -1,6 +1,15 @@
 <div class="journal-container">
   <h1>Mi diario emocional</h1>
 
+  <div class="journal-toolbar">
+  <button
+    class="h-10 px-4 rounded-full bg-[#393028] text-white text-sm font-bold"
+    (click)="goToWellnessHistory()"
+  >
+    Ver historial de consejos
+  </button>
+</div>
+
   <form [formGroup]="form" (ngSubmit)="submit()" class="journal-form">
     <textarea
       formControlName="content"

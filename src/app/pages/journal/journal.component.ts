@@ -4,6 +4,7 @@ import { JournalService } from '../../services/journal.service';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { JournalEntry } from '../../interfaces/index';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-journal',
@@ -18,9 +19,14 @@ export class JournalComponent implements OnInit {
   errorMessage: string = '';
 
   constructor(
+    private router: Router,
     private fb: FormBuilder,
     private journalService: JournalService
   ) {}
+
+    goToWellnessHistory() {
+    this.router.navigate(['/app/wellness']);
+  }
 
   ngOnInit(): void {
     this.form = this.fb.group({

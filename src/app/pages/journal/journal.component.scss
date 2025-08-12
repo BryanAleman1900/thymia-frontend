@@ -131,3 +131,14 @@ h2 {
 .entry-insight small {
   display: none !important;
 }
+
+.journal-toolbar {
+  position: sticky;  
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+  padding: .5rem 0;
+   background: rgba(0,0,0,0.2); 
+}
+
