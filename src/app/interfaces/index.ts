@@ -23,6 +23,7 @@ export interface IUser {
   authorities?: IAuthority[];
   faceIdValue?: string | null;
   role?: IRole;
+  fullName?: string;
 }
 
 export interface IAuthority {
