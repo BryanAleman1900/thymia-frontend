@@ -62,9 +62,9 @@
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef>Acción</th>
           <td mat-cell *matCellDef="let log">
-            <span [class.text-success]="log.action.includes('LOGIN')" 
-                  [class.text-danger]="log.action.includes('FAILED')">
-              {{ log.action.includes('LOGIN_FAILED') ? 'Intento fallido' : 'Login exitoso' }}
+            <span [class.text-success]="log.action === 'LOGIN'" 
+                  [class.text-danger]="log.action === 'LOGIN_FAILED'">
+              {{ log.action === 'LOGIN_FAILED' ? 'Intento fallido' : 'Login exitoso' }}
             </span>
           </td>
         </ng-container>

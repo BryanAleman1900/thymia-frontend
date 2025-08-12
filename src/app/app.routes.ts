@@ -97,7 +97,7 @@ export const routes: Routes = [
         }
       },
         {
-        path: 'admin/audit',
+        path: 'audit',
         component: AuditComponent,
         data: { 
           authorities: [

@@ -1,0 +1,11 @@
+<div class="text-white mb-4">
+  <h2 class="text-xl mb-2">Emoción detectada:</h2>
+
+  <div *ngIf="currentEmotion" class="text-3xl font-bold">
+    {{ currentEmotion | emotionDisplay }}
+  </div>
+
+  <div *ngIf="!currentEmotion" class="text-gray-400">Esperando...</div>
+</div>
+
+<video id="videoElement" autoplay muted width="400" height="300" class="rounded shadow"></video>
