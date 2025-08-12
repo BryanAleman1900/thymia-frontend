@@ -1,13 +1,14 @@
 export interface ILoginResponse {
-  accessToken: string;
-  expiresIn: number
-  authUser?: IUser;  
+  token?: string;
+  accessToken?: string;
+  expiresIn: number;
+  authUser?: IUser;
 }
 
 export interface IResponse<T> {
   data: T;
-  message: string,
-  meta: T;
+  message: string;
+  meta: T; 
 }
 
 export interface IUser {
@@ -20,7 +21,8 @@ export interface IUser {
   createdAt?: string;
   updatedAt?: string;
   authorities?: IAuthority[];
-  role?: IRole
+  faceIdValue?: string | null;
+  role?: IRole;
 }
 
 export interface IAuthority {
@@ -33,22 +35,23 @@ export interface IFeedBackMessage {
 }
 
 export enum IFeedbackStatus {
-  success = "SUCCESS",
-  error = "ERROR",
-  default = ''
+  success = 'SUCCESS',
+  error = 'ERROR',
+  default = '',
 }
 
 export enum IRoleType {
-  admin = "ROLE_ADMIN",
-  user = "ROLE_USER",
-  superAdmin = 'ROLE_SUPER_ADMIN'
+  admin = 'ROLE_ADMIN',
+  user = 'ROLE_USER',
+  superAdmin = 'ROLE_SUPER_ADMIN',
+  therapist = 'ROLE_THERAPIST', 
 }
 
 export interface IRole {
   createdAt: string;
   description: string;
   id: number;
-  name : string;
+  name: string; 
   updatedAt: string;
 }
 
@@ -58,7 +61,7 @@ export interface ISearch {
   pageNumber?: number;
   pageSize?: number;
   totalElements?: number;
-  totalPages?:number;
+  totalPages?: number;
 }
 
 export interface IAppointment {
@@ -68,9 +71,9 @@ export interface IAppointment {
   startTime: string;
   endTime: string;
   googleEventId?: string;
-  patientId: number;  
-  doctorId: number;  
-  patient?: IUser;    
+  patientId: number;
+  doctorId: number;
+  patient?: IUser;
   doctor?: IUser;
 }
 

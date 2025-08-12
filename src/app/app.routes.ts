@@ -57,16 +57,16 @@ export const routes: Routes = [
     children: [
       {
         path: 'app',
-        redirectTo: 'users',
+        redirectTo: 'dashboard',
         pathMatch: 'full',
       },
       {
         path: 'users',
         component: UsersComponent,
-        canActivate:[AdminRoleGuard],
-        data: { 
+        canActivate: [AdminRoleGuard],
+        data: {
           authorities: [
-            IRoleType.admin, 
+            IRoleType.admin,
             IRoleType.superAdmin
           ],
           name: 'Users',
@@ -76,11 +76,12 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent,
-        data: { 
+        data: {
           authorities: [
-            IRoleType.admin, 
+            IRoleType.admin,
             IRoleType.superAdmin,
-            IRoleType.user
+            IRoleType.user,
+            IRoleType.therapist
           ],
           name: 'Dashboard',
           showInSidebar: true
@@ -117,28 +118,40 @@ export const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent,
-        data: { 
+        data: {
           authorities: [
-            IRoleType.admin, 
+            IRoleType.admin,
             IRoleType.superAdmin,
-            IRoleType.user
+            IRoleType.user,
+            IRoleType.therapist
           ],
-          name: 'profile',
+          name: 'Profile',
           showInSidebar: false
         }
       },
       {
-      path: 'emotion-detector',
-      component: EmotionDetectorComponent
+        path: 'emotion-detector',
+        component: EmotionDetectorComponent,
+        data: {
+          authorities: [
+            IRoleType.admin,
+            IRoleType.superAdmin,
+            IRoleType.user,
+            IRoleType.therapist
+          ],
+          name: 'Emotion Detector',
+          showInSidebar: false 
+        }
       },
       {
         path: 'appointment',
         component: AppointmentComponent,
-        data: { 
+        data: {
           authorities: [
-            IRoleType.admin, 
+            IRoleType.admin,
             IRoleType.superAdmin,
-            IRoleType.user
+            IRoleType.user,
+            IRoleType.therapist
           ],
           name: 'Appointment',
           showInSidebar: true
@@ -147,11 +160,12 @@ export const routes: Routes = [
       {
         path: 'call',
         component: CallComponent,
-        data: { 
+        data: {
           authorities: [
-            IRoleType.admin, 
+            IRoleType.admin,
             IRoleType.superAdmin,
-            IRoleType.user
+            IRoleType.user,
+            IRoleType.therapist
           ],
           name: 'Llamada',
           showInSidebar: false
