@@ -77,3 +77,50 @@ export interface IAppointment {
   patient?: IUser;
   doctor?: IUser;
 }
+
+export interface JournalEntry {
+  id: number;
+  content: string;
+  createdAt?: string;
+  sentimentLabel?: string;
+  sentimentScore?: number;
+  sharedWithProfessional?: boolean;
+  sharedWithTherapists?: string[];
+}
+
+export interface WellnessTipReceipt {
+  id: number;
+  title: string;
+  content: string;
+  category: string;
+  source?: string;
+  createdAt: string;
+  viewCount: number;
+  firstViewedAt?: string;
+  lastViewedAt?: string;
+}
+
+
+export interface Therapist {
+  name: string;
+  email: string;
+}
+
+export interface SharedJournalEntry {
+  content: string;
+  createdAt: string;
+  sentimentLabel?: string;
+  sentimentScore?: number;
+  patientName: string;
+  patientEmail: string;
+}
+
+export interface WellnessTip {
+  id: string | number;
+  title: string;
+  content: string;
+  category?: string;
+  source?: string;
+  createdAt: string | Date;
+  viewCount?: number;
+}

@@ -1,0 +1,214 @@
+.journal-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #fff;
+  background-color: #1e1e2f;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.journal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  resize: vertical;
+  background-color: #2b2b3c;
+  color: #fff;
+}
+
+.char-count {
+  font-size: 0.85rem;
+  color: #ccc;
+  text-align: right;
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+}
+
+.primary-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background-color: #ff7a00;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.primary-btn:hover {
+  background-color: #e66e00;
+}
+
+hr {
+  margin: 2rem 0;
+  border-color: #444;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+.no-entries {
+  color: #aaa;
+}
+
+.entry-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.entry-card {
+  background-color: #2b2b3c;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #444;
+}
+
+.entry-content {
+  font-style: italic;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.entry-date {
+  font-size: 0.85rem;
+  color: #999;
+  text-align: right;
+}
+
+.share-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #444;
+  font-size: 0.9rem;
+  color: #ccc;
+
+  input[type="checkbox"] {
+    accent-color: #ff7a00;
+    margin-right: 0.5rem;
+    transform: scale(1.2);
+  }
+}
+
+.shared-label {
+  color: #00d084;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.entry-insight { 
+  margin-top:.5rem; 
+  display:flex; 
+  gap:.4rem; 
+  align-items:center; 
+}
+
+.badge { 
+  background:#3b3b4a; 
+  padding:.15rem .5rem; 
+  border-radius:.5rem; 
+  font-size:.8rem; 
+}
+
+
+.entry-insight .badge,
+.entry-insight small {
+  display: none !important;
+}
+
+.journal-toolbar {
+  position: sticky;  
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+  padding: .5rem 0;
+   background: rgba(0,0,0,0.2); 
+}
+
+.share-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shared-label {
+  color: #9fe6a0;
+  font-size: 12px;
+}
+
+
+.secondary-btn, .ghost-btn, .primary-btn {
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 700;
+}
+.secondary-btn { background: #2f2a24; color: #fff; }
+.ghost-btn { background: transparent; color: #ccc; }
+.primary-btn { background: #393028; color: #fff; }
+
+
+/* Backdrop del modal (sin chocar con Bootstrap) */
+.share-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .5);
+  z-index: 2000; // por encima de toolbars/navbars
+}
+
+/* Contenedor del modal */
+.share-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(560px, 92vw);
+  background: #1b1b1b;
+  color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.6);
+  z-index: 2001; // por encima del backdrop
+}
+
+.share-modal h3 { margin: 0 0 12px 0; }
+
+.modal h3 { margin: 0 0 12px 0; }
+.loading, .empty { color: #aaa; font-size: 14px; }
+
+.therapist-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin: 12px 0 18px;
+}
+.therapist-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; border-radius: 12px; background: #222;
+  .name { font-weight: 600; }
+  .email { color: #bbb; font-size: 12px; }
+}
+.modal-actions {
+  display: flex; justify-content: flex-end; gap: 10px;
+}
+

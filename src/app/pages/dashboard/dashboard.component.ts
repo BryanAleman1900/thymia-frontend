@@ -11,6 +11,14 @@ import { Router } from '@angular/router';
 export class DashboardComponent {
   constructor(private router: Router) {}
 
+    goToWellnessHistory() {
+    this.router.navigate(['/app/wellness']);
+  }
+
+  goToJournal() {
+  this.router.navigate(['/app/journal']);
+}
+
   goToVideoCall(): void {
     this.router.navigate(['/app/call']);
   }
