@@ -13,6 +13,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { EmotionDetectorComponent } from './pages/emotion-detector/emotion-detector.component';
 import { AppointmentComponent } from './pages/appointment/appointment.component';
 import { CallComponent } from './pages/call/call.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 export const routes: Routes = [
   {
@@ -125,6 +126,20 @@ export const routes: Routes = [
           ],
           name: 'Llamada',
           showInSidebar: false
+        }
+      },
+      {
+        path: 'chat',
+        component: ChatComponent,
+        data: {
+          authorities: [
+            IRoleType.admin,
+            IRoleType.superAdmin,
+            IRoleType.user,
+            IRoleType.therapist
+          ],
+          name: 'Chat',
+          showInSidebar: true
         }
       }
     ],

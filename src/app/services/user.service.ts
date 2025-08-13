@@ -138,4 +138,20 @@ export class UserService extends BaseService<IUser> {
       })
     ).subscribe();
   }
+
+  getByRole(role: 'USER' | 'THERAPIST') {
+    return this.http.get<{ data: IUser[] }>(`${this.source}/by-role/${role}`).pipe(
+      tap((response) => {
+        this.userListSignal.set(response.data || []);
+      }),
+      catchError(err => {
+        this.alertService.displayAlert('error', `Error al cargar usuarios con rol ${role}`, 'center', 'top', ['error-snackbar']);
+        return throwError(() => err);
+      })
+    );
+  }
+  
+  getMe() {
+    return this.http.get<any>(`${this.source}/me`);
+  }
 }

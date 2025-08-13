@@ -42,4 +42,13 @@ export class AppointmentService {
   deleteAppointment(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+
+  //Luis agrego lo siguiente:
+  joinMeeting(appointmentId: number, token: string): Observable<string> {
+  const params = new HttpParams().set('token', token);
+  return this.http.get(`/appointments/${appointmentId}/join`, {
+    params,
+    responseType: 'text'
+  });
+}
 }
