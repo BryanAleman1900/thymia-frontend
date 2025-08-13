@@ -5,9 +5,7 @@ import { LayoutService } from '../../../../services/layout.service';
 import { AuthService } from '../../../../services/auth.service';
 import { SvgIconComponent } from '../../../svg-icon/svg-icon.component';
 import { routes } from '../../../../app.routes';
-import { IUser } from '../../../../interfaces';
-import { User } from 'firebase/auth';
-import { UserService } from '../../../../services/user.service';
+import { IRoleType } from '../../../../interfaces';
 
 @Component({
   selector: 'app-sidebar',
@@ -29,19 +27,12 @@ export class SidebarComponent {
   public permittedRoutes: Route[] = [];
   appRoutes: any;
 
-  currentUser: IUser | null = null;
-
-  constructor(
-    private userService: UserService
-  ) {
+  constructor() {
     this.appRoutes = routes.filter(route => route.path == 'app')[0];
     this.permittedRoutes = this.authService.getPermittedRoutes(this.appRoutes.children);
   }
 
-  ngOnInit() {
-    this.userService.getMe().subscribe({
-      next: (user) => this.currentUser = user,
-      error: () => this.currentUser = null
-    });
+  get canSeeAudit(): boolean {
+    return this.authService.isSuperAdmin() || this.authService.hasRole(IRoleType.admin);
   }
 }
