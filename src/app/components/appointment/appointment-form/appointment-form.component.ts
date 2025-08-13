@@ -17,6 +17,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-appointment-form',
@@ -32,7 +33,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatNativeDateModule,
     MatButtonModule,
     MatProgressSpinnerModule,
-    CommonModule
+    CommonModule,
+    MatDialogModule
   ],
 })
 export class AppointmentFormComponent implements OnInit {
@@ -316,5 +318,10 @@ private applyPendingDoctor(): void {
     if (name) return name;
     if (u.email) return u.email;
     return `ID ${u.id ?? ''}`.trim();
+  }
+
+  isInvalid(name: string): boolean {
+    const c = this.appointmentForm.get(name);
+    return !!(c && c.touched && c.invalid);
   }
 }

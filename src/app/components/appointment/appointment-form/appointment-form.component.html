@@ -1,129 +1,137 @@
-<div class="px-6 py-5 min-h-screen bg-[#181411] flex items-center justify-center">
-  <div class="bg-[#1f1b17] p-8 rounded-2xl w-full max-w-3xl shadow-lg">
-    <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()" autocomplete="off" class="space-y-6">
+<form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()" autocomplete="off" class="space-y-5">
 
-      <div class="text-center mb-6">
-        <p class="text-white text-[28px] font-bold">{{ isEditMode ? 'Editar Cita' : 'Nueva Cita' }}</p>
-        <small class="text-[#baa99c]">
-          Completa los campos para {{ isEditMode ? 'actualizar' : 'crear' }} la cita
-        </small>
-      </div>
-
-      <div>
-        <label for="title" class="text-[#baa99c] block mb-1">Título de la cita</label>
-        <input type="text" id="title"
-               class="w-full px-3 py-2 rounded-lg bg-[#2a2520] text-white border border-[#3b342b] focus:outline-none"
-               formControlName="title"
-               placeholder="Ej: Consulta de seguimiento" />
-        <div *ngIf="appointmentForm.get('title')?.invalid && appointmentForm.get('title')?.touched"
-             class="text-red-400 text-sm mt-1">
-          El título es obligatorio
-        </div>
-      </div>
-
-      <div>
-        <label class="text-[#baa99c] block mb-1">Terapeuta</label>
-          <mat-select formControlName="doctorId"
-                      [compareWith]="compareById"
-                      class="w-full bg-[#2a2520] text-white border border-[#3b342b] rounded-lg">
-            <mat-option *ngIf="loadingDoctors" [disabled]="true">Cargando terapeutas…</mat-option>
-            <mat-option *ngFor="let d of doctors" [value]="d.id!">
-              {{ displayUser(d) }}
-            </mat-option>
-          </mat-select>
-        <div *ngIf="appointmentForm.get('doctorId')?.invalid && appointmentForm.get('doctorId')?.touched"
-            class="text-red-400 text-sm mt-1">
-          Selecciona un terapeuta
-        </div>
-      </div>
-
-
-      <div>
-        <h4 class="text-[#baa99c] mb-2">Fecha y hora de inicio</h4>
-        <div class="grid grid-cols-2 gap-4">
-          <div>
-            <label class="text-[#baa99c] block mb-1">Fecha inicio</label>
-            <input matInput [matDatepicker]="startPicker"
-                   class="w-full px-3 py-2 rounded-lg bg-[#2a2520] text-white border border-[#3b342b]"
-                   formControlName="startDate"
-                   (dateChange)="onStartDateChange($event)" readonly>
-            <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
-            <mat-datepicker #startPicker></mat-datepicker>
-          </div>
-
-          <div>
-            <label class="text-[#baa99c] block mb-1">Hora inicio</label>
-            <mat-select formControlName="startTime"
-                        class="w-full bg-[#2a2520] text-white border border-[#3b342b] rounded-lg">
-              <mat-option *ngFor="let time of timeOptions" [value]="time">{{ time }}</mat-option>
-            </mat-select>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <h4 class="text-[#baa99c] mb-2">Fecha y hora de fin</h4>
-        <div class="grid grid-cols-2 gap-4">
-          <div>
-            <label class="text-[#baa99c] block mb-1">Fecha fin</label>
-            <input matInput [matDatepicker]="endPicker"
-                   class="w-full px-3 py-2 rounded-lg bg-[#2a2520] text-white border border-[#3b342b]"
-                   formControlName="endDate" readonly>
-            <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
-            <mat-datepicker #endPicker></mat-datepicker>
-          </div>
-
-          <div>
-            <label class="text-[#baa99c] block mb-1">Hora fin</label>
-            <mat-select formControlName="endTime"
-                        class="w-full bg-[#2a2520] text-white border border-[#3b342b] rounded-lg">
-              <mat-option *ngFor="let time of timeOptions" [value]="time">{{ time }}</mat-option>
-            </mat-select>
-          </div>
-        </div>
-        <div *ngIf="appointmentForm.hasError('endBeforeStart')"
-             class="text-red-400 text-sm mt-1">
-          La fecha y hora de fin debe ser posterior a la de inicio.
-        </div>
-      </div>
-
-      <div>
-        <label class="text-[#baa99c] block mb-1">Invitados (opcional)</label>
-          <mat-select formControlName="guestIds" multiple
-            class="w-full bg-[#2a2520] text-white border border-[#3b342b] rounded-lg">
-            <mat-option *ngFor="let user of allUsers" [value]="user.id">
-              {{ displayUser(user) }}
-            </mat-option>
-          </mat-select>
-      </div>
-
-      <div>
-        <label class="text-[#baa99c] block mb-1">Descripción</label>
-        <textarea formControlName="description" rows="3"
-                  class="w-full px-3 py-2 rounded-lg bg-[#2a2520] text-white border border-[#3b342b]"
-                  placeholder="Detalles adicionales de la cita"></textarea>
-      </div>
-
-      <div class="flex justify-end gap-3 pt-4">
-        <button type="button"
-                class="px-4 py-2 rounded-lg bg-gray-600 text-white hover:bg-gray-500"
-                (click)="dialogRef.close()">
-          Cancelar
-        </button>
-
-        <button type="submit"
-                class="px-4 py-2 rounded-lg bg-[#f2730c] text-white font-bold hover:bg-[#d96108]"
-                [disabled]="isLoading">
-          <span *ngIf="!isLoading">{{ isEditMode ? 'Actualizar' : 'Crear' }}</span>
-          <mat-spinner *ngIf="isLoading" diameter="24" strokeWidth="2"></mat-spinner>
-        </button>
-
-        <button *ngIf="isEditMode" type="button"
-                class="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-500"
-                (click)="onDelete()" [disabled]="isLoading">
-          Eliminar
-        </button>
-      </div>
-    </form>
+  <div class="text-center mb-2">
+    <p class="text-[28px] font-bold. th-dialog-title" style="color: var(--text);">
+      {{ isEditMode ? 'Editar Cita' : 'Nueva Cita' }}
+    </p>
+    <small style="color: var(--text-muted);">
+      Completa los campos para {{ isEditMode ? 'actualizar' : 'crear' }} la cita
+    </small>
   </div>
-</div>
+
+  <mat-dialog-content class="th-dialog-content">
+
+    <div class="th-field">
+      <label class="th-label">Título de la cita<span class="req">*</span></label>
+      <mat-form-field appearance="outline" subscriptSizing="dynamic"
+                      [class.th-invalid]="appointmentForm.get('title')?.invalid && appointmentForm.get('title')?.touched">
+        <input matInput formControlName="title" placeholder="Ej: Consulta de seguimiento">
+        <mat-hint align="start" style="color: var(--text-muted);">
+          Ej: Consulta de seguimiento · Máx. 100 caracteres
+        </mat-hint>
+        <mat-error *ngIf="appointmentForm.get('title')?.invalid && appointmentForm.get('title')?.touched">
+          El título es obligatorio
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="th-field">
+      <label class="th-label">Terapeuta<span class="req">*</span></label>
+      <mat-form-field appearance="outline" subscriptSizing="dynamic"
+                      [class.th-invalid]="appointmentForm.get('doctorId')?.invalid && appointmentForm.get('doctorId')?.touched">
+        <mat-select formControlName="doctorId" [compareWith]="compareById">
+          <mat-option *ngFor="let d of doctors" [value]="d.id!">
+            {{ displayUser(d) }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="appointmentForm.get('doctorId')?.invalid && appointmentForm.get('doctorId')?.touched">
+          Selecciona un terapeuta
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="th-field">
+        <label class="th-label">Fecha de inicio<span class="req">*</span></label>
+        <mat-form-field appearance="outline" subscriptSizing="dynamic"
+                        [class.th-invalid]="appointmentForm.get('startDate')?.invalid && appointmentForm.get('startDate')?.touched">
+          <input matInput [matDatepicker]="startPicker" formControlName="startDate"
+                 (dateChange)="onStartDateChange($event)" readonly>
+          <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+          <mat-datepicker #startPicker></mat-datepicker>
+          <mat-error *ngIf="appointmentForm.get('startDate')?.invalid && appointmentForm.get('startDate')?.touched">
+            Selecciona una fecha válida
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="th-field">
+        <label class="th-label">Hora de inicio<span class="req">*</span></label>
+        <mat-form-field appearance="outline" subscriptSizing="dynamic"
+                        [class.th-invalid]="appointmentForm.get('startTime')?.invalid && appointmentForm.get('startTime')?.touched">
+          <mat-select formControlName="startTime">
+            <mat-option *ngFor="let t of timeOptions" [value]="t">{{ t }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="appointmentForm.get('startTime')?.invalid && appointmentForm.get('startTime')?.touched">
+            Selecciona una hora
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="th-field">
+        <label class="th-label">Fecha de fin<span class="req">*</span></label>
+        <mat-form-field appearance="outline" subscriptSizing="dynamic"
+                        [class.th-invalid]="appointmentForm.get('endDate')?.invalid && appointmentForm.get('endDate')?.touched">
+          <input matInput [matDatepicker]="endPicker" formControlName="endDate" readonly>
+          <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+          <mat-datepicker #endPicker></mat-datepicker>
+          <mat-error *ngIf="appointmentForm.get('endDate')?.invalid && appointmentForm.get('endDate')?.touched">
+            Selecciona una fecha válida
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="th-field">
+        <label class="th-label">Hora de fin<span class="req">*</span></label>
+        <mat-form-field appearance="outline" subscriptSizing="dynamic"
+                        [class.th-invalid]="appointmentForm.get('endTime')?.invalid && appointmentForm.get('endTime')?.touched">
+          <mat-select formControlName="endTime">
+            <mat-option *ngFor="let t of timeOptions" [value]="t">{{ t }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="appointmentForm.get('endTime')?.invalid && appointmentForm.get('endTime')?.touched">
+            Selecciona una hora
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div *ngIf="appointmentForm.hasError('endBeforeStart')" class="text-sm" style="color: var(--error);">
+      La fecha y hora de fin debe ser posterior a la de inicio.
+    </div>
+
+    <div class="th-field">
+      <label class="th-label">Invitados (opcional)</label>
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-select formControlName="guestIds" multiple>
+          <mat-option *ngFor="let user of allUsers" [value]="user.id!">
+            {{ displayUser(user) }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="th-field">
+      <label class="th-label">Descripción</label>
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <textarea matInput rows="3" formControlName="description" placeholder="Detalles adicionales de la cita"></textarea>
+        <mat-hint align="start" style="color: var(--text-muted);">Detalles adicionales de la cita</mat-hint>
+      </mat-form-field>
+    </div>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end" class="th-dialog-actions">
+    <button type="button" class="btn btn-outline" (click)="dialogRef.close()">Cancelar</button>
+    <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+      <span *ngIf="!isLoading">{{ isEditMode ? 'Actualizar' : 'Crear' }}</span>
+      <mat-spinner *ngIf="isLoading" diameter="20" strokeWidth="2"></mat-spinner>
+    </button>
+    <button *ngIf="isEditMode" type="button" class="btn" style="background:#dc2626;color:white"
+            (click)="onDelete()" [disabled]="isLoading">
+      Eliminar
+    </button>
+  </mat-dialog-actions>
+
+</form>
