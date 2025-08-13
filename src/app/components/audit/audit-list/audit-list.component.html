@@ -1,0 +1,52 @@
+<div class="audit-container">
+  <div class="audit-header">
+    <h2>Registros de Acceso</h2>
+  </div>
+
+  <div class="audit-table-container">
+    <table mat-table [dataSource]="logs" class="audit-table">
+      
+      <ng-container matColumnDef="user">
+        <th mat-header-cell *matHeaderCellDef>Usuario</th>
+        <td mat-cell *matCellDef="let log">
+          <div *ngIf="log.user; else unknownUser" class="user-cell">
+            <div class="user-name">{{log.user.name || log.user.email}}</div>
+            <div class="user-email">{{log.user.email}}</div>
+          </div>
+          <ng-template #unknownUser>
+            <span class="unknown-user">Desconocido</span>
+          </ng-template>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Acción</th>
+        <td mat-cell *matCellDef="let log">
+          <span class="action-badge" 
+                [class.success]="log.action === 'Éxito'"
+                [class.failed]="log.action === 'Fallido'">
+            {{ log.action }}
+          </span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Fecha</th>
+        <td mat-cell *matCellDef="let log">
+          <div class="date-cell">{{log.loginTime}}</div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['user', 'action', 'date']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['user', 'action', 'date']"></tr>
+    </table>
+
+    <mat-paginator [length]="totalElements"
+                   [pageSize]="pageSize"
+                   [pageIndex]="pageIndex"
+                   [pageSizeOptions]="[5, 10, 25]"
+                   (page)="onPageChange($event)"
+                   showFirstLastButtons>
+    </mat-paginator>
+  </div>
+</div>
