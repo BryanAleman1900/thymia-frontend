@@ -1,89 +1,201 @@
-<div class="landing-page">
-  <header class="hero container">
-    <img src="assets/images/logo.png" alt="Nexus Code Labs logo" class="logo" />
-    <h1>Nexus Code Labs</h1>
-    <p class="tagline">Conectamos ideas, creamos soluciones</p>
-  </header>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Manrope%3Awght%40400%3B500%3B700%3B800&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
 
-  <section class="about container">
-    <h2>Sobre Nosotros</h2>
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
 
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex size-full min-h-screen flex-col bg-[#181411] dark group/design-root overflow-x-hidden" style='font-family: Manrope, "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#393028] px-10 py-3">
+          <div class="flex items-center gap-4 text-white">
+            <img src="assets/images/logo.png" alt="Nexus Code Labs logo" class="logo" style="max-width: 50px;" />
+            <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Nexus Code Labs</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-white text-sm font-medium leading-normal" href="#">Thymia</a>
+              <a class="text-white text-sm font-medium leading-normal" href="#"
+                 (click)="navigateToSection('sobre-nosotros'); $event.preventDefault()">Sobre Nosotros</a>
+              <a class="text-white text-sm font-medium leading-normal" href="#"
+                 (click)="navigateToSection('misionvision'); $event.preventDefault()">Mision/Vision</a>
+              <a class="text-white text-sm font-medium leading-normal" href="#"
+                 (click)="navigateToSection('equipo'); $event.preventDefault()">Equipo</a>
+            </div>
+            <div class="flex gap-2">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#f1800e] text-[#181411] text-sm font-bold leading-normal tracking-[0.015em]"
+                (click)="navigateToSection('contacto')"
+              >
+                <span class="truncate">Contacto</span>
+              </button>
+              <button
+                class="flex min-w=[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#393028] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+                (click)="navigateToLogin()"
+              >
+                <span class="truncate">Iniciar Sesión</span>
+              </button>
+            </div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="@container">
+              <div class="@[480px]:p-4">
+                <div
+                  class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-4"
+                  style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAK1_KKmnRURtkHSczKK5C_NDaOgqdSj3jNdY-6AZhnQJ4Mg5cH8aysrnscRjsqqV5o7hzNSihlpeIlzpznMYlpBiAhPnh1OtKSgkgwsZVeIgf_5PlRwvMSkIV3ZlG5gv37MvlLerQJHHeUTiZD1YnrQKCKqYCt-wSgX3VBYXG-58SFzD75BiFgh7krVVMtLT0aNFIVQrWFMXNWaVm1ltn7_HB1NXef9rDsDLyTOg5OjKfTbKhLNXas3_iiLizfwOwFnrrvnevgDs5h");'
+                >
+                  <div class="flex flex-col gap-2 text-center">
+                    <h1
+                      class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+                    >
+                      Nexus Code Labs
+                    </h1>
+                    <h2 class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                      Conectamos ideas, creamos soluciones
+                    </h2>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#f1800e] text-[#181411] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
+                    (click)="navigateToSection('contacto')"
+                  >
+                    <span class="truncate">Contáctanos</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <h2 id="sobre-nosotros" class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Sobre Nosotros</h2>
+            <p class="text-white text-base font-normal leading-normal pb-3 pt-1 px-4">
+              En Nexus Code Labs nos dedicamos a la creación de soluciones tecnológicas innovadoras. Nuestro enfoque colaborativo y multidisciplinario nos permite abordar proyectos
+              desde diferentes perspectivas, logrando productos de alta calidad y gran impacto.
+            </p>
 
-    <div class="card card-center">
-      <p>
-        En Nexus Code Labs nos dedicamos a la creación de soluciones tecnológicas innovadoras. Nuestro enfoque
-        colaborativo y multidisciplinario nos permite abordar proyectos desde diferentes perspectivas, logrando
-        productos de alta calidad y gran impacto.
-      </p>
+            <div id="misionvision">
+              <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Misión</h2>
+              <p class="text-white text-base font-normal leading-normal pb-3 pt-1 px-4">
+                Desarrollar soluciones de software innovadoras y robustas mediante prácticas de ingeniería sólidas, trabajo colaborativo y mejora continua, entregando productos que
+                superen las expectativas académicas y preparen a nuestro equipo para desafíos profesionales reales.
+              </p>
+              <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Visión</h2>
+              <p class="text-white text-base font-normal leading-normal pb-3 pt-1 px-4">
+                Ser reconocidos como referentes en desarrollo de software dentro de CENFOTEC, destacando por nuestra capacidad para integrar tecnología, metodologías ágiles y
+                creatividad en soluciones escalables y de alta calidad.
+              </p>
+            </div>
+
+            <h2 id="equipo" class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Nuestro Equipo</h2>
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#54473b] bg-[#27211b] p-4 flex-col">
+                <div
+                  class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAylpmvwX61eC-VhdCpBnzZN-MuQ_wqmAj7Rffua3xU_U4VH3lpuXntcdZ3zEdTPooQ_f4rjsgMX9Djov_hCh-JCExkhTNAow4vbgQZTfYWIUC8g3Sg4X9EMKxLqJmxHQ-BeG8XCTsYVOi8Ta3u8tIK-gDUcxn-V3f8mVLasd9y85YvFFlZNcCJ5_EkiODngkh1ZH923srjjLigkuylu_9dxAaEt-3j79Dh_Q0So7k_mGvcY7U7hQr5yhEMuIkvXFYldcKu4VvF_Ggi");'
+                ></div>
+                <div class="flex flex-col gap-1">
+                  <h2 class="text-white text-base font-bold leading-tight">Mauro Villegas Herrera</h2>
+                  <p class="text-[#baab9c] text-sm font-normal leading-normal">Coordinador General</p>
+                </div>
+              </div>
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#54473b] bg-[#27211b] p-4 flex-col">
+                <div
+                  class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBD3MNT7E7ZjMGrTtDSNaiOKWOJpj58wPkQx4ZoTdM-jd7Lt66BFzGlqbulEpAV8ldcgnXMLXj-n-RClaRgiKMu6D9a_q0EmJfuXdo9W5VUAmfasSWpvp36PbMNXiMhxesjNgRSOMn2healWPKd8hW0iVxRhfpu6mhkNZKYeeXXkJ4demNQ-ItmNgg7NhLn5WP7drp8bPvcDENqRyrsSZA0ssPap0VMIaDN7toYFkQjlyAXX8HjY-SPUE0I9gTSaEz4l9-A25-WbSUq");'
+                ></div>
+                <div class="flex flex-col gap-1">
+                  <h2 class="text-white text-base font-bold leading-tight">Bryan Alexander Aleman Marcia</h2>
+                  <p class="text-[#baab9c] text-sm font-normal leading-normal">Coordinador de Desarrollo</p>
+                </div>
+              </div>
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#54473b] bg-[#27211b] p-4 flex-col">
+                <div
+                  class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCN06DwAr9QO_iZbXTfuAsD_09yJHDDr_aKAl_b5xsBQU7KrDxEyqLs60rA9b2m2oLA5K0z-emZECKrqlSePJNpUgbzOYArnPtyHhwYtXMPTPr3s0txL-ZJLB3jtd7T6vuZe3M3talziWbrnLIhQAqt_Rn5Hrqnfrj8R00ExuCcXNOgX5FYWH65-ydQEsi_NJq8zQqi2lWAdRpHE43PMBkqByCNfAGD-uxt8tOa6xYCjLj3x4Is0zJ2Sju-zLJP6mpxTP27aKKEtXcN");'
+                ></div>
+                <div class="flex flex-col gap-1">
+                  <h2 class="text-white text-base font-bold leading-tight">Carlos Eduardo Quesada Ramírez</h2>
+                  <p class="text-[#baab9c] text-sm font-normal leading-normal">Coordinador de Soporte</p>
+                </div>
+              </div>
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#54473b] bg-[#27211b] p-4 flex-col">
+                <div
+                  class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuABdM7jL-mYkcX8U26oS977Kx02dAPLkF2F0xe7ZOjaRhMqTpVh7C4eM5VY_90oqNLALxXirjcmSTlroLStLgiZCKo20uBWpxpeL5SnqWr36kQf-yGksWdC_u79aC_PHdJJSxjknlKwAIxa9Kxhz2vsC3zijao0Bcih29xmUgAbHU_9YZm78fQRjf84emfY3RWKu370zkZKme9IahSfFE5_TST09A93q1hS-1GxWQNo4BGh1nYg9tbYKADoMNc_y3T8UooPDevpR8kJ");'
+                ></div>
+                <div class="flex flex-col gap-1">
+                  <h2 class="text-white text-base font-bold leading-tight">Luis Vega Araya</h2>
+                  <p class="text-[#baab9c] text-sm font-normal leading-normal">Coordinador de Calidad</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Qué Hacemos -->
+            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">¿Qué Hacemos?</h2>
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#54473b] bg-[#27211b] p-4 items-center">
+                <div class="text-white" data-icon="Code" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"
+                    ></path>
+                  </svg>
+                </div>
+                <h2 class="text-white text-base font-bold leading-tight">Desarrollo de software a medida</h2>
+              </div>
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#54473b] bg-[#27211b] p-4 items-center">
+                <div class="text-white" data-icon="Lifebuoy" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm39.1,131.79a47.84,47.84,0,0,0,0-55.58l28.5-28.49a87.83,87.83,0,0,1,0,112.56ZM96,128a32,32,0,1,1,32,32A32,32,0,0,1,96,128Zm88.28-67.6L155.79,88.9a47.84,47.84,0,0,0-55.58,0L71.72,60.4a87.83,87.83,0,0,1,112.56,0ZM60.4,71.72l28.5,28.49a47.84,47.84,0,0,0,0,55.58L60.4,184.28a87.83,87.83,0,0,1,0-112.56ZM71.72,195.6l28.49-28.5a47.84,47.84,0,0,0,55.58,0l28.49,28.5a87.83,87.83,0,0,1-112.56,0Z"
+                    ></path>
+                  </svg>
+                </div>
+                <h2 class="text-white text-base font-bold leading-tight">Soporte técnico y mantenimiento</h2>
+              </div>
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#54473b] bg-[#27211b] p-4 items-center">
+                <div class="text-white" data-icon="ShieldCheck" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M208,40H48A16,16,0,0,0,32,56v58.78c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56H208ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"
+                    ></path>
+                  </svg>
+                </div>
+                <h2 class="text-white text-base font-bold leading-tight">Pruebas de calidad y aseguramiento</h2>
+              </div>
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#54473b] bg-[#27211b] p-4 items-center">
+                <div class="text-white" data-icon="Gear" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm88-29.84q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.21,107.21,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.71,107.71,0,0,0-26.25-10.87,8,8,0,0,0-7.06,1.49L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.21,107.21,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06Zm-16.1-6.5a73.93,73.93,0,0,1,0,8.68,8,8,0,0,0,1.74,5.48l14.19,17.73a91.57,91.57,0,0,1-6.23,15L187,173.11a8,8,0,0,0-5.1,2.64,74.11,74.11,0,0,1-6.14,6.14,8,8,0,0,0-2.64,5.1l-2.51,22.58a91.32,91.32,0,0,1-15,6.23l-17.74-14.19a8,8,0,0,0-5-1.75h-.48a73.93,73.93,0,0,1-8.68,0,8,8,0,0,0-5.48,1.74L100.45,215.8a91.57,91.57,0,0,1-15-6.23L82.89,187a8,8,0,0,0-2.64-5.1,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-5.1-2.64L46.43,170.6a91.32,91.32,0,0,1-6.23-15l14.19-17.74a8,8,0,0,0,1.74-5.48,73.93,73.93,0,0,1,0-8.68,8,8,0,0,0-1.74-5.48L40.2,100.45a91.57,91.57,0,0,1,6.23-15L69,82.89a8,8,0,0,0,5.1-2.64,74.11,74.11,0,0,1,6.14-6.14A8,8,0,0,0,82.89,69L85.4,46.43a91.32,91.32,0,0,1,15-6.23l17.74,14.19a8,8,0,0,0,5.48,1.74,73.93,73.93,0,0,1,8.68,0,8,8,0,0,0,5.48-1.74L155.55,40.2a91.57,91.57,0,0,1,15,6.23L173.11,69a8,8,0,0,0,2.64,5.1,74.11,74.11,0,0,1,6.14,6.14,8,8,0,0,0,5.1,2.64l22.58,2.51a91.32,91.32,0,0,1,6.23,15l-14.19,17.74A8,8,0,0,0,199.87,123.66Z"
+                    ></path>
+                  </svg>
+                </div>
+                <h2 class="text-white text-base font-bold leading-tight">Consultoría tecnológica</h2>
+              </div>
+            </div>
+
+            <h2 id="contacto" class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Contacto</h2>
+            <p class="text-white text-base font-normal leading-normal pb-3 pt-1 px-4">Email: </p>
+            <p class="text-white text-base font-normal leading-normal pb-3 pt-1 px-4">Teléfono: +506 1234 5678</p>
+          </div>
+        </div>
+        <footer class="flex justify-center">
+          <div class="flex max-w-[960px] flex-1 flex-col">
+            <footer class="flex flex-col gap-6 px-5 py-10 text-center @container">
+              <p class="text-[#baab9c] text-base font-normal leading-normal">© 2025 Nexus Code Labs. Todos los derechos reservados.</p>
+            </footer>
+          </div>
+        </footer>
+      </div>
     </div>
-
-
-    <div class="mission-vision">
-      <div class="card">
-        <h3>Misión</h3>
-        <p>
-          Desarrollar soluciones de software innovadoras y robustas mediante prácticas de ingeniería sólidas,
-          trabajo colaborativo y mejora continua, entregando productos que superen las expectativas académicas
-          y preparen a nuestro equipo para desafíos profesionales reales.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Visión</h3>
-        <p>
-          Ser reconocidos como referentes en desarrollo de software dentro de CENFOTEC, destacando por nuestra
-          capacidad para integrar tecnología, metodologías ágiles y creatividad en soluciones escalables y de alta calidad.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="team container">
-    <h2>Nuestro Equipo</h2>
-
-    <div class="members">
-      <div class="member card">
-        <h3>Mauro Villegas Herrera</h3>
-        <p>Coordinador General</p>
-      </div>
-      <div class="member card">
-        <h3>Bryan Alexander Aleman Marcia</h3>
-        <p>Coordinador de Desarrollo</p>
-      </div>
-      <div class="member card">
-        <h3>Carlos Eduardo Quesada Ramírez</h3>
-        <p>Coordinador de Soporte</p>
-      </div>
-      <div class="member card">
-        <h3>Luis Vega Araya</h3>
-        <p>Coordinador de Calidad</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="services container">
-    <h2>¿Qué Hacemos?</h2>
-
-    <!-- Caja centrada para el listado -->
-    <div class="card card-center">
-      <ul class="services-list">
-        <li>Desarrollo de software a medida</li>
-        <li>Soporte técnico y mantenimiento</li>
-        <li>Pruebas de calidad y aseguramiento</li>
-        <li>Consultoría tecnológica</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="contact container">
-    <h2>Contacto</h2>
-    <p>Email: contacto&#64;nexuslabs.cr</p>
-    <p>Teléfono: +506 1234 5678</p>
-  </section>
-
-  <footer class="container">
-    <p>&copy; 2025 Nexus Code Labs. Todos los derechos reservados.</p>
-  </footer>
-</div>
-
-
+  </body>
+</html>
