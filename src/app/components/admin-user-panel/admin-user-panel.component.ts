@@ -13,20 +13,20 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
   standalone: true,
   imports: [CommonModule, FormsModule, MatDialogModule],
   template: `
-    <div class="space-y-4">
+    <div class="bg-[#2b2420] rounded-xl px-6 py-6">
 
       <!-- Filtros / acciones -->
-      <div class="flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
+      <div class="flex flex-col md:flex-row gap-3 md:items-center md:justify-between mb-4">
         <div class="flex-1 flex items-center gap-2">
           <input
             type="text"
-            class="w-full md:max-w-sm px-3 py-2 rounded-lg bg-[#2a2520] text-white border border-[#3b342b] focus:outline-none"
+            class="w-full md:max-w-sm px-3 py-2 rounded-lg bg-[#1f1a17] text-white border border-[#3b342b] focus:outline-none text-sm"
             placeholder="Buscar por nombre, apellido o correo"
             [(ngModel)]="searchText"
             (input)="onSearchInput(searchText)"
           />
           <button
-            class="px-3 py-2 rounded-md bg-[#393028] text-white hover:bg-[#4a3e34]"
+            class="px-3 py-2 rounded-md bg-[#3a312a] text-white hover:bg-[#4a3e34] text-sm disabled:opacity-50"
             (click)="refresh()"
             [disabled]="isLoading"
             title="Refrescar"
@@ -38,7 +38,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
         <div class="flex items-center gap-2">
           <label class="text-[#baa99c] text-sm">Ítems por página</label>
           <select
-            class="px-2 py-1 rounded-md bg-[#2a2520] text-white border border-[#3b342b]"
+            class="px-2 py-2 rounded-lg bg-[#1f1a17] text-white border border-[#3b342b] text-sm"
             [(ngModel)]="size"
             (change)="onSizeChange(size)"
           >
@@ -49,46 +49,50 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
         </div>
       </div>
 
-      <!-- Tabla (sin scroll horizontal) -->
-      <div>
-        <table class="table-auto w-full text-sm">
+      <div class="overflow-x-auto">
+        <table class="min-w-full table-fixed text-sm">
           <thead class="text-[#baa99c] border-b border-[#393028]">
             <tr>
               <th class="text-left py-2 w-14">#</th>
               <th class="text-left py-2">Nombre</th>
               <th class="text-left py-2">Apellido</th>
-              <th class="text-left py-2">Correo</th>
               <th class="text-left py-2 w-36">Rol</th>
               <th class="text-center py-2 w-64">Acciones</th>
             </tr>
           </thead>
           <tbody class="text-white">
             <tr *ngFor="let u of users; let i = index" class="border-b border-[#393028]">
-              <td class="py-2">{{ indexOf(i) }}</td>
-              <td class="py-2 whitespace-normal">{{ u.name }}</td>
-              <td class="py-2 whitespace-normal">{{ u.lastname }}</td>
-              <td class="py-2 whitespace-normal break-words">{{ u.email }}</td>
-              <td class="py-2">
-                <span class="px-2 py-1 rounded-full bg-[#3b342b] text-[#baa99c]">
-                  {{ u.role?.name || '-' }}
+              <td class="py-3">{{ indexOf(i) }}</td>
+              <td class="py-3 whitespace-normal break-words">{{ u.name || '-' }}</td>
+              <td class="py-3 whitespace-normal break-words">{{ u.lastname || '-' }}</td>
+              <td class="py-3">
+                <span class="px-2 py-1 rounded-full bg-[#3b342b] text-[#baa99c] text-xs">
+                  {{ u.role?.name || 'USER' }}
                 </span>
               </td>
               <td class="py-2">
-                <div class="flex items-center justify-center gap-2">
+                <div class="flex items-center justify-center gap-2 flex-wrap">
+                  <!-- EDITAR: solo texto, chico -->
                   <button
-                    class="px-3 py-1 rounded-md bg-[#2f5d2f] text-white hover:bg-[#367a36]"
+                    class="px-2 py-1 rounded-md bg-[#2f5d2f] text-white hover:bg-[#367a36] text-xs"
                     (click)="openEdit(u)"
+                    title="Editar usuario"
+                    aria-label="Editar"
                   >
-                    Actualizar
+                    Editar
                   </button>
+
                   <button
-                    class="px-3 py-1 rounded-md bg-[#7a2d2d] text-white hover:bg-[#933636]"
+                    class="h-8 w-8 grid place-items-center rounded-md bg-[#7a2d2d] text-white hover:bg-[#933636]"
                     (click)="onDelete(u)"
+                    title="Eliminar usuario"
+                    aria-label="Eliminar"
                   >
-                    Eliminar
+                    <i class="fa-solid fa-trash text-xs"></i>
                   </button>
+
                   <button
-                    class="px-3 py-1 rounded-md bg-[#393028] text-white hover:bg-[#4a3e34]"
+                    class="px-2 py-1 rounded-md bg-[#393028] text-white hover:bg-[#4a3e34] text-xs disabled:opacity-50"
                     (click)="onToggleRole(u)"
                     [disabled]="isToggling"
                   >
@@ -107,16 +111,14 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
         </table>
       </div>
 
-      <!-- Paginación -->
-      <div class="flex flex-col md:flex-row items-center justify-between gap-3 pt-2">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-3 pt-4">
         <div class="text-[#baa99c] text-sm">
-          Página {{ page }} de {{ totalPages }} —
-          {{ totalElements }} usuarios
+          Página {{ page }} de {{ totalPages }} — {{ totalElements }} usuarios
         </div>
 
         <div class="flex items-center gap-2">
           <button
-            class="px-3 py-1 rounded-md border border-[#3b342b] text-[#baa99c] hover:bg-[#2a2520]"
+            class="px-3 py-1 rounded-md border border-[#3b342b] text-[#baa99c] hover:bg-[#2a2520] text-sm disabled:opacity-40"
             [disabled]="page <= 1"
             (click)="goTo(page - 1)"
           >
@@ -125,7 +127,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
           <ng-container *ngFor="let p of pagesToShow">
             <button
-              class="px-3 py-1 rounded-md"
+              class="px-3 py-1 rounded-md text-sm"
               [ngClass]="p === page ? 'bg-[#f2730c] text-white' : 'border border-[#3b342b] text-[#baa99c] hover:bg-[#2a2520]'"
               (click)="goTo(p)"
             >
@@ -134,7 +136,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
           </ng-container>
 
           <button
-            class="px-3 py-1 rounded-md border border-[#3b342b] text-[#baa99c] hover:bg-[#2a2520]"
+            class="px-3 py-1 rounded-md border border-[#3b342b] text-[#baa99c] hover:bg-[#2a2520] text-sm disabled:opacity-40"
             [disabled]="page >= totalPages"
             (click)="goTo(page + 1)"
           >
@@ -153,31 +155,25 @@ export class AdminUserPanelComponent implements OnInit {
   isLoading = false;
   isToggling = false;
 
-  // estado de paginación/búsqueda
   page = 1;
   size = 10;
   totalPages = 1;
   totalElements = 0;
   searchText = '';
 
-  // debounce para búsqueda
   private search$ = new Subject<string>();
 
   ngOnInit(): void {
-    // debounce de búsqueda
     this.search$.pipe(
       debounceTime(300),
       distinctUntilChanged(),
     ).subscribe((term) => {
-      this.page = 1; // reinicia a la primera página
+      this.page = 1; 
       this.fetch();
     });
-
-    // carga inicial
     this.fetch();
   }
 
-  // Helpers de UI
   get pagesToShow(): number[] {
     const pages: number[] = [];
     const start = Math.max(1, this.page - 2);
@@ -190,7 +186,6 @@ export class AdminUserPanelComponent implements OnInit {
     return (this.page - 1) * this.size + (i + 1);
   }
 
-  // Acciones UI
   onSearchInput(value: string) {
     this.search$.next(value || '');
   }

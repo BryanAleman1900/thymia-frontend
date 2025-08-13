@@ -78,54 +78,49 @@ export interface IAppointment {
   doctor?: IUser;
 }
 
-//Mauro
-export interface IFeedback {
-    id?: number;
-    appointmentId: number;
-    patientId: number;
-    comments: string;
-    rating: number;
-    createdAt?: string;
-}
-
-//Mauro
-
-export interface IAuditLog {
+export interface JournalEntry {
   id: number;
-  actionType: AuditActionType;
-  user?: IUser;
-  ipAddress: string;
-  details: string;
-  timestamp: string;
-  endpoint: string;
+  content: string;
+  createdAt?: string;
+  sentimentLabel?: string;
+  sentimentScore?: number;
+  sharedWithProfessional?: boolean;
+  sharedWithTherapists?: string[];
 }
 
-export enum AuditActionType {
-  LOGIN = 'LOGIN',
-  LOGOUT = 'LOGOUT',
-  LOGIN_FAILED = 'LOGIN_FAILED',
-  CREATE = 'CREATE',
-  UPDATE = 'UPDATE',
-  DELETE = 'DELETE',
-  SYSTEM_EVENT = 'SYSTEM_EVENT',
-  SECURITY_EVENT = 'SECURITY_EVENT'
+export interface WellnessTipReceipt {
+  id: number;
+  title: string;
+  content: string;
+  category: string;
+  source?: string;
+  createdAt: string;
+  viewCount: number;
+  firstViewedAt?: string;
+  lastViewedAt?: string;
 }
 
-export interface IAuditFilter {
-  actionType?: AuditActionType;
-  userId?: number;
-  startDate?: string;
-  endDate?: string;
-  page?: number;
+
+export interface Therapist {
+  name: string;
+  email: string;
 }
 
-export interface Page<T> {
-  content: T[];
-  totalElements: number;
-  totalPages: number;
-  size: number;
-  number: number;
-  first: boolean;
-  last: boolean;
-  empty: boolean;
+export interface SharedJournalEntry {
+  content: string;
+  createdAt: string;
+  sentimentLabel?: string;
+  sentimentScore?: number;
+  patientName: string;
+  patientEmail: string;
+}
+
+export interface WellnessTip {
+  id: string | number;
+  title: string;
+  content: string;
+  category?: string;
+  source?: string;
+  createdAt: string | Date;
+  viewCount?: number;
 }

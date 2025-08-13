@@ -14,7 +14,11 @@ import { EmotionDetectorComponent } from './pages/emotion-detector/emotion-detec
 import { AppointmentComponent } from './pages/appointment/appointment.component';
 import { CallComponent } from './pages/call/call.component';
 import { ChatComponent } from './components/chat/chat.component';
-import { AuditComponent } from './pages/audit/audit.component';
+import { JournalComponent } from './pages/journal/journal.component';
+import { WellnessHistoryComponent } from './pages/wellness/wellness-history.component';
+import { ThymiaLandingComponent } from './pages/thymia-landing/thymia-landing.component';
+import { LandingComponent } from './pages/landingpage/landing.component';
+import { SharedWithMeComponent } from './pages/journal/shared-with-me.component';
 
 export const routes: Routes = [
   {
@@ -33,9 +37,21 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'thymia',
     pathMatch: 'full',
   },
+
+  {
+          path: 'thymia',
+          component: ThymiaLandingComponent,
+      },
+
+            {
+          path: 'landing',
+          component: LandingComponent,
+      },
+
+  
   {
     path: 'app',
     component: AppLayoutComponent,
@@ -72,6 +88,44 @@ export const routes: Routes = [
           name: 'Dashboard',
           showInSidebar: true
         }
+      },
+            { path: 'wellness', 
+        component: WellnessHistoryComponent, 
+        data: {
+            authorities: [
+            IRoleType.admin,
+            IRoleType.superAdmin,
+            IRoleType.user
+          ],
+          name: 'Historial de Consejos Wellness',
+          showInSidebar: true
+        }
+      },
+
+      {
+          path: 'journal',
+          component: JournalComponent,
+          data: {
+            authorities: [
+            IRoleType.admin,
+            IRoleType.superAdmin,
+            IRoleType.user
+          ],
+          name: 'Diario emocional',
+          showInSidebar: true
+        }
+      },
+
+      { 
+        path: 'shared',
+        component: SharedWithMeComponent,
+        data: {
+            authorities: [
+            IRoleType.admin,
+            IRoleType.superAdmin,
+            IRoleType.user
+          ]
+          }
       },
       {
         path: 'profile',
@@ -129,7 +183,6 @@ export const routes: Routes = [
           showInSidebar: false
         }
       },
-      
       {
         path: 'chat',
         component: ChatComponent,
@@ -143,17 +196,6 @@ export const routes: Routes = [
           name: 'Chat',
           showInSidebar: true
         }
-      },
-      {
-        path: 'audit',
-        component: AuditComponent,
-        data: { 
-          authorities: [
-            IRoleType.superAdmin
-          ], 
-          name: 'Audit', 
-          showInSidebar: true,
-        },
       }
     ],
   },
