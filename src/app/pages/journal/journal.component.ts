@@ -20,7 +20,6 @@ export class JournalComponent implements OnInit {
   entries: JournalEntry[] = [];
   errorMessage: string = 'La entrada es obligatoria y no debe exceder 1500 caracteres.';
 
-    // estado del modal de compartir
   shareOpen = false;
   shareLoading = false;
   therapists: Therapist[] = [];
@@ -78,8 +77,6 @@ export class JournalComponent implements OnInit {
     });
   }
 
-
-
   openShare(entry: JournalEntry) {
     this.activeEntryId = entry.id;
     this.selectedEmails.clear();
@@ -113,7 +110,6 @@ export class JournalComponent implements OnInit {
       next: () => {
         this.shareLoading = false;
         this.shareOpen = false;
-        // Indicador visual provisional:
         const idx = this.entries.findIndex(e => e.id === this.activeEntryId);
         if (idx >= 0) this.entries[idx].sharedWithProfessional = true;
         this.activeEntryId = null;
@@ -131,11 +127,9 @@ export class JournalComponent implements OnInit {
     this.selectedEmails.clear();
   }
 
-  // opcional: revocar (si quieres poner un botón por ahora)
   revokeShare(entry: JournalEntry, email: string) {
     this.journalService.revoke(entry.id, email).subscribe({
       next: () => {
-        // si llevas una lista de compartidos por entrada, acá la actualizas
       },
       error: () => alert('No se pudo revocar el acceso.'),
     });

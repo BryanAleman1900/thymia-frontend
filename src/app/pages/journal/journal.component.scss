@@ -168,15 +168,13 @@ h2 {
 .primary-btn { background: #393028; color: #fff; }
 
 
-/* Backdrop del modal (sin chocar con Bootstrap) */
 .share-modal-backdrop {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, .5);
-  z-index: 2000; // por encima de toolbars/navbars
+  z-index: 2000;
 }
 
-/* Contenedor del modal */
 .share-modal {
   position: fixed;
   top: 50%;
@@ -188,7 +186,7 @@ h2 {
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,.6);
-  z-index: 2001; // por encima del backdrop
+  z-index: 2001; 
 }
 
 .share-modal h3 { margin: 0 0 12px 0; }

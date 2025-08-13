@@ -1,62 +1,286 @@
-<div class="landing-thymia">
-  <header class="hero">
-    <img src="assets/images/thymia-logo.png" alt="Thymia logo" class="logo" />
-    <h1>Thymia</h1>
-    <p class="tagline">Bienestar emocional respaldado por tecnología y profesionales certificados</p>
-  </header>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Manrope%3Awght%40400%3B500%3B700%3B800&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
 
-  <section class="about">
-  <h2>Sobre Thymia</h2>
-  <div class="card card-center">
-    <p>
-      Thymia es una plataforma de salud mental en línea diseñada para brindar acceso flexible, seguro y profesional a servicios psicológicos. Nuestro objetivo es eliminar las barreras tradicionales para acceder a terapia, ofreciendo un entorno digital intuitivo, accesible y confidencial.
-    </p>
-    <p>
-      En Thymia, trabajamos exclusivamente con psicólogos certificados y licenciados, garantizando una atención de alta calidad basada en evidencia científica. Nuestra tecnología permite que las sesiones se realicen desde cualquier lugar, manteniendo los más altos estándares de privacidad y seguridad.
-    </p>
-  </div>
-</section>
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
 
-<section class="technology">
-  <h2>Asistencia Inteligente</h2>
-  <div class="card card-center">
-    <p>
-      La plataforma incorpora herramientas basadas en inteligencia artificial para complementar la experiencia del usuario: análisis emocional en tiempo real, generación automática de minutas terapéuticas, recomendaciones personalizadas, y seguimiento del progreso. Todo esto supervisado y validado por profesionales de la salud mental.
-    </p>
-    <p>
-      Estas funcionalidades están diseñadas para apoyar tanto al usuario como al profesional, mejorando la adherencia al tratamiento y facilitando intervenciones oportunas.
-    </p>
-  </div>
-</section>
-
-<section class="security">
-  <h2>Seguridad y Confidencialidad</h2>
-  <div class="card card-center">
-    <p>
-      Thymia implementa mecanismos avanzados de protección de datos, incluyendo verificación biométrica, cifrado de extremo a extremo en videollamadas y almacenamiento seguro. La privacidad de nuestros usuarios es nuestra prioridad.
-    </p>
-    <p>
-      Todos los procesos cumplen con normativas internacionales sobre tratamiento de información médica y ética profesional.
-    </p>
-  </div>
-</section>
-
-
-<section class="call-to-action">
-  <h2>Comienza tu proceso hoy</h2>
-  <p>
-    Miles de personas ya están cuidando su salud emocional con Thymia.
-    Únete a nuestra comunidad y accede a atención psicológica profesional
-    desde la comodidad de tu hogar.
-  </p>
-
-  <div class="cta-actions">
-    <button class="cta-button" (click)="navigateToLogin()">Registrate ahora</button>
-    <button class="cta-button ghost" (click)="navigateToNexus()">Conoce Nexus Code Labs</button>
-  </div>
-</section>
-
-<footer>
-  <p>&copy; 2025 Thymia. Todos los derechos reservados.</p>
-</footer>
-
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex size-full min-h-screen flex-col bg-[#181411] dark group/design-root overflow-x-hidden" style='font-family: Manrope, "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#393028] px-10 py-3">
+          <div class="flex items-center gap-4 text-white">
+            <img src="assets/images/thymia-logo.png" alt="Thymia logo" class="logo" style="max-width: 50px;" />
+            <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Thymia</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-white text-sm font-medium leading-normal" href="#"
+                 (click)="navigateToSection('inicio'); $event.preventDefault()">Inicio</a>
+              <a class="text-white text-sm font-medium leading-normal" href="#"
+                 (click)="navigateToSection('servicios'); $event.preventDefault()">Servicios</a>
+              <a class="text-white text-sm font-medium leading-normal" href="#"
+                 (click)="navigateToSection('recursos'); $event.preventDefault()">Recursos</a>
+              <a class="text-white text-sm font-medium leading-normal" href="#"
+                 (click)="navigateToSection('contacto'); $event.preventDefault()">Información</a>
+              <a class="text-white text-sm font-medium leading-normal" href="#"
+                 (click)="navigateToLandingPage(); $event.preventDefault()">Sobre nosotros</a>
+            </div>
+            <button
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#f2800d] text-[#181411] text-sm font-bold leading-normal tracking-[0.015em]"
+              (click)="navigateToSignup()"
+            >
+              <span class="truncate">Registrarse</span>
+            </button>
+          </div>
+        </header>
+        <div id="inicio" class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="@container">
+              <div class="@[480px]:p-4">
+                <div
+                  class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-4"
+                  style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBzWXJF3pNprd9aoMxTDgCIfQhx0HaN18bYKF4igShomgvHG9C6sW-TLRdOfy0O1dS9rsoFwoEWo-xKEzj-0bofdZie4cTxWqTDsrl2fmvRgfYi9tS98aRWkbB-BOA89woJSunu_aRKRcl7B0KHPl3UdjbV5r5CDwsrYwRL0m-nq97OHv1I-3rdrSd1r72HqPwsNvmoNbdGgA1Bo1BmWUNPQDGefvNsKn5crGBQRbQCPnM0RlJEoHhoP8JoObirmhcsdafBsRl_HPs");'
+                >
+                  <div class="flex flex-col gap-2 text-center">
+                    <h1
+                      class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+                    >
+                      Thymia Bienestar emocional respaldado por tecnología y profesionales certificados
+                    </h1>
+                    <h2 class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                      Descubre una nueva forma de cuidar tu salud mental con Thymia. Nuestra plataforma combina tecnología avanzada con el apoyo de profesionales para ofrecerte un
+                      camino personalizado hacia el bienestar.
+                    </h2>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#f2800d] text-[#181411] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
+                    (click)="navigateToSignup()"
+                  >
+                    <span class="truncate">Comienza tu proceso hoy</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Sobre Thymia</h2>
+            <p class="text-white text-base font-normal leading-normal pb-3 pt-1 px-4">
+              Thymia es una plataforma integral diseñada para facilitar el acceso a servicios de salud mental de alta calidad. Ofrecemos una experiencia intuitiva y accesible,
+              conectando a los usuarios con profesionales certificados y herramientas tecnológicas avanzadas para el bienestar emocional.
+            </p>
+            <div class="flex flex-col gap-10 px-4 py-10 @container">
+              <div class="flex flex-col gap-4">
+                <h1
+                  id="servicios"
+                  class="text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
+                >
+                  Características de la plataforma
+                </h1>
+                <p class="text-white text-base font-normal leading-normal max-w-[720px]">
+                  Explora las funcionalidades clave que hacen de Thymia tu aliado en el camino hacia el bienestar emocional.
+                </p>
+              </div>
+              <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-0">
+                <div class="flex flex-1 gap-3 rounded-lg border border-[#54473b] bg-[#27211b] p-4 flex-col">
+                  <div class="text-white" data-icon="Heart" data-size="24px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M178,32c-20.65,0-38.73,8.88-50,23.89C116.73,40.88,98.65,32,78,32A62.07,62.07,0,0,0,16,94c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,220.66,240,164,240,94A62.07,62.07,0,0,0,178,32ZM128,206.8C109.74,196.16,32,147.69,32,94A46.06,46.06,0,0,1,78,48c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,147.61,146.24,196.15,128,206.8Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <h2 class="text-white text-base font-bold leading-tight">Conexión con profesionales</h2>
+                    <p class="text-[#baab9c] text-sm font-normal leading-normal">
+                      Accede a una red de psicólogos y terapeutas certificados, disponibles para consultas en línea y presenciales.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-1 gap-3 rounded-lg border border-[#54473b] bg-[#27211b] p-4 flex-col">
+                  <div class="text-white" data-icon="Users" data-size="24px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <h2 class="text-white text-base font-bold leading-tight">Comunidad de apoyo</h2>
+                    <p class="text-[#baab9c] text-sm font-normal leading-normal">
+                      Participa en foros y grupos de apoyo, comparte experiencias y recibe el aliento de otros usuarios.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-1 gap-3 rounded-lg border border-[#54473b] bg-[#27211b] p-4 flex-col">
+                  <div class="text-white" data-icon="ShieldCheck" data-size="24px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M208,40H48A16,16,0,0,0,32,56v58.78c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56H208ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <h2 class="text-white text-base font-bold leading-tight">Herramientas de seguimiento</h2>
+                    <p class="text-[#baab9c] text-sm font-normal leading-normal">
+                      Utiliza herramientas de autoevaluación y seguimiento para monitorear tu progreso y bienestar emocional.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2 id="recursos" class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Asistencia Inteligente</h2>
+            <p class="text-white text-base font-normal leading-normal pb-3 pt-1 px-4">
+              Thymia integra herramientas de inteligencia artificial para ofrecerte una experiencia personalizada y efectiva en el cuidado de tu salud mental.
+            </p>
+            <div class="flex flex-col gap-10 px-4 py-10 @container">
+              <div class="flex flex-col gap-4">
+                <h1
+                  class="text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
+                >
+                  Herramientas de IA
+                </h1>
+                <p class="text-white text-base font-normal leading-normal max-w-[720px]">Descubre cómo la inteligencia artificial potencia tu bienestar emocional.</p>
+              </div>
+              <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-0">
+                <div class="flex flex-1 gap-3 rounded-lg border border-[#54473b] bg-[#27211b] p-4 flex-col">
+                  <div class="text-white" data-icon="Brain" data-size="24px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M248,124a56.11,56.11,0,0,0-32-50.61V72a48,48,0,0,0-88-26.49A48,48,0,0,0,40,72v1.39a56,56,0,0,0,0,101.2V176a48,48,0,0,0,88,26.49A48,48,0,0,0,216,176v-1.41A56.09,56.09,0,0,0,248,124ZM88,208a32,32,0,0,1-31.81-28.56A55.87,55.87,0,0,0,64,180h8a8,8,0,0,0,0-16H64A40,40,0,0,1,50.67,86.27,8,8,0,0,0,56,78.73V72a32,32,0,0,1,64,0v68.26A47.8,47.8,0,0,0,88,128a8,8,0,0,0,0,16,32,32,0,0,1,0,64Zm104-44h-8a8,8,0,0,0,0,16h8a55.87,55.87,0,0,0,7.81-.56A32,32,0,1,1,168,144a8,8,0,0,0,0-16,47.8,47.8,0,0,0-32,12.26V72a32,32,0,0,1,64,0v6.73a8,8,0,0,0,5.33,7.54A40,40,0,0,1,192,164Zm16-52a8,8,0,0,1-8,8h-4a36,36,0,0,1-36-36V80a8,8,0,0,1,16,0v4a20,20,0,0,0,20,20h4A8,8,0,0,1,208,112ZM60,120H56a8,8,0,0,1,0-16h4A20,20,0,0,0,80,84V80a8,8,0,0,1,16,0v4A36,36,0,0,1,60,120Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <h2 class="text-white text-base font-bold leading-tight">Análisis emocional en tiempo real</h2>
+                    <p class="text-[#baab9c] text-sm font-normal leading-normal">
+                      Nuestra IA analiza tus interacciones y expresiones para identificar patrones emocionales y ofrecerte insights valiosos.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-1 gap-3 rounded-lg border border-[#54473b] bg-[#27211b] p-4 flex-col">
+                  <div class="text-white" data-icon="PresentationChart" data-size="24px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M216,40H136V24a8,8,0,0,0-16,0V40H40A16,16,0,0,0,24,56V176a16,16,0,0,0,16,16H79.36L57.75,219a8,8,0,0,0,12.5,10l29.59-37h56.32l29.59,37a8,8,0,1,0,12.5-10l-21.61-27H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,136H40V56H216V176ZM104,120v24a8,8,0,0,1-16,0V120a8,8,0,0,1,16,0Zm32-16v40a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm32-16v56a8,8,0,0,1-16,0V88a8,8,0,0,1,16,0Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <h2 class="text-white text-base font-bold leading-tight">Recomendaciones personalizadas</h2>
+                    <p class="text-[#baab9c] text-sm font-normal leading-normal">
+                      Recibe sugerencias de actividades, ejercicios y recursos adaptados a tus necesidades y estado emocional.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-1 gap-3 rounded-lg border border-[#54473b] bg-[#27211b] p-4 flex-col">
+                  <div class="text-white" data-icon="Gear" data-size="24px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm88-29.84q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.21,107.21,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.71,107.71,0,0,0-26.25-10.87,8,8,0,0,0-7.06,1.49L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.21,107.21,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06Zm-16.1-6.5a73.93,73.93,0,0,1,0,8.68,8,8,0,0,0,1.74,5.48l14.19,17.73a91.57,91.57,0,0,1-6.23,15L187,173.11a8,8,0,0,0-5.1,2.64,74.11,74.11,0,0,1-6.14,6.14,8,8,0,0,0-2.64,5.1l-2.51,22.58a91.32,91.32,0,0,1-15,6.23l-17.74-14.19a8,8,0,0,0-5-1.75h-.48a73.93,73.93,0,0,1-8.68,0,8,8,0,0,0-5.48,1.74L100.45,215.8a91.57,91.57,0,0,1-15-6.23L82.89,187a8,8,0,0,0-2.64-5.1,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-5.1-2.64L46.43,170.6a91.32,91.32,0,0,1-6.23-15l14.19-17.74a8,8,0,0,0,1.74-5.48,73.93,73.93,0,0,1,0-8.68,8,8,0,0,0-1.74-5.48L40.2,100.45a91.57,91.57,0,0,1,6.23-15L69,82.89a8,8,0,0,0,5.1-2.64,74.11,74.11,0,0,1,6.14-6.14A8,8,0,0,0,82.89,69L85.4,46.43a91.32,91.32,0,0,1,15-6.23l17.74,14.19a8,8,0,0,0,5.48,1.74,73.93,73.93,0,0,1,8.68,0,8,8,0,0,0,5.48-1.74L155.55,40.2a91.57,91.57,0,0,1,15,6.23L173.11,69a8,8,0,0,0,2.64,5.1,74.11,74.11,0,0,1,6.14,6.14,8,8,0,0,0,5.1,2.64l22.58,2.51a91.32,91.32,0,0,1,6.23,15l-14.19,17.74A8,8,0,0,0,199.87,123.66Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <h2 class="text-white text-base font-bold leading-tight">Integración con dispositivos</h2>
+                    <p class="text-[#baab9c] text-sm font-normal leading-normal">
+                      Conecta Thymia con tus dispositivos de seguimiento de salud para una visión integral de tu bienestar.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Seguridad y Confidencialidad</h2>
+            <p class="text-white text-base font-normal leading-normal pb-3 pt-1 px-4">
+              En Thymia, la protección de tus datos y la confidencialidad son nuestra prioridad. Implementamos medidas de seguridad avanzadas y cumplimos con las regulaciones
+              internacionales para garantizar un entorno seguro y confiable.
+            </p>
+            <div class="flex flex-col gap-10 px-4 py-10 @container">
+              <div class="flex flex-col gap-4">
+                <h1
+                  class="text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
+                >
+                  Compromiso con la seguridad
+                </h1>
+                <p class="text-white text-base font-normal leading-normal max-w-[720px]">Conoce las medidas que implementamos para proteger tu información.</p>
+              </div>
+              <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-0">
+                <div class="flex flex-1 gap-3 rounded-lg border border-[#54473b] bg-[#27211b] p-4 flex-col">
+                  <div class="text-white" data-icon="Lock" data-size="24px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96ZM208,208H48V96H208V208Zm-68-56a12,12,0,1,1-12-12A12,12,0,0,1,140,152Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <h2 class="text-white text-base font-bold leading-tight">Protección de datos avanzada</h2>
+                    <p class="text-[#baab9c] text-sm font-normal leading-normal">
+                      Utilizamos tecnología de encriptación de última generación para proteger tus datos personales y de salud.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-1 gap-3 rounded-lg border border-[#54473b] bg-[#27211b] p-4 flex-col">
+                  <div class="text-white" data-icon="File" data-size="24px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <h2 class="text-white text-base font-bold leading-tight">Cumplimiento normativo</h2>
+                    <p class="text-[#baab9c] text-sm font-normal leading-normal">Cumplimos con las regulaciones de protección de datos más estrictas, como GDPR y HIPAA.</p>
+                  </div>
+                </div>
+                <div class="flex flex-1 gap-3 rounded-lg border border-[#54473b] bg-[#27211b] p-4 flex-col">
+                  <div class="text-white" data-icon="Gavel" data-size="24px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M243.32,116.69l-16-16a16,16,0,0,0-20.84-1.53L156.84,49.52a16,16,0,0,0-1.52-20.84l-16-16a16,16,0,0,0-22.63,0l-64,64a16,16,0,0,0,0,22.63l16,16a16,16,0,0,0,20.83,1.52L96.69,124,31.31,189.38A25,25,0,0,0,66.63,224.7L132,159.32l7.17,7.16a16,16,0,0,0,1.52,20.84l16,16a16,16,0,0,0,22.63,0l64-64A16,16,0,0,0,243.32,116.69ZM80,104,64,88l64-64,16,16ZM55.32,213.38a9,9,0,0,1-12.69,0,9,9,0,0,1,0-12.68L108,135.32,120.69,148ZM101,105.66,145.66,61,195,110.34,150.35,155ZM168,192l-16-16,4-4h0l56-56h0l4-4,16,16Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <h2 class="text-white text-base font-bold leading-tight">Confidencialidad garantizada</h2>
+                    <p class="text-[#baab9c] text-sm font-normal leading-normal">Tus sesiones y comunicaciones con profesionales son completamente confidenciales y protegidas.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="contacto" class="@container">
+              <div class="flex flex-col justify-end gap-6 px-4 py-10 @[480px]:gap-8 @[480px]:px-10 @[480px]:py-20">
+                <div class="flex flex-col gap-2 text-center">
+                  <h1
+                    class="text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
+                  >
+                    Comienza tu proceso hoy
+                  </h1>
+                  <p class="text-white text-base font-normal leading-normal max-w-[720px">
+                    Da el primer paso hacia una vida más equilibrada y feliz. Regístrate en Thymia y descubre cómo podemos ayudarte a alcanzar tu bienestar emocional.
+                  </p>
+                </div>
+                <div class="flex flex-1 justify-center">
+                  <div class="flex justify-center">
+                    <button
+                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#f2800d] text-[#181411] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[-0.015em] grow"
+                      (click)="navigateToSignup()"
+                    >
+                      <span class="truncate">Comienza tu proceso hoy</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
