@@ -10,12 +10,15 @@ export class AppointmentService {
 
   constructor(private http: HttpClient) {}
 
-  getAppointments(start: Date, end: Date): Observable<any[]> {
-    const params = new HttpParams()
-      .set('start', start.toISOString())
-      .set('end', end.toISOString());
+  getAppointments(start: Date, end: Date, patientId?: number): Observable<any[]> {
+    const params: any = {
+      start: start.toISOString(),
+      end: end.toISOString(),
+    };
+    if (patientId != null) params.patientId = String(patientId);
     return this.http.get<any[]>(this.apiUrl, { params });
   }
+
 
   createAppointment(data: any): Observable<any> {
     const payload = {
