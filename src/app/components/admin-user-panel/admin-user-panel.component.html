@@ -59,10 +59,8 @@
             </span>
           </td>
 
-          <!-- Acciones compactas -->
           <td class="py-3 align-middle">
             <div class="flex items-center gap-2 flex-wrap">
-              <!-- Editar -->
               <button
                 class="btn-icon bg-[#2563eb]/80 hover:bg-[#2563eb]"
                 (click)="openEdit(u)"
@@ -72,7 +70,6 @@
                 <i class="fa-solid fa-pen text-sm"></i>
               </button>
 
-              <!-- Eliminar -->
               <button
                 class="btn-icon bg-[#dc2626]/80 hover:bg-[#dc2626]"
                 (click)="deleteUser(u)"
@@ -82,7 +79,6 @@
                 <i class="fa-solid fa-trash text-sm"></i>
               </button>
 
-              <!-- Cambiar rol (USER <-> THERAPIST) -->
               <button
                 class="btn-icon"
                 [ngClass]="isTherapist(u)
@@ -110,7 +106,6 @@
     </table>
   </div>
 
-  <!-- Paginación -->
   <div class="flex items-center justify-between mt-4">
     <div class="text-[#baa99c] text-sm">
       Página {{ page }} de {{ totalPages || 1 }}
