@@ -105,5 +105,23 @@ footer  { padding-block: 2rem; text-align: center; opacity: .8; }
   outline-offset: 2px;
 }
 
+.back-to-thymia {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  /* Si ya tienes estilos globales para .cta-button.ghost, estos son opcionales: */
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+}
 
+@media (max-width: 640px) {
+  .back-to-thymia {
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.9rem;
+  }
 
+ }
