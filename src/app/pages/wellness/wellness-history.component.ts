@@ -3,7 +3,7 @@ import { Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { WellnessTipReceipt } from '../../interfaces';
+import { WellnessTip } from '../../interfaces';
 
 
 @Component({
@@ -14,7 +14,7 @@ import { WellnessTipReceipt } from '../../interfaces';
   standalone: true
 })
 export class WellnessHistoryComponent implements OnInit {
-  tips: any[] = [];     
+  tips: WellnessTip[] = [];     
   loading = false;
   error = '';
 

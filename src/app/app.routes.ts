@@ -17,6 +17,7 @@ import { JournalComponent } from './pages/journal/journal.component';
 import { WellnessHistoryComponent } from './pages/wellness/wellness-history.component';
 import { ThymiaLandingComponent } from './pages/thymia-landing/thymia-landing.component';
 import { LandingComponent } from './pages/landingpage/landing.component';
+import { SharedWithMeComponent } from './pages/journal/shared-with-me.component';
 
 
 export const routes: Routes = [
@@ -113,6 +114,18 @@ export const routes: Routes = [
           name: 'Diario emocional',
           showInSidebar: true
         }
+      },
+
+      { 
+        path: 'shared',
+        component: SharedWithMeComponent,
+        data: {
+            authorities: [
+            IRoleType.admin,
+            IRoleType.superAdmin,
+            IRoleType.user
+          ]
+          }
       },
 
       {

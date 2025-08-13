@@ -80,10 +80,11 @@ export interface IAppointment {
 export interface JournalEntry {
   id: number;
   content: string;
-  createdAt: string; 
-  sharedWithProfessional: boolean;
+  createdAt?: string;
   sentimentLabel?: string;
   sentimentScore?: number;
+  sharedWithProfessional?: boolean;
+  sharedWithTherapists?: string[];
 }
 
 export interface WellnessTipReceipt {
@@ -102,4 +103,23 @@ export interface WellnessTipReceipt {
 export interface Therapist {
   name: string;
   email: string;
+}
+
+export interface SharedJournalEntry {
+  content: string;
+  createdAt: string;
+  sentimentLabel?: string;
+  sentimentScore?: number;
+  patientName: string;
+  patientEmail: string;
+}
+
+export interface WellnessTip {
+  id: string | number;
+  title: string;
+  content: string;
+  category?: string;
+  source?: string;
+  createdAt: string | Date;
+  viewCount?: number;
 }

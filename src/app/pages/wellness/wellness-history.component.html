@@ -1,27 +1,51 @@
 <div class="wellness-container">
-  <h1>Historial de consejos</h1>
+  <h1>Consejos wellness</h1>
 
+  <!-- Estados -->
   <div *ngIf="loading" class="loading">Cargando…</div>
   <div *ngIf="error" class="error">{{ error }}</div>
 
-  <div *ngIf="!loading && tips.length === 0" class="no-entries">
-    Aún no has recibido consejos.
+  <!-- Vacío -->
+  <div
+    *ngIf="!loading && !error && ((tips?.length || 0) === 0)"
+    class="no-entries"
+  >
+    Aún no hay consejos generados.
   </div>
 
-  <div class="tips-list" *ngIf="!loading && tips.length > 0">
-    <div class="tip-card" *ngFor="let tip of tips">
+  <!-- Lista -->
+  <div
+    class="tips-list"
+    *ngIf="!loading && !error && ((tips?.length || 0) > 0)"
+  >
+    <article class="tip-card" *ngFor="let tip of (tips ?? [])">
       <div class="tip-header">
         <h3 class="tip-title">{{ tip.title }}</h3>
       </div>
 
-      <p class="tip-date">Entregado: {{ tip.createdAt | date:'medium' }}</p>
-    </div>
+      <p class="tip-date">
+        Entregado: {{ tip.createdAt | date: 'medium' }}
+      </p>
 
-    <div class="pager">
-      <button class="secondary-btn" (click)="prev()" [disabled]="page === 0">Anterior</button>
+      <!-- Contenido completo -->
+      <div class="tip-content">
+        {{ tip.content }}
+      </div>
+    </article>
+
+    <!-- Paginación -->
+    <nav class="pager" *ngIf="totalPages > 1">
+      <button class="secondary-btn" (click)="prev()" [disabled]="page === 0">
+        Anterior
+      </button>
       <span>Página {{ page + 1 }} de {{ totalPages }}</span>
-      <button class="secondary-btn" (click)="next()" [disabled]="page + 1 >= totalPages">Siguiente</button>
-    </div>
+      <button
+        class="secondary-btn"
+        (click)="next()"
+        [disabled]="(page + 1) >= totalPages"
+      >
+        Siguiente
+      </button>
+    </nav>
   </div>
 </div>
-

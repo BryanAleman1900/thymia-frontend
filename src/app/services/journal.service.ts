@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { JournalEntry } from '../interfaces'
 import { Observable } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
+import { SharedJournalEntry } from '../interfaces/index';
 
 @Injectable({
   providedIn: 'root'
@@ -22,16 +23,16 @@ export class JournalService {
 }
 
   share(id: number, emails: string[]) {
-    return this.http.post(`/api/journal/${id}/share`, { therapistEmails: emails });
+    return this.http.post(`${this.apiUrl}/${id}/share`, { therapistEmails: emails });
   }
 
   revoke(id: number, email: string) {
     const params = new HttpParams().set('therapistEmail', email);
-    return this.http.delete(`/api/journal/${id}/share`, { params });
+    return this.http.delete(`${this.apiUrl}/${id}/share`, { params });
   }
 
   getSharedWithMe() {
-    return this.http.get<any[]>('/api/journal/shared-with-me');
+    return this.http.get<SharedJournalEntry[]>(`${this.apiUrl}/shared-with-me`);
   }
 }
 

@@ -16,39 +16,76 @@
   display: grid;
   gap: 0.75rem;
   margin-top: 1rem;
+  grid-template-columns: 1fr; 
 }
+
 
 .tip-card {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 14px;
   padding: 0.9rem 1rem;
+  overflow: visible; 
 
   .tip-header {
     display: flex;
     align-items: center;
+    justify-content: space-between; 
     gap: 0.5rem;
-    .tip-title { margin: 0; font-size: 1.05rem; }
+
+    .tip-title {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+
+    .tip-chip,
+    .pill {
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.75rem;
+      white-space: nowrap;
+    }
+    .pill.muted { opacity: 0.7; }
   }
 
-  .pill {
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 999px;
-    padding: 0.1rem 0.5rem;
-    font-size: 0.75rem;
-    &.muted { opacity: 0.7; }
-  }
-
-  .tip-date, .tip-meta {
+  .tip-date,
+  .tip-meta {
     opacity: 0.8;
     font-size: 0.9rem;
     margin: 0.25rem 0;
+  }
+
+
+  .tip-content {
+    margin-top: 0.35rem;
+    line-height: 1.5;
+    white-space: pre-wrap;     
+    word-break: break-word;   
+    overflow-wrap: anywhere;   
+    hyphens: auto;
+    max-height: none;          
+    display: block;
+    overflow: visible;
+  }
+
+  .tip-footer {
+    margin-top: 0.35rem;
+    font-size: 0.85rem;
+    opacity: 0.8;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
   }
 
   .tip-actions {
     margin-top: 0.5rem;
   }
 }
+
 
 .pager {
   display: flex;
@@ -59,17 +96,23 @@
   opacity: 0.95;
 }
 
-.primary-btn, .secondary-btn {
+
+.primary-btn,
+.secondary-btn {
   border: none;
   border-radius: 10px;
   padding: 0.55rem 0.9rem;
   cursor: pointer;
 }
+
 .primary-btn {
-  background: #ff7a00; 
+  background: #ff7a00;
   color: #fff;
 }
-.primary-btn:disabled { opacity: 0.6; cursor: default; }
+.primary-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
 .secondary-btn {
   background: rgba(255,255,255,0.08);
   color: #fff;
@@ -89,19 +132,33 @@
   width: min(760px, 92vw);
   max-height: 82vh;
   overflow: auto;
-  background: #121212;      
-  color: #fff;             
+  background: #121212;
+  color: #fff;
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 16px;
   padding: 1rem 1.1rem;
-  z-index: 1001;            
-}
+  z-index: 1001;
 
   .modal-content {
     margin: 0.5rem 0 0.75rem;
     line-height: 1.5;
   }
   .modal-footer {
-    display: flex; justify-content: space-between; align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
+}
+
+
+.tip-card:focus-within {
+  outline: 2px solid rgba(255,255,255,0.18);
+  outline-offset: 2px;
+}
+
+.secondary-btn:focus,
+.primary-btn:focus {
+  outline: 2px solid rgba(255,255,255,0.3);
+  outline-offset: 2px;
+}
 
