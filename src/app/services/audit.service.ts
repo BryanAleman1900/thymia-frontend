@@ -8,7 +8,6 @@ export interface AuditLog {
   user: { id: number; name: string; email: string; } | null;
   action: string;
   loginTime: string | Date;
-  formattedMessage?: string;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -17,23 +16,12 @@ export class AuditService {
 
   getLoginLogs(
     page: number = 1,
-    size: number = 10,
-    action?: string,
-    userId?: string | number,
-    startDate?: string,
-    endDate?: string
+    size: number = 10
   ): Observable<Page<AuditLog>> {
-    let params = new HttpParams()
+    const params = new HttpParams()
       .set('page', page.toString())
       .set('size', size.toString());
-    const endpoint='admin/audit/logins';
-    if (action) params = params.set('action', action);
-    if (userId !== undefined && userId !== null && userId !== '') {
-      params = params.set('userId', userId.toString());
-    }
-    if (startDate) params = params.set('startDate', startDate);
-    if (endDate) params = params.set('endDate', endDate);
 
-    return this.http.get<Page<AuditLog>>(endpoint, { params });
+    return this.http.get<Page<AuditLog>>('admin/audit/logins', { params });
   }
 }
