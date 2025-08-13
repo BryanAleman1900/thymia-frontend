@@ -14,6 +14,7 @@ import { EmotionDetectorComponent } from './pages/emotion-detector/emotion-detec
 import { AppointmentComponent } from './pages/appointment/appointment.component';
 import { CallComponent } from './pages/call/call.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { AuditComponent } from './pages/audit/audit.component';
 
 export const routes: Routes = [
   {
@@ -128,6 +129,7 @@ export const routes: Routes = [
           showInSidebar: false
         }
       },
+      
       {
         path: 'chat',
         component: ChatComponent,
@@ -141,6 +143,17 @@ export const routes: Routes = [
           name: 'Chat',
           showInSidebar: true
         }
+      },
+      {
+        path: 'audit',
+        component: AuditComponent,
+        data: { 
+          authorities: [
+            IRoleType.superAdmin
+          ], 
+          name: 'Audit', 
+          showInSidebar: true,
+        },
       }
     ],
   },

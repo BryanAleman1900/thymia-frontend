@@ -63,7 +63,8 @@
           <th mat-header-cell *matHeaderCellDef>Acción</th>
           <td mat-cell *matCellDef="let log">
             <span [class.text-success]="log.action === 'LOGIN'" 
-                  [class.text-danger]="log.action === 'LOGIN_FAILED'">
+                  [class.text-danger]="log.action === 'LOGIN_FAILED'"
+                  class="status-badge">
               {{ log.action === 'LOGIN_FAILED' ? 'Intento fallido' : 'Login exitoso' }}
             </span>
           </td>
