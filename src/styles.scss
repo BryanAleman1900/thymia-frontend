@@ -88,3 +88,33 @@ body, html, app-root {
   background-color: #181411 !important;
   color: white;
 }
+
+::ng-deep .mat-dialog-container.custom-dialog {
+  padding: 0 !important;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #2b2b2b !important;
+  color: white;
+  border-radius: 8px;
+}
+
+::ng-deep .mat-form-field-appearance-fill.mat-form-field-invalid .mat-form-field-flex {
+  background-color: #2b2b2b !important;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-infix {
+  color: white;
+}
+
+::ng-deep .mat-select-value {
+  color: white;
+}
+
+::ng-deep input.mat-input-element, 
+::ng-deep textarea.mat-input-element {
+  color: white;
+}
+

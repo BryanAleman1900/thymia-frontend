@@ -1,0 +1,41 @@
+.appointment-form-container {
+  padding: 20px;
+  min-width: 600px;
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  .datetime-group {
+    margin-bottom: 16px;
+
+    h4 {
+      margin-bottom: 8px;
+      color: rgba(0, 0, 0, 0.6);
+      font-weight: 500;
+    }
+
+    .datetime-controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 24px;
+
+    button {
+      min-width: 100px;
+    }
+  }
+}

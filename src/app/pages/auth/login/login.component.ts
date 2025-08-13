@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ViewChild, OnInit, NgZone } from '@angular/core';
+import { Component, ViewChild, OnInit, AfterViewInit, NgZone } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
@@ -15,7 +15,7 @@ declare const google: any;
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, AfterViewInit {
   public loginError!: string;
   public faceIDActive = false;
   public showFaceIDMessage = true;
@@ -44,28 +44,8 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-     this.faceio.reset();
-    // Esperar a que el SDK de Google esté disponible
-    const waitForGoogle = () => {
-      if (typeof google !== 'undefined' && google.accounts?.id) {
-        google.accounts.id.initialize({
-          client_id: '82191624415-m9dki2mc78iuloiig6oo6cn0s8mg1sf6.apps.googleusercontent.com',
-          callback: this.handleGoogleCallback.bind(this),
-        });
-
-        const googleBtn = document.getElementById('googleBtn');
-        if (googleBtn) {
-          google.accounts.id.renderButton(googleBtn, { theme: 'outline', size: 'large' });
-        } else {
-          console.error('Elemento #googleBtn no encontrado en el DOM');
-        }
-      } else {
-        console.warn('Google SDK aún no disponible, reintentando...');
-        setTimeout(waitForGoogle, 100);
-      }
-    };
-
-    waitForGoogle();
+    this.faceio.reset();
+    this.inicializarGoogleLogin();
 
     const emailGuardado = localStorage.getItem('email');
     const fechaBloqueoGuardada = localStorage.getItem('bloqueadoHasta');
@@ -94,6 +74,33 @@ export class LoginComponent implements OnInit {
         localStorage.removeItem('email');
       }
     }
+  }
+
+  ngAfterViewInit(): void {
+    this.inicializarGoogleLogin();
+  }
+
+  private inicializarGoogleLogin(): void {
+    const waitForGoogle = () => {
+      if (typeof google !== 'undefined' && google.accounts?.id) {
+        google.accounts.id.initialize({
+          client_id: '82191624415-m9dki2mc78iuloiig6oo6cn0s8mg1sf6.apps.googleusercontent.com',
+          callback: this.handleGoogleCallback.bind(this),
+        });
+
+        const googleBtn = document.getElementById('googleBtn');
+        if (googleBtn) {
+          google.accounts.id.renderButton(googleBtn, { theme: 'outline', size: 'large' });
+        } else {
+          console.error('Elemento #googleBtn no encontrado en el DOM');
+        }
+      } else {
+        console.warn('Google SDK aún no disponible, reintentando...');
+        setTimeout(waitForGoogle, 100);
+      }
+    };
+
+    waitForGoogle();
   }
 
   public handleLogin(event: Event) {
@@ -149,16 +156,17 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // Google login
   public handleGoogleCallback(response: any) {
     const idToken = response.credential;
     this.authService.loginWithGoogle(idToken).subscribe({
-      next: () => this.ngZone.run(() => this.router.navigateByUrl('/app/dashboard')),
+      next: () => this.ngZone.run(() => {
+        this.inactivityService.initListener();
+        this.router.navigateByUrl('/app/dashboard');
+      }),
       error: () => (this.loginError = 'Google login failed'),
     });
   }
 
-  // Face ID login
   public activateBiometric(): void {
     this.faceIDActive = true;
     this.showFaceIDMessage = true;
@@ -169,7 +177,10 @@ export class LoginComponent implements OnInit {
 
     this.faceio.authenticate().then((facialId: string) => {
       this.authService.loginWithFacialId(facialId).subscribe({
-        next: () => this.ngZone.run(() => this.router.navigateByUrl('/app/dashboard')),
+        next: () => this.ngZone.run(() => {
+          this.inactivityService.initListener();
+          this.router.navigateByUrl('/app/dashboard');
+        }),
         error: (err: any) => {
           console.error(err);
           this.loginError = 'Biometric login failed';

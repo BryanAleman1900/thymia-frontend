@@ -1,0 +1,83 @@
+<div *ngIf="loading" class="c-loading">Cargando…</div>
+
+<div *ngIf="!loading" class="c-chat">
+  <aside class="c-list">
+    <div class="c-list__header">
+      <h3>Personas</h3>
+      <input type="text" class="c-search" placeholder="Buscar…" [(ngModel)]="filter" />
+    </div>
+
+    <ul class="c-list__items">
+      <li *ngFor="let p of people | userFilter:filter"
+          (click)="openChat(p)"
+          class="c-item"
+          [class.is-active]="activePartner?.id === p.id">
+
+        <div style="display:flex;align-items:center;gap:10px;">
+          <!-- Puntito de estado: verde si es el seleccionado y está online, gris si no -->
+          <span [ngStyle]="{
+                  display: 'inline-block',
+                  width: '10px',
+                  height: '10px',
+                  borderRadius: '50%',
+                  backgroundColor: (activePartner?.id === p.id && partnerOnline) ? '#4CAF50' : '#777'
+                }"></span>
+
+          <div>
+            <div class="c-item__name">
+              {{ p.fullName || ((p.name ?? '') + ' ' + (p.lastname ?? '')) }}
+            </div>
+            <div class="c-item__email" *ngIf="p.email">{{ p.email }}</div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </aside>
+
+  <main class="c-panel">
+    <header class="c-panel__header">
+      <ng-container *ngIf="activePartner; else empty">
+        <div class="c-peer">
+          <div class="c-peer__title">
+            Conversación con:
+            <b>
+              {{ activePartner.fullName || ((activePartner.name ?? '') + ' ' + (activePartner.lastname ?? '')) }}
+            </b>
+          </div>
+          <div class="c-peer__sub">
+            <span *ngIf="partnerOnline" style="color:#4CAF50;">● En línea</span>
+            <span *ngIf="!partnerOnline">
+              Últ. vez: {{ partnerLastActive ? (partnerLastActive | date:'shortTime') : '—' }}
+            </span>
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #empty>
+        <div class="c-peer__title">Selecciona alguien para iniciar</div>
+      </ng-template>
+    </header>
+
+    <section class="c-msgs" #msgList>
+      <div *ngFor="let m of messages" class="c-msg" [class.me]="m.senderId === currentUserId">
+        <div class="c-bubble">
+          <div class="c-bubble__text">{{ m.text }}</div>
+          <div class="c-bubble__meta">{{ m._createdAt | date:'shortTime' }}</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="c-compose">
+      <input
+        [formControl]="text"
+        placeholder="Escribe un mensaje…"
+        (keyup.enter)="send()"
+        [disabled]="!activeConversationId" />
+
+      <button
+        (click)="send()"
+        [disabled]="!activeConversationId || !text.value.trim()">
+        Enviar
+      </button>
+    </footer>
+  </main>
+</div>

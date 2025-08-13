@@ -41,5 +41,4 @@ export class ModalComponent{
     this.hide();
     this.callCancelMethod.emit();
   }
-
 }
