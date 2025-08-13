@@ -5,6 +5,7 @@ import { LayoutService } from '../../../../services/layout.service';
 import { AuthService } from '../../../../services/auth.service';
 import { SvgIconComponent } from '../../../svg-icon/svg-icon.component';
 import { routes } from '../../../../app.routes';
+import { IRoleType } from '../../../../interfaces';
 
 @Component({
   selector: 'app-sidebar',
@@ -26,9 +27,12 @@ export class SidebarComponent {
   public permittedRoutes: Route[] = [];
   appRoutes: any;
 
-  constructor(
-  ) {
+  constructor() {
     this.appRoutes = routes.filter(route => route.path == 'app')[0];
     this.permittedRoutes = this.authService.getPermittedRoutes(this.appRoutes.children);
+  }
+
+  get canSeeAudit(): boolean {
+    return this.authService.isSuperAdmin() || this.authService.hasRole(IRoleType.admin);
   }
 }
