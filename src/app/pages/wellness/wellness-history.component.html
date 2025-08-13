@@ -1,11 +1,10 @@
 <div class="wellness-container">
   <h1>Consejos wellness</h1>
 
-  <!-- Estados -->
+
   <div *ngIf="loading" class="loading">Cargando…</div>
   <div *ngIf="error" class="error">{{ error }}</div>
 
-  <!-- Vacío -->
   <div
     *ngIf="!loading && !error && ((tips?.length || 0) === 0)"
     class="no-entries"
@@ -13,7 +12,7 @@
     Aún no hay consejos generados.
   </div>
 
-  <!-- Lista -->
+
   <div
     class="tips-list"
     *ngIf="!loading && !error && ((tips?.length || 0) > 0)"
@@ -27,13 +26,13 @@
         Entregado: {{ tip.createdAt | date: 'medium' }}
       </p>
 
-      <!-- Contenido completo -->
+
       <div class="tip-content">
         {{ tip.content }}
       </div>
     </article>
 
-    <!-- Paginación -->
+
     <nav class="pager" *ngIf="totalPages > 1">
       <button class="secondary-btn" (click)="prev()" [disabled]="page === 0">
         Anterior
