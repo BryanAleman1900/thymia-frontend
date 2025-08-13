@@ -22,6 +22,23 @@
       </div>
 
       <div>
+        <label class="text-[#baa99c] block mb-1">Terapeuta</label>
+          <mat-select formControlName="doctorId"
+                      [compareWith]="compareById"
+                      class="w-full bg-[#2a2520] text-white border border-[#3b342b] rounded-lg">
+            <mat-option *ngIf="loadingDoctors" [disabled]="true">Cargando terapeutas…</mat-option>
+            <mat-option *ngFor="let d of doctors" [value]="d.id!">
+              {{ displayUser(d) }}
+            </mat-option>
+          </mat-select>
+        <div *ngIf="appointmentForm.get('doctorId')?.invalid && appointmentForm.get('doctorId')?.touched"
+            class="text-red-400 text-sm mt-1">
+          Selecciona un terapeuta
+        </div>
+      </div>
+
+
+      <div>
         <h4 class="text-[#baa99c] mb-2">Fecha y hora de inicio</h4>
         <div class="grid grid-cols-2 gap-4">
           <div>
@@ -72,13 +89,12 @@
 
       <div>
         <label class="text-[#baa99c] block mb-1">Invitados (opcional)</label>
-        <mat-select formControlName="guestIds" multiple
-                    class="w-full bg-[#2a2520] text-white border border-[#3b342b] rounded-lg"
-                    [compareWith]="compareUsers">
-          <mat-option *ngFor="let user of allUsers" [value]="user.id">
-            {{ user.name }} {{ user.lastname }}
-          </mat-option>
-        </mat-select>
+          <mat-select formControlName="guestIds" multiple
+            class="w-full bg-[#2a2520] text-white border border-[#3b342b] rounded-lg">
+            <mat-option *ngFor="let user of allUsers" [value]="user.id">
+              {{ displayUser(user) }}
+            </mat-option>
+          </mat-select>
       </div>
 
       <div>

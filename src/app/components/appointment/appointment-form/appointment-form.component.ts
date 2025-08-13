@@ -39,6 +39,14 @@ export class AppointmentFormComponent implements OnInit {
   appointmentForm: FormGroup;
   allUsers: IUser[] = [];
   selectedGuests: IUser[] = [];
+  doctors: IUser[] = [];
+  loadingDoctors = false;
+  pendingDoctorId: number | null = null;
+
+  compareById = (a: any, b: any): boolean => {
+    return Number(a) === Number(b);
+  };
+
   isLoading = true;
   isEditMode = false;
   timeOptions: string[] = this.generateTimeOptions();
@@ -61,10 +69,11 @@ export class AppointmentFormComponent implements OnInit {
       endDate: [null, Validators.required],
       endTime: ['', Validators.required],
       description: ['', Validators.maxLength(500)],
-      guestIds: [[]]
+      guestIds: [[]],
+      doctorId: [null, Validators.required]
     }, { validators: this.endAfterStartValidator });
 
-    if (data.id) {
+    if (data?.id) {
       this.isEditMode = true;
       this.patchForm(data);
     }
@@ -72,6 +81,15 @@ export class AppointmentFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadUsers();
+    this.loadDoctors();
+
+    if (this.isEditMode && this.data?.id) {
+      this.appointmentService.getById(Number(this.data.id)).subscribe({
+        next: (app) => this.patchForm(app),
+        error: (err) => console.error('getById error', err)
+      });
+    }
+
   }
 
   private generateTimeOptions(): string[] {
@@ -86,23 +104,67 @@ export class AppointmentFormComponent implements OnInit {
 
   loadUsers(): void {
     this.isLoading = true;
-    this.userService.getAll().pipe(
+    this.userService.getByRole('USER').pipe(
       catchError(() => of({ data: [] }))
     ).subscribe({
-      next: (users) => {
-        this.allUsers = users.data;
+      next: (res) => {
+        const arr = res?.data ?? [];
+        const seen = new Set<number>();
+        this.allUsers = arr.filter((u: any) => {
+          if (!u?.id) return false;
+          if (seen.has(u.id)) return false;
+          seen.add(u.id);
+          return true;
+        });
         this.isLoading = false;
-        if (this.isEditMode) {
-          this.loadGuestSelection();
-        }
+        if (this.isEditMode) this.loadGuestSelection();
       },
-      error: (err) => {
-        console.error('Error loading users:', err);
-        this.showError('Error al cargar usuarios');
+      error: () => {
+        this.allUsers = [];
         this.isLoading = false;
       }
     });
   }
+
+  loadDoctors(): void {
+    this.loadingDoctors = true;
+    this.userService.getByRole('THERAPIST').pipe(
+      catchError(() => of({ data: [] }))
+    ).subscribe({
+      next: (res) => {
+        const arr = res?.data ?? [];
+        const seen = new Set<number>();
+
+        this.doctors = arr
+          .map((u: any) => ({ ...u, id: Number(u?.id) }))
+          .filter((u: any) => {
+            if (!Number.isFinite(u.id)) return false;
+            if (seen.has(u.id)) return false;
+            seen.add(u.id);
+            return true;
+          });
+
+        this.loadingDoctors = false;
+
+        this.applyPendingDoctor();
+      },
+      error: () => {
+        this.doctors = [];
+        this.loadingDoctors = false;
+      }
+    });
+  }
+
+private applyPendingDoctor(): void {
+  if (this.pendingDoctorId == null) return;
+  const exists = this.doctors.some(d => Number(d.id) === Number(this.pendingDoctorId));
+  if (!exists) return;
+  const ctrl = this.appointmentForm.get('doctorId');
+  setTimeout(() => {
+    ctrl?.setValue(Number(this.pendingDoctorId), { emitEvent: false });
+    ctrl?.updateValueAndValidity({ onlySelf: true, emitEvent: false });
+  }, 0);
+}
 
   endAfterStartValidator(form: FormGroup) {
     const startDate = form.get('startDate')?.value;
@@ -112,41 +174,59 @@ export class AppointmentFormComponent implements OnInit {
 
     if (startDate && startTime && endDate && endTime) {
       const start = new Date(startDate);
-      const [startHour, startMinute] = startTime.split(':').map(Number);
-      start.setHours(startHour, startMinute, 0, 0);
+      const [sh, sm] = String(startTime).split(':').map(Number);
+      start.setHours(sh, sm, 0, 0);
 
       const end = new Date(endDate);
-      const [endHour, endMinute] = endTime.split(':').map(Number);
-      end.setHours(endHour, endMinute, 0, 0);
+      const [eh, em] = String(endTime).split(':').map(Number);
+      end.setHours(eh, em, 0, 0);
 
-      if (end <= start) {
-        return { endBeforeStart: true };
-      }
+      if (end <= start) return { endBeforeStart: true };
     }
     return null;
   }
 
+  private splitDateTime(dt: string): { date: Date; time: string } {
+    const d = new Date(dt);
+    const date = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    const time = `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+    return { date, time };
+  }
+
+  private combineLocal(date: Date, time: string): string {
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, '0');
+    const d = String(date.getDate()).padStart(2, '0');
+    const [hh, mm] = String(time).split(':').map((n: string) => n.padStart(2, '0'));
+    return `${y}-${m}-${d}T${hh}:${mm}:00`;
+  }
+
   loadGuestSelection(): void {
     const guestIds = this.appointmentForm.get('guestIds')?.value || [];
-    this.selectedGuests = this.allUsers.filter(user => user.id && guestIds.includes(user.id));
+    this.selectedGuests = this.allUsers.filter(u => u.id && guestIds.includes(u.id));
   }
 
   patchForm(data: any): void {
-    const formattedData = {
-      ...data,
-      startTime: this.formatDateTime(data.startTime),
-      endTime: this.formatDateTime(data.endTime),
-      guestIds: data.guests?.map((g: IUser) => g.id) || []
-    };
-    this.appointmentForm.patchValue(formattedData);
-    this.selectedGuests = data.guests || [];
+    const s = data?.startTime ? this.splitDateTime(data.startTime) : null;
+    const e = data?.endTime ? this.splitDateTime(data.endTime) : null;
+
+    const docIdRaw = (data?.doctorId ?? data?.doctor?.id ?? null);
+    this.pendingDoctorId = (docIdRaw != null ? Number(docIdRaw) : null);
+
+    this.appointmentForm.patchValue({
+      title: data?.title ?? '',
+      startDate: s?.date ?? null,
+      startTime: s?.time ?? '',
+      endDate: e?.date ?? null,
+      endTime: e?.time ?? '',
+      description: data?.description ?? '',
+      guestIds: (data?.guests ?? []).map((g: IUser) => g.id),
+      doctorId: this.pendingDoctorId
+    });
+
+    this.applyPendingDoctor();
   }
 
-  formatDateTime(dateString: string): string {
-    if (!dateString) return '';
-    const date = new Date(dateString);
-    return date.toISOString().slice(0, 16);
-  }
 
   onSubmit(): void {
     if (this.appointmentForm.invalid || this.isLoading) {
@@ -154,19 +234,27 @@ export class AppointmentFormComponent implements OnInit {
       return;
     }
 
-    this.formatDateTimeForSubmission();
+    const v = this.appointmentForm.value;
 
-    const formValue = this.appointmentForm.value;
+    const startStr = this.combineLocal(new Date(v.startDate), String(v.startTime));
+    const endStr   = this.combineLocal(new Date(v.endDate),   String(v.endTime));
+
     const appointmentData = {
-      ...formValue,
-      patientId: this.authService.getUser()?.id,
-      doctorId: this.authService.getUser()?.id,
-      guestIds: formValue.guestIds
+      title: String(v.title),
+      startTime: startStr,
+      endTime: endStr,
+      description: v.description || null,
+      patientId: this.authService.getUser()?.id as number,
+      doctorId: Number(v.doctorId),
+      guestIds: (v.guestIds ?? []).map((id: any) => Number(id))
     };
 
+    console.log('create/update appointment payload:', appointmentData);
+
     this.isLoading = true;
+
     const operation = this.isEditMode
-      ? this.appointmentService.updateAppointment(this.data.id, appointmentData)
+      ? this.appointmentService.updateAppointment(String(this.data.id), appointmentData)
       : this.appointmentService.createAppointment(appointmentData);
 
     operation.subscribe({
@@ -176,12 +264,10 @@ export class AppointmentFormComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error saving appointment:', err);
-        this.showError('Error al guardar la cita');
+        this.showError(err?.error?.message || 'Error al guardar la cita');
         this.isLoading = false;
       },
-      complete: () => {
-        this.isLoading = false;
-      }
+      complete: () => this.isLoading = false
     });
   }
 
@@ -223,40 +309,12 @@ export class AppointmentFormComponent implements OnInit {
     }
   }
 
-  private combineDateAndTime(date: Date, time: string): Date {
-    const [hours, minutes] = time.split(':').map(Number);
-    const newDate = new Date(date);
-    newDate.setHours(hours, minutes, 0, 0);
-    return newDate;
-  }
-
-  formatDateTimeForSubmission(): void {
-    const formValue = this.appointmentForm.value;
-
-    if (!formValue.startDate || !formValue.startTime || !formValue.endDate || !formValue.endTime) {
-      this.showError('Debes seleccionar fecha y hora de inicio y fin');
-      return;
-    }
-
-    const startDate = new Date(formValue.startDate);
-    const endDate = new Date(formValue.endDate);
-
-    if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
-      this.showError('Fecha inválida');
-      return;
-    }
-
-    const startDateTime = this.combineDateAndTime(startDate, formValue.startTime);
-    const endDateTime = this.combineDateAndTime(endDate, formValue.endTime);
-
-    if (isNaN(startDateTime.getTime()) || isNaN(endDateTime.getTime())) {
-      this.showError('Fecha y hora inválidas');
-      return;
-    }
-
-    this.appointmentForm.patchValue({
-      startTime: startDateTime.toISOString(),
-      endTime: endDateTime.toISOString()
-    });
+  displayUser(u: IUser | null | undefined): string {
+    if (!u) return 'Usuario';
+    if (u.fullName && u.fullName.trim()) return u.fullName;
+    const name = [u.name, u.lastname].filter(Boolean).join(' ').trim();
+    if (name) return name;
+    if (u.email) return u.email;
+    return `ID ${u.id ?? ''}`.trim();
   }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,44 +11,39 @@ export class AppointmentService {
   constructor(private http: HttpClient) {}
 
   getAppointments(start: Date, end: Date): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl, {
-      params: {
-        start: start.toISOString(),
-        end: end.toISOString()
-      }
-    });
+    const params = new HttpParams()
+      .set('start', start.toISOString())
+      .set('end', end.toISOString());
+    return this.http.get<any[]>(this.apiUrl, { params });
   }
 
-  createAppointment(data: any) {
-  const body =
-    `title=${encodeURIComponent(data.title)}&` +
-    `startTime=${encodeURIComponent(data.startTime)}&` +
-    `endTime=${encodeURIComponent(data.endTime)}&` +
-    `description=${encodeURIComponent(data.description || '')}&` +
-    `patientId=${encodeURIComponent(data.patientId)}&` +
-    `doctorId=${encodeURIComponent(data.doctorId)}&` +
-    data.guestIds.map((id: number) => `guestIds=${encodeURIComponent(id)}`).join('&');
-
-  return this.http.post('api/appointments', body, {
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-  });
-}
+  createAppointment(data: any): Observable<any> {
+    const payload = {
+      title: data.title,
+      startTime: data.startTime,
+      endTime: data.endTime,
+      description: data.description ?? null,
+      patientId: data.patientId,
+      doctorId: data.doctorId,
+      guestIds: Array.isArray(data.guestIds) ? data.guestIds : []
+    };
+    return this.http.post<any>(this.apiUrl, payload);
+  }
 
 
   updateAppointment(id: string, changes: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${id}`, changes);
+    return this.http.put<any>(`${this.apiUrl}/${id}`, changes);
   }
 
   deleteAppointment(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-  //Luis agrego lo siguiente:
-  joinMeeting(appointmentId: number, token: string): Observable<string> {
-  const params = new HttpParams().set('token', token);
-  return this.http.get(`/appointments/${appointmentId}/join`, {
-    params,
-    responseType: 'text'
-  });
-}
+  joinMeeting(appointmentId: number): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/${appointmentId}/join`, {});
+  }
+
+  getById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
 }
