@@ -1,0 +1,151 @@
+.landing-thymia {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0f0f0f;
+  color: #ffffff;
+  padding: 2rem;
+
+  .hero {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    .logo {
+      width: 100px;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .tagline {
+      color: #ffa500;
+      font-size: 1.2rem;
+    }
+  }
+
+  section {
+    margin-bottom: 3rem;
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #ffa500;
+      padding-bottom: 0.3rem;
+      display: inline-block;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: 0 auto 1rem auto;
+    }
+  }
+
+.call-to-action {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 3rem 1.25rem;
+}
+
+.call-to-action h2 {
+  font-size: clamp(1.6rem, 2.5vw, 2.25rem);
+  margin-bottom: .75rem;
+}
+
+.call-to-action p {
+  opacity: .9;
+  line-height: 1.6;
+  margin: 0 auto 1.25rem;
+  max-width: 62ch;
+}
+
+.cta-actions {
+  display: flex;
+  gap: .75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.cta-button {
+  padding: .8rem 1.25rem;
+  border-radius: .75rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform .06s ease, box-shadow .2s ease, background .2s ease;
+  box-shadow: 0 6px 18px rgba(255,106,0,.22);
+  background: #ff6a00; /* tu naranja principal */
+  color: #fff;
+}
+.cta-button:hover { box-shadow: 0 8px 22px rgba(255,106,0,.32); }
+.cta-button:active { transform: translateY(1px); }
+
+.cta-button.ghost {
+  background: transparent;
+  color: #ff6a00;
+  border-color: rgba(255,106,0,.6);
+  box-shadow: none;
+}
+.cta-button.ghost:hover { background: rgba(255,106,0,.08); }
+
+
+  footer {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+
+
+.about h2,
+.technology h2,
+.security h2 {
+  text-align: center;
+}
+
+
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 1.25rem;
+}
+
+
+.card-center {
+  width: min(900px, 92%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+.card p + p {
+  margin-top: .75rem;
+}
+
+
+.about,
+.technology,
+.security {
+  display: grid;
+  justify-items: center; 
+  row-gap: 1rem;
+}
+
+
+.about > h2,
+.technology > h2,
+.security > h2 {
+  text-align: center;
+  width: 100%;
+  margin: 0 0 .75rem 0;
+}
+
+
+
+}

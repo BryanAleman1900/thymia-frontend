@@ -1,0 +1,89 @@
+<div class="journal-container">
+  <h1>Mi diario emocional</h1>
+
+  <div class="journal-toolbar">
+  <button
+    class="h-10 px-4 rounded-full bg-[#393028] text-white text-sm font-bold"
+    (click)="goToWellnessHistory()"
+  >
+    Ver historial de consejos
+  </button>
+</div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="journal-form">
+    <textarea
+      formControlName="content"
+      placeholder="¿Cómo te sientes hoy?"
+      maxlength="1500"
+    ></textarea>
+
+    <div class="char-count">
+      {{ form.get('content')?.value?.length || 0 }}/1500
+    </div>
+
+    <div
+      *ngIf="form.get('content')?.invalid && form.get('content')?.touched"
+      class="error"
+    >
+      {{ errorMessage }}
+    </div>
+
+    <button type="submit" [disabled]="form.invalid" class="primary-btn">
+      Guardar entrada
+    </button>
+  </form>
+
+  <hr />
+
+  <h2>Entradas anteriores</h2>
+
+  <div *ngIf="entries.length === 0" class="no-entries">
+    No hay entradas aún.
+  </div>
+
+  <div class="entry-list" *ngIf="entries.length > 0">
+    <div class="entry-card" *ngFor="let entry of entries">
+      <p class="entry-content">"{{ entry.content }}"</p>
+      <p class="entry-date">{{ entry.createdAt | date: 'medium' }}</p>
+
+      <div class="entry-insight" *ngIf="entry.sentimentLabel || entry.sentimentScore != null">
+        <span class="badge">{{ entry.sentimentLabel || '—' }}</span>
+        <small *ngIf="entry.sentimentScore != null">
+          ({{ entry.sentimentScore | number:'1.0-3' }})
+        </small>
+      </div>
+
+      <div class="share-actions">
+  <button class="secondary-btn" (click)="openShare(entry)">
+    Compartir
+  </button>
+
+  <span *ngIf="entry.sharedWithProfessional" class="shared-label">
+    (Compartido)
+  </span>
+</div>
+    </div>
+  </div>
+<div class="share-modal-backdrop" *ngIf="shareOpen" (click)="cancelShare()"></div>
+<div class="share-modal" *ngIf="shareOpen" role="dialog" aria-modal="true">
+    <h3>Compartir entrada</h3>
+
+    <div *ngIf="shareLoading" class="loading">Cargando terapeutas...</div>
+
+    <div class="therapist-list" *ngIf="!shareLoading">
+      <label *ngFor="let t of therapists" class="therapist-item">
+        <input type="checkbox" #cb (change)="toggleEmail(t.email, cb.checked)" />
+        <span class="name">{{ t.name }}</span>
+        <span class="email">{{ t.email }}</span>
+      </label>
+      <div *ngIf="therapists.length === 0" class="empty">
+        No hay terapeutas disponibles.
+      </div>
+    </div>
+
+    <div class="share-modal-actions">
+  <button class="ghost-btn" (click)="cancelShare()">Cancelar</button>
+  <button class="primary-btn" (click)="confirmShare()">Compartir</button>
+</div>
+  </div>
+</div>
