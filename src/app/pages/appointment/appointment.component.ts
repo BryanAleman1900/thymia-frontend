@@ -11,9 +11,7 @@ import { AppointmentFormComponent } from '../../components/appointment/appointme
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from "@angular/material/icon";
-
 import { RouterModule } from '@angular/router';
-
 
 interface CalendarEvent {
   id: string;
@@ -44,7 +42,7 @@ interface AppointmentData {
   standalone: true,
   imports: [
     CommonModule,
-    FullCalendarModule, 
+    FullCalendarModule,
     MatIconModule,
     CommonModule,
     RouterModule
@@ -53,7 +51,7 @@ interface AppointmentData {
   styleUrls: ['./appointment.component.scss']
 })
 export class AppointmentComponent implements OnInit {
-  @ViewChild('calendar') calendarComponent!: any;  // Tipo any temporal para evitar errores
+  @ViewChild('calendar') calendarComponent!: any;
 
   private appointmentService = inject(AppointmentService);
   private dialog = inject(MatDialog);
@@ -67,7 +65,7 @@ export class AppointmentComponent implements OnInit {
       center: 'title',
       right: 'dayGridMonth,timeGridWeek,timeGridDay'
     },
-    editable: true, 
+    editable: true,
     selectable: true,
     events: this.loadEvents.bind(this),
     eventClick: this.handleEventClick.bind(this),
@@ -97,7 +95,7 @@ export class AppointmentComponent implements OnInit {
         }));
         callback(formattedEvents);
       },
-      error: (err) => {
+      error: () => {
         this.showError('Error al cargar citas');
         callback([]);
       }
@@ -105,11 +103,11 @@ export class AppointmentComponent implements OnInit {
   }
 
   handleDateClick(arg: DateClickArg) {
-  this.openAppointmentForm({
-    startTime: new Date(arg.dateStr), 
-    endTime: new Date(new Date(arg.dateStr).getTime() + 60 * 60 * 1000) 
-  });
-}
+    this.openAppointmentForm({
+      startTime: new Date(arg.dateStr),
+      endTime: new Date(new Date(arg.dateStr).getTime() + 60 * 60 * 1000)
+    });
+  }
 
   handleEventClick(info: EventClickArg) {
     const event = info.event as unknown as CalendarEvent;
@@ -139,25 +137,31 @@ export class AppointmentComponent implements OnInit {
     });
   }
 
- handleEventResize(resizeInfo: EventResizeDoneArg) {
-  const event = resizeInfo.event as unknown as CalendarEvent;
-
-  this.appointmentService.updateAppointment(event.id, {
-    startTime: event.start,
-    endTime: event.end
-  }).subscribe({
-    next: () => this.showSuccess('Cita redimensionada'),
-    error: () => {
-      this.refreshCalendar();
-      this.showError('Error al actualizar cita redimensionada');
-    }
-  });
-}
+  handleEventResize(resizeInfo: EventResizeDoneArg) {
+    const event = resizeInfo.event as unknown as CalendarEvent;
+    this.appointmentService.updateAppointment(event.id, {
+      startTime: event.start,
+      endTime: event.end
+    }).subscribe({
+      next: () => this.showSuccess('Cita redimensionada'),
+      error: () => {
+        this.refreshCalendar();
+        this.showError('Error al actualizar cita redimensionada');
+      }
+    });
+  }
 
   openAppointmentForm(data?: AppointmentData) {
     const dialogRef = this.dialog.open(AppointmentFormComponent, {
-      width: '600px',
-      data: data || { startTime: new Date(), endTime: new Date(new Date().getTime() + 60 * 60 * 1000) }
+      panelClass: 'th-dialog-panel',
+      maxWidth: '680px',
+      width: '100%',
+      autoFocus: false,
+      restoreFocus: false,
+      data: data || {
+        startTime: new Date(),
+        endTime: new Date(Date.now() + 60 * 60 * 1000)
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
